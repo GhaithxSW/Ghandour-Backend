@@ -120,9 +120,9 @@ code {
 #content {
   width: 50%;
   flex-grow: 8;
-  margin-top: 60px;
+  margin-top: 85px;
   margin-bottom: 0;
-//   margin-right: 255px;
+  margin-right: 240px;
   -webkit-transition: 0.3s ease all;
   transition: 0.3s ease all;
 }
@@ -873,7 +873,7 @@ body {
 */
 
 .sidebar-wrapper {
-  width: 255px;
+  width: 240px;
   position: fixed;
   z-index: 1030;
   transition: width .600s;

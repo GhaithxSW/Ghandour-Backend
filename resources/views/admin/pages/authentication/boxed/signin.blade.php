@@ -1,4 +1,4 @@
-<x-rtl.base-layout :scrollspy="false">
+<x-admin.base-layout :scrollspy="false">
 
     <x-slot:pageTitle>
         {{ $title }}
@@ -34,7 +34,8 @@
                                                 <input type="text" class="form-control text-right" name="username"
                                                     placeholder="قم بادخال اسم المستخدم">
                                                 @error('username')
-                                                    <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}</p>
+                                                    <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}
+                                                    </p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -44,7 +45,8 @@
                                                 <input type="password" class="form-control" name="password"
                                                     placeholder="قم بادخال كلمة المرور">
                                                 @error('password')
-                                                    <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}</p>
+                                                    <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}
+                                                    </p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -91,4 +93,4 @@
     <!--  BEGIN CUSTOM SCRIPTS FILE  -->
     <x-slot:footerFiles></x-slot>
     <!--  END CUSTOM SCRIPTS FILE  -->
-</x-rtl.base-layout>
+</x-admin.base-layout>

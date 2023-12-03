@@ -1,4 +1,4 @@
-<x-rtl.base-layout :scrollspy="false">
+<x-admin.base-layout :scrollspy="false">
 
     <x-slot:pageTitle>
         {{ $title }}
@@ -70,7 +70,8 @@
                                     </form>
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <p class="mb-0">لديك حساب مسبقا؟ <a href="/admin-panel-management/sign-in" class="text-warning">
+                                            <p class="mb-0">لديك حساب مسبقا؟ <a href="/admin-panel-management/sign-in"
+                                                    class="text-warning">
                                                     تسجيل الدخول</a></p>
                                         </div>
                                     </div>
@@ -89,4 +90,4 @@
 
     {{-- </x-slot> --}}
     <!--  END CUSTOM SCRIPTS FILE  -->
-</x-rtl.base-layout>
+</x-admin.base-layout>

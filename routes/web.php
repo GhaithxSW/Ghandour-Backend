@@ -63,18 +63,18 @@ Route::group(
 
 Route::prefix('admin-panel-management')->group(function () {
 
-    // Route::middleware(['auth:admin'])->group(function () {
+    Route::middleware(['auth:admin'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard']);
         Route::get('/requests', [RequestResearchController::class, 'getAllRequests']);
         Route::get('/users', [UserController::class, 'getAllUsers']);
         // Route::get('/profile', [AdminController::class, 'profile']);
-    // });
+    });
 
     Route::controller(AdminController::class)->group(function () {
         Route::get('/sign-in', 'viewSignIn')->name('sign-in');
         Route::post('/login', 'login');
         Route::get('/sign-up', 'viewSignUp')->name('sign-up');
         Route::post('/register', 'register');
-        Route::post('/logout', 'logout');
+        Route::post('/logout', 'logout')->name('logout');
     });
 });

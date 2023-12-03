@@ -1,4 +1,4 @@
-<x-rtl.base-layout :scrollspy="false">
+<x-admin.base-layout :scrollspy="false">
 
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
@@ -64,9 +64,9 @@
     <div class="m-4">
         <div class="row">
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="requests" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/requests.png') }}" class="card-img-top"
-                        alt="..." style="height: 210px">
+                <a href="/admin-panel-management/requests" class="card style-2 mb-md-0 mb-4">
+                    <img src="{{ Vite::asset('resources/images/requests.png') }}" class="card-img-top" alt="..."
+                        style="height: 210px">
                     <div class="card-body px-0 pb-0 text-center">
                         <h5 class="card-title mb-3 font-bg">الطلبات</h5>
                     </div>
@@ -74,11 +74,21 @@
             </div>
 
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="/users" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/users.jpeg') }}" class="card-img-top"
-                        alt="..." style="height: 210px">
+                <a href="/admin-panel-management/users" class="card style-2 mb-md-0 mb-4">
+                    <img src="{{ Vite::asset('resources/images/users.jpeg') }}" class="card-img-top" alt="..."
+                        style="height: 210px">
                     <div class="card-body px-0 pb-0 text-center">
                         <h5 class="card-title mb-3 font-bg">المستخدمين</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
+                <a href="/admin-panel-management/users" class="card style-2 mb-md-0 mb-4">
+                    <img src="{{ Vite::asset('resources/images/users.jpeg') }}" class="card-img-top" alt="..."
+                        style="height: 210px">
+                    <div class="card-body px-0 pb-0 text-center">
+                        <h5 class="card-title mb-3 font-bg">الابحاث</h5>
                     </div>
                 </a>
             </div>
@@ -103,4 +113,4 @@
         @vite(['public/plugins-rtl/leaflet/eu-countries.js'])
     </x-slot>
 
-</x-rtl.base-layout>
+</x-admin.base-layout>

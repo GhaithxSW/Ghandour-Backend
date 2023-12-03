@@ -4,7 +4,6 @@
     $isRTL = layoutConfig()['rtl'];
 @endphp
 <!DOCTYPE html>
-{{-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
 <html lang="ar">
 
 <head>
@@ -119,12 +118,12 @@
 <body class="layout-boxed scrollbar">
 
     <!-- BEGIN LOADER -->
-    <x-rtl.layout-loader />
+    <x-admin.loader />
     <!--  END LOADER -->
 
     <!--  BEGIN NAVBAR  -->
     @auth
-        <x-rtl.navbar.style-vertical-menu />
+        <x-admin.navbar />
     @endauth
     <!--  END NAVBAR  -->
 
@@ -132,12 +131,12 @@
     <div class="main-container " id="container">
 
         <!--  BEGIN LOADER  -->
-        <x-rtl.layout-overlay />
+        <x-admin.overlay />
         <!--  END LOADER  -->
 
         <!--  BEGIN SIDEBAR  -->
         @auth
-            <x-rtl.main-sidebar />
+            <x-admin.sidebar />
         @endauth
         <!--  END SIDEBAR  -->
 
@@ -161,7 +160,7 @@
         @endauth
 
         <!--  BEGIN FOOTER  -->
-        <x-rtl.layout-footer />
+        <x-admin.footer />
         <!--  END FOOTER  -->
 
         <!--  END CONTENT AREA  -->
