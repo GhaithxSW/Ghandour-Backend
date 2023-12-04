@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Enums\EducationLevelArabic;
-use App\Http\Enums\EducationLevelEnglish;
+use Illuminate\Http\Request;
 use App\Models\EducationLevel;
 use App\Models\ResearchRequest;
-use Illuminate\Http\Request;
+use App\Http\Enums\EducationLevelArabic;
+use App\Http\Enums\EducationLevelEnglish;
 
 class RequestResearchController extends Controller
 {

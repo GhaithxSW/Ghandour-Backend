@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('research_requests', function (Blueprint $table) {
+        Schema::create('researches', function (Blueprint $table) {
             $table->id();
-            $table->string('phone');
-            $table->string('research_topic');
-            $table->string('teacher_name')->nullable();
-            $table->string('notes')->nullable();
+            $table->string('title');
+            $table->string('image')->nullable();
+            $table->string('content');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('research_requests');
+        Schema::dropIfExists('researches');
     }
 };

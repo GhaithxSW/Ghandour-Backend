@@ -3,10 +3,10 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RequestResearchController;
+use App\Http\Controllers\Admin\ResearchController;
+use App\Http\Controllers\Admin\ResearchRequestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\ServiceImageController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use function Ramsey\Uuid\v1;
@@ -40,11 +40,11 @@ Route::group(
                 Route::get('/rtl/request-research', [RequestResearchController::class, 'requestResearch']);
                 Route::post('/add-request-research', [RequestResearchController::class, 'storeRequestResearch']);
             });
-            Route::controller(ServiceImageController::class)->group(function () {
-                Route::post('/detail/{service}/add-service-image', 'addImageService');
-                Route::post('/edit/{service}/edit-service-image/{serviceImage}', 'editImageService');
-                Route::post('/delete/{service}/delete-service-image/{serviceImage}', 'deleteImageService');
-            });
+            // Route::controller(ServiceImageController::class)->group(function () {
+            //     Route::post('/detail/{service}/add-service-image', 'addImageService');
+            //     Route::post('/edit/{service}/edit-service-image/{serviceImage}', 'editImageService');
+            //     Route::post('/delete/{service}/delete-service-image/{serviceImage}', 'deleteImageService');
+            // });
             Route::get('/profile', [UserController::class, 'profile']);
         });
         Route::controller(UserController::class)->group(function () {
@@ -65,7 +65,14 @@ Route::prefix('admin-panel-management')->group(function () {
 
     Route::middleware(['auth:admin'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard']);
-        Route::get('/requests', [RequestResearchController::class, 'getAllRequests']);
+        Route::get('/requests', [ResearchRequestController::class, 'researchRequests']);
+        Route::get('/researches', [ResearchController::class, 'researches']);
+        Route::get('/research/{id}/details', [ResearchController::class, 'viewResearch']);
+        Route::get('/research/add', [ResearchController::class, 'viewCreateResearch']);
+        Route::post('/research/store', [ResearchController::class, 'addResearch']);
+        Route::delete('/research/{id}/delete', [ResearchController::class, 'deleteResearch'])->name('delete-research');
+        Route::get('/research/{id}/edit', [ResearchController::class, 'viewUpdateResearch']);
+        Route::put('/research/{id}/update', [ResearchController::class, 'editResearch']);
         Route::get('/users', [UserController::class, 'getAllUsers']);
         // Route::get('/profile', [AdminController::class, 'profile']);
     });
@@ -77,4 +84,9 @@ Route::prefix('admin-panel-management')->group(function () {
         Route::post('/register', 'register');
         Route::post('/logout', 'logout')->name('logout');
     });
+});
+
+Route::get('/analytics', function () {
+    return view('pages.dashboard.
+    analytics');
 });
