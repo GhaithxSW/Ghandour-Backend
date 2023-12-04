@@ -22,19 +22,9 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->create();
 
-        // $educationLevelEnglish = EducationLevelEnglish::getEducationLevelEnglish();
-        // $educationLevelArabic = EducationLevelArabic::getEducationLevelArabic();
-
-        // foreach ($educationLevelEnglish as $en) {
-        //     EducationLevel::create([
-        //         'name_en' => $en
-        //     ]);
-        // }
-
-        // foreach ($educationLevelArabic as $ar) {
-        //     EducationLevel::create([
-        //         'name_ar' => $ar
-        //     ]);
-        // }
+        $this->call([
+            AdminSeeder::class,
+            EducationLevelSeeder::class
+        ]);
     }
 }
