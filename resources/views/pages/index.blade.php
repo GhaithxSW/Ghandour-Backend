@@ -25,13 +25,15 @@
 
         {{-- <link href="../src/assets/css/light/scrollspyNav.css" rel="stylesheet" type="text/css" />
         <link href="../src/assets/css/dark/scrollspyNav.css" rel="stylesheet" type="text/css" /> --}}
-        @vite(['resources\rtl\scss\light\assets\scrollspyNav.scss'])
-        @vite(['resources\rtl\scss\light\assets\scrollspyNav.scss'])
+
+        {{-- @vite(['resources/rtl/scss/light/assets/scrollspyNav.scss']) --}}
+        {{-- @vite(['resources/rtl/scss/light/assets/scrollspyNav.scss']) --}}
 
         {{-- <link href="../src/assets/css/light/components/timeline.css" rel="stylesheet" type="text/css" />
         <link href="../src/assets/css/dark/components/timeline.css" rel="stylesheet" type="text/css" /> --}}
-        @vite(['resources\rtl\scss\light\assets\components\timeline.scss'])
-        @vite(['resources\rtl\scss\dark\assets\components\timeline.scss'])
+
+        {{-- @vite(['resources/rtl/scss/light/assets/components/timeline.scss']) --}}
+        {{-- @vite(['resources/rtl/scss/dark/assets/components/timeline.scss']) --}}
 
         <style>
             .toggle-code-snippet {
@@ -368,18 +370,13 @@
             <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4>
 
             @foreach ($researches as $research)
-                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md- 4 col-sm-6 mb-4">
-                    <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
+                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md- 4 col-sm-6 mb-4 text-center">
+                    <div class="card style-2 mb-md-0 mb-4">
                         <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}""
                             class="card-img-top" alt="..." style="height: 210px">
-                        {{-- <div class="card-body px-0 pb-0 text-center"> --}}
-                        <h5 class="card-title mb-3 mt-3 font-bg text-center">{{ $research->title }}</h5>
-                        {{-- <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button> --}}
-                        <a href="" class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</a>
-                        {{-- <a href="{{ route('download', ['file' => $fileName]) }}">Download PDF</a> --}}
-                        {{-- <a href="{{ route('download', ['file' => 'test.pdf']) }}">Download PDF</a> --}}
-                        {{-- </div> --}}
-                    </a>
+                        <h5 class="m-3">{{ $research->title }}</h5>
+                        <a href="#" class="btn btn-secondary m-auto">{{ __('trans.read') }}</a>
+                    </div>
                 </div>
             @endforeach
 
