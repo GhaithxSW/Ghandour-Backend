@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
+use App\Http\Repositories\OrderRepository;
+use App\Http\Repositories\OrderRepositoryImpl;
 use App\Http\Repositories\ResearchRepository;
 use App\Http\Repositories\ResearchRepositoryImpl;
-use App\Http\Repositories\ResearchRequestRepository;
-use App\Http\Repositories\ResearchRequestRepositoryImpl;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -17,7 +17,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(ResearchRequestRepository::class, ResearchRequestRepositoryImpl::class);
+        $this->app->bind(OrderRepository::class, OrderRepositoryImpl::class);
         $this->app->bind(ResearchRepository::class, ResearchRepositoryImpl::class);
     }
 

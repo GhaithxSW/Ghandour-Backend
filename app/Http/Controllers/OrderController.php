@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EducationLevel;
-use App\Models\ResearchRequest;
-use App\Http\Enums\EducationLevelArabic;
-use App\Http\Enums\EducationLevelEnglish;
+use App\Models\Order;
 
-class RequestResearchController extends Controller
+class OrderController extends Controller
 {
     public function requestResearch()
     {
@@ -35,7 +33,7 @@ class RequestResearchController extends Controller
 
             $userId = auth()->user()->id;
 
-            ResearchRequest::create([
+            Order::create([
                 'phone' => $formFields['phone'],
                 'education_level_id' => $formFields['education_level'],
                 'research_topic' => $formFields['research_topic'],

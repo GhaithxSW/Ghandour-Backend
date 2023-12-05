@@ -8,26 +8,31 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Admin\AdminRequest;
 use App\Http\Requests\Admin\LoginRequest;
+use App\Http\Services\Admin\AdminService;
 
 class AdminController extends Controller
 {
 
-    public function dashboard(){
+    private AdminService $adminService;
+
+    public function __construct(AdminService $adminService)
+    {
+        $this->adminService = $adminService;
+    }
+
+    public function dashboard()
+    {
         return view('admin.pages.dashboard', ['title' => __('trans.bhoothat')]);
     }
 
-    public function viewSignUp()
-    {
-        return view('admin.pages.authentication.boxed.signup', ['title' => __('trans.bhoothat')]);
-    }
+    // public function viewSignUp()
+    // {
+    //     return view('admin.pages.authentication.boxed.signup', ['title' => __('trans.bhoothat')]);
+    // }
 
     public function register(AdminRequest $request)
     {
-        $formFields = $request->all();
-        $formFields['password'] = bcrypt($formFields['password']);
-
-        $admin = Admin::create($formFields);
-        Auth::guard('admin')->login($admin);
+        $this->adminService->register($request);
 
         return redirect('/admin-panel-management/dashboard');
     }
@@ -52,10 +57,7 @@ class AdminController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::guard('admin')->logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $this->adminService->logout($request);
 
         return redirect('/admin-panel-management/sign-in');
     }

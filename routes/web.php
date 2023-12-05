@@ -1,15 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\RequestResearchController;
 use App\Http\Controllers\Admin\ResearchController;
-use App\Http\Controllers\Admin\ResearchRequestController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
-use function Ramsey\Uuid\v1;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +20,8 @@ use function Ramsey\Uuid\v1;
 |
 */
 
+Route::get('/clear', [HomeController::class, 'clear']);
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
@@ -29,16 +29,15 @@ Route::group(
     ],
     function () {
 
-        Route::get('/', [HomeController::class, 'index']);
-        Route::get('/rtl/', [HomeController::class, 'index']);
-        Route::get('/clear', [HomeController::class, 'clear']);
+        Route::get('/', [HomeController::class, 'index'])->name('index');
+        Route::get('/rtl/', [HomeController::class, 'index'])->name('rtl-index');
 
         Route::middleware(['auth'])->group(function () {
             Route::controller(ServiceController::class)->group(function () {
 
-                Route::get('/request-research', [RequestResearchController::class, 'requestResearch']);
-                Route::get('/rtl/request-research', [RequestResearchController::class, 'requestResearch']);
-                Route::post('/add-request-research', [RequestResearchController::class, 'storeRequestResearch']);
+                Route::get('/request-research', [OrderController::class, 'requestResearch']);
+                Route::get('/rtl/request-research', [OrderController::class, 'requestResearch']);
+                Route::post('/add-request-research', [OrderController::class, 'storeRequestResearch']);
             });
             // Route::controller(ServiceImageController::class)->group(function () {
             //     Route::post('/detail/{service}/add-service-image', 'addImageService');
@@ -64,8 +63,14 @@ Route::group(
 Route::prefix('admin-panel-management')->group(function () {
 
     Route::middleware(['auth:admin'])->group(function () {
+
+        // AdminController
         Route::get('/dashboard', [AdminController::class, 'dashboard']);
-        Route::get('/requests', [ResearchRequestController::class, 'researchRequests']);
+
+        // OrderController
+        Route::get('/requests', [AdminOrderController::class, 'researchRequests']);
+
+        // ResearchController
         Route::get('/researches', [ResearchController::class, 'researches']);
         Route::get('/research/{id}/details', [ResearchController::class, 'viewResearch']);
         Route::get('/research/add', [ResearchController::class, 'viewCreateResearch']);
@@ -73,7 +78,12 @@ Route::prefix('admin-panel-management')->group(function () {
         Route::delete('/research/{id}/delete', [ResearchController::class, 'deleteResearch'])->name('delete-research');
         Route::get('/research/{id}/edit', [ResearchController::class, 'viewUpdateResearch']);
         Route::put('/research/{id}/update', [ResearchController::class, 'editResearch']);
+
+        // UserController
         Route::get('/users', [UserController::class, 'getAllUsers']);
+
+
+
         // Route::get('/profile', [AdminController::class, 'profile']);
     });
 

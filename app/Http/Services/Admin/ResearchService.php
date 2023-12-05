@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Services;
+namespace App\Http\Services\Admin;
 
 use Exception;
-use App\Models\ResearchRequest;
 use App\Http\Repositories\ResearchRepository;
-use App\Http\Requests\Admin\ResearchRequestRequest;
+use App\Http\Requests\Admin\OrderRequest;
 use App\Models\Research;
 
 class ResearchService
@@ -22,7 +21,7 @@ class ResearchService
         return $this->researchRepository->getAllResearches();
     }
 
-    public function addResearch(ResearchRequestRequest $request)
+    public function addResearch(OrderRequest $request)
     {
         try {
             $formFields = $request->validated();
@@ -46,7 +45,7 @@ class ResearchService
         return $this->researchRepository->getResearchById($id);
     }
 
-    public function editResearch(ResearchRequestRequest $request, $id)
+    public function editResearch(OrderRequest $request, $id)
     {
         try {
             $formFields = $request->validated();

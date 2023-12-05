@@ -2,42 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserRequest;
+use App\Http\Services\UserService;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    // public function viewSignUp()
-    // {
-    //     if (app()->getLocale() == 'en') return view('pages.authentication.boxed.signup', ['title' => 'SignUp']);
-    //     if (app()->getLocale() == 'ar') return view('pages-rtl.authentication.boxed.signup', ['title' => 'SignUp']);
-    // }
+    private UserService $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
 
     public function register(UserRequest $request)
     {
-        $formFields = $request->all();
-        $formFields['password'] = bcrypt($formFields['password']);
-
-        $user = User::create($formFields);
-        auth()->login($user);
+        $this->userService->register($request);
 
         if (app()->getLocale() == 'en') return redirect('/en/request-research');
         if (app()->getLocale() == 'ar') return redirect('/ar/request-research');
     }
 
-    // public function viewSignIn()
-    // {
-    //     if (app()->getLocale() == 'en') return view('pages.authentication.boxed.signin', ['title' => 'SignIn']);
-    //     if (app()->getLocale() == 'ar') return view('pages-rtl.authentication.boxed.signin', ['title' => 'SignIn']);
-    // }
-
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $formFields = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => 'required'
-        ]);
+        $formFields = $request->validated();
 
         if (auth()->guard('web')->attempt($formFields)) {
             $request->session()->regenerate();
@@ -51,13 +41,10 @@ class UserController extends Controller
 
     public function logout(Request $request)
     {
-        auth()->guard('web')->logout();
+        $this->userService->logout($request);
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        if (app()->getLocale() == 'en') return redirect('/en');
-        if (app()->getLocale() == 'ar') return redirect('/ar');
+        if (app()->getLocale() == 'en') return redirect()->route('index');
+        if (app()->getLocale() == 'ar') return redirect()->route('rtl-index');
     }
 
     // public function profile()

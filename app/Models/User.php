@@ -62,11 +62,11 @@ class User extends Authenticatable
 
     public function requestedResearches(): HasMany
     {
-        return $this->hasMany(ResearchRequest::class);
+        return $this->hasMany(Order::class);
     }
 
     public function requestedResearch(): HasOne
     {
-        return $this->hasOne(ResearchRequest::class);
+        return $this->hasOne(Order::class);
     }
 }

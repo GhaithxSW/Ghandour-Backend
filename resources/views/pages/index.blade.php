@@ -367,6 +367,20 @@
         <div class="row">
             <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4>
 
+            {{-- @foreach ($researches as $research)
+                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
+                        <img src="{{ Vite::asset('resources/images/samples/1.jpeg') }}" class="card-img-top"
+                            alt="..." style="height: 210px">
+                        <div class="card-body px-0 pb-0 text-center">
+                            <h5 class="card-title mb-3 font-bg">{{ $research->title }}</h5>
+                            <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
+                        </div>
+                    </a>
+                </div>
+            @endforeach --}}
+
+
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
                 <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
                     <img src="{{ Vite::asset('resources/images/samples/1.jpeg') }}" class="card-img-top"

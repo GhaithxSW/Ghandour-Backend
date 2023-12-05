@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Services\ResearchService;
-use App\Http\Requests\Admin\ResearchRequestRequest;
+use App\Http\Requests\Admin\OrderRequest;
+use App\Http\Services\Admin\ResearchService;
 
 class ResearchController extends Controller
 {
@@ -33,7 +33,7 @@ class ResearchController extends Controller
         return view('admin.pages.researches.add', ['title' => __('trans.bhoothat')]);
     }
 
-    public function addResearch(ResearchRequestRequest $request)
+    public function addResearch(OrderRequest $request)
     {
         $this->researchService->addResearch($request);
         return redirect()->back()->with('success', __('trans.msg_request_success'));
@@ -45,7 +45,7 @@ class ResearchController extends Controller
         return view('admin.pages.researches.edit', ['title' => __('trans.bhoothat')], ['research' => $research]);
     }
 
-    public function editResearch(ResearchRequestRequest $request, $id)
+    public function editResearch(OrderRequest $request, $id)
     {
         $this->researchService->editResearch($request, $id);
         return redirect()->back()->with('success', __('trans.msg_request_success'));
