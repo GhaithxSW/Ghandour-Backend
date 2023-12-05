@@ -48,7 +48,7 @@
 
                 <div class="col">
                     <label for="content" class="form-label">محتوى البحث</label>
-                    <input type="text" name="content" class="form-control" placeholder="ادخل محتوى البحث">
+                    <textarea type="text" name="content" class="form-control" placeholder="ادخل محتوى البحث"></textarea>
                     @error('content')
                         <p class="m-2 text-red-600" style="color: red">محتوى البحث مطلوب</p>
                     @enderror

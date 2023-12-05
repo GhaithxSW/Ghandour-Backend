@@ -367,71 +367,21 @@
         <div class="row">
             <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4>
 
-            {{-- @foreach ($researches as $research)
-                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
+            @foreach ($researches as $research)
+                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md- 4 col-sm-6 mb-4">
                     <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
-                        <img src="{{ Vite::asset('resources/images/samples/1.jpeg') }}" class="card-img-top"
-                            alt="..." style="height: 210px">
-                        <div class="card-body px-0 pb-0 text-center">
-                            <h5 class="card-title mb-3 font-bg">{{ $research->title }}</h5>
-                            <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
-                        </div>
+                        <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}""
+                            class="card-img-top" alt="..." style="height: 210px">
+                        {{-- <div class="card-body px-0 pb-0 text-center"> --}}
+                        <h5 class="card-title mb-3 mt-3 font-bg text-center">{{ $research->title }}</h5>
+                        {{-- <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button> --}}
+                        <a href="" class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</a>
+                        {{-- <a href="{{ route('download', ['file' => $fileName]) }}">Download PDF</a> --}}
+                        {{-- <a href="{{ route('download', ['file' => 'test.pdf']) }}">Download PDF</a> --}}
+                        {{-- </div> --}}
                     </a>
                 </div>
-            @endforeach --}}
-
-
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/samples/1.jpeg') }}" class="card-img-top"
-                        alt="..." style="height: 210px">
-                    <div class="card-body px-0 pb-0 text-center">
-                        <h5 class="card-title mb-3 font-bg">{{ __('trans.sample_nature') }}</h5>
-                        <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
-                        {{-- <a href="{{ route('download', ['file' => $fileName]) }}">Download PDF</a> --}}
-                        {{-- <a href="{{ route('download', ['file' => 'test.pdf']) }}">Download PDF</a> --}}
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/samples/2.jpeg') }}" class="card-img-top"
-                        alt="..." style="height: 210px">
-                    <div class="card-body px-0 pb-0 text-center">
-                        <h5 class="card-title mb-3 font-bg">{{ __('trans.sample_mechanical') }}</h5>
-                        <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
-                        {{-- <a href="{{ route('download', ['file' => $fileName]) }}">Download PDF</a> --}}
-                        {{-- <a href="{{ route('download', ['file' => 'test.pdf']) }}">Download PDF</a> --}}
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/samples/3.jpeg') }}" class="card-img-top"
-                        alt="..." style="height: 210px">
-                    <div class="card-body px-0 pb-0 text-center">
-                        <h5 class="card-title mb-3 font-bg">{{ __('trans.sample_pollution') }}</h5>
-                        <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
-                        {{-- <a href="{{ route('download', ['file' => $fileName]) }}">Download PDF</a> --}}
-                        {{-- <a href="{{ route('download', ['file' => 'test.pdf']) }}">Download PDF</a> --}}
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/samples/4.jpeg') }}" class="card-img-top"
-                        alt="..." style="height: 210px">
-                    <div class="card-body px-0 pb-0 text-center">
-                        <h5 class="card-title mb-3 font-bg">{{ __('trans.sample_medicine') }}</h5>
-                        <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
-                        {{-- <a href="{{ route('download', ['file' => $fileName]) }}">Download PDF</a> --}}
-                        {{-- <a href="{{ route('download', ['file' => 'test.pdf']) }}">Download PDF</a> --}}
-                    </div>
-                </a>
-            </div>
+            @endforeach
 
         </div>
     </div>
