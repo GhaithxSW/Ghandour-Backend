@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Services\ResearchService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use App\Http\Services\ResearchService;
 
 class ResearchController extends Controller
 {
@@ -17,9 +18,7 @@ class ResearchController extends Controller
     public function researchSamples()
     {
         $researches = $this->researchService->researchSamples();
-        if (app()->getLocale() == 'en')
-            return view('pages.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]);
-        if (app()->getLocale() == 'ar')
-            return view('pages-rtl.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]);
+        $locale = App::getLocale();
+        return ($locale == 'en') ? view('pages.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]) : view('pages-rtl.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]);
     }
 }

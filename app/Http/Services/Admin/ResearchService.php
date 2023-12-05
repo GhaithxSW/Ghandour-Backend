@@ -30,11 +30,13 @@ class ResearchService
                 $formFields['image'] = $request->file('image')->store('images', 'public');
             }
 
-            Research::create([
+            $data = [
                 'title' => $formFields['title'],
                 'image' => isset($formFields['image']) ? $formFields['image'] : null,
                 'content' => $formFields['content']
-            ]);
+            ];
+
+            $this->researchRepository->createResearch($data);
         } catch (Exception $e) {
             throw $e;
         }
@@ -56,11 +58,13 @@ class ResearchService
 
             $research = $this->researchRepository->getResearchById($id);
 
-            $research->update([
+            $data = [
                 'title' => $formFields['title'],
                 'image' => isset($formFields['image']) ? $formFields['image'] : $research->image,
                 'content' => $formFields['content']
-            ]);
+            ];
+
+            $this->researchRepository->updateResearch($data, $id);
         } catch (Exception $e) {
             throw $e;
         }

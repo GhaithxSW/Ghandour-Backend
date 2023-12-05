@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\ResearchService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 
 class HomeController extends Controller
@@ -19,8 +20,14 @@ class HomeController extends Controller
     {
         $researches = $this->researchService->researchSamples();
 
-        if (app()->getLocale() == 'en') return view('pages.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]);
-        if (app()->getLocale() == 'ar') return view('pages-rtl.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]);
+        $locale = App::getLocale();
+        return ($locale == 'en') ? view('pages.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]) : view('pages-rtl.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]);
+    }
+
+    public function requestResearch()
+    {
+        $locale = App::getLocale();
+        return ($locale == 'en') ? view('pages.request-research', ['title' => __('trans.bhoothat')]) : view('pages-rtl.request-research', ['title' => __('trans.bhoothat')]);
     }
 
     public function clear()
@@ -28,16 +35,11 @@ class HomeController extends Controller
         Artisan::call('config:cache');
         Artisan::call('cache:clear');
         Artisan::call('view:clear');
+        // Artisan::call('config:cache && cache:clear && view:clear');
         return 'cleared';
     }
 
-    public function requestResearch()
-    {
-        if (app()->getLocale() == 'en') return view('pages.request-research', ['title' => __('trans.bhoothat')]);
-        // if (app()->getLocale() == 'ar') return view('pages-rtl.index', ['title' => __('trans.bhoothat')]);
-    }
-
-    // public function index()
+    // public function charts()
     // {
     //     $services = Service::all();
     //     $subCategories = SubCategory::all();
@@ -74,30 +76,4 @@ class HomeController extends Controller
     //     ]);
     // }
 
-    // public function clear()
-    // {
-    //     Artisan::call('config:cache');
-    //     Artisan::call('cache:clear');
-    //     Artisan::call('view:clear');
-    //     return 'cleared';
-    // }
-
-    // public function getSubCategory($id)
-    // {
-    //     $service = Service::findOrFail($id);
-    //     return (string) $service->subCategory->id;
-    // }
-
-    // public function getMainCategory($id)
-    // {
-    //     $service = Service::findOrFail($id);
-    //     return (string) $service->subCategory->category->id;
-    // }
-
-    // public function settings()
-    // {
-    //     // return view('name', $data)->render();
-    //     $distance = Distance::where('is_current', 1)->first();
-    //     return view('pages.settings.index', ['distance' => $distance]);
-    // }
 }

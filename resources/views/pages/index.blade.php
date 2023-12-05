@@ -368,9 +368,8 @@
     <div class="mr-4 ml-4">
         <div class="row">
             <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4>
-
             @foreach ($researches as $research)
-                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md- 4 col-sm-6 mb-4 text-center">
+                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto">
                     <div class="card style-2 mb-md-0 mb-4">
                         <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}""
                             class="card-img-top" alt="..." style="height: 210px">
@@ -379,9 +378,10 @@
                     </div>
                 </div>
             @endforeach
-
         </div>
     </div>
+
+    {{-- <div class="container w-25">{{ $researches->links() }}</div> --}}
 
     <x-slot:footerFiles>
         @vite(['public/plugins/editors/quill/quill.js'])

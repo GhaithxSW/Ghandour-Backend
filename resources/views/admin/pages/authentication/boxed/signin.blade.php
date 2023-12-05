@@ -70,7 +70,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <div class="col-12">
+                                    {{-- <div class="col-12">
                                         <div class="text-center">
                                             <p class="mb-0">ليس لديك حساب؟
                                                 <a href="/admin-panel-management/sign-up" class="text-warning">
@@ -78,7 +78,7 @@
                                                 </a>
                                             </p>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

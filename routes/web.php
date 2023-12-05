@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ResearchController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\UserController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -30,73 +30,72 @@ Route::group(
     function () {
 
         Route::get('/', [HomeController::class, 'index'])->name('index');
-        Route::get('/rtl/', [HomeController::class, 'index'])->name('rtl-index');
 
+        // Route::middleware(['auth.redirect'])->group(function () {
         Route::middleware(['auth'])->group(function () {
-            Route::controller(ServiceController::class)->group(function () {
-
-                Route::get('/request-research', [OrderController::class, 'requestResearch']);
-                Route::get('/rtl/request-research', [OrderController::class, 'requestResearch']);
-                Route::post('/add-request-research', [OrderController::class, 'storeRequestResearch']);
-            });
-            // Route::controller(ServiceImageController::class)->group(function () {
-            //     Route::post('/detail/{service}/add-service-image', 'addImageService');
-            //     Route::post('/edit/{service}/edit-service-image/{serviceImage}', 'editImageService');
-            //     Route::post('/delete/{service}/delete-service-image/{serviceImage}', 'deleteImageService');
-            // });
-            Route::get('/profile', [UserController::class, 'profile']);
+            Route::get('/request-research', [OrderController::class, 'orderResearch'])->name('request-research');
+            Route::post('/add-request-research', [OrderController::class, 'storeOrder']);
         });
+
         Route::controller(UserController::class)->group(function () {
-            Route::get('/sign-up', 'viewSignUp')->name('sign-up');
+            // Route::get('/sign-up', 'viewSignUp')->name('sign-up');
             Route::post('/register', 'register');
-            Route::get('/sign-in', 'viewSignIn')->name('sign-in');
+            // Route::get('/sign-in', 'viewSignIn')->name('sign-in');
             Route::post('/login', 'login');
-            Route::post('/logout', 'logout');
+            Route::post('/logout', 'logout')->name('logout');
         });
     }
 );
 
-
-/// admin
-
+// admin
 
 Route::prefix('admin-panel-management')->group(function () {
-
     Route::middleware(['auth:admin'])->group(function () {
 
-        // AdminController
-        Route::get('/dashboard', [AdminController::class, 'dashboard']);
-
-        // OrderController
         Route::get('/requests', [AdminOrderController::class, 'researchRequests']);
 
-        // ResearchController
-        Route::get('/researches', [ResearchController::class, 'researches']);
-        Route::get('/research/{id}/details', [ResearchController::class, 'viewResearch']);
-        Route::get('/research/add', [ResearchController::class, 'viewCreateResearch']);
-        Route::post('/research/store', [ResearchController::class, 'addResearch']);
-        Route::delete('/research/{id}/delete', [ResearchController::class, 'deleteResearch'])->name('delete-research');
-        Route::get('/research/{id}/edit', [ResearchController::class, 'viewUpdateResearch']);
-        Route::put('/research/{id}/update', [ResearchController::class, 'editResearch']);
+        Route::controller(ResearchController::class)->group(function () {
+            Route::get('/researches', 'researches');
+            Route::get('/research/{id}/details', 'viewResearch');
+            Route::get('/research/add', 'viewCreateResearch');
+            Route::post('/research/store', 'addResearch');
+            Route::delete('/research/{id}/delete', 'deleteResearch')->name('delete-research');
+            Route::get('/research/{id}/edit', 'viewUpdateResearch');
+            Route::put('/research/{id}/update', 'editResearch');
+        });
 
-        // UserController
         Route::get('/users', [UserController::class, 'getAllUsers']);
 
+        Route::controller(AdminController::class)->group(function () {
+            Route::get('/', 'redirectToDashboard');
+            Route::get('/dashboard', 'dashboard')->name('dashboard');
+            Route::post('/logout', 'logout')->name('admin-logout');
+        });
 
-
-        // Route::get('/profile', [AdminController::class, 'profile']);
+        Route::get('/users', [UserController::class, 'users']);
+        Route::get('/user/{id}/details', [UserController::class, 'userDetails']);
+        Route::get('/user/add', [UserController::class, 'viewAddUser']);
+        Route::post('/user/store', [UserController::class, 'storeUser']);
+        Route::get('/user/{id}/edit', [UserController::class, 'viewUpdateUser']);
+        Route::put('/user/{id}/update', [UserController::class, 'updateUser']);
+        Route::delete('/user/{id}/delete', [UserController::class, 'deleteUser'])->name('delete-user');
     });
 
     Route::controller(AdminController::class)->group(function () {
-        Route::get('/sign-in', 'viewSignIn')->name('sign-in');
+        Route::get('/sign-in', 'viewSignIn')->name('admin-sign-in');
         Route::post('/login', 'login');
-        Route::get('/sign-up', 'viewSignUp')->name('sign-up');
-        Route::post('/register', 'register');
-        Route::post('/logout', 'logout')->name('logout');
     });
 });
 
+// analytics
 Route::get('/analytics', function () {
-    return view('pages.dashboard.
-    analytics');
+    return view('pages.dashboard.analytics');
 });
+
+// Route::get('/test', function () {
+//     return "test";
+// })->middleware('auth');
+
+// Route::get('/test2', function () {
+//     return "test";
+// })->middleware('auth:admin');

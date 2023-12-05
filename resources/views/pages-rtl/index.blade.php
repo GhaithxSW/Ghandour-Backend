@@ -127,8 +127,8 @@
                                                             {{-- <x-text-input id="email" class="form-control" type="email"
                                                             name="email" :value="old('email')" autocomplete="email"
                                                             placeholder="Enter your email address" required autofocus /> --}}
-                                                            <input id="email" class="form-control text-right" type="email"
-                                                                name="email" value="{{ old('email') }}"
+                                                            <input id="email" class="form-control text-right"
+                                                                type="email" name="email" value="{{ old('email') }}"
                                                                 autocomplete="email"
                                                                 placeholder="{{ __('trans.email_placeholder') }}" required
                                                                 autofocus />
@@ -258,9 +258,9 @@
                                                             autocomplete="email"
                                                             placeholder="Enter your email address" required
                                                             autofocus /> --}}
-                                                            <input id="email" class="form-control text-right" type="email"
-                                                                name="email" value="{{ old('email') }}"
-                                                                autocomplete="email"
+                                                            <input id="email" class="form-control text-right"
+                                                                type="email" name="email"
+                                                                value="{{ old('email') }}" autocomplete="email"
                                                                 placeholder="{{ __('trans.email_placeholder') }}" required
                                                                 autofocus />
                                                             {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
@@ -354,61 +354,20 @@
     <div class="mr-4 ml-4">
         <div class="row">
             <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4>
-
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/samples/1.jpeg') }}" class="card-img-top"
-                        alt="..." style="height: 210px">
-                    <div class="card-body px-0 pb-0 text-center">
-                        <h5 class="card-title mb-3 font-bg">{{ __('trans.sample_nature') }}</h5>
-                        <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
-                        {{-- <a href="{{ route('download', ['file' => $fileName]) }}">Download PDF</a> --}}
-                        {{-- <a href="{{ route('download', ['file' => 'test.pdf']) }}">Download PDF</a> --}}
+            @foreach ($researches as $research)
+                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto">
+                    <div class="card style-2 mb-md-0 mb-4">
+                        <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}""
+                            class="card-img-top" alt="..." style="height: 210px">
+                        <h5 class="m-3">{{ $research->title }}</h5>
+                        <a href="#" class="btn btn-secondary m-auto">{{ __('trans.read') }}</a>
                     </div>
-                </a>
-            </div>
-
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/samples/2.jpeg') }}" class="card-img-top"
-                        alt="..." style="height: 210px">
-                    <div class="card-body px-0 pb-0 text-center">
-                        <h5 class="card-title mb-3 font-bg">{{ __('trans.sample_mechanical') }}</h5>
-                        <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
-                        {{-- <a href="{{ route('download', ['file' => $fileName]) }}">Download PDF</a> --}}
-                        {{-- <a href="{{ route('download', ['file' => 'test.pdf']) }}">Download PDF</a> --}}
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/samples/3.jpeg') }}" class="card-img-top"
-                        alt="..." style="height: 210px">
-                    <div class="card-body px-0 pb-0 text-center">
-                        <h5 class="card-title mb-3 font-bg">{{ __('trans.sample_pollution') }}</h5>
-                        <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
-                        {{-- <a href="{{ route('download', ['file' => $fileName]) }}">Download PDF</a> --}}
-                        {{-- <a href="{{ route('download', ['file' => 'test.pdf']) }}">Download PDF</a> --}}
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/samples/4.jpeg') }}" class="card-img-top"
-                        alt="..." style="height: 210px">
-                    <div class="card-body px-0 pb-0 text-center">
-                        <h5 class="card-title mb-3 font-bg">{{ __('trans.sample_medicine') }}</h5>
-                        <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
-                        {{-- <a href="{{ route('download', ['file' => $fileName]) }}">Download PDF</a> --}}
-                        {{-- <a href="{{ route('download', ['file' => 'test.pdf']) }}">Download PDF</a> --}}
-                    </div>
-                </a>
-            </div>
-
+                </div>
+            @endforeach
         </div>
     </div>
+
+    {{-- <div class="container w-25">{{ $researches->links() }}</div> --}}
 
     <x-slot:footerFiles>
         @vite(['public/plugins-rtl/editors/quill/quill.js'])

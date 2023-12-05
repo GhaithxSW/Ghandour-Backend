@@ -1,68 +1,59 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\UserRequest;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Services\Admin\UserService;
 
 class UserController extends Controller
 {
-    // public function viewSignUp()
-    // {
-    //     if (app()->getLocale() == 'en') return view('pages.authentication.boxed.signup', ['title' => 'SignUp']);
-    //     if (app()->getLocale() == 'ar') return view('pages-rtl.authentication.boxed.signup', ['title' => 'SignUp']);
-    // }
+    private UserService $userService;
 
-    // public function register(UserRequest $request)
-    // {
-    //     $formFields = $request->all();
-    //     $formFields['password'] = bcrypt($formFields['password']);
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
 
-    //     $user = User::create($formFields);
-    //     auth()->login($user);
+    public function users()
+    {
+        $users = $this->userService->users();
+        return view('admin.pages.users.all', ['title' => __('trans.bhoothat')], ['users' => $users]);
+    }
 
-    //     if (app()->getLocale() == 'en') return redirect('/en/request-research');
-    //     if (app()->getLocale() == 'ar') return redirect('/ar/request-research');
-    // }
+    public function userDetails($id)
+    {
+        $user = $this->userService->userDetails($id);
+        return view('admin.pages.users.view', ['title' => __('trans.bhoothat')], ['user' => $user]);
+    }
 
-    // // public function viewSignIn()
-    // // {
-    // //     if (app()->getLocale() == 'en') return view('pages.authentication.boxed.signin', ['title' => 'SignIn']);
-    // //     if (app()->getLocale() == 'ar') return view('pages-rtl.authentication.boxed.signin', ['title' => 'SignIn']);
-    // // }
+    public function viewAddUser()
+    {
+        return view('admin.pages.users.add', ['title' => __('trans.bhoothat')]);
+    }
 
-    // public function login(Request $request)
-    // {
-    //     $formFields = $request->validate([
-    //         'email' => ['required', 'email'],
-    //         'password' => 'required'
-    //     ]);
+    public function storeUser(UserRequest $request)
+    {
+        $this->userService->storeUser($request);
+        return redirect()->back()->with('success', __('trans.msg_request_success'));
+    }
 
-    //     if (auth()->guard('web')->attempt($formFields)) {
-    //         $request->session()->regenerate();
+    public function viewUpdateUser($id)
+    {
+        $user = $this->userService->viewUpdateUser($id);
+        return view('admin.pages.users.add', ['title' => __('trans.bhoothat')], ['user' => $user]);
+    }
 
-    //         if (app()->getLocale() == 'en') return redirect('/request-research');
-    //         if (app()->getLocale() == 'ar') return redirect('/rtl/request-research');
-    //     }
+    public function updateUser(UserRequest $request, $id)
+    {
+        $this->userService->updateUser($request, $id);
+        return redirect()->back()->with('success', __('trans.msg_request_success'));
+    }
 
-    //     return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
-    // }
-
-    // public function logout(Request $request)
-    // {
-    //     auth()->guard('web')->logout();
-
-    //     $request->session()->invalidate();
-    //     $request->session()->regenerateToken();
-
-    //     if (app()->getLocale() == 'en') return redirect('/en');
-    //     if (app()->getLocale() == 'ar') return redirect('/ar');
-    // }
-
-    // public function profile()
-    // {
-    //     if (app()->getLocale() == 'en') return view('pages.user.profile', ['title' => 'Profile']);
-    //     if (app()->getLocale() == 'ar') return view('pages-rtl.user.profile', ['title' => 'Profile']);
-    // }
+    public function deleteUser($id)
+    {
+        $this->userService->deleteUser($id);
+        return redirect()->back()->with('success', __('trans.msg_request_success'));
+    }
 }

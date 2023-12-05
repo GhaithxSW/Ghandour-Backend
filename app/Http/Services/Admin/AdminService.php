@@ -9,15 +9,6 @@ use App\Http\Requests\Admin\AdminRequest;
 
 class AdminService
 {
-    public function register(AdminRequest $request)
-    {
-        $formFields = $request->validated();
-        $formFields['password'] = bcrypt($formFields['password']);
-
-        $admin = Admin::create($formFields);
-        Auth::guard('admin')->login($admin);
-    }
-
     public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
