@@ -10,7 +10,7 @@
             .dashboard {
                 margin-right: 255px;
                 margin-left: 15px;
-                margin-top: 30px;
+                /* margin-top: 50px; */
                 margin-bottom: 30px;
             }
         </style>
@@ -62,6 +62,7 @@
                 </div>
 
                 <div class="col">
+                    <a href="/admin-panel-management/researches" class="btn btn-secondary m-1">رجوع</a>
                     <button type="submit" class="btn btn-success m-1">تعديل</button>
                 </div>
             </form>

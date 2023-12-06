@@ -69,7 +69,7 @@
             .dashboard {
                 margin-right: 255px;
                 margin-left: 15px;
-                margin-top: 30px;
+                margin-top: 50px;
                 margin-bottom: 30px;
             }
         </style>
@@ -159,12 +159,12 @@
 
         <div class="container mt-4 row">
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="/clients">
+                <a href="/admin-panel-management/orders">
                     <div class="card bg-secondary">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 20px">الطلبات</p>
                             <p class="card-text text-center" style="font-size: 25px">
-                                {{-- <b>{{ count($clients) }}</b> --}}
+                                <b>{{ count($orders) }}</b>
                             </p>
                         </div>
                         <div class="card-footer px-4 pt-0 border-0">
@@ -175,12 +175,12 @@
             </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="/maintenance-technicians">
+                <a href="/admin-panel-management/users">
                     <div class="card bg-primary">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 20px">المستخدمين</p>
                             <p class="card-text text-center" style="font-size: 25px">
-                                {{-- <b>{{ count($maintenances) }}</b> --}}
+                                <b>{{ count($users) }}</b>
                             </p>
                         </div>
                         <div class="card-footer px-4 pt-0 border-0">
@@ -191,12 +191,12 @@
             </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="/join-requests">
+                <a href="/admin-panel-management/researches">
                     <div class="card bg-dark">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 20px">الابحاث</p>
                             <p class="card-text text-center" style="font-size: 25px">
-                                {{-- <b>{{ count($maintenancesJoinRequests) }}</b> --}}
+                                <b>{{ count($researches) }}</b>
                             </p>
                         </div>
                         <div class="card-footer px-4 pt-0 border-0">

@@ -2,6 +2,19 @@
     <nav id="sidebar">
         <ul class="list-unstyled menu-categories" id="accordionExample">
 
+            <li class="menu mt-4">
+                <a href="/admin-panel-management/dashboard" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-zap">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        <span>لوحة التحكم</span>
+                    </div>
+                </a>
+            </li>
+
             <li class="menu menu-heading">
                 <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -64,8 +77,6 @@
                     </li>
                 </ul>
             </li>
-
-
 
             <li class="menu">
                 <a href="#researches" data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">

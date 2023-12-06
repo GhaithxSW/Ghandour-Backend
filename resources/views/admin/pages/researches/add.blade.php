@@ -10,7 +10,7 @@
             .dashboard {
                 margin-right: 255px;
                 margin-left: 15px;
-                margin-top: 30px;
+                /* margin-top: 50px; */
                 margin-bottom: 30px;
             }
         </style>
@@ -23,7 +23,7 @@
 
             @if (session('success'))
                 <div class="alert alert-success text-center" style="font-size: 20px; margin-bottom: 50px">
-                    تمت اضافة البحث بنجاح
+                    {{ session('success') }}
                 </div>
             @endif
 
@@ -34,7 +34,7 @@
                     <label for="title" class="form-label">عنوان البحث</label>
                     <input type="text" name="title" class="form-control" placeholder="ادخل عنوان البحث">
                     @error('title')
-                        <p class="m-2 text-red-600" style="color: red">عنوان البحث مطلوب</p>
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -42,7 +42,7 @@
                     <label for="image" class="form-label">صورة البحث</label>
                     <input type="file" name="image" class="form-control" placeholder="ادخل صورة البحث">
                     @error('image')
-                        <p class="m-2 text-red-600" style="color: red">صورة البحث مطلوبة</p>
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -50,11 +50,12 @@
                     <label for="content" class="form-label">محتوى البحث</label>
                     <textarea type="text" name="content" class="form-control" placeholder="ادخل محتوى البحث"></textarea>
                     @error('content')
-                        <p class="m-2 text-red-600" style="color: red">محتوى البحث مطلوب</p>
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="col">
+                    <a href="/admin-panel-management/researches" class="btn btn-secondary m-1">رجوع</a>
                     <button type="submit" class="btn btn-success m-1">اضافة</button>
                 </div>
             </form>

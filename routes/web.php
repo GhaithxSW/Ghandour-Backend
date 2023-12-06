@@ -53,19 +53,15 @@ Route::group(
 Route::prefix('admin-panel-management')->group(function () {
     Route::middleware(['auth:admin'])->group(function () {
 
-        Route::get('/requests', [AdminOrderController::class, 'researchRequests']);
-
         Route::controller(ResearchController::class)->group(function () {
             Route::get('/researches', 'researches');
-            Route::get('/research/{id}/details', 'viewResearch');
-            Route::get('/research/add', 'viewCreateResearch');
+            Route::get('/research/{id}/details', 'researchDetails');
+            Route::get('/research/add', 'viewAddResearch');
             Route::post('/research/store', 'addResearch');
-            Route::delete('/research/{id}/delete', 'deleteResearch')->name('delete-research');
             Route::get('/research/{id}/edit', 'viewUpdateResearch');
-            Route::put('/research/{id}/update', 'editResearch');
+            Route::put('/research/{id}/update', 'updateResearch');
+            Route::delete('/research/{id}/delete', 'deleteResearch')->name('delete-research');
         });
-
-        // Route::get('/users', [UserController::class, 'getAllUsers']);
 
         Route::controller(AdminController::class)->group(function () {
             Route::get('/', 'redirectToDashboard');
@@ -83,10 +79,6 @@ Route::prefix('admin-panel-management')->group(function () {
 
         Route::get('/orders', [AdminOrderController::class, 'orders']);
         Route::get('/order/{id}/details', [AdminOrderController::class, 'orderDetails']);
-        // Route::get('/order/add', [AdminOrderController::class, 'viewAddUser']);
-        // Route::post('/order/store', [AdminOrderController::class, 'storeUser']);
-        // Route::get('/order/{id}/edit', [AdminOrderController::class, 'viewUpdateUser']);
-        // Route::put('/order/{id}/update', [AdminOrderController::class, 'updateUser']);
         Route::delete('/order/{id}/delete', [AdminOrderController::class, 'deleteOrder'])->name('delete-order');
     });
 

@@ -10,7 +10,7 @@
             .dashboard {
                 margin-right: 255px;
                 margin-left: 15px;
-                margin-top: 30px;
+                /* margin-top: 50px; */
                 margin-bottom: 30px;
             }
         </style>

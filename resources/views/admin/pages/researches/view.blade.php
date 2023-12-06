@@ -10,7 +10,7 @@
             .dashboard {
                 margin-right: 255px;
                 margin-left: 15px;
-                margin-top: 30px;
+                /* margin-top: 50px;     */
                 margin-bottom: 30px;
             }
         </style>
@@ -38,7 +38,7 @@
 
                 <div class="col">
                     <label for="content" class="form-label">محتوى البحث</label>
-                    <div class="form-control">{{ $research->content }}</div>
+                    <textarea class="form-control" style="pointer-events: none">{{ $research->content }}</textarea>
                 </div>
 
                 <div class="col">

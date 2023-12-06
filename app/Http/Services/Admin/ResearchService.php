@@ -5,7 +5,6 @@ namespace App\Http\Services\Admin;
 use Exception;
 use App\Http\Repositories\ResearchRepository;
 use App\Http\Requests\Admin\OrderRequest;
-use App\Models\Research;
 
 class ResearchService
 {
@@ -42,12 +41,12 @@ class ResearchService
         }
     }
 
-    public function getResearch($id)
+    public function researchDetails($id)
     {
         return $this->researchRepository->getResearchById($id);
     }
 
-    public function editResearch(OrderRequest $request, $id)
+    public function updateResearch(OrderRequest $request, $id)
     {
         try {
             $formFields = $request->validated();

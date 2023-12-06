@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Exception;
-use Illuminate\Http\Request;
 use App\Http\Requests\OrderRequest;
 use App\Http\Services\OrderService;
 use Illuminate\Support\Facades\App;

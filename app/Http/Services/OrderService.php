@@ -34,7 +34,6 @@ class OrderService
             $userId = Auth::guard('web')->user()->id;
 
             $data = [
-                // 'phone' => $formFields['phone'],
                 'education_level_id' => $formFields['education_level'],
                 'research_topic' => $formFields['research_topic'],
                 'teacher_name' => $formFields['teacher_name'],
