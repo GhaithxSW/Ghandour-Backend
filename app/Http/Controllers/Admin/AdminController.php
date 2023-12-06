@@ -31,7 +31,7 @@ class AdminController extends Controller
         $users = $this->userService->users();
         $orders = $this->orderService->orders();
         $researches = $this->researchService->researches();
-        return view('admin.pages.dashboard', ['title' => __('trans.bhoothat')], [
+        return view('admin.pages.dashboard', ['title' => 'لوحة التحكم'], [
             'users' => $users,
             'orders' => $orders,
             'researches' => $researches
@@ -40,7 +40,7 @@ class AdminController extends Controller
 
     public function viewSignIn()
     {
-        return view('admin.pages.authentication.boxed.signin', ['title' => __('trans.bhoothat')]);
+        return view('admin.pages.authentication.boxed.signin', ['title' => 'تسجيل الدخول']);
     }
 
     public function login(LoginRequest $request)
@@ -53,7 +53,7 @@ class AdminController extends Controller
             return redirect()->route('dashboard');
         }
 
-        return back()->withErrors(['username' => 'Invalid Credentials'])->onlyInput('username');
+        return back()->withErrors(['username' => 'اسم المستخدم او كلمة المرور خطأ'])->onlyInput('username');
     }
 
     public function logout(Request $request)
