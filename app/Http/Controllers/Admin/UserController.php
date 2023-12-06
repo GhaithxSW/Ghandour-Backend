@@ -36,7 +36,7 @@ class UserController extends Controller
     public function storeUser(UserRequest $request)
     {
         $this->userService->storeUser($request);
-        return redirect()->back()->with('success', __('trans.msg_request_success'));
+        return redirect()->back()->with('success', 'تمت اضافة المستخدم بنجاح');
     }
 
     public function viewUpdateUser($id)

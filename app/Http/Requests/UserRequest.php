@@ -27,7 +27,22 @@ class UserRequest extends FormRequest
             'name' => 'required',
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'confirmed', 'min:6'],
-            // 'phone' => ['nullable', 'min:10']
+            'phone' => ['required', 'min:10']
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'اسم المستخدم مطلوب',
+            'email.required' => 'البريد الإلكتروني مطلوب',
+            'email.email' => 'صيغة البريد الإلكتروني غير صحيحة',
+            'email.unique' => 'البريد الإلكتروني موجود مسبقًا',
+            'password.required' => 'كلمة المرور مطلوبة',
+            'password.confirmed' => 'كلمة المرور غير مطابقة',
+            'password.min' => 'كلمة المرور يجب أن تكون 6 أحرف على الأقل',
+            'phone.required' => 'رقم الهاتف مطلوب',
+            'phone.min' => 'رقم الهاتف يجب أن يكون على الأقل 10 أحرف',
         ];
     }
 }

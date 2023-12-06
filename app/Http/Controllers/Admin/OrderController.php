@@ -15,9 +15,21 @@ class OrderController extends Controller
         $this->orderService = $orderService;
     }
 
-    public function researchRequests()
+    public function orders()
     {
-        $requests = $this->orderService->researchRequests();
-        return view('admin.pages.research-requests.all', ['title' => __('trans.bhoothat')], ['requests' => $requests]);
+        $orders = $this->orderService->orders();
+        return view('admin.pages.orders.all', ['title' => 'الطلبات'], ['orders' => $orders]);
+    }
+
+    public function orderDetails($id)
+    {
+        $order = $this->orderService->orderDetails($id);
+        return view('admin.pages.orders.view', ['title' => 'تفاصيل الطلب'], ['order' => $order]);
+    }
+
+    public function deleteOrder($id)
+    {
+        $this->orderService->deleteOrder($id);
+        return redirect()->back()->with('success', 'تم حذف الطلب بنجاح');
     }
 }

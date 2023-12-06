@@ -80,6 +80,14 @@ Route::prefix('admin-panel-management')->group(function () {
         Route::get('/user/{id}/edit', [AdminUserController::class, 'viewUpdateUser']);
         Route::put('/user/{id}/update', [AdminUserController::class, 'updateUser']);
         Route::delete('/user/{id}/delete', [AdminUserController::class, 'deleteUser'])->name('delete-user');
+
+        Route::get('/orders', [AdminOrderController::class, 'orders']);
+        Route::get('/order/{id}/details', [AdminOrderController::class, 'orderDetails']);
+        // Route::get('/order/add', [AdminOrderController::class, 'viewAddUser']);
+        // Route::post('/order/store', [AdminOrderController::class, 'storeUser']);
+        // Route::get('/order/{id}/edit', [AdminOrderController::class, 'viewUpdateUser']);
+        // Route::put('/order/{id}/update', [AdminOrderController::class, 'updateUser']);
+        Route::delete('/order/{id}/delete', [AdminOrderController::class, 'deleteOrder'])->name('delete-order');
     });
 
     Route::controller(AdminController::class)->group(function () {

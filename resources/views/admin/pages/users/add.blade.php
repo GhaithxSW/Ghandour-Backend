@@ -23,9 +23,20 @@
 
             @if (session('success'))
                 <div class="alert alert-success text-center" style="font-size: 20px; margin-bottom: 50px">
-                    تمت اضافة المستخدم بنجاح
+                    {{ session('success') }}
                 </div>
             @endif
+
+            {{-- @if ($errors->any())
+                <div style="color: red;">
+                    <strong>Validation errors:</strong>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif --}}
 
             <form method="POST" action="/admin-panel-management/user/store" class="row g-3 card" style="padding: 20px"
                 enctype="multipart/form-data">
@@ -34,7 +45,15 @@
                     <label for="name" class="form-label">اسم المستخدم</label>
                     <input type="text" name="name" class="form-control" placeholder="ادخل اسم المستخدم">
                     @error('name')
-                        <p class="m-2 text-red-600" style="color: red">اسم المستخدم مطلوب</p>
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="col">
+                    <label for="phone" class="form-label">رقم الهاتف</label>
+                    <input type="text" name="phone" class="form-control" placeholder="ادخل رقم الهاتف">
+                    @error('phone')
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -43,15 +62,24 @@
                     <input type="email" name="email" class="form-control text-right"
                         placeholder="ادخل البريد الالكتروني">
                     @error('email')
-                        <p class="m-2 text-red-600" style="color: red">البريد الالكتروني مطلوب</p>
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="col">
                     <label for="password" class="form-label">كلمة المرور</label>
-                    <input type="text" name="password" class="form-control" placeholder="ادخل كلمة المرور">
+                    <input type="password" name="password" class="form-control" placeholder="ادخل كلمة المرور">
                     @error('password')
-                        <p class="m-2 text-red-600" style="color: red">كلمة المرور مطلوبة</p>
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="col">
+                    <label for="password_confirmation" class="form-label">كلمة المرور</label>
+                    <input type="password" name="password_confirmation" class="form-control"
+                        placeholder="تأكيد كلمة المرور">
+                    @error('password_confirmation')
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 

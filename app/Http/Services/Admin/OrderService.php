@@ -13,8 +13,18 @@ class OrderService
         $this->orderRepository = $orderRepository;
     }
 
-    public function researchRequests()
+    public function orders()
     {
         return $this->orderRepository->getAllOrders();
+    }
+
+    public function orderDetails($id)
+    {
+        return $this->orderRepository->getOrderById($id);
+    }
+
+    public function deleteOrder($id)
+    {
+        $this->orderRepository->deleteOrder($id);
     }
 }
