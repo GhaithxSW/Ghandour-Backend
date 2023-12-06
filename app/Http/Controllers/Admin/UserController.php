@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Services\Admin\UserService;
 
 class UserController extends Controller
@@ -19,18 +20,18 @@ class UserController extends Controller
     public function users()
     {
         $users = $this->userService->users();
-        return view('admin.pages.users.all', ['title' => __('trans.bhoothat')], ['users' => $users]);
+        return view('admin.pages.users.all', ['title' => 'المستخدمين'], ['users' => $users]);
     }
 
     public function userDetails($id)
     {
         $user = $this->userService->userDetails($id);
-        return view('admin.pages.users.view', ['title' => __('trans.bhoothat')], ['user' => $user]);
+        return view('admin.pages.users.view', ['title' => 'معلومات المستخدم'], ['user' => $user]);
     }
 
     public function viewAddUser()
     {
-        return view('admin.pages.users.add', ['title' => __('trans.bhoothat')]);
+        return view('admin.pages.users.add', ['title' => 'اضافة مستخدم']);
     }
 
     public function storeUser(UserRequest $request)
@@ -42,18 +43,18 @@ class UserController extends Controller
     public function viewUpdateUser($id)
     {
         $user = $this->userService->viewUpdateUser($id);
-        return view('admin.pages.users.add', ['title' => __('trans.bhoothat')], ['user' => $user]);
+        return view('admin.pages.users.edit', ['title' => 'تعديل المستخدم'], ['user' => $user]);
     }
 
-    public function updateUser(UserRequest $request, $id)
+    public function updateUser(UpdateUserRequest $request, $id)
     {
         $this->userService->updateUser($request, $id);
-        return redirect()->back()->with('success', __('trans.msg_request_success'));
+        return redirect()->back()->with('success', 'تم تعديل المستخدم بنجاح');
     }
 
     public function deleteUser($id)
     {
         $this->userService->deleteUser($id);
-        return redirect()->back()->with('success', __('trans.msg_request_success'));
+        return redirect()->back()->with('success', 'تم حذف المستخدم بنجاح');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Services\Admin;
 
 use App\Http\Repositories\UserRepository;
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UserRequest;
 use Exception;
 
@@ -47,15 +48,17 @@ class UserService
         return $this->userRepository->getUserById($id);
     }
 
-    public function updateUser(UserRequest $request, $id)
+    public function updateUser(UpdateUserRequest $request, $id)
     {
         try {
             $formFields = $request->validated();
+            $user = $this->userRepository->getUserById($id);
 
             $data = [
-                'name' => $formFields['name'],
-                'email' => $formFields['email'],
-                'password' => bcrypt($formFields['password'])
+                'name' => isset($formFields['name']) ? $formFields['name'] : $user->name,
+                'phone' => isset($formFields['phone']) ? $formFields['phone'] : $user->phone,
+                'email' => isset($formFields['email']) ? $formFields['email'] : $user->email,
+                'password' => isset($formFields['password']) ? bcrypt($formFields['password']) : $user->password,
             ];
 
             $this->userRepository->updateUser($data, $id);

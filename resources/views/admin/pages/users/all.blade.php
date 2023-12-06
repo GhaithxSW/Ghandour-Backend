@@ -21,7 +21,7 @@
 
         @if (session('success'))
             <div class="alert alert-success text-center" style="font-size: 20px; margin-bottom: 50px; margin-top: 50px">
-                تم حذف المستخدم بنجاح
+                {{ session('success') }}
             </div>
         @endif
 
@@ -33,41 +33,50 @@
             <table class="table table-hover table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th class="text-center">#</th>
+                        <th class="text-center">رقم المستخدم</th>
                         <th class="text-center">اسم المستخدم</th>
                         <th class="text-center">البريد الالكتروني</th>
-                        <th class="text-center">كلمة المرور</th>
+                        <th class="text-center">رقم الهاتف</th>
                         <th class="text-center">خيارات</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
-                        <tr style="pointer-events: none">
-                            <td class="text-center">{{ $user->id }}</td>
-                            <td class="text-center">{{ $user->name }}</td>
-                            <td class="text-center">{{ $user->email }}</td>
-                            <td class="text-center">{{ $user->password }}</td>
-                            <td class="text-center">
-                                <a href="/admin-panel-management/user/{{ $user->id }}/details"
-                                    class="btn btn-primary" style="pointer-events: fill">التفاصيل</a>
-                                <a href="/admin-panel-management/user/{{ $user->id }}/edit" class="btn btn-success"
-                                    style="pointer-events: fill">تعديل</a>
-                                <form method="POST" action="{{ route('delete-user', ['id' => $user->id]) }}"
-                                    class="btn btn-danger" style="pointer-events: fill">
-                                    @method('DELETE')
-                                    @csrf
-                                    <x-dropdown-link :href="route('delete-user', ['id' => $user->id])"
-                                        onclick="event.preventDefault();
+                    @if (count($users))
+                        @foreach ($users as $user)
+                            <tr style="pointer-events: none">
+                                <td class="text-center">{{ $user->id }}</td>
+                                <td class="text-center">{{ $user->name }}</td>
+                                <td class="text-center">{{ $user->email }}</td>
+                                <td class="text-center">{{ $user->phone }}</td>
+                                <td class="text-center">
+                                    <a href="/admin-panel-management/user/{{ $user->id }}/details"
+                                        class="btn btn-primary" style="pointer-events: fill">التفاصيل</a>
+                                    <a href="/admin-panel-management/user/{{ $user->id }}/edit"
+                                        class="btn btn-success" style="pointer-events: fill">تعديل</a>
+                                    <form method="POST" action="{{ route('delete-user', ['id' => $user->id]) }}"
+                                        class="btn btn-danger" style="pointer-events: fill">
+                                        @method('DELETE')
+                                        @csrf
+                                        <x-dropdown-link :href="route('delete-user', ['id' => $user->id])"
+                                            onclick="event.preventDefault();
                                                         this.closest('form').submit();"
-                                        style="color: white">
-                                        حذف
-                                    </x-dropdown-link>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
+                                            style="color: white">
+                                            حذف
+                                        </x-dropdown-link>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                 </tbody>
             </table>
+            @if (!count($users))
+                <div class="m-3" style="pointer-events: none">
+                    <div class="text-center">
+                        <h5>لا يوجد مستخدمين</h5>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 

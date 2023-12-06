@@ -21,37 +21,45 @@
 
         <div class="container" style="padding: 5%">
 
+            @if (session('success'))
+                <div class="alert alert-success text-center" style="font-size: 20px; margin-bottom: 50px">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            {{-- @if ($errors->any())
+                <div style="color: red;">
+                    <strong>Validation errors:</strong>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif --}}
+
             <div class="row g-3 card" style="padding: 20px">
-
                 <div class="col">
-                    <label for="title" class="form-label">عنوان البحث</label>
-                    <div class="form-control">{{ $research->title }}</div>
+                    <label for="name" class="form-label">اسم المستخدم</label>
+                    <div class="form-control">{{ $user->name }}</div>
                 </div>
-
                 <div class="col">
-                    <label for="image" class="form-label">صورة البحث</label>
-                    <div class="text-center mb-4">
-                        <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}"
-                            class="card-img-top" alt="..." style="width: 250px; height: 250px;">
-                    </div>
+                    <label for="phone" class="form-label">رقم الهاتف</label>
+                    <div class="form-control">{{ $user->phone }}</div>
                 </div>
-
                 <div class="col">
-                    <label for="content" class="form-label">محتوى البحث</label>
-                    <div class="form-control">{{ $research->content }}</div>
+                    <label for="email" class="form-label">البريد الالكتروني</label>
+                    <div class="form-control">{{ $user->email }}</div>
                 </div>
-
                 <div class="col">
-                    <a href="/admin-panel-management/researches" class="btn btn-secondary m-1">رجوع</a>
+                    <a href="/admin-panel-management/users" class="btn btn-secondary m-1">رجوع</a>
                 </div>
             </div>
+
         </div>
 
-
-    </div>
-
-    <x-slot:footerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.js'])
-    </x-slot>
+        <x-slot:footerFiles>
+            @vite(['public/plugins-rtl/table/datatable/datatables.js'])
+        </x-slot>
 
 </x-admin.base-layout>

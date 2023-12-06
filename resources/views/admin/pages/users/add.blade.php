@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="col">
-                    <label for="password_confirmation" class="form-label">كلمة المرور</label>
+                    <label for="password_confirmation" class="form-label">تأكيد كلمة المرور</label>
                     <input type="password" name="password_confirmation" class="form-control"
                         placeholder="تأكيد كلمة المرور">
                     @error('password_confirmation')
@@ -84,6 +84,7 @@
                 </div>
 
                 <div class="col">
+                    <a href="/admin-panel-management/users" class="btn btn-secondary m-1">رجوع</a>
                     <button type="submit" class="btn btn-success m-1">اضافة</button>
                 </div>
             </form>
