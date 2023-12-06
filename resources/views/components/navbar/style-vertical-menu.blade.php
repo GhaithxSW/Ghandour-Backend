@@ -40,45 +40,12 @@
                 <a href="/">
                     <img src="{{ Vite::asset('resources/images/logo-new.png') }}" class="navbar-logo" alt="LOGO"
                         style="height: 50px">
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world-search"
-                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M21 12a9 9 0 1 0 -9 9"></path>
-                        <path d="M3.6 9h16.8"></path>
-                        <path d="M3.6 15h7.9"></path>
-                        <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                        <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62"></path>
-                        <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-                        <path d="M20.2 20.2l1.8 1.8"></path>
-                    </svg> --}}
                 </a>
             </li>
             <li class="nav-item theme-text them-text-new">
                 <a href="/" class="nav-link" style="font-size: 20px"> <b>{{ __('trans.bhoothat') }}</b> </a>
             </li>
         </ul>
-
-        {{-- <div class="search-animated toggle-search">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="feather feather-search">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <form class="form-inline search-full form-inline search" role="search">
-                <div class="search-bar">
-                    <input type="text" class="form-control search-form-control  ml-lg-auto" placeholder="Search...">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-x search-close">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </div>
-            </form>
-            <span class="badge badge-secondary">Ctrl + /</span>
-        </div> --}}
 
         <ul class="navbar-item flex-row ms-lg-auto ms-0 action-area">
 
@@ -135,51 +102,17 @@
                         <path d="M11.5 3a17 17 0 0 0 0 18" />
                         <path d="M12.5 3a17 17 0 0 1 0 18" />
                     </svg>
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-translate" viewBox="0 0 16 16">
-                        <path
-                            d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z" />
-                        <path
-                            d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z" />
-                    </svg> --}}
                 </a>
                 <div class="dropdown-menu position-absolute row" aria-labelledby="language-dropdown">
                     @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                         <a rel="alternate" hreflang="{{ $localeCode }}"
                             href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-
-                            {{-- @if (LaravelLocalization::getCurrentLocale() == 'ar')
-                                <img src="{{ Vite::asset('resources/images/1x1/uae.png') }}" class="flag-width"
-                                    alt="flag">
-                            @else
-                                <img src="{{ Vite::asset('resources/images/1x1/us.svg') }}" class="flag-width"
-                                    alt="flag">
-                            @endif --}}
-
+                            <div class="text-center">
                                 {{ $properties['native'] }}
-                            {{-- <span class="align-self-center">
-                                &nbsp;{{ $localeCode == LaravelLocalization::getCurrentLocale() ? 'active' : '' }}
-                            </span> --}}
+                            </div>
                         </a>
-                        {{-- <a class="dropdown-item d-flex" href="javascript:void(0);"><img
-                                src="{{ Vite::asset('public/src/assets/img/1x1/us.svg') }}" class="flag-width"
-                                alt="flag"> <span class="align-self-center">&nbsp;English</span></a> --}}
                     @endforeach
                 </div>
-                {{-- <div class="dropdown-menu position-absolute" aria-labelledby="language-dropdown">
-                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                        <li class="container">
-                            <a rel="alternate" hreflang="{{ $localeCode }}"
-                                href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                <div class="container" style="width: 150px">
-                                    {{ $properties['native'] }}
-                                    <span style="color:greenyellow">
-                                        {{ $localeCode == LaravelLocalization::getCurrentLocale() ? 'active' : '' }}</span>
-                                </div>
-                            </a>
-                        </li>
-                    @endforeach
-                </div> --}}
             </li>
 
             <li class="nav-item theme-toggle-item theme-mode-new">
@@ -187,30 +120,21 @@
 
                     {{-- old moon --}}
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    {{-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="feather feather-moon dark-mode">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-
-                    {{-- new moon --}}
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-filled"
-                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path
-                            d="M12 1.992a10 10 0 1 0 9.236 13.838c.341 -.82 -.476 -1.644 -1.298 -1.31a6.5 6.5 0 0 1 -6.864 -10.787l.077 -.08c.551 -.63 .113 -1.653 -.758 -1.653h-.266l-.068 -.006l-.06 -.002z"
-                            stroke-width="0" fill="currentColor"></path>
                     </svg> --}}
 
+                    {{-- new moon --}}
 
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" fill="currentColor"
                         class="bi bi-moon-stars-fill dark-mode" viewBox="0 0 16 16">
                         <path
                             d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
                         <path
                             d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
-                    </svg> --}}
+                    </svg>
 
                     {{-- old sun --}}
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -226,49 +150,7 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
-
-                    {{-- new sun --}}
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun-filled"
-                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path
-                            d="M12 19a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z"
-                            stroke-width="0" fill="currentColor"></path>
-                        <path
-                            d="M18.313 16.91l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.218 -1.567l.102 .07z"
-                            stroke-width="0" fill="currentColor"></path>
-                        <path
-                            d="M7.007 16.993a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z"
-                            stroke-width="0" fill="currentColor"></path>
-                        <path d="M4 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z"
-                            stroke-width="0" fill="currentColor"></path>
-                        <path d="M21 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z"
-                            stroke-width="0" fill="currentColor"></path>
-                        <path
-                            d="M6.213 4.81l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.217 -1.567l.102 .07z"
-                            stroke-width="0" fill="currentColor"></path>
-                        <path
-                            d="M19.107 4.893a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z"
-                            stroke-width="0" fill="currentColor"></path>
-                        <path
-                            d="M12 2a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z"
-                            stroke-width="0" fill="currentColor"></path>
-                        <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z"
-                            stroke-width="0" fill="currentColor"></path>
-                    </svg> --}}
-
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-brightness-high-fill light-mode" viewBox="0 0 16 16">
-                        <path
-                            d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-                    </svg> --}}
                 </a>
-                {{-- <div class="switch form-switch-custom switch-inline form-switch-primary form-switch-custom inner-icon-circle-toggle">
-                    <div class="input-checkbox">
-                        <input class="switch-input" type="checkbox" role="switch" id="form-custom-switch-circular-inner-icon" checked>
-                    </div>
-                </div> --}}
             </li>
 
             {{-- <li class="nav-item dropdown notification-dropdown">
