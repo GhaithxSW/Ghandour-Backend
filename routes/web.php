@@ -4,9 +4,10 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ResearchController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\UserController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -41,7 +42,7 @@ Route::group(
             // Route::get('/sign-up', 'viewSignUp')->name('sign-up');
             Route::post('/register', 'register');
             // Route::get('/sign-in', 'viewSignIn')->name('sign-in');
-            Route::post('/login', 'login');
+            Route::post('/login', 'login')->name('login');
             Route::post('/logout', 'logout')->name('logout');
         });
     }
@@ -64,7 +65,7 @@ Route::prefix('admin-panel-management')->group(function () {
             Route::put('/research/{id}/update', 'editResearch');
         });
 
-        Route::get('/users', [UserController::class, 'getAllUsers']);
+        // Route::get('/users', [UserController::class, 'getAllUsers']);
 
         Route::controller(AdminController::class)->group(function () {
             Route::get('/', 'redirectToDashboard');
@@ -72,13 +73,13 @@ Route::prefix('admin-panel-management')->group(function () {
             Route::post('/logout', 'logout')->name('admin-logout');
         });
 
-        Route::get('/users', [UserController::class, 'users']);
-        Route::get('/user/{id}/details', [UserController::class, 'userDetails']);
-        Route::get('/user/add', [UserController::class, 'viewAddUser']);
-        Route::post('/user/store', [UserController::class, 'storeUser']);
-        Route::get('/user/{id}/edit', [UserController::class, 'viewUpdateUser']);
-        Route::put('/user/{id}/update', [UserController::class, 'updateUser']);
-        Route::delete('/user/{id}/delete', [UserController::class, 'deleteUser'])->name('delete-user');
+        Route::get('/users', [AdminUserController::class, 'users']);
+        Route::get('/user/{id}/details', [AdminUserController::class, 'userDetails']);
+        Route::get('/user/add', [AdminUserController::class, 'viewAddUser']);
+        Route::post('/user/store', [AdminUserController::class, 'storeUser']);
+        Route::get('/user/{id}/edit', [AdminUserController::class, 'viewUpdateUser']);
+        Route::put('/user/{id}/update', [AdminUserController::class, 'updateUser']);
+        Route::delete('/user/{id}/delete', [AdminUserController::class, 'deleteUser'])->name('delete-user');
     });
 
     Route::controller(AdminController::class)->group(function () {

@@ -7,16 +7,19 @@ use Exception;
 use App\Http\Requests\OrderRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Repositories\OrderRepository;
+use App\Http\Repositories\UserRepository;
 
 class OrderService
 {
     private OrderRepository $orderRepository;
     private EducationLevelRepository $educationLevelRepository;
+    private UserRepository $userRepository;
 
-    public function __construct(OrderRepository $orderRepository, EducationLevelRepository $educationLevelRepository)
+    public function __construct(OrderRepository $orderRepository, EducationLevelRepository $educationLevelRepository, UserRepository $userRepository)
     {
         $this->orderRepository = $orderRepository;
         $this->educationLevelRepository = $educationLevelRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function orderResearch()
@@ -31,7 +34,7 @@ class OrderService
             $userId = Auth::guard('web')->user()->id;
 
             $data = [
-                'phone' => $formFields['phone'],
+                // 'phone' => $formFields['phone'],
                 'education_level_id' => $formFields['education_level'],
                 'research_topic' => $formFields['research_topic'],
                 'teacher_name' => $formFields['teacher_name'],
@@ -39,7 +42,9 @@ class OrderService
                 'user_id' => $userId
             ];
 
+            $phone = ['phone' => $formFields['phone']];
             $this->orderRepository->createOrder($data);
+            $this->userRepository->updateUser($phone, $userId);
         } catch (Exception $e) {
             throw $e;
         }

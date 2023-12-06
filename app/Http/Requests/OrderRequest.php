@@ -24,7 +24,7 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => 'required',
+            'phone' => ['required', 'min:10'],
             'education_level' => 'required',
             'research_topic' => 'required',
             'teacher_name' => 'nullable',
@@ -36,6 +36,7 @@ class OrderRequest extends FormRequest
     {
         return [
             'phone.required' => __('trans.phone_required'),
+            // 'phone.min' => 'assa',
             'education_level.required' => __('trans.education_level_required'),
             'research_topic.required' => __('trans.research_topic_required')
         ];

@@ -20,6 +20,7 @@ class UserFactory extends Factory
         return [
             'name' => 'Basel Bashir',
             'email' => 'basel@gmail.com',
+            'phone' => '0937031486',
             'email_verified_at' => now(),
             'password' => bcrypt('12345678'),
             'remember_token' => Str::random(10),
