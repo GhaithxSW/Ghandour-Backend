@@ -25,15 +25,11 @@ class UserController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $formFields = $request->validated();
-
-        if (Auth::guard('web')->attempt($formFields)) {
-            $request->session()->regenerate();
-
+        if ($this->userService->login($request)) {
             return redirect()->route('request-research');
         }
 
-        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+        return back()->withErrors(['email' => __('trans.invalid_credentials')])->onlyInput('email');
     }
 
     public function logout(Request $request)

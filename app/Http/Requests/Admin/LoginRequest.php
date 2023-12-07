@@ -28,4 +28,12 @@ class LoginRequest extends FormRequest
             'password' => 'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'username.required' => 'اسم المستخدم مطلوب',
+            'password.required' => 'كلمة السر مطلوبة'
+        ];
+    }
 }

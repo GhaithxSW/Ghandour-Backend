@@ -18,8 +18,8 @@ class HomeController extends Controller
     public function index()
     {
         $researches = $this->researchService->researchSamples();
-
         $locale = App::getLocale();
+
         return ($locale == 'en') ? view('pages.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]) : view('pages-rtl.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]);
     }
 

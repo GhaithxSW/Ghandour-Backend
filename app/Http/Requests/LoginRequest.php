@@ -26,7 +26,14 @@ class LoginRequest extends FormRequest
         return [
             'email' => ['required', 'email'],
             'password' => 'required',
-            // 'phone' => ['nullable', 'min:10'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.required' => __('trans.email_required'),
+            'password' => __('trans.password_required'),
         ];
     }
 }

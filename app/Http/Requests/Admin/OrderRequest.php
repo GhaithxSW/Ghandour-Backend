@@ -29,4 +29,12 @@ class OrderRequest extends FormRequest
             'content' => 'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'عنوان البحث مطلوب',
+            'content.required' => 'محتوى البحث مطلوب'
+        ];
+    }
 }

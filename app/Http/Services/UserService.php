@@ -2,10 +2,11 @@
 
 namespace App\Http\Services;
 
-use App\Http\Repositories\UserRepository;
-use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Repositories\UserRepository;
 
 class UserService
 {
@@ -15,6 +16,16 @@ class UserService
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
+    }
+
+    public function login(LoginRequest $request)
+    {
+        $formFields = $request->validated();
+
+        if (Auth::guard('web')->attempt($formFields)) {
+            $request->session()->regenerate();
+            return true;
+        }
     }
 
     public function register(UserRequest $request)

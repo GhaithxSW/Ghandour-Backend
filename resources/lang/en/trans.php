@@ -52,13 +52,22 @@ return [
     'msg_request_success' => 'Request sent successfully',
     'msg_request_error' => 'Request failed, try again',
 
+    'email_required' => 'Email address required',
     'phone_required' => 'Phone number required',
+    'password_required' => 'Password required',
     'education_level_required' => 'Education level required',
     'research_topic_required' => 'Research topic required',
 
     'sample_nature' => 'Nature',
     'sample_mechanical' => 'Mechanical engineering',
     'sample_pollution' => 'Climate pollution',
-    'sample_medicine' => 'Medicine'
+    'sample_medicine' => 'Medicine',
+
+    'phone_numeric' => 'The phone number must be numeric only',
+    'phone_min' => 'The phone number must be 10 numbers at least',
+
+    'invalid_credentials' => 'Invalid Credentials',
+    'email_validation' => 'Email address not correct',
+    'email_unique' => 'Email address already exist',
 
 ];

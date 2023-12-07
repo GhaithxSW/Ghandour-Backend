@@ -52,13 +52,22 @@ return [
     'msg_request_success' => 'تم ارسال الطلب بنجاح',
     'msg_request_error' => 'حدث خطأ، قم باعادة المحاولة',
 
+    'email_required' => 'البريد الالكتروني مطلوب',
     'phone_required' => 'رقم الهاتف مطلوب',
+    'password_required' => 'كلمة السر مطلوبة',
     'education_level_required' => 'المستوى الدراسي مطلوب',
     'research_topic_required' => 'عنوان البحث مطلوب',
 
     'sample_nature' => 'الطبيعة',
     'sample_mechanical' => 'الهندسة الميكانيكية',
     'sample_pollution' => 'تلوث المناخ',
-    'sample_medicine' => 'الطب'
+    'sample_medicine' => 'الطب',
+
+    'phone_numeric' => 'رقم الهاتف يجب أن يكون أرقام فقط',
+    'phone_min' => 'رقم الهاتف يجب أن يكون 10 أرقام على الأقل',
+
+    'invalid_credentials' => 'البريد الالكتروني أو كلمة المرور خطأ',
+    'email_validation' => 'صيغة البريد الالكتروني خطأ',
+    'email_unique' => 'البريد الالكتروني موجود مسبقا',
 
 ];

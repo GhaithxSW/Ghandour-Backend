@@ -27,7 +27,20 @@ class UpdateUserRequest extends FormRequest
             'name' => 'nullable',
             'email' => ['nullable', 'email', 'unique:users'],
             'password' => ['nullable', 'confirmed', 'min:6'],
-            'phone' => ['nullable', 'min:10']
+            'phone' => ['nullable', 'min:10', 'numeric']
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.required' => __('trans.email_required'),
+            'email.email' => __('trans.email_validation'),
+            'email.unique'
+            'phone.numeric' => __('trans.phone_numeric'),
+            'phone.min' => __('trans.phone_min'),
+            'education_level.required' => __('trans.education_level_required'),
+            'research_topic.required' => __('trans.research_topic_required')
         ];
     }
 }

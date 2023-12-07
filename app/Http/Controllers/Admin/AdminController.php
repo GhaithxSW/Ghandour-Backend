@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Admin\LoginRequest;
 use App\Http\Services\Admin\AdminService;
 use App\Http\Services\Admin\OrderService;
@@ -45,11 +44,7 @@ class AdminController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $formFields = $request->validated();
-
-        if (Auth::guard('admin')->attempt($formFields)) {
-            $request->session()->regenerate();
-
+        if ($this->adminService->login($request)) {
             return redirect()->route('dashboard');
         }
 
