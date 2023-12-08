@@ -38,12 +38,12 @@
     <div class="container" style="padding: 5%">
 
         @if (session('success'))
-            <div class="alert alert-success text-center" style="font-size: 20px">
-                {{ session('success') }}
+            <div class="alert alert-success text-center mb-4" style="font-size: 20px">
+                {{ __('trans.msg_request_success') }}
             </div>
         @endif
 
-        <h2 class="text-center" style="margin-bottom: 75px">
+        <h2 class="text-center mt-4" style="margin-bottom: 50px">
             <b>{{ __('trans.request_research_now') }}</b>
         </h2>
 
