@@ -4,66 +4,7 @@
 
     <x-slot:headerFiles>
 
-        {{-- <style>
-            @media screen and (max-width: 990px) {
-                .font-bg {
-                    font-size: 26px;
-                }
-            }
-
-            @media screen and (max-width: 600px) {
-                .font-bg {
-                    font-size: 18px;
-                }
-
-                .font-bg-btn {
-                    font-size: 15px;
-                }
-            }
-
-            @media screen and (max-width: 300px) {
-                .font-bg {
-                    font-size: 16px;
-                }
-
-                .font-bg-btn {
-                    font-size: 14px;
-                }
-            }
-        </style> --}}
-
     </x-slot>
-
-
-    {{-- <div class="container" style="padding: 5%">
-
-        <div class="row g-3 card" style="padding: 20px">
-
-            <div class="col">
-                <label class="form-label">IMG</label>
-                <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}"
-                    alt="IMG">
-                <div class="form-control">{{ $research->image }}</div>
-            </div>
-
-            <div class="col">
-                <label class="form-label">{{ __('trans.research_topic') }}</label>
-                <div class="form-control">{{ $research->title }}</div>
-            </div>
-
-
-
-            <div class="col">
-                <label class="form-label">CNTNT</label>
-                <textarea class="form-control">{{ $research->content }}</textarea>
-            </div>
-
-            <div class="col">
-                <a href="/" class="btn btn-secondary m-1">{{ __('trans.back') }}</a>
-            </div>
-        </div>
-    </div> --}}
-
 
     <div class="m-4">
         <div class="row layout-top-spacing">
@@ -110,12 +51,6 @@
             </div>
         </div>
     </div>
-
-    {{-- </div> --}}
-
-    {{-- </div> --}}
-
-
 
     <x-slot:footerFiles></x-slot>
 

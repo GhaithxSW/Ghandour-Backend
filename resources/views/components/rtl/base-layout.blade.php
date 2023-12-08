@@ -21,20 +21,14 @@
     <link rel="stylesheet" href="dist/css/bootstrap-iconpicker.min.css" />
 
     @vite(['public/plugins-rtl/bootstrap/bootstrap.rtl.min.css'])
-    {{-- @vite(['public/plugins/bootstrap/bootstrap.min.css']) --}}
-
     @vite(['resources/rtl/scss/layouts/vertical-light-menu/light/loader.scss'])
     @vite(['resources/rtl/scss/layouts/vertical-light-menu/dark/loader.scss'])
     @vite(['resources/rtl/scss/light/assets/components/carousel.scss'])
     @vite(['resources/rtl/scss/dark/assets/components/carousel.scss'])
     @vite(['resources/rtl/scss/light/assets/apps/blog-create.scss'])
     @vite(['resources/rtl/scss/dark/assets/apps/blog-create.scss'])
-
-    {{-- @vite(['resources/rtl/scss/light/assets/apps/blog-post.scss']) --}}
-    {{-- @vite(['resources/rtl/scss/dark/assets/apps/blog-post.scss']) --}}
     @vite(['resources/scss/light/assets/apps/blog-post.scss'])
     @vite(['resources/scss/dark/assets/apps/blog-post.scss'])
-
     @vite(['resources/rtl/scss/light/assets/forms/switches.scss'])
     @vite(['resources/rtl/scss/dark/assets/forms/switches.scss'])
     @vite(['resources/rtl/scss/light/plugins/tagify/custom-tagify.scss'])
