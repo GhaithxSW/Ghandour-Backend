@@ -212,7 +212,7 @@
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 20px">اجمالي مبلغ الطلبات</p>
                             <p class="card-text text-center" style="font-size: 25px">
-                                {{-- <b>${{ $totalPrice }}</b> --}}
+                                <b>$600</b>
                             </p>
                         </div>
                         <div class="card-footer px-4 pt-0 border-0">
@@ -223,11 +223,18 @@
             </div>
         </div>
 
-        <div class="container mt-4 row">
-            <div id="piechart" style="width: 690px; height: 400px;" class="text-right"></div>
-            {{-- <div id="columnchart" style="width: 100px; height: 100px;" class="text-left"></div> --}}
-            {{-- <div id="chart_div" style="width: 690px; height: 400px;" class="text-right"></div> --}}
+        <div class="row m-2">
+            <div class="col">
+                <div id="chart_div" style="width: 450px; height: 250px;" class="mb-4"></div>
+            </div>
+            <div class="col">
+                <div id="piechart" style="width: 450px; height: 250px;" class="mb-4"></div>
+            </div>
         </div>
+
+        {{-- <div class="m-auto">
+            <div id="columnchart" style="width: 100px; height: 100px;" class="mb-4"></div>
+        </div> --}}
 
     </div>
 
@@ -266,12 +273,12 @@
                         role: 'link'
                     }],
                     ['الطلبات', <?php echo count($orders); ?>, '/admin-panel-management/orders'],
-                    ['الطلبات', <?php echo count($orders); ?>, '/admin-panel-management/orders'],
-                    ['الطلبات', <?php echo count($orders); ?>, '/admin-panel-management/orders'],
+                    ['الابحاث', <?php echo count($researches); ?>, '/admin-panel-management/researches'],
+                    ['المستخدمين', <?php echo count($users); ?>, '/admin-panel-management/users'],
                 ]);
 
                 var options = {
-                    title: 'جميع التصنيفات',
+                    title: 'الاحصائيات',
                     pieHole: 0.4,
                 };
 
@@ -290,7 +297,99 @@
             }
         </script>
 
+        <script type="text/javascript">
+            google.charts.load("current", {
+                packages: ['corechart']
+            });
+            google.charts.setOnLoadCallback(drawChart);
 
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['User Type', 'Count', {
+                        role: 'style',
+                    }, {
+                        role: 'link'
+                    }],
+                    ['الطلبات', <?php echo count($orders); ?>, '#b87333', '/admin-panel-management/orders'],
+                    ['الأبحاث', <?php echo count($researches); ?>, 'silver', '/admin-panel-management/researches'],
+                    ['المستخدمين', <?php echo count($users); ?>, 'gold', '/admin-panel-management/users'],
+                ]);
+
+                var view = new google.visualization.DataView(data);
+                view.setColumns([0, 1,
+                    {
+                        calc: "stringify",
+                        sourceColumn: 1,
+                        type: "string",
+                        role: "annotation"
+                    },
+                    2
+                ]);
+
+                var options = {
+                    title: "Users",
+                    width: 600,
+                    height: 400,
+                    bar: {
+                        groupWidth: "95%"
+                    },
+                    legend: {
+                        position: "none"
+                    },
+                };
+                var chart = new google.visualization.ColumnChart(document.getElementById("columnchart"));
+
+                google.visualization.events.addListener(chart, 'select', function() {
+                    var selection = chart.getSelection();
+                    if (selection.length > 0) {
+                        var row = selection[0].row;
+                        var url = data.getValue(row, 3);
+                        window.location.href = url;
+                    }
+                });
+
+                chart.draw(view, options);
+            }
+        </script>
+
+        <script>
+            google.charts.load('current', {
+                'packages': ['corechart']
+            });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Pizza');
+                data.addColumn('number', 'Populartiy');
+                data.addColumn(['string', 'Link']);
+                data.addRows([
+                    ['الطلبات', <?php echo count($orders); ?>, '/admin-panel-management/orders'],
+                    ['الأبحاث', <?php echo count($researches); ?>, '/admin-panel-management/researches'],
+                    ['المستخدمين', <?php echo count($users); ?>, '/admin-panel-management/users'],
+                ]);
+
+                var options = {
+                    title: 'الطلبات',
+                    // sliceVisibilityThreshold: .2,
+                    // colors: ['green', 'orange', 'red', 'lightgray']
+                    colors: ['green', 'orange', 'red']
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+                google.visualization.events.addListener(chart, 'select', function() {
+                    var selectedItem = chart.getSelection()[0];
+                    if (selectedItem) {
+                        var link = data.getValue(selectedItem.row, 2);
+                        window.open(link);
+                    }
+                });
+
+                chart.draw(data, options);
+            }
+        </script>
 
     </x-slot>
 
