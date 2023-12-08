@@ -36,7 +36,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'email.required' => __('trans.email_required'),
             'email.email' => __('trans.email_validation'),
-            'email.unique'
+            'email.unique' => __('trans.email_unique'),
             'phone.numeric' => __('trans.phone_numeric'),
             'phone.min' => __('trans.phone_min'),
             'education_level.required' => __('trans.education_level_required'),

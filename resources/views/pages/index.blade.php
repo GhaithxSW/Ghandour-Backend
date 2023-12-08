@@ -148,6 +148,10 @@
                                                                 autofocus />
                                                             {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                                                         </div>
+                                                        @error('email')
+                                                            <p class="m-2 text-red-600" style="color: red">
+                                                                {{ $message }}</p>
+                                                        @enderror
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="input-group mb-3">
@@ -251,6 +255,10 @@
                                                                 autofocus />
                                                             {{-- <x-input-error :messages="$errors->get('name')" class="mt-2" /> --}}
                                                         </div>
+                                                        @error('name')
+                                                            <p class="m-2 text-red-600" style="color: red">
+                                                                {{ $message }}</p>
+                                                        @enderror
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="input-group mb-3">
@@ -279,6 +287,10 @@
                                                                 autofocus />
                                                             {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                                                         </div>
+                                                        @error('email')
+                                                            <p class="m-2 text-red-600" style="color: red">
+                                                                {{ $message }}</p>
+                                                        @enderror
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="input-group mb-3">
@@ -334,6 +346,10 @@
                                                                 required autofocus />
                                                             {{-- <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" /> --}}
                                                         </div>
+                                                        @error('password')
+                                                            <p class="m-2 text-red-600" style="color: red">
+                                                                {{ $message }}</p>
+                                                        @enderror
                                                     </div>
                                                     <div class="d-flex justify-content-between">
                                                         <div class="form-check form-check-primary form-check-inline">

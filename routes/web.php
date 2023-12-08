@@ -84,7 +84,7 @@ Route::prefix('admin-panel-management')->group(function () {
 
     Route::controller(AdminController::class)->group(function () {
         Route::get('/sign-in', 'viewSignIn')->name('admin-sign-in');
-        Route::post('/login', 'login');
+        Route::post('/login', 'login')->name('admin-login');
     });
 });
 

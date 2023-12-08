@@ -19,16 +19,19 @@ class UserController extends Controller
 
     public function register(UserRequest $request)
     {
-        $this->userService->register($request);
+        // $this->userService->register($request);
+        $formFields = $request->validated();
+        $formFields['password'] = bcrypt($formFields['password']);
+        // $user = $this->userRepository->createUser($formFields);
+        $user = $this->userService->register($formFields);
+        Auth::guard('web')->login($user);
         return redirect()->route('request-research');
     }
 
     public function login(LoginRequest $request)
     {
-        if ($this->userService->login($request)) {
+        if ($this->userService->login($request))
             return redirect()->route('request-research');
-        }
-
         return back()->withErrors(['email' => __('trans.invalid_credentials')])->onlyInput('email');
     }
 

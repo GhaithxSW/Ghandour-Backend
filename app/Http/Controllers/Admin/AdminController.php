@@ -44,11 +44,8 @@ class AdminController extends Controller
 
     public function login(LoginRequest $request)
     {
-        if ($this->adminService->login($request)) {
-            return redirect()->route('dashboard');
-        }
-
-        return back()->withErrors(['username' => 'اسم المستخدم او كلمة المرور خطأ'])->onlyInput('username');
+        $this->adminService->login($request);
+        return redirect()->route('dashboard');
     }
 
     public function logout(Request $request)

@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Repositories\UserRepository;
+use Exception;
 
 class UserService
 {
@@ -20,20 +21,37 @@ class UserService
 
     public function login(LoginRequest $request)
     {
-        $formFields = $request->validated();
-
-        if (Auth::guard('web')->attempt($formFields)) {
-            $request->session()->regenerate();
-            return true;
+        try {
+            $formFields = $request->validated();
+            if (Auth::guard('web')->attempt($formFields)) {
+                $request->session()->regenerate();
+                return true;
+            }
+        } catch (Exception $e) {
+            throw $e;
         }
     }
 
     public function register(UserRequest $request)
     {
         $formFields = $request->validated();
-        $formFields['password'] = bcrypt($formFields['password']);
-        $user = $this->userRepository->createUser($formFields);
-        Auth::guard('web')->login($user);
+        $this->userRepository->createUser($formFields);
+
+
+        // $formFields = $request->validated();
+        // $formFields['password'] = bcrypt($formFields['password']);
+        // $user = $this->userRepository->createUser($formFields);
+        // Auth::guard('web')->login($user);
+
+
+        // try {
+        //     $formFields = $request->validated();
+        //     $formFields['password'] = bcrypt($formFields['password']);
+        //     $user = $this->userRepository->createUser($formFields);
+        //     Auth::guard('web')->login($user);
+        // } catch (Exception $e) {
+        //     throw $e;
+        // }
     }
 
     public function logout(Request $request)
@@ -42,4 +60,24 @@ class UserService
         $request->session()->invalidate();
         $request->session()->regenerateToken();
     }
+
+
+
+    // public function login(LoginRequest $request)
+    // {
+    //     $formFields = $request->validated();
+
+    //     if (Auth::guard('web')->attempt($formFields)) {
+    //         $request->session()->regenerate();
+    //         return true;
+    //     }
+    // }
+
+    // public function register(UserRequest $request)
+    // {
+    //     $formFields = $request->validated();
+    //     $formFields['password'] = bcrypt($formFields['password']);
+    //     $user = $this->userRepository->createUser($formFields);
+    //     Auth::guard('web')->login($user);
+    // }
 }

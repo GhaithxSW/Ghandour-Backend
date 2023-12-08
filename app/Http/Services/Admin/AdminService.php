@@ -5,16 +5,19 @@ namespace App\Http\Services\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Admin\LoginRequest;
+use Exception;
 
 class AdminService
 {
     public function login(LoginRequest $request)
     {
-        $formFields = $request->validated();
-
-        if (Auth::guard('admin')->attempt($formFields)) {
-            $request->session()->regenerate();
-            return true;
+        try {
+            $formFields = $request->validated();
+            if (Auth::guard('admin')->attempt($formFields)) {
+                $request->session()->regenerate();
+            }
+        } catch (Exception $e) {
+            throw $e;
         }
     }
 
