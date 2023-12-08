@@ -6,7 +6,6 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Services\UserService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -19,12 +18,7 @@ class UserController extends Controller
 
     public function register(UserRequest $request)
     {
-        // $this->userService->register($request);
-        $formFields = $request->validated();
-        $formFields['password'] = bcrypt($formFields['password']);
-        // $user = $this->userRepository->createUser($formFields);
-        $user = $this->userService->register($formFields);
-        Auth::guard('web')->login($user);
+        $this->userService->register($request);
         return redirect()->route('request-research');
     }
 

@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
             'name' => 'required',
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'confirmed', 'min:6'],
-            'phone' => ['required', 'min:10', 'numeric']
+            'phone' => ['nullable', 'min:10', 'numeric']
         ];
     }
 
@@ -41,7 +41,6 @@ class UserRequest extends FormRequest
             'password.required' => __('trans.password_required'),
             'password.confirmed' => __('trans.password_confirmed'),
             'password.min' => __('trans.password_min'),
-            'phone.required' => __('trans.phone_required'),
             'phone.min' => __('trans.phone_min'),
             'phone.numeric' => __('trans.phone_numeric')
         ];
