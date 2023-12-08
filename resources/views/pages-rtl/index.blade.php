@@ -376,7 +376,7 @@
                         <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}""
                             class="card-img-top" alt="..." style="height: 210px">
                         <h5 class="m-3">{{ $research->title }}</h5>
-                        <a href="#" class="btn btn-secondary m-auto">{{ __('trans.read') }}</a>
+                        <a href="/research/{{ $research->id }}" class="btn btn-secondary m-auto">{{ __('trans.read') }}</a>
                     </div>
                 </div>
             @endforeach

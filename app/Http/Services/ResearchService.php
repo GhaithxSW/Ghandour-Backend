@@ -17,4 +17,9 @@ class ResearchService
     {
         return $this->researchRepository->getAllResearches();
     }
+
+    public function viewResearch($id)
+    {
+        return $this->researchRepository->getResearchById($id);
+    }
 }

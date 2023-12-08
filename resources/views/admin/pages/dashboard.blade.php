@@ -278,7 +278,7 @@
                 ]);
 
                 var options = {
-                    title: 'الاحصائيات',
+                    // title: 'الاحصائيات',
                     pieHole: 0.4,
                 };
 
@@ -371,7 +371,7 @@
                 ]);
 
                 var options = {
-                    title: 'الطلبات',
+                    // title: 'الطلبات',
                     // sliceVisibilityThreshold: .2,
                     // colors: ['green', 'orange', 'red', 'lightgray']
                     colors: ['green', 'orange', 'red']

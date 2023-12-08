@@ -20,4 +20,10 @@ class ResearchController extends Controller
         $locale = App::getLocale();
         return ($locale == 'en') ? view('pages.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]) : view('pages-rtl.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]);
     }
+
+    public function showResearch($id)
+    {
+        $research = $this->researchService->viewResearch($id);
+        return view('pages.research-details', ['title' => __('trans.bhoothat')], ['research' => $research]);
+    }
 }

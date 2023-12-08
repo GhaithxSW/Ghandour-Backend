@@ -76,7 +76,7 @@
 
     <div class="footer-section f-section-1 text-center">
         <p class=""><b>Copyright © <span class="dynamic-year">2023</span> <a target="_blank"
-                    href="/test">{{ __('trans.bhoothat') }}</a> <span class="text-links">,
+                    href="/">{{ __('trans.bhoothat') }}</a> <span class="text-links">,
                     {{ __('trans.rights') }}</span></b></p>
     </div>
 </div>
