@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\LoginRequest;
+use App\Http\Requests\Admin\AdminRequest;
 use App\Http\Services\Admin\AdminService;
 use App\Http\Services\Admin\OrderService;
 use App\Http\Services\Admin\ResearchService;
@@ -27,32 +26,17 @@ class AdminController extends Controller
 
     public function dashboard()
     {
+        $admins = $this->adminService->admins();
         $users = $this->userService->users();
         $orders = $this->orderService->orders();
         $researches = $this->researchService->researches();
 
         return view('admin.pages.dashboard', ['title' => 'لوحة التحكم'], [
+            'admins' => $admins,
             'users' => $users,
             'orders' => $orders,
             'researches' => $researches,
         ]);
-    }
-
-    public function viewSignIn()
-    {
-        return view('admin.pages.authentication.boxed.signin', ['title' => 'تسجيل الدخول']);
-    }
-
-    public function login(LoginRequest $request)
-    {
-        $this->adminService->login($request);
-        return redirect()->route('dashboard');
-    }
-
-    public function logout(Request $request)
-    {
-        $this->adminService->logout($request);
-        return redirect()->route('admin-sign-in');
     }
 
     public function redirectToDashboard()
@@ -60,40 +44,38 @@ class AdminController extends Controller
         return redirect()->route('dashboard');
     }
 
-    // public function charts()
-    // {
-    //     $services = Service::all();
-    //     $subCategories = SubCategory::all();
-    //     $categories = Category::all();
-    //     $clients = Client::all();
-    //     $maintenances = MaintenanceTechnician::all();
-    //     $maintenancesJoinRequests = MaintenanceTechnician::where('is_verified', 0)->get();
+    public function admins()
+    {
+        $admins = $this->adminService->admins();
+        return view('admin.pages.admins.all', ['title' => 'الأدمن'], ['admins' => $admins]);
+    }
 
-    //     $orders = Order::all();
-    //     $finished = Order::where('status', OrderStatus::finished)->get();
-    //     $processing = Order::where('status', OrderStatus::processing)->get();
-    //     $canceled = Order::where('status', OrderStatus::canceled)->get();
-    //     $other = Order::whereIn('status', [OrderStatus::newOrder, OrderStatus::pendingClientApprove, OrderStatus::pendingClientApproveFinish, OrderStatus::pendingMaintenanceConfirm])->get();
+    public function viewAddAdmin()
+    {
+        return view('admin.pages.admins.add', ['title' => 'إضافة أدمن']);
+    }
 
-    //     $totalPrice = 0.0;
-    //     foreach ($orders as $order) {
-    //         foreach ($order->orderServices as $orderService) {
-    //             $totalPrice += $orderService->service->price * $orderService->quantity;
-    //         }
-    //     }
+    public function storeAdmin(AdminRequest $request)
+    {
+        $this->adminService->storeAdmin($request);
+        return redirect()->back()->with('success', 'تمت اضافة الأدمن بنجاح');
+    }
 
-    //     return view('dashboard', [
-    //         'services' => $services,
-    //         'subCategories' => $subCategories,
-    //         'categories' => $categories,
-    //         'clients' => $clients,
-    //         'maintenances' => $maintenances,
-    //         'maintenancesJoinRequests' => $maintenancesJoinRequests,
-    //         'finished' => $finished,
-    //         'processing' => $processing,
-    //         'canceled' => $canceled,
-    //         'other' => $other,
-    //         'totalPrice' => $totalPrice,
-    //     ]);
-    // }
+    public function viewUpdateAdmin($id)
+    {
+        $admin = $this->adminService->adminDetails($id);
+        return view('admin.pages.admins.edit', ['title' => 'تعديل الأدمن'], ['admin' => $admin]);
+    }
+
+    public function updateAdmin(AdminRequest $request, $id)
+    {
+        $this->adminService->updateAdmin($request, $id);
+        return redirect()->back()->with('success', 'تم تعديل الأدمن بنجاح');
+    }
+
+    public function deleteAdmin($id)
+    {
+        $this->adminService->deleteAdmin($id);
+        return redirect()->back()->with('success', 'تم حذف الأدمن بنجاح');
+    }
 }

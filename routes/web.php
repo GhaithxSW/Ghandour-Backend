@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ResearchController;
@@ -64,10 +65,19 @@ Route::prefix('admin-panel-management')->group(function () {
             Route::delete('/research/{id}/delete', 'deleteResearch')->name('delete-research');
         });
 
-        Route::controller(AdminController::class)->group(function () {
-            Route::get('/', 'redirectToDashboard');
-            Route::get('/dashboard', 'dashboard')->name('dashboard');
+        Route::controller(AuthController::class)->group(function () {
             Route::post('/logout', 'logout')->name('admin-logout');
+        });
+
+        Route::controller(AdminController::class)->group(function () {
+            Route::get('/dashboard', 'dashboard')->name('dashboard');
+            Route::get('/', 'redirectToDashboard');
+            Route::get('/admins', 'admins');
+            Route::get('/admin/add', 'viewAddAdmin');
+            Route::post('/admin/store', 'storeAdmin');
+            Route::get('/admin/{id}/edit', 'viewUpdateAdmin');
+            Route::put('/admin/{id}/update', 'updateAdmin');
+            Route::delete('/admin/{id}/delete', 'deleteAdmin')->name('delete-admin');
         });
 
         Route::controller(AdminUserController::class)->group(function () {
@@ -87,7 +97,7 @@ Route::prefix('admin-panel-management')->group(function () {
         });
     });
 
-    Route::controller(AdminController::class)->group(function () {
+    Route::controller(AuthController::class)->group(function () {
         Route::get('/sign-in', 'viewSignIn')->name('admin-sign-in');
         Route::post('/login', 'login')->name('admin-login');
     });

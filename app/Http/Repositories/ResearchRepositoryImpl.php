@@ -8,7 +8,7 @@ class ResearchRepositoryImpl implements ResearchRepository
 {
     public function getAllResearches()
     {
-        return Research::paginate(4);
+        return Research::orderBy('id', 'desc')->paginate(4);
     }
 
     public function getResearchById($id)

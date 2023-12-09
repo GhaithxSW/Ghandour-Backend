@@ -54,10 +54,12 @@
                 </div>
 
                 <div class="col">
-                    <label for="content" class="form-label">محتوى البحث</label>
-                    <textarea type="text" name="content" class="form-control" placeholder="ادخل محتوى البحث">{{ $research->content }}</textarea>
+                    <div class="col-sm-12">
+                        <label for="content" class="form-label">محتوى البحث</label>
+                        <textarea type="text" name="content" class="form-control text-right" id="description">{{ $research->content }}</textarea>
+                    </div>
                     @error('content')
-                        <p class="m-2 text-red-600" style="color: red">محتوى البحث مطلوب</p>
+                        <p class="mt-2">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -73,6 +75,16 @@
 
     <x-slot:footerFiles>
         @vite(['public/plugins-rtl/table/datatable/datatables.js'])
+
+        <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#description'))
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
+
     </x-slot>
 
 </x-admin.base-layout>

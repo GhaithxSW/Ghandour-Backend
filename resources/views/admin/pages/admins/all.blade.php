@@ -26,47 +26,32 @@
         @endif
 
         <div class="mt-4 mb-4">
-            <a href="/admin-panel-management/research/add" class="btn btn-secondary">اضافة بحث جديد</a>
+            <a href="/admin-panel-management/admin/add" class="btn btn-secondary">اضافة أدمن جديد</a>
         </div>
 
         <div class="table-responsive bg-white">
             <table class="table table-hover table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th class="text-center">رقم البحث</th>
-                        <th class="text-center">عنوان البحث</th>
-                        <th class="text-center">صورة البحث</th>
-                        <th class="text-center">محتوى البحث</th>
+                        <th class="text-center">رقم الأدمن</th>
+                        <th class="text-center">اسم الأدمن</th>
                         <th class="text-center">خيارات</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @if (count($researches))
-                        @foreach ($researches as $research)
+                    @if (count($admins))
+                        @foreach ($admins as $admin)
                             <tr style="pointer-events: none">
-                                <td class="text-center">{{ $research->id }}</td>
-                                <td class="text-center">{{ $research->title }}</td>
+                                <td class="text-center">{{ $admin->id }}</td>
+                                <td class="text-center">{{ $admin->username }}</td>
                                 <td class="text-center">
-                                    <div class="d-flex justify-content-left align-items-center">
-                                        <div class="avatar me-3">
-                                            <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}"
-                                                alt="Avatar" width="64" height="64"
-                                                style="border-radius: 20px">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">{!! substr($research->content, 0, 15)  !!}...</td>
-                                <td class="text-center">
-                                    <a href="/admin-panel-management/research/{{ $research->id }}/details"
-                                        class="btn btn-primary" style="pointer-events: fill">التفاصيل</a>
-                                    <a href="/admin-panel-management/research/{{ $research->id }}/edit"
+                                    <a href="/admin-panel-management/admin/{{ $admin->id }}/edit"
                                         class="btn btn-success" style="pointer-events: fill">تعديل</a>
-                                    <form method="POST"
-                                        action="{{ route('delete-research', ['id' => $research->id]) }}"
+                                    <form method="POST" action="{{ route('delete-admin', ['id' => $admin->id]) }}"
                                         class="btn btn-danger" style="pointer-events: fill">
                                         @method('DELETE')
                                         @csrf
-                                        <x-dropdown-link :href="route('delete-research', ['id' => $research->id])"
+                                        <x-dropdown-link :href="route('delete-admin', ['id' => $admin->id])"
                                             onclick="event.preventDefault();
                                                         this.closest('form').submit();"
                                             style="color: white">
@@ -79,10 +64,10 @@
                     @endif
                 </tbody>
             </table>
-            @if (!count($researches))
+            @if (!count($admins))
                 <div class="m-3" style="pointer-events: none">
                     <div class="text-center">
-                        <h5>لا يوجد ابحاث</h5>
+                        <h5>لا يوجد أدمن</h5>
                     </div>
                 </div>
             @endif

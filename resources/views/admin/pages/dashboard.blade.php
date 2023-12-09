@@ -158,6 +158,23 @@
         </div> --}}
 
         <div class="container row m-auto">
+
+            <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                <a href="/admin-panel-management/researches">
+                    <div class="card bg-dark">
+                        <div class="card-body pt-3">
+                            <p class="card-title mb-3" style="font-size: 20px">الابحاث</p>
+                            <p class="card-text text-center" style="font-size: 25px">
+                                <b>{{ count($researches) }}</b>
+                            </p>
+                        </div>
+                        <div class="card-footer px-4 pt-0 border-0">
+                            <p>اضغط هنا لرؤية الابحاث</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
                 <a href="/admin-panel-management/orders">
                     <div class="card bg-secondary">
@@ -191,32 +208,16 @@
             </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="/admin-panel-management/researches">
-                    <div class="card bg-dark">
-                        <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 20px">الابحاث</p>
-                            <p class="card-text text-center" style="font-size: 25px">
-                                <b>{{ count($researches) }}</b>
-                            </p>
-                        </div>
-                        <div class="card-footer px-4 pt-0 border-0">
-                            <p>اضغط هنا لرؤية الابحاث</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="/orders">
+                <a href="/admin-panel-management/admins">
                     <div class="card bg-danger">
                         <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 20px">اجمالي مبلغ الطلبات</p>
+                            <p class="card-title mb-3" style="font-size: 20px">الأدمن</p>
                             <p class="card-text text-center" style="font-size: 25px">
-                                <b>$600</b>
+                                <b>{{ count($admins) }}</b>
                             </p>
                         </div>
                         <div class="card-footer px-4 pt-0 border-0">
-                            <p>اضغط هنا لرؤية الطلبات</p>
+                            <p>اضغط هنا لرؤية الأدمن</p>
                         </div>
                     </div>
                 </a>
@@ -310,9 +311,8 @@
                     }, {
                         role: 'link'
                     }],
+                    ['الأبحاث', <?php echo count($researches); ?>, 'silver', '/admin-panel-management/researches']
                     ['الطلبات', <?php echo count($orders); ?>, '#b87333', '/admin-panel-management/orders'],
-                    ['الأبحاث', <?php echo count($researches); ?>, 'silver', '/admin-panel-management/researches'],
-                    ['المستخدمين', <?php echo count($users); ?>, 'gold', '/admin-panel-management/users'],
                 ]);
 
                 var view = new google.visualization.DataView(data);
@@ -365,9 +365,8 @@
                 data.addColumn('number', 'Populartiy');
                 data.addColumn(['string', 'Link']);
                 data.addRows([
-                    ['الطلبات', <?php echo count($orders); ?>, '/admin-panel-management/orders'],
-                    ['الأبحاث', <?php echo count($researches); ?>, '/admin-panel-management/researches'],
                     ['المستخدمين', <?php echo count($users); ?>, '/admin-panel-management/users'],
+                    ['الأدمن', <?php echo count($admins); ?>, '/admin-panel-management/admins']
                 ]);
 
                 var options = {

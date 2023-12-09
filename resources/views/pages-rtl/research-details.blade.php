@@ -13,7 +13,7 @@
                         <div class="featured-image-overlay"></div>
                         <div class="post-header">
                             <div class="post-title">
-                                <h1 class="mb-0">{{ __('trans.research_topic') }}</h1>
+                                <h1 class="mb-0">{{ $research->title }}</h1>
                             </div>
                             <div class="post-meta-info d-flex justify-content-between">
                                 <div class="media">
@@ -42,8 +42,8 @@
                         </div>
                     </div>
                     <div class="post-content">
-                        <p class="mb-5">{{ $research->content }}</p>
-                        <a href="/" class="btn btn-secondary">{{ __('trans.back') }}</a>
+                        <p class="mb-5">{!! $research->content !!}</p>
+                        <a href="/" class="btn btn-secondary mt-4">{{ __('trans.back') }}</a>
                     </div>
                 </div>
             </div>

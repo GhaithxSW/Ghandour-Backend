@@ -27,37 +27,38 @@
                 </div>
             @endif
 
-            <form method="POST" action="/admin-panel-management/research/store" class="row g-3 card" style="padding: 20px"
+            {{-- @if ($errors->any())
+                <div style="color: red;">
+                    <strong>Validation errors:</strong>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif --}}
+
+            <form method="POST" action="/admin-panel-management/admin/store" class="row g-3 card" style="padding: 20px"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="col">
-                    <label for="title" class="form-label">عنوان البحث</label>
-                    <input type="text" name="title" class="form-control" placeholder="ادخل عنوان البحث">
-                    @error('title')
+                    <label for="username" class="form-label">اسم المستخدم</label>
+                    <input type="text" name="username" class="form-control" placeholder="ادخل اسم المستخدم">
+                    @error('username')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="col">
-                    <label for="image" class="form-label">صورة البحث</label>
-                    <input type="file" name="image" class="form-control" placeholder="ادخل صورة البحث">
-                    @error('image')
+                    <label for="password" class="form-label">كلمة المرور</label>
+                    <input type="password" name="password" class="form-control" placeholder="ادخل كلمة المرور">
+                    @error('password')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="col">
-                    <div class="col-sm-12">
-                        <label for="content" class="form-label">محتوى البحث</label>
-                        <textarea type="text" name="content" class="form-control text-right" id="description"></textarea>
-                    </div>
-                    @error('content')
-                        <p class="mt-2">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="col">
-                    <a href="/admin-panel-management/researches" class="btn btn-secondary m-1">رجوع</a>
+                    <a href="/admin-panel-management/admins" class="btn btn-secondary m-1">رجوع</a>
                     <button type="submit" class="btn btn-success m-1">اضافة</button>
                 </div>
             </form>
@@ -68,16 +69,6 @@
 
     <x-slot:footerFiles>
         @vite(['public/plugins-rtl/table/datatable/datatables.js'])
-
-        <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('#description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
-
     </x-slot>
 
 </x-admin.base-layout>
