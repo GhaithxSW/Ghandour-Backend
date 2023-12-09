@@ -78,85 +78,6 @@
 
     <div class="dashboard">
 
-        {{-- <div class="row layout-top-spacing">
-
-            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                <x-widgets._w-six title="الاحصائيات" />
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                <x-widgets._w-card-four title="Expenses" />
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                <x-widgets._w-card-three title="Total Balance" />
-            </div>
-
-            <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                <x-widgets._w-chart-three title="Unique Visitors" />
-            </div>
-
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                <x-widgets._w-activity-five title="Activity Log" />
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                <x-widgets._w-four title="Visitors by Browser" />
-            </div>
-
-            <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
-                <x-widgets._w-hybrid-one title="Followers" chart-id="hybrid_followers" />
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                <x-widgets._w-five title="Figma Design" />
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                <x-widgets._w-card-one title="Jimmy Turner" />
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                <x-widgets._w-card-two title="Dev Summit - New York" />
-            </div>
-
-        </div> --}}
-
-        {{-- <div class="m-4">
-            <div class="row">
-                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="/admin-panel-management/requests" class="card style-2 mb-md-0 mb-4">
-                        <img src="{{ Vite::asset('resources/images/requests.png') }}" class="card-img-top"
-                            alt="..." style="height: 210px">
-                        <div class="card-body px-0 pb-0 text-center">
-                            <h5 class="card-title mb-3 font-bg">الطلبات</h5>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="/admin-panel-management/users" class="card style-2 mb-md-0 mb-4">
-                        <img src="{{ Vite::asset('resources/images/users.jpeg') }}" class="card-img-top" alt="..."
-                            style="height: 210px">
-                        <div class="card-body px-0 pb-0 text-center">
-                            <h5 class="card-title mb-3 font-bg">المستخدمين</h5>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="/admin-panel-management/users" class="card style-2 mb-md-0 mb-4">
-                        <img src="{{ Vite::asset('resources/images/users.jpeg') }}" class="card-img-top" alt="..."
-                            style="height: 210px">
-                        <div class="card-body px-0 pb-0 text-center">
-                            <h5 class="card-title mb-3 font-bg">الابحاث</h5>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-        </div> --}}
-
         <div class="container row m-auto">
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
@@ -208,21 +129,28 @@
             </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="/admin-panel-management/admins">
+                <a href="/admin-panel-management/members">
                     <div class="card bg-danger">
                         <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 20px">الأدمن</p>
+                            <p class="card-title mb-3" style="font-size: 20px">الموظفين</p>
                             <p class="card-text text-center" style="font-size: 25px">
-                                <b>{{ count($admins) }}</b>
+                                <b>{{ count($members) }}</b>
                             </p>
                         </div>
                         <div class="card-footer px-4 pt-0 border-0">
-                            <p>اضغط هنا لرؤية الأدمن</p>
+                            <p>اضغط هنا لرؤية الموظفين</p>
                         </div>
                     </div>
                 </a>
             </div>
+
         </div>
+
+
+
+        {{-- <div class="container mt-4 row">
+            <div id="columnchart" style="width: 800px; height: 400px; margin-right: 200px"></div>
+        </div> --}}
 
         <div class="row mr-3 ml-3 mb-4 mt-4 text">
             <div class="col">
@@ -307,7 +235,8 @@
                 data.addColumn(['string', 'Link']);
                 data.addRows([
                     ['المستخدمين', <?php echo count($users); ?>, '/admin-panel-management/users'],
-                    ['الأدمن', <?php echo count($admins); ?>, '/admin-panel-management/admins']
+                    ['الأدمن', <?php echo count($admins); ?>, '/admin-panel-management/admins'],
+                    ['الموظفين', <?php echo count($members); ?>, '/admin-panel-management/members']
                 ]);
 
                 var options = {
@@ -331,60 +260,61 @@
             }
         </script>
 
-        //
         <script type="text/javascript">
-            //     google.charts.load("current", {
-            //         packages: ['corechart']
-            //     });
-            //     google.charts.setOnLoadCallback(drawChart);
+            google.charts.load("current", {
+                packages: ['corechart']
+            });
+            google.charts.setOnLoadCallback(drawChart);
 
-            //     function drawChart() {
-            //         var data = google.visualization.arrayToDataTable([
-            //             ['User Type', 'Count', {
-            //                 role: 'style',
-            //             }, {
-            //                 role: 'link'
-            //             }],
-            //             ['الأبحاث', <?php echo count($researches); ?>, 'silver', '/admin-panel-management/researches']
-            //             ['الطلبات', <?php echo count($orders); ?>, '#b87333', '/admin-panel-management/orders'],
-            //         ]);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['User Type', 'Count', {
+                        role: 'style',
+                    }, {
+                        role: 'link'
+                    }],
+                    ['الأبحاث', <?php echo count($researches); ?>, '#b87333', '/admin-panel-management/researches'],
+                    ['الطلبات', <?php echo count($orders); ?>, '#b87333', '/admin-panel-management/orders'],
+                    ['المستخدمين', <?php echo count($users); ?>, '#b87333', '/admin-panel-management/users'],
+                    ['الموظفين', <?php echo count($members); ?>, 'silver', '/admin-panel-management/members'],
+                    ['الأدمن', <?php echo count($admins); ?>, 'silver', '/admin-panel-management/admins'],
+                ]);
 
-            //         var view = new google.visualization.DataView(data);
-            //         view.setColumns([0, 1,
-            //             {
-            //                 calc: "stringify",
-            //                 sourceColumn: 1,
-            //                 type: "string",
-            //                 role: "annotation"
-            //             },
-            //             2
-            //         ]);
+                var view = new google.visualization.DataView(data);
+                view.setColumns([0, 1,
+                    {
+                        calc: "stringify",
+                        sourceColumn: 1,
+                        type: "string",
+                        role: "annotation"
+                    },
+                    2
+                ]);
 
-            //         var options = {
-            //             title: "Users",
-            //             width: 600,
-            //             height: 400,
-            //             bar: {
-            //                 groupWidth: "95%"
-            //             },
-            //             legend: {
-            //                 position: "none"
-            //             },
-            //         };
-            //         var chart = new google.visualization.ColumnChart(document.getElementById("columnchart"));
+                var options = {
+                    title: "Users",
+                    width: 600,
+                    height: 400,
+                    bar: {
+                        groupWidth: "95%"
+                    },
+                    legend: {
+                        position: "none"
+                    },
+                };
+                var chart = new google.visualization.ColumnChart(document.getElementById("columnchart"));
 
-            //         google.visualization.events.addListener(chart, 'select', function() {
-            //             var selection = chart.getSelection();
-            //             if (selection.length > 0) {
-            //                 var row = selection[0].row;
-            //                 var url = data.getValue(row, 3);
-            //                 window.location.href = url;
-            //             }
-            //         });
+                google.visualization.events.addListener(chart, 'select', function() {
+                    var selection = chart.getSelection();
+                    if (selection.length > 0) {
+                        var row = selection[0].row;
+                        var url = data.getValue(row, 3);
+                        window.location.href = url;
+                    }
+                });
 
-            //         chart.draw(view, options);
-            //     }
-            //
+                chart.draw(view, options);
+            }
         </script>
 
     </x-slot>

@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\AdminRequest;
 use App\Http\Services\Admin\AdminService;
 use App\Http\Services\Admin\OrderService;
 use App\Http\Services\Admin\ResearchService;
+use App\Http\Services\Admin\TeamService;
 use App\Http\Services\Admin\UserService;
 
 class AdminController extends Controller
@@ -15,13 +16,15 @@ class AdminController extends Controller
     private UserService $userService;
     private OrderService $orderService;
     private ResearchService $researchService;
+    private TeamService $teamService;
 
-    public function __construct(AdminService $adminService, UserService $userService, OrderService $orderService, ResearchService $researchService)
+    public function __construct(AdminService $adminService, UserService $userService, OrderService $orderService, ResearchService $researchService, TeamService $teamService)
     {
         $this->adminService = $adminService;
         $this->userService = $userService;
         $this->orderService = $orderService;
         $this->researchService = $researchService;
+        $this->teamService = $teamService;
     }
 
     public function dashboard()
@@ -30,12 +33,14 @@ class AdminController extends Controller
         $users = $this->userService->users();
         $orders = $this->orderService->orders();
         $researches = $this->researchService->researches();
+        $members = $this->teamService->members();
 
         return view('admin.pages.dashboard', ['title' => 'لوحة التحكم'], [
             'admins' => $admins,
             'users' => $users,
             'orders' => $orders,
             'researches' => $researches,
+            'members' => $members,
         ]);
     }
 

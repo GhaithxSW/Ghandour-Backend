@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\Admin\TeamService;
 use App\Http\Services\ResearchService;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
@@ -9,18 +10,21 @@ use Illuminate\Support\Facades\Artisan;
 class HomeController extends Controller
 {
     private ResearchService $researchService;
+    private TeamService $teamService;
 
-    public function __construct(ResearchService $researchService)
+    public function __construct(ResearchService $researchService, TeamService $teamService)
     {
         $this->researchService = $researchService;
+        $this->teamService = $teamService;
     }
 
     public function index()
     {
+        $members = $this->teamService->members();
         $researches = $this->researchService->researchSamples();
         $locale = App::getLocale();
 
-        return ($locale == 'en') ? view('pages.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]) : view('pages-rtl.index', ['title' => __('trans.bhoothat')], ['researches' => $researches]);
+        return ($locale == 'en') ? view('pages.index', ['title' => __('trans.bhoothat')], ['researches' => $researches, 'members' => $members]) : view('pages-rtl.index', ['title' => __('trans.bhoothat')], ['researches' => $researches, 'members' => $members]);
     }
 
     public function requestResearch()

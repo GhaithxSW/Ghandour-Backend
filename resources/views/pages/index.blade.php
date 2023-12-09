@@ -23,6 +23,10 @@
         @vite(['resources/scss/light/assets/pages/contact_us.scss'])
         @vite(['resources/scss/dark/assets/pages/contact_us.scss'])
 
+        @vite(['resources/scss/light/assets/components/timeline.scss'])
+        @vite(['resources/scss/dark/assets/components/timeline.scss'])
+
+
         {{-- <link href="../src/assets/css/light/scrollspyNav.css" rel="stylesheet" type="text/css" />
         <link href="../src/assets/css/dark/scrollspyNav.css" rel="stylesheet" type="text/css" /> --}}
 
@@ -82,7 +86,7 @@
                 <div class="featured-image">
                     <div class="featured-image-overlay"></div>
                     <div class="post-header">
-                        <div class="post-title">
+                        <div class="post-title text-center">
                             <h1 class="mb-0 font-bg">{{ __('trans.main_content') }}</h1>
                         </div>
                         @auth
@@ -390,10 +394,119 @@
                         <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}"
                             class="card-img-top" alt="..." style="height: 210px">
                         <h5 class="m-3">{{ $research->title }}</h5>
-                        <a href="/research/{{ $research->id }}" class="btn btn-secondary m-auto">{{ __('trans.read') }}</a>
+                        <a href="/research/{{ $research->id }}"
+                            class="btn btn-secondary m-auto">{{ __('trans.read') }}</a>
                     </div>
                 </div>
             @endforeach
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card">
+            <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.our_team') }}</b></h4>
+        </div>
+    </div>
+
+    <div class="container mt-container">
+        <ul class="modern-timeline pl-0">
+            @if (count($members))
+                @foreach ($members as $member)
+                    <li>
+                        <div class="modern-timeline-badge"></div>
+                        <div class="modern-timeline-panel">
+                            <div class="modern-timeline-preview">
+                                <img src="{{ Vite::asset('public/storage/' . $member->photo) }}" alt="timeline">
+                            </div>
+                            <div class="modern-timeline-body">
+                                <p class="mb-4"><b>{{ $member->name }}</b></h4>
+                                <h4 class="mb-4">{{ $member->position }}</h4>
+                                <p>{{ $member->about }}</p>
+                                {{-- <p><a href="javascript:void(0);" class="btn btn-outline-primary mt-2">Read more</a>
+                                </p> --}}
+                            </div>
+                        </div>
+                    </li>
+                @endforeach
+            @endif
+            {{-- <li class="position-static">
+                <div class="modern-timeline-top"></div>
+            </li> --}}
+            <li class="position-static">
+                <div class="modern-timeline-bottom"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="statbox widget box box-shadow layout-top-spacing">
+        <div class="widget-content widget-content-area">
+            <div class="contact-us-form">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="paper contact-us-info-section-1">
+                            <div class="row gx-5">
+                                <div class="col-12 mb-3 text-center">
+                                    <h4 class="contact-title">{{ __('trans.contact_us') }}</h4>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 col-md-6 mb-3">
+                                    <div class="widget-paper">
+                                        <div class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-help" width="24"
+                                                height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <circle cx="12" cy="12" r="9"></circle>
+                                                <line x1="12" y1="17" x2="12" y2="17.01">
+                                                </line>
+                                                <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4"></path>
+                                            </svg>
+                                        </div>
+                                        <h5>{{ __('trans.support') }}</h5>
+                                        <p>support@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 col-md-6 mb-3">
+                                    <div class="widget-paper">
+                                        <div class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-mail" width="24"
+                                                height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path
+                                                    d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                                                <path d="M3 7l9 6l9 -6" />
+                                            </svg>
+                                        </div>
+                                        <h5>{{ __('trans.enquire') }}</h5>
+                                        <p>buhothy@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 col-md-6 mb-3 mx-auto">
+                                    <div class="widget-paper">
+                                        <div class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-phone" width="24"
+                                                height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path
+                                                    d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                                            </svg>
+                                        </div>
+                                        <h5>{{ __('trans.phone') }}</h5>
+                                        <p>+1 (218) 356 954</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

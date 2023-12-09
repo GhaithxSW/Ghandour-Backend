@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ResearchController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ResearchController as ControllersResearchController;
@@ -88,6 +89,16 @@ Route::prefix('admin-panel-management')->group(function () {
             Route::get('/user/{id}/edit', 'viewUpdateUser');
             Route::put('/user/{id}/update', 'updateUser');
             Route::delete('/user/{id}/delete', 'deleteUser')->name('delete-user');
+        });
+
+        Route::controller(TeamController::class)->group(function () {
+            Route::get('/members', 'members');
+            Route::get('/member/{id}/details', 'teamMemberDetails');
+            Route::get('/member/add', 'viewAddTeamMember');
+            Route::post('/member/store', 'storeTeamMember');
+            Route::get('/member/{id}/edit', 'viewUpdateTeamMember');
+            Route::put('/member/{id}/update', 'updateTeamMember');
+            Route::delete('/member/{id}/delete', 'deleteTeamMember')->name('delete-member');
         });
 
         Route::controller(AdminOrderController::class)->group(function () {

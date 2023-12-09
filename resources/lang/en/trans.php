@@ -73,5 +73,9 @@ return [
 
     'close' => 'Close',
     'language' => 'Language',
+    'our_team' => 'Our Team',
+    'contact_us' => 'Let\'s Contact Us',
+    'support' => 'Support',
+    'enquire' => 'Enquire',
 
 ];
