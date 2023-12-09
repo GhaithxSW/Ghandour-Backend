@@ -410,6 +410,9 @@
 
     <div class="container mt-container">
         <ul class="modern-timeline pl-0">
+            <li class="position-static">
+                <div class="modern-timeline-top"></div>
+            </li>
             @if (count($members))
                 @foreach ($members as $member)
                     <li>
@@ -429,9 +432,6 @@
                     </li>
                 @endforeach
             @endif
-            {{-- <li class="position-static">
-                <div class="modern-timeline-top"></div>
-            </li> --}}
             <li class="position-static">
                 <div class="modern-timeline-bottom"></div>
             </li>
