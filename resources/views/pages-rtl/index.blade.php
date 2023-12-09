@@ -372,7 +372,12 @@
 
     <div class="mr-4 ml-4">
         <div class="row">
-            <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4>
+            <div style="margin-top: 40px; margin-bottom: 50px">
+                <div class="card">
+                    <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4>
+                </div>
+            </div>
+            {{-- <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4> --}}
             @foreach ($researches as $research)
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto">
                     <div class="card style-2 mb-md-0 mb-4">
@@ -385,13 +390,19 @@
                 </div>
             @endforeach
         </div>
+
+        <div style="margin-top: 40px; margin-bottom: 50px">
+            <div class="card">
+                <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.our_team') }}</b></h4>
+            </div>
+        </div>
     </div>
 
-    <div class="container mt-4 mb-4">
+    {{-- <div class="container mt-4 mb-4">
         <div class="card">
             <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.our_team') }}</b></h4>
         </div>
-    </div>
+    </div> --}}
 
     <div class="container mt-container">
         <ul class="modern-timeline pl-0">
