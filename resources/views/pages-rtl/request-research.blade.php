@@ -4,6 +4,9 @@
 
     <x-slot:headerFiles>
 
+        @vite(['resources/scss/light/assets/components/modal.scss'])
+        @vite(['resources/scss/dark/assets/components/modal.scss'])
+
         <style>
             @media screen and (max-width: 990px) {
                 .font-bg {

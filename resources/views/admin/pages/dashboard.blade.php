@@ -224,18 +224,14 @@
             </div>
         </div>
 
-        <div class="row m-2">
-            <div class="col">
-                <div id="chart_div" style="width: 450px; height: 250px;" class="mb-4"></div>
-            </div>
+        <div class="row mr-3 ml-3 mb-4 mt-4 text">
             <div class="col">
                 <div id="piechart" style="width: 450px; height: 250px;" class="mb-4"></div>
             </div>
+            <div class="col">
+                <div id="chart_div" style="width: 450px; height: 250px;" class="mb-4"></div>
+            </div>
         </div>
-
-        {{-- <div class="m-auto">
-            <div id="columnchart" style="width: 100px; height: 100px;" class="mb-4"></div>
-        </div> --}}
 
     </div>
 
@@ -275,7 +271,6 @@
                     }],
                     ['الطلبات', <?php echo count($orders); ?>, '/admin-panel-management/orders'],
                     ['الابحاث', <?php echo count($researches); ?>, '/admin-panel-management/researches'],
-                    ['المستخدمين', <?php echo count($users); ?>, '/admin-panel-management/users'],
                 ]);
 
                 var options = {
@@ -295,60 +290,6 @@
                 });
 
                 chart.draw(data, options);
-            }
-        </script>
-
-        <script type="text/javascript">
-            google.charts.load("current", {
-                packages: ['corechart']
-            });
-            google.charts.setOnLoadCallback(drawChart);
-
-            function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['User Type', 'Count', {
-                        role: 'style',
-                    }, {
-                        role: 'link'
-                    }],
-                    ['الأبحاث', <?php echo count($researches); ?>, 'silver', '/admin-panel-management/researches']
-                    ['الطلبات', <?php echo count($orders); ?>, '#b87333', '/admin-panel-management/orders'],
-                ]);
-
-                var view = new google.visualization.DataView(data);
-                view.setColumns([0, 1,
-                    {
-                        calc: "stringify",
-                        sourceColumn: 1,
-                        type: "string",
-                        role: "annotation"
-                    },
-                    2
-                ]);
-
-                var options = {
-                    title: "Users",
-                    width: 600,
-                    height: 400,
-                    bar: {
-                        groupWidth: "95%"
-                    },
-                    legend: {
-                        position: "none"
-                    },
-                };
-                var chart = new google.visualization.ColumnChart(document.getElementById("columnchart"));
-
-                google.visualization.events.addListener(chart, 'select', function() {
-                    var selection = chart.getSelection();
-                    if (selection.length > 0) {
-                        var row = selection[0].row;
-                        var url = data.getValue(row, 3);
-                        window.location.href = url;
-                    }
-                });
-
-                chart.draw(view, options);
             }
         </script>
 
@@ -388,6 +329,62 @@
 
                 chart.draw(data, options);
             }
+        </script>
+
+        //
+        <script type="text/javascript">
+            //     google.charts.load("current", {
+            //         packages: ['corechart']
+            //     });
+            //     google.charts.setOnLoadCallback(drawChart);
+
+            //     function drawChart() {
+            //         var data = google.visualization.arrayToDataTable([
+            //             ['User Type', 'Count', {
+            //                 role: 'style',
+            //             }, {
+            //                 role: 'link'
+            //             }],
+            //             ['الأبحاث', <?php echo count($researches); ?>, 'silver', '/admin-panel-management/researches']
+            //             ['الطلبات', <?php echo count($orders); ?>, '#b87333', '/admin-panel-management/orders'],
+            //         ]);
+
+            //         var view = new google.visualization.DataView(data);
+            //         view.setColumns([0, 1,
+            //             {
+            //                 calc: "stringify",
+            //                 sourceColumn: 1,
+            //                 type: "string",
+            //                 role: "annotation"
+            //             },
+            //             2
+            //         ]);
+
+            //         var options = {
+            //             title: "Users",
+            //             width: 600,
+            //             height: 400,
+            //             bar: {
+            //                 groupWidth: "95%"
+            //             },
+            //             legend: {
+            //                 position: "none"
+            //             },
+            //         };
+            //         var chart = new google.visualization.ColumnChart(document.getElementById("columnchart"));
+
+            //         google.visualization.events.addListener(chart, 'select', function() {
+            //             var selection = chart.getSelection();
+            //             if (selection.length > 0) {
+            //                 var row = selection[0].row;
+            //                 var url = data.getValue(row, 3);
+            //                 window.location.href = url;
+            //             }
+            //         });
+
+            //         chart.draw(view, options);
+            //     }
+            //
         </script>
 
     </x-slot>

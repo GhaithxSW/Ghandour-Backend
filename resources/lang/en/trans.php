@@ -71,4 +71,7 @@ return [
     'email_validation' => 'Email address not correct',
     'email_unique' => 'Email address already exist',
 
+    'close' => 'Close',
+    'language' => 'Language',
+
 ];
