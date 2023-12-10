@@ -5,13 +5,13 @@ body.layout-dark {
     background-color: #0e1726;
     // border-radius: 20px;
     border: 1px solid #0e1726;
-    padding: 32px;
+    padding: 15px;
   }
 
   .featured-image {
     position: relative;
     background: lightblue url("../../../../images/bg-new.jpg") no-repeat fixed center;
-    height: 675px;
+    height: 700px;
     background-position: center;
     background-size: cover;
     background-attachment: inherit;
@@ -161,7 +161,7 @@ body.layout-dark {
 
   @media (max-width: 991px) {
     .featured-image {
-      height: 350px;
+      height: 400px;
 
       .post-title, .post-meta-info {
         padding: 24px 26px;
@@ -169,7 +169,7 @@ body.layout-dark {
     }
 
     .post-content, .post-info {
-      padding: 24px 26px;
+      padding: 5px 5px;
     }
 
     .post-content {

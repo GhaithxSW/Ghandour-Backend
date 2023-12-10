@@ -2,7 +2,7 @@
 
 return [
 
-    'bhoothat' => 'Bhoothat',
+    'bhoothat' => 'Buhothy',
     'login' => 'Log In',
     'logout' => 'Log Out',
     'social_links' => 'Social Links',
@@ -27,7 +27,7 @@ return [
 
     'main_content' => 'Our website offers comprehensive educational services, granting easy access to a wealth of resources and learning opportunities. Request the research paper now to explore these valuable resources.',
     'request_btn' => 'Request from here',
-    'samples' => 'Samples of researches',
+    'samples' => 'Research Samples',
 
     'read' => 'Read',
     'p2w' => 'Convert PDF files to Word',

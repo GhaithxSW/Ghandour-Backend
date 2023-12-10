@@ -4,9 +4,41 @@
 
     <x-slot:headerFiles>
 
+        @vite(['resources/scss/light/assets/components/modal.scss'])
+        @vite(['resources/scss/dark/assets/components/modal.scss'])
+
+        <style>
+            .research-responsive {
+                margin-top: 40px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .post-content-responsive-new {
+                padding: 50px;
+            }
+
+            @media (max-width: 400px) {
+                .research-responsive {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+
+                .hide-div {
+                    display: none;
+                }
+
+                .post-content-responsive-new {
+                    padding: 5px;
+                }
+            }
+        </style>
+
     </x-slot>
 
-    <div class="m-4">
+    <div class="research-responsive">
         <div class="row layout-top-spacing">
             <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
                 <div class="single-post-content" style="border-radius: 20px">
@@ -21,12 +53,12 @@
                                 <div class="media">
                                     <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}"
                                         alt="...">
-                                    <div class="media-body">
+                                    <div class="media-body hide-div">
                                         <h5>Kelly Young</h5>
                                         <p>{{ $research->created_at->format('d M Y') }}</p>
                                     </div>
                                 </div>
-                                <div class="align-self-center">
+                                <div class="align-self-center hide-div">
                                     <button class="btn btn-success btn-icon btn-share btn-rounded">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -43,9 +75,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="post-content">
-                        <p class="mb-5">{!! $research->content !!}</p>
-                        <a href="/" class="btn btn-secondary">{{ __('trans.back') }}</a>
+                    {{-- <div class="post-content"> --}}
+                    <div class="post-content-responsive-new">
+                        <p>{!! $research->content !!}</p>
+                        <a href="/" class="btn btn-secondary mt-3">{{ __('trans.back') }}</a>
                     </div>
                 </div>
             </div>

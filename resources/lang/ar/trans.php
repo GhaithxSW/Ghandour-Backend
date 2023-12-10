@@ -2,7 +2,7 @@
 
 return [
 
-    'bhoothat' => 'بحوثات',
+    'bhoothat' => 'بحوثي',
     'login' => 'تسجيل دخول',
     'logout' => 'تسجيل خروج',
     'social_links' => 'روابط التواصل',
