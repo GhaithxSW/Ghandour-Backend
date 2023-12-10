@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li class="nav-item theme-text them-text-new">
-                <a href="/admin-panel-management/dashboard" class="nav-link" style="font-size: 20px"> <b>{{ __('trans.bhoothat') }}</b> </a>
+                <a href="/admin-panel-management/dashboard" class="nav-link" style="font-size: 20px"> <b>بحوثي</b> </a>
             </li>
         </ul>
         <ul class="navbar-item flex-row ms-lg-auto ms-0 action-area">
