@@ -6,6 +6,8 @@
 
         @vite(['resources/scss/light/assets/components/modal.scss'])
         @vite(['resources/scss/dark/assets/components/modal.scss'])
+        @vite(['resources/scss/light/assets/elements/alert.scss'])
+        @vite(['resources/scss/dark/assets/elements/alert.scss'])
 
         <style>
             @media screen and (max-width: 990px) {
@@ -37,11 +39,11 @@
 
     </x-slot>
 
-
     <div class="container" style="padding: 5%">
 
         @if (session('success'))
-            <div class="alert alert-success text-center mb-4" style="font-size: 20px">
+            <div class="alert alert-gradient alert-dismissible fade show mb-4 text-center" role="alert"
+                style="font-size: 20px">
                 {{ __('trans.msg_request_success') }}
             </div>
         @endif
