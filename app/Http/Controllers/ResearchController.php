@@ -26,7 +26,5 @@ class ResearchController extends Controller
         $research = $this->researchService->viewResearch($id);
         $locale = App::getLocale();
         return ($locale == 'en') ? view('pages.research-details', ['title' => __('trans.bhoothat')], ['research' => $research]) : view('pages-rtl.research-details', ['title' => __('trans.bhoothat')], ['research' => $research]);
-
-        // return view('pages.research-details', ['title' => __('trans.bhoothat')], ['research' => $research]);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\LoginRequest;
 use App\Http\Services\Admin\AuthService;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -31,5 +32,15 @@ class AuthController extends Controller
     {
         $this->authService->logout($request);
         return redirect()->route('admin-sign-in');
+    }
+
+    public function redirectPage()
+    {
+        if (Auth::guard('admin')->user())
+        {
+            return redirect()->route('dashboard');
+        } else {
+            return redirect()->route('admin-sign-in');
+        }
     }
 }

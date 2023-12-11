@@ -47,7 +47,7 @@
                                 <td class="text-center">{{ $user->id }}</td>
                                 <td class="text-center">{{ $user->name }}</td>
                                 <td class="text-center">{{ $user->email }}</td>
-                                <td class="text-center">{{ $user->phone }}</td>
+                                <td class="text-center">{{ $user->phone ? $user->phone : 'لا يوجد' }}</td>
                                 <td class="text-center">
                                     <a href="/admin-panel-management/user/{{ $user->id }}/details"
                                         class="btn btn-primary" style="pointer-events: fill">التفاصيل</a>
