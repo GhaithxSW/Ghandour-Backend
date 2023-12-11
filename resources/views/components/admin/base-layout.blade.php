@@ -122,7 +122,7 @@
     <!--  END LOADER -->
 
     <!--  BEGIN NAVBAR  -->
-    @auth
+    @auth('admin')
         <x-admin.navbar />
     @endauth
     <!--  END NAVBAR  -->
@@ -135,13 +135,13 @@
         <!--  END LOADER  -->
 
         <!--  BEGIN SIDEBAR  -->
-        @auth
+        @auth('admin')
             <x-admin.sidebar />
         @endauth
         <!--  END SIDEBAR  -->
 
         <!--  BEGIN CONTENT AREA  -->
-        @auth
+        @auth('admin')
             <div id="content" class="main-content">
                 <div class="contaienr">
                     <div class="contaienr">

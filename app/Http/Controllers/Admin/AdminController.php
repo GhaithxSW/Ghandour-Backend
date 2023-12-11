@@ -9,7 +9,6 @@ use App\Http\Services\Admin\OrderService;
 use App\Http\Services\Admin\ResearchService;
 use App\Http\Services\Admin\TeamService;
 use App\Http\Services\Admin\UserService;
-use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -43,15 +42,6 @@ class AdminController extends Controller
             'researches' => $researches,
             'members' => $members,
         ]);
-    }
-
-    public function redirectToDashboard()
-    {
-        if (Auth::guard('admin')->user()) {
-            return redirect()->route('dashboard');
-        } else {
-            return redirect()->route('admin-sign-in');
-        }
     }
 
     public function admins()

@@ -45,9 +45,9 @@
             </li>
         </ul>
         <ul class="navbar-item flex-row ms-lg-auto ms-0 action-area">
-            @auth
+            @auth('admin')
                 <li class="nav-item theme-toggle-item theme-auth-new">
-                    <a href="#">{{ Auth::user()->username }}</a>
+                    <a href="#">{{ auth('admin')->user()->username }}</a>
                 </li>
                 <li class="nav-item theme-toggle-item theme-auth-new">
                     <form method="POST" action="/admin-panel-management/logout">

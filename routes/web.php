@@ -36,7 +36,7 @@ Route::group(
         Route::get('/', [HomeController::class, 'index'])->name('index');
         Route::get('/research/{id}', [ControllersResearchController::class, 'showResearch']);
 
-        Route::middleware(['auth:web'])->group(function () {
+        Route::middleware(['auth.check:web'])->group(function () {
             Route::controller(OrderController::class)->group(function () {
                 Route::get('/request-research', 'orderResearch')->name('request-research');
                 Route::post('/add-request-research', 'storeOrder');
@@ -57,7 +57,7 @@ Route::prefix('admin-panel-management')->group(function () {
 
     Route::get('/', [AuthController::class, 'redirectPage']);
 
-    Route::middleware(['auth:admin'])->group(function () {
+    Route::middleware(['auth.check:admin'])->group(function () {
 
         Route::controller(ResearchController::class)->group(function () {
             Route::get('/researches', 'researches');
@@ -75,7 +75,6 @@ Route::prefix('admin-panel-management')->group(function () {
 
         Route::controller(AdminController::class)->group(function () {
             Route::get('/dashboard', 'dashboard')->name('dashboard');
-            // Route::get('/', 'redirectToDashboard');
             Route::get('/admins', 'admins');
             Route::get('/admin/add', 'viewAddAdmin');
             Route::post('/admin/store', 'storeAdmin');
