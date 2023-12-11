@@ -52,9 +52,9 @@
                             {{ Auth::user()->name }}
                         </div>
                         <div class="btn btn-dark nav-item theme-toggle-item hidden-div mb-2">
-                            <form method="POST" action="{{ route('logout') }}">
+                            <form method="POST" action="/logout">
                                 @csrf
-                                <x-dropdown-link :href="route('logout')" style="color: white"
+                                <x-dropdown-link href="/logout" style="color: white"
                                     onclick="event.preventDefault();
                                                         this.closest('form').submit();">
                                     {{ __('trans.logout') }}
@@ -160,9 +160,9 @@
                     <a href="#">{{ Auth::user()->name }}</a>
                 </li>
                 <li class="nav-item theme-toggle-item theme-auth-new">
-                    <form method="POST" action="{{ route('logout') }}">
+                    <form method="POST" action="/logout">
                         @csrf
-                        <x-dropdown-link :href="route('logout')"
+                        <x-dropdown-link href="/logout"
                             onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             {{ __('trans.logout') }}

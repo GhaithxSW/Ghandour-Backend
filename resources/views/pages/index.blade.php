@@ -123,7 +123,7 @@
                                                         </line>
                                                     </svg></button>
                                             </div>
-                                            <form method="POST" action="{{ route('login') }}">
+                                            <form method="POST" action="/login">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <div class="form-group">
@@ -230,7 +230,7 @@
                                                     </svg>
                                                 </button>
                                             </div>
-                                            <form class="mt-0" method="POST" action="{{ route('register') }}">
+                                            <form class="mt-0" method="POST" action="/register">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <div class="form-group">

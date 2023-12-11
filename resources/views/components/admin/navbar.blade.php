@@ -50,9 +50,9 @@
                     <a href="#">{{ Auth::user()->username }}</a>
                 </li>
                 <li class="nav-item theme-toggle-item theme-auth-new">
-                    <form method="POST" action="{{ route('logout') }}">
+                    <form method="POST" action="/admin-panel-management/logout">
                         @csrf
-                        <x-dropdown-link :href="route('logout')"
+                        <x-dropdown-link href="/admin-panel-management/logout"
                             onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             تسجيل خروج
