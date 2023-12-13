@@ -47,9 +47,12 @@
             body.dark .toggle-code-snippet {
                 margin-bottom: 0px;
             }
-        </style>
 
-        <style>
+            .request-btn {
+                margin-top: 40px;
+                width: 250px;
+            }
+
             @media screen and (max-width: 990px) {
                 .font-bg {
                     font-size: 26px;
@@ -62,7 +65,12 @@
                 }
 
                 .font-bg-btn {
-                    font-size: 15px;
+                    font-size: 14px;
+                }
+
+                .request-btn {
+                    margin-top: 30px;
+                    width: auto;
                 }
             }
 
@@ -72,7 +80,7 @@
                 }
 
                 .font-bg-btn {
-                    font-size: 14px;
+                    font-size: 13px;
                 }
             }
         </style>
@@ -86,299 +94,286 @@
                 <div class="featured-image">
                     <div class="featured-image-overlay"></div>
                     <div class="post-header">
-                        <div class="post-title text-center">
+                        <div class="post-title m-3">
                             <h1 class="mb-0 font-bg">{{ __('trans.main_content') }}</h1>
-                        </div>
-                        @auth
-                            <div class="post-meta-info d-flex justify-content-between">
-                                <a href="/request-research" class="btn btn-warning m-auto w-auto mb-5"
+                            @auth
+                                <a href="/request-research" class="btn btn-info request-btn"
                                     style="font-size: 18px; border-radius: 20px">
                                     <span class="font-bg-btn">{{ __('trans.request_btn') }}</span>
                                 </a>
-                            </div>
-                        @else
-                            <div class="post-meta-info d-flex justify-content-between">
-                                <button class="btn btn-warning m-auto w-auto mb-5"
-                                    style="font-size: 18px; border-radius: 20px" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal">
-                                    <span class="font-bg-btn">{{ __('trans.request_btn') }}</span>
-                                </button>
-                                <div class="modal fade inputForm-modal" id="loginModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="inputFormModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header" id="inputFormModalLabel">
-                                                <h5 class="modal-title">{{ __('trans.login_to') }}
-                                                    <b>{{ __('trans.bhoothat') }}</b>
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-hidden="true"><svg aria-hidden="true"
-                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-x">
-                                                        <line x1="18" y1="6" x2="6" y2="18">
-                                                        </line>
-                                                        <line x1="6" y1="6" x2="18" y2="18">
-                                                        </line>
-                                                    </svg></button>
+                            @else
+                                <div>
+                                    <button class="btn btn-info request-btn" style="font-size: 18px; border-radius: 20px"
+                                        data-bs-toggle="modal" data-bs-target="#loginModal">
+                                        <span class="font-bg-btn">{{ __('trans.request_btn') }}</span>
+                                    </button>
+                                    <div class="modal fade inputForm-modal" id="loginModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="inputFormModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header" id="inputFormModalLabel">
+                                                    <h5 class="modal-title">{{ __('trans.login_to') }}
+                                                        <b>{{ __('trans.bhoothat') }}</b>
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-hidden="true"><svg aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                            class="feather feather-x">
+                                                            <line x1="18" y1="6" x2="6"
+                                                                y2="18">
+                                                            </line>
+                                                            <line x1="6" y1="6" x2="18"
+                                                                y2="18">
+                                                            </line>
+                                                        </svg></button>
+                                                </div>
+                                                <form method="POST" action="/login">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        class="icon icon-tabler icon-tabler-mail"
+                                                                        width="24" height="24" viewBox="0 0 24 24"
+                                                                        stroke-width="2" stroke="currentColor"
+                                                                        fill="none" stroke-linecap="round"
+                                                                        stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z"
+                                                                            fill="none">
+                                                                        </path>
+                                                                        <rect x="3" y="5" width="18" height="14"
+                                                                            rx="2">
+                                                                        </rect>
+                                                                        <polyline points="3 7 12 13 21 7"></polyline>
+                                                                    </svg>
+                                                                </span>
+                                                                <input id="email" class="form-control" type="email"
+                                                                    name="email" value="{{ old('email') }}"
+                                                                    autocomplete="email"
+                                                                    placeholder="{{ __('trans.email_placeholder') }}"
+                                                                    required autofocus />
+                                                            </div>
+                                                            @error('email')
+                                                                <p class="m-2 text-red-600" style="color: red">
+                                                                    {{ $message }}</p>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        class="icon icon-tabler icon-tabler-lock"
+                                                                        width="24" height="24" viewBox="0 0 24 24"
+                                                                        stroke-width="2" stroke="currentColor"
+                                                                        fill="none" stroke-linecap="round"
+                                                                        stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z"
+                                                                            fill="none">
+                                                                        </path>
+                                                                        <rect x="5" y="11" width="14" height="10"
+                                                                            rx="2"></rect>
+                                                                        <circle cx="12" cy="16" r="1">
+                                                                        </circle>
+                                                                        <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
+                                                                    </svg>
+                                                                </span>
+                                                                <input id="password" class="form-control"
+                                                                    type="password" name="password"
+                                                                    placeholder="{{ __('trans.password_placeholder') }}"
+                                                                    autocomplete="password" required autofocus />
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="form-check form-check-primary form-check-inline">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="" id="remember_me" name="remember">
+                                                                <label class="form-check-label mb-0"
+                                                                    for="form-check-primary">
+                                                                    {{ __('trans.remember_me') }}
+                                                                </label>
+                                                            </div>
+                                                            <a
+                                                                href="javascript:void(0);">{{ __('trans.forget_password?') }}</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <div class="btn btn-light-success mt-2 mb-2 btn-no-effect"
+                                                            data-bs-dismiss="#loginModal" data-bs-toggle="modal"
+                                                            data-bs-target="#registerModal">{{ __('trans.sign_up') }}
+                                                        </div>
+                                                        <button type="submit"
+                                                            class="btn btn-primary mt-2 mb-2 btn-no-effect">{{ __('trans.login') }}</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <form method="POST" action="/login">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text">
-                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="icon icon-tabler icon-tabler-mail" width="24"
-                                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                                    stroke="currentColor" fill="none"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none">
-                                                                    </path>
-                                                                    <rect x="3" y="5" width="18" height="14"
-                                                                        rx="2">
-                                                                    </rect>
-                                                                    <polyline points="3 7 12 13 21 7"></polyline>
-                                                                </svg>
-                                                            </span>
-                                                            {{-- <x-text-input id="email" class="form-control" type="email"
-                                                            name="email" :value="old('email')" autocomplete="email"
-                                                            placeholder="Enter your email address" required autofocus /> --}}
-                                                            <input id="email" class="form-control" type="email"
-                                                                name="email" value="{{ old('email') }}"
-                                                                autocomplete="email"
-                                                                placeholder="{{ __('trans.email_placeholder') }}" required
-                                                                autofocus />
-                                                            {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
-                                                        </div>
-                                                        @error('email')
-                                                            <p class="m-2 text-red-600" style="color: red">
-                                                                {{ $message }}</p>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text">
-                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="icon icon-tabler icon-tabler-lock" width="24"
-                                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                                    stroke="currentColor" fill="none"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none">
-                                                                    </path>
-                                                                    <rect x="5" y="11" width="14" height="10"
-                                                                        rx="2"></rect>
-                                                                    <circle cx="12" cy="16" r="1"></circle>
-                                                                    <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
-                                                                </svg>
-                                                            </span>
-                                                            {{-- <x-text-input id="password" class="form-control"
-                                                            type="password" name="password"
-                                                            placeholder="Enter your password" autocomplete="password"
-                                                            required autofocus /> --}}
-                                                            <input id="password" class="form-control" type="password"
-                                                                name="password"
-                                                                placeholder="{{ __('trans.password_placeholder') }}"
-                                                                autocomplete="password" required autofocus />
-                                                            {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="form-check form-check-primary form-check-inline">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                value="" id="remember_me" name="remember">
-                                                            <label class="form-check-label mb-0" for="form-check-primary">
-                                                                {{ __('trans.remember_me') }}
-                                                            </label>
-                                                        </div>
-                                                        <a
-                                                            href="javascript:void(0);">{{ __('trans.forget_password?') }}</a>
-                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade inputForm-modal" id="registerModal" tabindex="-1"
+                                        role="dialog" aria-labelledby="inputFormModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header" id="inputFormModalLabel">
+                                                    <h5 class="modal-title">{{ __('trans.register_to') }}
+                                                        <b>{{ __('trans.bhoothat') }}</b>
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-hidden="true"><svg aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg" width="24"
+                                                            height="24" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" class="feather feather-x">
+                                                            <line x1="18" y1="6" x2="6"
+                                                                y2="18">
+                                                            </line>
+                                                            <line x1="6" y1="6" x2="18"
+                                                                y2="18">
+                                                            </line>
+                                                        </svg>
+                                                    </button>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <div class="btn btn-light-success mt-2 mb-2 btn-no-effect"
-                                                        data-bs-dismiss="#loginModal" data-bs-toggle="modal"
-                                                        data-bs-target="#registerModal">{{ __('trans.sign_up') }}</div>
-                                                    <button type="submit"
-                                                        class="btn btn-primary mt-2 mb-2 btn-no-effect">{{ __('trans.login') }}</button>
-                                                </div>
-                                            </form>
+                                                <form class="mt-0" method="POST" action="/register">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        class="icon icon-tabler icon-tabler-user"
+                                                                        width="24" height="24" viewBox="0 0 24 24"
+                                                                        stroke-width="2" stroke="currentColor"
+                                                                        fill="none" stroke-linecap="round"
+                                                                        stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z"
+                                                                            fill="none">
+                                                                        </path>
+                                                                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                                                                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2">
+                                                                        </path>
+                                                                    </svg>
+                                                                </span>
+                                                                <input id="name" class="form-control" type="text"
+                                                                    name="name" value="{{ old('name') }}"
+                                                                    autocomplete="name"
+                                                                    placeholder="{{ __('trans.name_placeholder') }}"
+                                                                    required autofocus />
+                                                            </div>
+                                                            @error('name')
+                                                                <p class="m-2 text-red-600" style="color: red">
+                                                                    {{ $message }}</p>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        class="icon icon-tabler icon-tabler-mail"
+                                                                        width="24" height="24" viewBox="0 0 24 24"
+                                                                        stroke-width="2" stroke="currentColor"
+                                                                        fill="none" stroke-linecap="round"
+                                                                        stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z"
+                                                                            fill="none">
+                                                                        </path>
+                                                                        <rect x="3" y="5" width="18" height="14"
+                                                                            rx="2"></rect>
+                                                                        <polyline points="3 7 12 13 21 7"></polyline>
+                                                                    </svg>
+                                                                </span>
+                                                                <input id="email" class="form-control" type="email"
+                                                                    name="email" value="{{ old('email') }}"
+                                                                    autocomplete="email"
+                                                                    placeholder="{{ __('trans.email_placeholder') }}"
+                                                                    required autofocus />
+                                                            </div>
+                                                            @error('email')
+                                                                <p class="m-2 text-red-600" style="color: red">
+                                                                    {{ $message }}</p>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        class="icon icon-tabler icon-tabler-lock"
+                                                                        width="24" height="24" viewBox="0 0 24 24"
+                                                                        stroke-width="2" stroke="currentColor"
+                                                                        fill="none" stroke-linecap="round"
+                                                                        stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z"
+                                                                            fill="none">
+                                                                        </path>
+                                                                        <rect x="5" y="11" width="14" height="10"
+                                                                            rx="2"></rect>
+                                                                        <circle cx="12" cy="16" r="1">
+                                                                        </circle>
+                                                                        <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
+                                                                    </svg>
+                                                                </span>
+                                                                <input id="password" class="form-control"
+                                                                    type="password" name="password"
+                                                                    placeholder="{{ __('trans.password_placeholder') }}"
+                                                                    autocomplete="new-password" required autofocus />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        class="icon icon-tabler icon-tabler-lock"
+                                                                        width="24" height="24" viewBox="0 0 24 24"
+                                                                        stroke-width="2" stroke="currentColor"
+                                                                        fill="none" stroke-linecap="round"
+                                                                        stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z"
+                                                                            fill="none">
+                                                                        </path>
+                                                                        <rect x="5" y="11" width="14" height="10"
+                                                                            rx="2"></rect>
+                                                                        <circle cx="12" cy="16" r="1">
+                                                                        </circle>
+                                                                        <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
+                                                                    </svg>
+                                                                </span>
+                                                                <input id="password_confirmation" class="form-control"
+                                                                    type="password" name="password_confirmation"
+                                                                    autocomplete="new-password"
+                                                                    placeholder="{{ __('trans.confirm_password_placeholder') }}"
+                                                                    required autofocus />
+                                                            </div>
+                                                            @error('password')
+                                                                <p class="m-2 text-red-600" style="color: red">
+                                                                    {{ $message }}</p>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="form-check form-check-primary form-check-inline">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="" id="form-check-primary">
+                                                                <label class="form-check-label mb-0"
+                                                                    for="form-check-primary">
+                                                                    {{ __('trans.agree') }} <a href="javascript:void(0);"
+                                                                        class="text-primary">{{ __('trans.terms_conditions') }}</a>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <div class="btn btn-light-success mt-2 mb-2 btn-no-effect"
+                                                            data-bs-dismiss="#registerModal" data-bs-toggle="modal"
+                                                            data-bs-target="#loginModal">{{ __('trans.sign_in') }}</div>
+                                                        <button type="submit"
+                                                            class="btn btn-primary mt-2 mb-2 btn-no-effect">{{ __('trans.register') }}</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade inputForm-modal" id="registerModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="inputFormModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header" id="inputFormModalLabel">
-                                                <h5 class="modal-title">{{ __('trans.register_to') }}
-                                                    <b>{{ __('trans.bhoothat') }}</b>
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-hidden="true"><svg aria-hidden="true"
-                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-x">
-                                                        <line x1="18" y1="6" x2="6"
-                                                            y2="18">
-                                                        </line>
-                                                        <line x1="6" y1="6" x2="18"
-                                                            y2="18">
-                                                        </line>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <form class="mt-0" method="POST" action="/register">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text">
-                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="icon icon-tabler icon-tabler-user"
-                                                                    width="24" height="24" viewBox="0 0 24 24"
-                                                                    stroke-width="2" stroke="currentColor" fill="none"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none">
-                                                                    </path>
-                                                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
-                                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2">
-                                                                    </path>
-                                                                </svg>
-                                                            </span>
-                                                            {{-- <x-text-input id="name" class="form-control"
-                                                            type="text" name="name" :value="old('name')"
-                                                            autocomplete="name" placeholder="Enter your name" required
-                                                            autofocus /> --}}
-                                                            <input id="name" class="form-control" type="text"
-                                                                name="name" value="{{ old('name') }}"
-                                                                autocomplete="name"
-                                                                placeholder="{{ __('trans.name_placeholder') }}" required
-                                                                autofocus />
-                                                            {{-- <x-input-error :messages="$errors->get('name')" class="mt-2" /> --}}
-                                                        </div>
-                                                        @error('name')
-                                                            <p class="m-2 text-red-600" style="color: red">
-                                                                {{ $message }}</p>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text">
-                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="icon icon-tabler icon-tabler-mail"
-                                                                    width="24" height="24" viewBox="0 0 24 24"
-                                                                    stroke-width="2" stroke="currentColor" fill="none"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none">
-                                                                    </path>
-                                                                    <rect x="3" y="5" width="18" height="14"
-                                                                        rx="2"></rect>
-                                                                    <polyline points="3 7 12 13 21 7"></polyline>
-                                                                </svg>
-                                                            </span>
-                                                            {{-- <x-text-input id="email" class="form-control"
-                                                            type="email" name="email" :value="old('email')"
-                                                            autocomplete="email"
-                                                            placeholder="Enter your email address" required
-                                                            autofocus /> --}}
-                                                            <input id="email" class="form-control" type="email"
-                                                                name="email" value="{{ old('email') }}"
-                                                                autocomplete="email"
-                                                                placeholder="{{ __('trans.email_placeholder') }}" required
-                                                                autofocus />
-                                                            {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
-                                                        </div>
-                                                        @error('email')
-                                                            <p class="m-2 text-red-600" style="color: red">
-                                                                {{ $message }}</p>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text">
-                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="icon icon-tabler icon-tabler-lock"
-                                                                    width="24" height="24" viewBox="0 0 24 24"
-                                                                    stroke-width="2" stroke="currentColor" fill="none"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none">
-                                                                    </path>
-                                                                    <rect x="5" y="11" width="14" height="10"
-                                                                        rx="2"></rect>
-                                                                    <circle cx="12" cy="16" r="1"></circle>
-                                                                    <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
-                                                                </svg>
-                                                            </span>
-                                                            {{-- <x-text-input id="password" class="form-control"
-                                                            type="password" name="password"
-                                                            placeholder="Enter your password"
-                                                            autocomplete="new-password" required autofocus /> --}}
-                                                            <input id="password" class="form-control" type="password"
-                                                                name="password"
-                                                                placeholder="{{ __('trans.password_placeholder') }}"
-                                                                autocomplete="new-password" required autofocus />
-                                                            {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text">
-                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="icon icon-tabler icon-tabler-lock"
-                                                                    width="24" height="24" viewBox="0 0 24 24"
-                                                                    stroke-width="2" stroke="currentColor" fill="none"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none">
-                                                                    </path>
-                                                                    <rect x="5" y="11" width="14" height="10"
-                                                                        rx="2"></rect>
-                                                                    <circle cx="12" cy="16" r="1"></circle>
-                                                                    <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
-                                                                </svg>
-                                                            </span>
-                                                            {{-- <x-text-input id="password_confirmation" class="form-control"
-                                                            type="password" name="password_confirmation"
-                                                            autocomplete="new-password"
-                                                            placeholder="Confirm your password" required autofocus /> --}}
-                                                            <input id="password_confirmation" class="form-control"
-                                                                type="password" name="password_confirmation"
-                                                                autocomplete="new-password"
-                                                                placeholder="{{ __('trans.confirm_password_placeholder') }}"
-                                                                required autofocus />
-                                                            {{-- <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" /> --}}
-                                                        </div>
-                                                        @error('password')
-                                                            <p class="m-2 text-red-600" style="color: red">
-                                                                {{ $message }}</p>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="form-check form-check-primary form-check-inline">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                value="" id="form-check-primary">
-                                                            <label class="form-check-label mb-0" for="form-check-primary">
-                                                                {{ __('trans.agree') }} <a href="javascript:void(0);"
-                                                                    class="text-primary">{{ __('trans.terms_conditions') }}</a>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <div class="btn btn-light-success mt-2 mb-2 btn-no-effect"
-                                                        data-bs-dismiss="#registerModal" data-bs-toggle="modal"
-                                                        data-bs-target="#loginModal">{{ __('trans.sign_in') }}</div>
-                                                    <button type="submit"
-                                                        class="btn btn-primary mt-2 mb-2 btn-no-effect">{{ __('trans.register') }}</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endauth
+                            @endauth
+                        </div>
                     </div>
                 </div>
             </div>
