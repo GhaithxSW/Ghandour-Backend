@@ -385,7 +385,7 @@
             {{-- <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4> --}}
             @foreach ($researches as $research)
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto">
-                    <div class="card style-2 mb-md-0 mb-4">
+                    <div class="card style-2 mb-md-0 mb-4" style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
                         <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}""
                             class="card-img-top" alt="..." style="height: 210px">
                         <h5 class="m-3">{{ $research->title }}</h5>
@@ -418,7 +418,7 @@
                 @foreach ($members as $member)
                     <li>
                         <div class="modern-timeline-badge"></div>
-                        <div class="modern-timeline-panel">
+                        <div class="modern-timeline-panel" style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
                             <div class="modern-timeline-preview">
                                 <img src="{{ Vite::asset('public/storage/' . $member->photo) }}" alt="timeline">
                             </div>
@@ -442,7 +442,8 @@
         </ul>
     </div>
 
-    <div class="statbox widget box box-shadow layout-top-spacing">
+    <div class="statbox widget box box-shadow layout-top-spacing ml-2 mr-2"
+        style="border-radius: 15px; box-shadow: 0 1px 4px 4px rgba(0, 0, 0, 0.1);">
         <div class="widget-content widget-content-area">
             <div class="contact-us-form">
                 <div class="row">

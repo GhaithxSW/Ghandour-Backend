@@ -10,9 +10,19 @@
         @vite(['resources/scss/dark/assets/elements/alert.scss'])
 
         <style>
+            .form-width-responsive {
+                margin-left: 175px;
+                margin-right: 175px;
+            }
+
             @media screen and (max-width: 990px) {
                 .font-bg {
                     font-size: 26px;
+                }
+
+                .form-width-responsive {
+                    margin-left: 5px;
+                    margin-right: 5px;
                 }
             }
 
@@ -24,6 +34,11 @@
                 .font-bg-btn {
                     font-size: 15px;
                 }
+
+                .form-width-responsive {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                }
             }
 
             @media screen and (max-width: 300px) {
@@ -34,6 +49,11 @@
                 .font-bg-btn {
                     font-size: 14px;
                 }
+
+                .form-width-responsive {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
             }
         </style>
 
@@ -41,18 +61,26 @@
 
     <div class="container" style="padding: 5%">
 
-        @if (session('success'))
+        {{-- @if (session('success'))
             <div class="alert alert-gradient alert-dismissible fade show mb-4 text-center" role="alert"
                 style="font-size: 20px">
                 {{ __('trans.msg_request_success') }}
             </div>
+        @endif --}}
+
+        @if (session('success'))
+            <div class="alert alert-success text-center form-width-responsive"
+                style="font-size: 20px; margin-bottom: 50px">
+                {{ __('trans.msg_request_success') }}
+            </div>
         @endif
 
-        <h2 class="text-center mt-4" style="margin-bottom: 50px">
+        <h2 class="text-center mt-3 mb-5">
             <b>{{ __('trans.request_research_now') }}</b>
         </h2>
 
-        <form method="POST" action="/add-request-research" class="row g-3 card" style="padding: 20px">
+        <form method="POST" action="/add-request-research" class="row g-3 card form-width-responsive"
+            style="padding: 20px; box-shadow: 0 1px 4px 3px rgba(0, 0, 0, 0.1);">
             @csrf
             <div class="col">
                 <label for="phone" class="form-label">{{ __('trans.phone') }}</label>
