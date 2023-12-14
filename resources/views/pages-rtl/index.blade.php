@@ -145,7 +145,7 @@
                                                                         <polyline points="3 7 12 13 21 7"></polyline>
                                                                     </svg>
                                                                 </span>
-                                                                <input id="email" class="form-control" type="email"
+                                                                <input id="email" class="form-control text-right" type="email"
                                                                     name="email" value="{{ old('email') }}"
                                                                     autocomplete="email"
                                                                     placeholder="{{ __('trans.email_placeholder') }}"
@@ -277,7 +277,7 @@
                                                                         <polyline points="3 7 12 13 21 7"></polyline>
                                                                     </svg>
                                                                 </span>
-                                                                <input id="email" class="form-control" type="email"
+                                                                <input id="email" class="form-control text-right" type="email"
                                                                     name="email" value="{{ old('email') }}"
                                                                     autocomplete="email"
                                                                     placeholder="{{ __('trans.email_placeholder') }}"

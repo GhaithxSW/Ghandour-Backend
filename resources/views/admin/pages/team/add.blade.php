@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="col">
-                    <a href="/admin-panel-management/researches" class="btn btn-secondary m-1">رجوع</a>
+                    <a href="/admin-panel-management/members" class="btn btn-secondary m-1">رجوع</a>
                     <button type="submit" class="btn btn-success m-1">اضافة</button>
                 </div>
             </form>

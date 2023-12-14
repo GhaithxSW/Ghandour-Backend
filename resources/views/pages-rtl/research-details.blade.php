@@ -53,7 +53,7 @@
                                 <div class="media">
                                     <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}"
                                         alt="...">
-                                    <div class="media-body hide-div">
+                                    <div class="media-body hide-div mr-2">
                                         <h5>Kelly Young</h5>
                                         <p>{{ $research->created_at->format('d M Y') }}</p>
                                     </div>

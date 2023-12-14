@@ -37,8 +37,8 @@
                 </div>
 
                 <div class="col">
-                    <label for="content" class="form-label">محتوى البحث</label>
-                    <textarea class="form-control" style="pointer-events: none">{{ $research->content }}</textarea>
+                    <label for="content" class="form-label mb-2">محتوى البحث</label>
+                    <div class="card" style="padding: 20px">{!! $research->content !!}</div>
                 </div>
 
                 <div class="col">
