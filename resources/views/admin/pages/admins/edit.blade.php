@@ -3,8 +3,11 @@
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
     <x-slot:headerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.css'])
-        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.css'])
+        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss']) --}}
+
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/table/datatable/datatables.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dt-global_style.css') }}">
 
         <style>
             .dashboard {
@@ -69,7 +72,8 @@
     </div>
 
     <x-slot:footerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.js'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.js']) --}}
+        <script src="{{ asset('plugins-rtl/table/datatable/datatables.js') }}"></script>
     </x-slot>
 
 </x-admin.base-layout>

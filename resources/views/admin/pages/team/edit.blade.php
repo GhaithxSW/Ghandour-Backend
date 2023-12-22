@@ -3,8 +3,11 @@
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
     <x-slot:headerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.css'])
-        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.css'])
+        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss']) --}}
+
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/table/datatable/datatables.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dt-global_style.css') }}">
 
         <style>
             .dashboard {
@@ -43,7 +46,7 @@
                 <div class="col">
                     <label for="photo" class="form-label">صورة الموظف</label>
                     <div class="text-center mb-4">
-                        <img src="{{ $member->photo ? Vite::asset('public/storage/' . $member->photo) : Vite::asset('public/no-image.png') }}"
+                        <img src="{{ $member->photo ? asset('storage/' . $member->photo) : asset('no-image.png') }}"
                             class="card-img-top" alt="..." style="width: 250px; height: 250px;">
                     </div>
                     <input type="file" name="photo" class="form-control" value="{{ $member->photo }}"
@@ -55,7 +58,8 @@
 
                 <div class="col">
                     <label for="position" class="form-label">المسمى الوظيفي</label>
-                    <input type="text" name="position" class="form-control" value="{{ $member->position }}" placeholder="ادخل المسمى الوظيفي">
+                    <input type="text" name="position" class="form-control" value="{{ $member->position }}"
+                        placeholder="ادخل المسمى الوظيفي">
                     @error('position')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
@@ -80,7 +84,8 @@
     </div>
 
     <x-slot:footerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.js'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.js']) --}}
+        <script src="{{ asset('plugins-rtl/table/datatable/datatables.js') }}"></script>
 
         <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
         <script>

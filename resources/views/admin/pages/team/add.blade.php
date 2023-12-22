@@ -3,10 +3,16 @@
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
     <x-slot:headerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.css'])
-        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
-        @vite(['public/resources/rtl/scss/light/assets/apps/ecommerce-create.scss'])
-        @vite(['public/plugins-rtl/filepond/filepond.min.css'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.css']) --}}
+        {{-- @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss']) --}}
+        {{-- @vite(['public/resources/rtl/scss/light/assets/apps/ecommerce-create.scss']) --}}
+        {{-- @vite(['public/plugins-rtl/filepond/filepond.min.css']) --}}
+
+
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/table/datatable/datatables.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dt-global_style.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/ecommerce-create.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/filepond/filepond.min.css') }}">
 
         <style>
             .dashboard {
@@ -29,8 +35,8 @@
                 </div>
             @endif
 
-            <form method="POST" action="/admin-panel-management/member/store" class="row g-3 card"
-                style="padding: 20px" enctype="multipart/form-data">
+            <form method="POST" action="/admin-panel-management/member/store" class="row g-3 card" style="padding: 20px"
+                enctype="multipart/form-data">
                 @csrf
                 <div class="col">
                     <label for="name" class="form-label">الاسم</label>
@@ -86,9 +92,13 @@
     </div>
 
     <x-slot:footerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.js'])
-        @vite(['public/resources/rtl/assets/js/apps/ecommerce-create.js'])
-        @vite(['public/plugins-rtl/filepond/filepond.min.js'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.js']) --}}
+        {{-- @vite(['public/resources/rtl/assets/js/apps/ecommerce-create.js'])
+        @vite(['public/plugins-rtl/filepond/filepond.min.js']) --}}
+
+        <script src="{{ asset('plugins-rtl/table/datatable/datatables.js') }}"></script>
+        <script src="{{ asset('resources/rtl/assets/js/apps/ecommerce-create.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/filepond/filepond.min.js') }}"></script>
     </x-slot>
 
 </x-admin.base-layout>

@@ -6,30 +6,60 @@
 
         {{-- @vite(['public/resources/rtl/scss/light/assets/apps/blog-post.scss']) --}}
         {{-- @vite(['public/resources/rtl/scss/dark/assets/apps/blog-post.scss']) --}}
-        @vite(['public/resources/scss/light/assets/apps/blog-post.scss'])
-        @vite(['public/resources/scss/dark/assets/apps/blog-post.scss'])
+        {{-- @vite(['public/resources/scss/light/assets/apps/blog-post.scss'])
+        @vite(['public/resources/scss/dark/assets/apps/blog-post.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/blog-post.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/blog-post.css') }}">
 
-        @vite(['public/resources/rtl/scss/light/assets/components/modal.scss'])
+
+        {{-- ???????? --}}
+        {{-- @vite(['public/resources/rtl/scss/light/assets/components/modal.scss'])
         @vite(['public/resources/rtl/scss/dark/assets/components/modal.scss'])
         @vite(['public/resources/scss/light/assets/components/modal.scss'])
-        @vite(['public/resources/scss/dark/assets/components/modal.scss'])
+        @vite(['public/resources/scss/dark/assets/components/modal.scss']) --}}
+        {{-- ????????? --}}
 
-        @vite(['public/plugins-rtl/filepond/filepond.min.css'])
-        @vite(['public/plugins-rtl/filepond/FilePondPluginImagePreview.min.css'])
-        @vite(['public/plugins-rtl/tagify/tagify.css'])
-        @vite(['public/resources/rtl/scss/light/assets/forms/switches.scss'])
-        @vite(['public/resources/rtl/scss/dark/assets/forms/switches.scss'])
-        @vite(['public/resources/rtl/scss/light/plugins/editors/quill/quill.snow.scss'])
-        @vite(['public/resources/rtl/scss/dark/plugins/editors/quill/quill.snow.scss'])
-        @vite(['public/resources/rtl/scss/light/plugins/tagify/custom-tagify.scss'])
-        @vite(['public/resources/rtl/scss/dark/plugins/tagify/custom-tagify.scss'])
-        @vite(['public/resources/rtl/scss/light/plugins/filepond/custom-filepond.scss'])
-        @vite(['public/resources/rtl/scss/dark/plugins/filepond/custom-filepond.scss'])
-        @vite(['public/resources/rtl/scss/light/assets/apps/ecommerce-create.scss'])
-        @vite(['public/resources/rtl/scss/dark/assets/apps/ecommerce-create.scss'])
-        @vite(['public/plugins-rtl/leaflet/leaflet.css'])
-        @vite(['public/resources/rtl/scss/light/assets/pages/contact_us.scss'])
-        @vite(['public/resources/rtl/scss/dark/assets/pages/contact_us.scss'])
+
+        {{-- @vite(['public/plugins-rtl/filepond/filepond.min.css'])
+        @vite(['public/plugins-rtl/filepond/FilePondPluginImagePreview.min.css']) --}}
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/filepond/filepond.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/filepond/FilePondPluginImagePreview.min.css') }}">
+
+        {{-- @vite(['public/resources/rtl/scss/light/assets/forms/switches.scss'])
+        @vite(['public/resources/rtl/scss/dark/assets/forms/switches.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/switches.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/switches.css') }}">
+
+
+        {{-- @vite(['public/resources/rtl/scss/light/plugins/editors/quill/quill.snow.scss'])
+        @vite(['public/resources/rtl/scss/dark/plugins/editors/quill/quill.snow.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/quill.snow.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/quill.snow.css') }}">
+
+        {{-- @vite(['public/resources/rtl/scss/light/plugins/tagify/custom-tagify.scss'])
+        @vite(['public/resources/rtl/scss/dark/plugins/tagify/custom-tagify.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-tagify.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-tagify.css') }}">
+
+
+        {{-- @vite(['public/resources/rtl/scss/light/plugins/filepond/custom-filepond.scss'])
+        @vite(['public/resources/rtl/scss/dark/plugins/filepond/custom-filepond.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-filepond.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-filepond.css') }}">
+
+
+        {{-- @vite(['public/resources/rtl/scss/light/assets/apps/ecommerce-create.scss'])
+        @vite(['public/resources/rtl/scss/dark/assets/apps/ecommerce-create.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/ecommerce-create.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/ecommerce-create.css') }}">
+
+        {{-- @vite(['public/plugins-rtl/leaflet/leaflet.css']) --}}
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/tagify/tagify.css') }}">
+
+        {{-- @vite(['public/resources/rtl/scss/light/assets/pages/contact_us.scss'])
+        @vite(['public/resources/rtl/scss/dark/assets/pages/contact_us.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/contact_us.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/contact_us.css') }}">
 
         {{-- <link rel="stylesheet" href="{{ asset('plugins/apex/apexcharts.css') }}"> --}}
 
@@ -164,20 +194,37 @@
     </div>
 
     <x-slot:footerFiles>
-        @vite(['public/plugins-rtl/editors/quill/quill.js'])
-        @vite(['public/plugins-rtl/filepond/filepond.min.js'])
+        {{-- @vite(['public/plugins-rtl/editors/quill/quill.js']) --}}
+        <script src="{{ asset('plugins-rtl/editors/quill/quill.js') }}"></script>
+        {{-- @vite(['public/plugins-rtl/filepond/filepond.min.js'])
         @vite(['public/plugins-rtl/filepond/FilePondPluginFileValidateType.min.js'])
         @vite(['public/plugins-rtl/filepond/FilePondPluginImageExifOrientation.min.js'])
         @vite(['public/plugins-rtl/filepond/FilePondPluginImagePreview.min.js'])
         @vite(['public/plugins-rtl/filepond/FilePondPluginImageCrop.min.js'])
         @vite(['public/plugins-rtl/filepond/FilePondPluginImageResize.min.js'])
         @vite(['public/plugins-rtl/filepond/FilePondPluginImageTransform.min.js'])
-        @vite(['public/plugins-rtl/filepond/filepondPluginFileValidateSize.min.js'])
-        @vite(['public/plugins-rtl/tagify/tagify.min.js'])
-        @vite(['public/resources/rtl/assets/js/apps/ecommerce-create.js'])
-        @vite(['public/plugins-rtl/leaflet/leaflet.js'])
+        @vite(['public/plugins-rtl/filepond/filepondPluginFileValidateSize.min.js']) --}}
+        <script src="{{ asset('plugins-rtl/filepond/filepond.min.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/filepond/FilePondPluginFileValidateType.min.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageExifOrientation.min.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImagePreview.min.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageCrop.min.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageResize.min.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageTransform.min.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/filepond/filepondPluginFileValidateSize.min.js') }}"></script>
+        {{-- @vite(['public/plugins-rtl/tagify/tagify.min.js']) --}}
+        <script src="{{ asset('plugins-rtl/tagify/tagify.min.js') }}"></script>
+
+
+        {{-- @vite(['public/resources/rtl/assets/js/apps/ecommerce-create.js']) --}}
+        <script src="{{ asset('resources/rtl/assets/js/apps/ecommerce-create.js') }}"></script>
+
+        {{-- @vite(['public/plugins-rtl/leaflet/leaflet.js'])
         @vite(['public/plugins-rtl/leaflet/us-states.js'])
-        @vite(['public/plugins-rtl/leaflet/eu-countries.js'])
+        @vite(['public/plugins-rtl/leaflet/eu-countries.js']) --}}
+        <script src="{{ asset('plugins-rtl/leaflet/leaflet.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/leaflet/us-states.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/leaflet/eu-countries.js') }}"></script>
 
         {{-- <script src="{{ asset('plugins/apex/apexcharts.min.js') }}"></script> --}}
         {{-- <script src="{{asset('plugins/apex/custom-apexcharts.js')}}"></script> --}}

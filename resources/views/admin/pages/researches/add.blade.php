@@ -3,8 +3,11 @@
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
     <x-slot:headerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.css'])
-        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.css'])
+        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss']) --}}
+
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/table/datatable/datatables.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dt-global_style.css') }}">
 
         <style>
             .dashboard {
@@ -27,8 +30,8 @@
                 </div>
             @endif
 
-            <form method="POST" action="/admin-panel-management/research/store" class="row g-3 card" style="padding: 20px"
-                enctype="multipart/form-data">
+            <form method="POST" action="/admin-panel-management/research/store" class="row g-3 card"
+                style="padding: 20px" enctype="multipart/form-data">
                 @csrf
                 <div class="col">
                     <label for="title" class="form-label">عنوان البحث</label>
@@ -67,7 +70,8 @@
     </div>
 
     <x-slot:footerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.js'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.js']) --}}
+        <script src="{{ asset('plugins-rtl/table/datatable/datatables.js') }}"></script>
 
         <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
         <script>

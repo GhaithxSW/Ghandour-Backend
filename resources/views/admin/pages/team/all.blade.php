@@ -3,8 +3,11 @@
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
     <x-slot:headerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.css'])
-        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.css'])
+        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss']) --}}
+
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/table/datatable/datatables.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dt-global_style.css') }}">
 
         <style>
             .dashboard {
@@ -50,21 +53,20 @@
                                 <td class="text-center">
                                     <div class="d-flex justify-content-left align-items-center">
                                         <div class="avatar me-3">
-                                            <img src="{{ $member->photo ? Vite::asset('public/storage/' . $member->photo) : Vite::asset('public/no-image.png') }}"
+                                            <img src="{{ $member->photo ? asset('storage/' . $member->photo) : asset('no-image.png') }}"
                                                 alt="Avatar" width="64" height="64"
                                                 style="border-radius: 20px">
                                         </div>
                                     </div>
                                 </td>
                                 <td class="text-center">{{ $member->position }}</td>
-                                <td class="text-center">{!! substr($member->about, 0, 15)  !!}...</td>
+                                <td class="text-center">{!! substr($member->about, 0, 15) !!}...</td>
                                 <td class="text-center">
                                     <a href="/admin-panel-management/member/{{ $member->id }}/details"
                                         class="btn btn-primary" style="pointer-events: fill">التفاصيل</a>
                                     <a href="/admin-panel-management/member/{{ $member->id }}/edit"
                                         class="btn btn-success" style="pointer-events: fill">تعديل</a>
-                                    <form method="POST"
-                                        action="{{ route('delete-member', ['id' => $member->id]) }}"
+                                    <form method="POST" action="{{ route('delete-member', ['id' => $member->id]) }}"
                                         class="btn btn-danger" style="pointer-events: fill">
                                         @method('DELETE')
                                         @csrf
@@ -92,7 +94,8 @@
     </div>
 
     <x-slot:footerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.js'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.js']) --}}
+        <script src="{{ asset('plugins-rtl/table/datatable/datatables.js') }}"></script>
     </x-slot>
 
 </x-admin.base-layout>

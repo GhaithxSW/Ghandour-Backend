@@ -3,8 +3,11 @@
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
     <x-slot:headerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.css'])
-        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.css'])
+        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss']) --}}
+
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/table/datatable/datatables.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dt-global_style.css') }}">
 
         <style>
             .dashboard {
@@ -49,13 +52,13 @@
                                 <td class="text-center">
                                     <div class="d-flex justify-content-left align-items-center">
                                         <div class="avatar me-3">
-                                            <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}"
+                                            <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('no-image.png') }}"
                                                 alt="Avatar" width="64" height="64"
                                                 style="border-radius: 20px">
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center">{!! substr($research->content, 0, 15)  !!}...</td>
+                                <td class="text-center">{!! substr($research->content, 0, 15) !!}...</td>
                                 <td class="text-center">
                                     <a href="/admin-panel-management/research/{{ $research->id }}/details"
                                         class="btn btn-primary" style="pointer-events: fill">التفاصيل</a>
@@ -90,7 +93,8 @@
     </div>
 
     <x-slot:footerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.js'])
+        <script src="{{ asset('plugins-rtl/table/datatable/datatables.js') }}"></script>
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.js']) --}}
     </x-slot>
 
 </x-admin.base-layout>

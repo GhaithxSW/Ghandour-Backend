@@ -3,8 +3,11 @@
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
     <x-slot:headerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.css'])
-        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.css'])
+        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss']) --}}
+
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/table/datatable/datatables.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dt-global_style.css') }}">
 
         <style>
             .dashboard {
@@ -27,8 +30,8 @@
                 </div>
             @endif
 
-            <form method="POST" action="/admin-panel-management/research/{{ $research->id }}/update" class="row g-3 card"
-                style="padding: 20px" enctype="multipart/form-data">
+            <form method="POST" action="/admin-panel-management/research/{{ $research->id }}/update"
+                class="row g-3 card" style="padding: 20px" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="col">
@@ -43,7 +46,7 @@
                 <div class="col">
                     <label for="image" class="form-label">صورة البحث</label>
                     <div class="text-center mb-4">
-                        <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}"
+                        <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('no-image.png') }}"
                             class="card-img-top" alt="..." style="width: 250px; height: 250px;">
                     </div>
                     <input type="file" name="image" class="form-control" value="{{ $research->image }}"
@@ -74,7 +77,8 @@
     </div>
 
     <x-slot:footerFiles>
-        @vite(['public/plugins-rtl/table/datatable/datatables.js'])
+        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.js']) --}}
+        <script src="{{ asset('plugins-rtl/table/datatable/datatables.js') }}"></script>
 
         <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
         <script>
