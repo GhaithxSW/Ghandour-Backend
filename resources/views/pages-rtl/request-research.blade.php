@@ -4,10 +4,10 @@
 
     <x-slot:headerFiles>
 
-        @vite(['resources/scss/light/assets/components/modal.scss'])
-        @vite(['resources/scss/dark/assets/components/modal.scss'])
-        @vite(['resources/scss/light/assets/elements/alert.scss'])
-        @vite(['resources/scss/dark/assets/elements/alert.scss'])
+        @vite(['public/resources/scss/light/assets/components/modal.scss'])
+        @vite(['public/resources/scss/dark/assets/components/modal.scss'])
+        @vite(['public/resources/scss/light/assets/elements/alert.scss'])
+        @vite(['public/resources/scss/dark/assets/elements/alert.scss'])
 
         <style>
             .form-width-responsive {

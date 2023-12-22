@@ -4,40 +4,41 @@
 
     <x-slot:headerFiles>
 
-        @vite(['resources/scss/light/assets/components/modal.scss'])
-        @vite(['resources/scss/dark/assets/components/modal.scss'])
+        {{-- <link rel="stylesheet" href="{{ mix('resources/scss/light/assets/components/modal.css') }}"> --}}
+        @vite(['public/resources/scss/light/assets/components/modal.scss'])
+        @vite(['public/resources/scss/dark/assets/components/modal.scss'])
         @vite(['public/plugins/filepond/filepond.min.css'])
         @vite(['public/plugins/filepond/FilePondPluginImagePreview.min.css'])
         @vite(['public/plugins/tagify/tagify.css'])
-        @vite(['resources/scss/light/assets/forms/switches.scss'])
-        @vite(['resources/scss/light/plugins/editors/quill/quill.snow.scss'])
-        @vite(['resources/scss/light/plugins/tagify/custom-tagify.scss'])
-        @vite(['resources/scss/light/plugins/filepond/custom-filepond.scss'])
-        @vite(['resources/scss/dark/assets/forms/switches.scss'])
-        @vite(['resources/scss/dark/plugins/editors/quill/quill.snow.scss'])
-        @vite(['resources/scss/dark/plugins/tagify/custom-tagify.scss'])
-        @vite(['resources/scss/dark/plugins/filepond/custom-filepond.scss'])
-        @vite(['resources/scss/light/assets/apps/ecommerce-create.scss'])
-        @vite(['resources/scss/dark/assets/apps/ecommerce-create.scss'])
+        @vite(['public/resources/scss/light/assets/forms/switches.scss'])
+        @vite(['public/resources/scss/light/plugins/editors/quill/quill.snow.scss'])
+        @vite(['public/resources/scss/light/plugins/tagify/custom-tagify.scss'])
+        @vite(['public/resources/scss/light/plugins/filepond/custom-filepond.scss'])
+        @vite(['public/resources/scss/dark/assets/forms/switches.scss'])
+        @vite(['public/resources/scss/dark/plugins/editors/quill/quill.snow.scss'])
+        @vite(['public/resources/scss/dark/plugins/tagify/custom-tagify.scss'])
+        @vite(['public/resources/scss/dark/plugins/filepond/custom-filepond.scss'])
+        @vite(['public/resources/scss/light/assets/apps/ecommerce-create.scss'])
+        @vite(['public/resources/scss/dark/assets/apps/ecommerce-create.scss'])
         @vite(['public/plugins/leaflet/leaflet.css'])
-        @vite(['resources/scss/light/assets/pages/contact_us.scss'])
-        @vite(['resources/scss/dark/assets/pages/contact_us.scss'])
+        @vite(['public/resources/scss/light/assets/pages/contact_us.scss'])
+        @vite(['public/resources/scss/dark/assets/pages/contact_us.scss'])
 
-        @vite(['resources/scss/light/assets/components/timeline.scss'])
-        @vite(['resources/scss/dark/assets/components/timeline.scss'])
+        @vite(['public/resources/scss/light/assets/components/timeline.scss'])
+        @vite(['public/resources/scss/dark/assets/components/timeline.scss'])
 
 
         {{-- <link href="../src/assets/css/light/scrollspyNav.css" rel="stylesheet" type="text/css" />
         <link href="../src/assets/css/dark/scrollspyNav.css" rel="stylesheet" type="text/css" /> --}}
 
-        {{-- @vite(['resources/rtl/scss/light/assets/scrollspyNav.scss']) --}}
-        {{-- @vite(['resources/rtl/scss/light/assets/scrollspyNav.scss']) --}}
+        {{-- @vite(['public/resources/rtl/scss/light/assets/scrollspyNav.scss']) --}}
+        {{-- @vite(['public/resources/rtl/scss/light/assets/scrollspyNav.scss']) --}}
 
         {{-- <link href="../src/assets/css/light/components/timeline.css" rel="stylesheet" type="text/css" />
         <link href="../src/assets/css/dark/components/timeline.css" rel="stylesheet" type="text/css" /> --}}
 
-        {{-- @vite(['resources/rtl/scss/light/assets/components/timeline.scss']) --}}
-        {{-- @vite(['resources/rtl/scss/dark/assets/components/timeline.scss']) --}}
+        {{-- @vite(['public/resources/rtl/scss/light/assets/components/timeline.scss']) --}}
+        {{-- @vite(['public/resources/rtl/scss/dark/assets/components/timeline.scss']) --}}
 
         <style>
             .toggle-code-snippet {
@@ -530,7 +531,7 @@
         @vite(['public/plugins/filepond/FilePondPluginImageTransform.min.js'])
         @vite(['public/plugins/filepond/filepondPluginFileValidateSize.min.js'])
         @vite(['public/plugins/tagify/tagify.min.js'])
-        @vite(['resources/assets/js/apps/ecommerce-create.js'])
+        @vite(['public/resources/assets/js/apps/ecommerce-create.js'])
         @vite(['public/plugins/leaflet/leaflet.js'])
         @vite(['public/plugins/leaflet/us-states.js'])
         @vite(['public/plugins/leaflet/eu-countries.js'])

@@ -4,8 +4,8 @@
 
     <x-slot:headerFiles>
 
-        @vite(['resources/scss/light/assets/components/modal.scss'])
-        @vite(['resources/scss/dark/assets/components/modal.scss'])
+        @vite(['public/resources/scss/light/assets/components/modal.scss'])
+        @vite(['public/resources/scss/dark/assets/components/modal.scss'])
 
         <style>
             .research-responsive {

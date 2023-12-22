@@ -4,7 +4,7 @@
 
     <x-slot:headerFiles>
         @vite(['public/plugins-rtl/table/datatable/datatables.css'])
-        @vite(['resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
+        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
     </x-slot>
 
     <div class="table-responsive m-4 bg-white">

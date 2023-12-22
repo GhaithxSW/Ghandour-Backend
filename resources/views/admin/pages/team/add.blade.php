@@ -4,8 +4,8 @@
 
     <x-slot:headerFiles>
         @vite(['public/plugins-rtl/table/datatable/datatables.css'])
-        @vite(['resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
-        @vite(['resources/rtl/scss/light/assets/apps/ecommerce-create.scss'])
+        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss'])
+        @vite(['public/resources/rtl/scss/light/assets/apps/ecommerce-create.scss'])
         @vite(['public/plugins-rtl/filepond/filepond.min.css'])
 
         <style>
@@ -87,7 +87,7 @@
 
     <x-slot:footerFiles>
         @vite(['public/plugins-rtl/table/datatable/datatables.js'])
-        @vite(['resources/rtl/assets/js/apps/ecommerce-create.js'])
+        @vite(['public/resources/rtl/assets/js/apps/ecommerce-create.js'])
         @vite(['public/plugins-rtl/filepond/filepond.min.js'])
     </x-slot>
 

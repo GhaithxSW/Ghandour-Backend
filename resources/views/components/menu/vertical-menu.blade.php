@@ -4,9 +4,9 @@
             <div class="nav-logo">
                 <div class="nav-item theme-logo">
                     <a href="/modern-dark-menu/dashboard">
-                        <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="navbar-logo logo-dark"
+                        <img src="{{ Vite::asset('public/resources/images/logo.svg') }}" class="navbar-logo logo-dark"
                             alt="logo">
-                        <img src="{{ Vite::asset('resources/images/logo2.svg') }}" class="navbar-logo logo-light"
+                        <img src="{{ Vite::asset('public/resources/images/logo2.svg') }}" class="navbar-logo logo-light"
                             alt="logo">
                     </a>
                 </div>
