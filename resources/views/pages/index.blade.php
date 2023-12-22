@@ -5,27 +5,114 @@
     <x-slot:headerFiles>
 
         {{-- <link rel="stylesheet" href="{{ mix('resources/scss/light/assets/components/modal.css') }}"> --}}
-        @vite(['public/resources/scss/light/assets/components/modal.scss'])
-        @vite(['public/resources/scss/dark/assets/components/modal.scss'])
-        @vite(['public/plugins/filepond/filepond.min.css'])
-        @vite(['public/plugins/filepond/FilePondPluginImagePreview.min.css'])
-        @vite(['public/plugins/tagify/tagify.css'])
-        @vite(['public/resources/scss/light/assets/forms/switches.scss'])
-        @vite(['public/resources/scss/light/plugins/editors/quill/quill.snow.scss'])
-        @vite(['public/resources/scss/light/plugins/tagify/custom-tagify.scss'])
-        @vite(['public/resources/scss/light/plugins/filepond/custom-filepond.scss'])
-        @vite(['public/resources/scss/dark/assets/forms/switches.scss'])
-        @vite(['public/resources/scss/dark/plugins/editors/quill/quill.snow.scss'])
-        @vite(['public/resources/scss/dark/plugins/tagify/custom-tagify.scss'])
-        @vite(['public/resources/scss/dark/plugins/filepond/custom-filepond.scss'])
-        @vite(['public/resources/scss/light/assets/apps/ecommerce-create.scss'])
-        @vite(['public/resources/scss/dark/assets/apps/ecommerce-create.scss'])
-        @vite(['public/plugins/leaflet/leaflet.css'])
-        @vite(['public/resources/scss/light/assets/pages/contact_us.scss'])
-        @vite(['public/resources/scss/dark/assets/pages/contact_us.scss'])
+        {{-- @vite(['public/resources/scss/light/assets/components/modal.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/modal.css') }}">
 
-        @vite(['public/resources/scss/light/assets/components/timeline.scss'])
-        @vite(['public/resources/scss/dark/assets/components/timeline.scss'])
+
+        {{-- @vite(['public/resources/scss/dark/assets/components/modal.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/dark/modal.css') }}">
+
+
+
+        {{-- @vite(['public/plugins/filepond/filepond.min.css']) --}}
+        <link rel="stylesheet" href="{{ asset('plugins/filepond/filepond.min.css') }}">
+
+
+        {{-- @vite(['public/plugins/filepond/FilePondPluginImagePreview.min.css']) --}}
+        <link rel="stylesheet" href="{{ asset('plugins/filepond/FilePondPluginImagePreview.min.css') }}">
+
+
+        {{-- @vite(['public/plugins/tagify/tagify.css']) --}}
+        <link rel="stylesheet" href="{{ asset('plugins/tagify/tagify.css') }}">
+
+
+
+        {{-- @vite(['public/resources/scss/light/assets/forms/switches.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/switches.css') }}">
+
+
+
+        {{-- @vite(['public/resources/scss/light/plugins/editors/quill/quill.snow.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/quill.snow.css') }}">
+
+
+
+
+
+        {{-- @vite(['public/resources/scss/light/plugins/tagify/custom-tagify.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/custom-tagify.css') }}">
+
+
+
+
+        {{-- @vite(['public/resources/scss/light/plugins/filepond/custom-filepond.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/custom-filepond.css') }}">
+
+
+
+
+
+        {{-- @vite(['public/resources/scss/dark/assets/forms/switches.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/dark/switches.css') }}">
+
+
+
+
+
+        {{-- @vite(['public/resources/scss/dark/plugins/editors/quill/quill.snow.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/dark/quill.snow.css') }}">
+
+
+
+
+
+
+        {{-- @vite(['public/resources/scss/dark/plugins/tagify/custom-tagify.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/dark/custom-tagify.css') }}">
+
+
+
+
+
+        {{-- @vite(['public/resources/scss/dark/plugins/filepond/custom-filepond.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/dark/custom-filepond.css') }}">
+
+
+
+
+        {{-- @vite(['public/resources/scss/light/assets/apps/ecommerce-create.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/ecommerce-create.css') }}">
+
+
+
+        {{-- @vite(['public/resources/scss/dark/assets/apps/ecommerce-create.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/dark/ecommerce-create.css') }}">
+
+
+
+
+        {{-- @vite(['public/plugins/leaflet/leaflet.css']) --}}
+        <link rel="stylesheet" href="{{ asset('plugins/leaflet/leaflet.css') }}">
+
+
+
+        {{-- @vite(['public/resources/scss/light/assets/pages/contact_us.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/contact_us.css') }}">
+
+
+
+        {{-- @vite(['public/resources/scss/dark/assets/pages/contact_us.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/dark/contact_us.css') }}">
+
+
+
+        {{-- @vite(['public/resources/scss/light/assets/components/timeline.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/timeline.css') }}">
+
+
+
+        {{-- @vite(['public/resources/scss/dark/assets/components/timeline.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/dark/timeline.css') }}">
 
 
         {{-- <link href="../src/assets/css/light/scrollspyNav.css" rel="stylesheet" type="text/css" />
@@ -392,7 +479,7 @@
             @foreach ($researches as $research)
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto">
                     <div class="card style-2 mb-md-0 mb-4" style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
-                        <img src="{{ $research->image ? Vite::asset('public/storage/' . $research->image) : Vite::asset('public/no-image.png') }}""
+                        <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('no-image.png') }}""
                             class="card-img-top" alt="..." style="height: 210px">
                         <h5 class="m-3">{{ $research->title }}</h5>
                         <a href="/research/{{ $research->id }}"
@@ -426,7 +513,7 @@
                         <div class="modern-timeline-badge"></div>
                         <div class="modern-timeline-panel" style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
                             <div class="modern-timeline-preview">
-                                <img src="{{ Vite::asset('public/storage/' . $member->photo) }}" alt="timeline">
+                                <img src="{{ asset('storage/' . $member->photo) }}" alt="timeline">
                             </div>
                             <div class="modern-timeline-body">
                                 <p class="mb-4"><b>{{ $member->name }}</b></h4>
@@ -521,20 +608,87 @@
     {{-- <div class="container w-25">{{ $researches->links() }}</div> --}}
 
     <x-slot:footerFiles>
-        @vite(['public/plugins/editors/quill/quill.js'])
-        @vite(['public/plugins/filepond/filepond.min.js'])
-        @vite(['public/plugins/filepond/FilePondPluginFileValidateType.min.js'])
-        @vite(['public/plugins/filepond/FilePondPluginImageExifOrientation.min.js'])
-        @vite(['public/plugins/filepond/FilePondPluginImagePreview.min.js'])
-        @vite(['public/plugins/filepond/FilePondPluginImageCrop.min.js'])
-        @vite(['public/plugins/filepond/FilePondPluginImageResize.min.js'])
-        @vite(['public/plugins/filepond/FilePondPluginImageTransform.min.js'])
-        @vite(['public/plugins/filepond/filepondPluginFileValidateSize.min.js'])
-        @vite(['public/plugins/tagify/tagify.min.js'])
-        @vite(['public/resources/assets/js/apps/ecommerce-create.js'])
-        @vite(['public/plugins/leaflet/leaflet.js'])
-        @vite(['public/plugins/leaflet/us-states.js'])
-        @vite(['public/plugins/leaflet/eu-countries.js'])
+        {{-- @vite(['public/plugins/editors/quill/quill.js']) --}}
+        <script src="{{ asset('plugins/editors/quill/quill.js') }}"></script>
+
+
+        {{-- @vite(['public/plugins/filepond/filepond.min.js']) --}}
+        <script src="{{ asset('plugins/filepond/filepond.min.js') }}"></script>
+
+
+
+
+        {{-- @vite(['public/plugins/filepond/FilePondPluginFileValidateType.min.js']) --}}
+        <script src="{{ asset('plugins/filepond/FilePondPluginFileValidateType.min.js') }}"></script>
+
+
+        {{-- @vite(['public/plugins/filepond/FilePondPluginImageExifOrientation.min.js']) --}}
+        <script src="{{ asset('plugins/filepond/FilePondPluginImageExifOrientation.min.js') }}"></script>
+
+
+
+        {{-- @vite(['public/plugins/filepond/FilePondPluginImagePreview.min.js']) --}}
+        <script src="{{ asset('plugins/filepond/FilePondPluginImagePreview.min.js') }}"></script>
+
+
+
+
+        {{-- @vite(['public/plugins/filepond/FilePondPluginImageCrop.min.js']) --}}
+        <script src="{{ asset('plugins/filepond/FilePondPluginImageCrop.min.js') }}"></script>
+
+
+
+
+
+        {{-- @vite(['public/plugins/filepond/FilePondPluginImageResize.min.js']) --}}
+        <script src="{{ asset('plugins/filepond/FilePondPluginImageResize.min.js') }}"></script>
+
+
+
+
+
+        {{-- @vite(['public/plugins/filepond/FilePondPluginImageTransform.min.js']) --}}
+        <script src="{{ asset('plugins/filepond/FilePondPluginImageTransform.min.js') }}"></script>
+
+
+
+
+        {{-- @vite(['public/plugins/filepond/filepondPluginFileValidateSize.min.js']) --}}
+        <script src="{{ asset('plugins/filepond/filepondPluginFileValidateSize.min.js') }}"></script>
+
+
+
+
+        {{-- @vite(['public/plugins/tagify/tagify.min.js']) --}}
+        <script src="{{ asset('plugins/tagify/tagify.min.js') }}"></script>
+
+
+
+
+
+        {{-- @vite(['public/resources/assets/js/apps/ecommerce-create.js']) --}}
+        <script src="{{ asset('resources/assets/js/apps/ecommerce-create.js') }}"></script>
+
+
+
+
+        {{-- @vite(['public/plugins/leaflet/leaflet.js']) --}}
+        <script src="{{ asset('plugins/leaflet/leaflet.js') }}"></script>
+
+
+
+
+
+        {{-- @vite(['public/plugins/leaflet/us-states.js']) --}}
+        <script src="{{ asset('plugins/leaflet/us-states.js') }}"></script>
+
+
+
+        {{-- @vite(['public/plugins/leaflet/eu-countries.js']) --}}
+        <script src="{{ asset('plugins/leaflet/eu-countries.js') }}"></script>
+
+
+
     </x-slot>
 
 </x-base-layout>

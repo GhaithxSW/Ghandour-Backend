@@ -335,7 +335,7 @@ body.layout-dark {
         color: #bfc9d4
       }
     }
-  
+
     &.bg-info {
       .card-title {
         color: #fff;
@@ -350,7 +350,7 @@ body.layout-dark {
         color: #bfc9d4
       }
     }
-  
+
     &.bg-success {
       .card-title {
         color: #fff;
@@ -365,7 +365,7 @@ body.layout-dark {
         color: #bfc9d4
       }
     }
-  
+
     &.bg-warning {
       .card-title {
         color: #fff;
@@ -380,7 +380,7 @@ body.layout-dark {
         color: #bfc9d4
       }
     }
-  
+
     &.bg-danger {
       .card-title {
         color: #fff;
@@ -395,7 +395,7 @@ body.layout-dark {
         color: #bfc9d4
       }
     }
-  
+
     &.bg-secondary {
       .card-title {
         color: #fff;
@@ -410,7 +410,7 @@ body.layout-dark {
         color: #bfc9d4
       }
     }
-  
+
     &.bg-dark {
       .card-title {
         color: #fff;
@@ -439,7 +439,7 @@ body.layout-dark {
     }
 
     /* Card Style 3 */
-   
+
     &.style-3 {
       padding: 10px 10px;
       border-radius: 15px;
@@ -452,7 +452,7 @@ body.layout-dark {
         margin-right: 25px;
       }
     }
-   
+
     /* Card Style 4 */
 
     &.style-4 {
@@ -625,7 +625,7 @@ body.layout-dark {
         cursor: no-drop;
         color: #d3d3d3;
       }
-      
+
     }
   }
 
@@ -705,12 +705,12 @@ body.layout-dark {
     height: 17px;
     margin-top: 0.21em;
     transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    
+
     &:focus {
       border-color: #515365;
       box-shadow: none;
     }
-    
+
     &:checked {
       background-color: $primary;
       border-color: $primary;
@@ -763,7 +763,7 @@ body.layout-dark {
     border-radius: 6px;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23009688' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
     transition: none;
-    
+
     &.form-select-lg {
       font-size: 19px;
       padding: 11px 20px;
@@ -844,7 +844,7 @@ body.layout-dark {
     width: 100%;
     height: calc(2.25rem + 2px);
     vertical-align: middle;
-    background: #fff url(../img/arrow-down.png) no-repeat right 0.75rem center;
+    // background: #fff url(../img/arrow-down.png) no-repeat right 0.75rem center;
     background-size: 13px 14px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -1030,7 +1030,7 @@ body.layout-dark {
     height: 15px;
     vertical-align: middle;
   }
-  
+
 
   .btn {
     padding: 0.4375rem 1.25rem;
@@ -3467,12 +3467,12 @@ body.layout-dark {
             left: -14px;
             top: 0;
           }
-          
+
         }
 
       }
     }
-    
+
   }
 
   .avatar {
@@ -3675,7 +3675,7 @@ body.layout-dark {
     position: relative;
   }
 
-  /*  
+  /*
     ====================
         Table
     ====================
@@ -3696,7 +3696,7 @@ body.layout-dark {
     background-color: #515365;
     border-color: #515365;
   }
-  
+
   thead {
     color: #bfc9d4;
     letter-spacing: 1px;
@@ -3731,7 +3731,7 @@ body.layout-dark {
       width: 5%;
     }
   }
-  
+
   tbody {
     border: none;
 
@@ -3840,7 +3840,7 @@ body.layout-dark {
   }
 }
 
-/* 
+/*
     Hover and Striped
 */
 
@@ -3866,13 +3866,13 @@ body.layout-dark {
   }
 }
 
-/* 
+/*
 
     Striped
 
 */
 
-/* 
+/*
     Striped and Bordered
 */
 
@@ -3887,85 +3887,85 @@ body.layout-dark {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
           }
-    
+
           &:last-child {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
           }
         }
-    
+
         &:first-child td {
           &:first-child {
             border-top-left-radius: 0;
           }
-    
+
           &:last-child {
             border-top-right-radius: 0;
           }
         }
-    
+
         &:last-child td {
           &:first-child {
             border-bottom-left-radius: 10px;
           }
-    
+
           &:last-child {
             border-bottom-right-radius: 10px;
           }
         }
       }
-    
+
       thead tr th {
         border: 1px solid #191e3a;
         background: transparent;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
       }
-    
+
       > tbody > tr {
         td {
           border: 1px solid #191e3a;
         }
-    
+
         &:last-child td {
           &:first-child {
             border-bottom-left-radius: 10px;
           }
-    
+
           &:last-child {
             border-bottom-right-radius: 10px;
           }
         }
       }
-    
+
       &.table-hover > tbody > tr:hover {
         td {
           &:first-child {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
           }
-    
+
           &:last-child {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
           }
         }
-    
+
         &:first-child td {
           &:first-child {
             border-top-left-radius: 0;
           }
-    
+
           &:last-child {
             border-top-right-radius: 0;
           }
         }
-    
+
         &:last-child td {
           &:first-child {
             border-bottom-left-radius: 10px;
           }
-    
+
           &:last-child {
             border-bottom-right-radius: 10px;
           }
@@ -4569,7 +4569,7 @@ body.layout-dark {
 
 /* .search-form-control { border-radius: .25rem; } */
 
-/*  
+/*
     ====================
         Table
     ====================
@@ -4581,27 +4581,27 @@ body.layout-dark {
 
 */
 
-/* 
+/*
     Hover and Striped
 */
 
-/* 
+/*
 
     Striped
 
 */
 
-/* 
+/*
     Striped and Bordered
 */
 
-/* 
+/*
 
     Bordered
 
 */
 
-/* 
+/*
     Bordered and Hover
 */
 
@@ -4636,25 +4636,25 @@ body.layout-dark {
   }
 }
 
-/*  
+/*
     ==========================
-        Background Colors  
+        Background Colors
     ==========================
 */
 
-/*  
-    Default  
+/*
+    Default
 */
 
-/*  
-    Light Background  
+/*
+    Light Background
 */
 
-/*  
+/*
     Progress Bar
 */
 
-/* 
+/*
     =====================
         BreadCrumbs
     =====================
