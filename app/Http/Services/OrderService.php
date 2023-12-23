@@ -31,13 +31,11 @@ class OrderService
     {
         try {
             $formFields = $request->validated();
-            // $userId = Auth::guard('web')->user()->id;
-
             $userData = [
-                'first_name' => $formFields->first_name,
-                'last_name' => $formFields->last_name,
-                'phone' => $formFields->phone,
-                'email' => $formFields->email
+                'first_name' => $formFields['first_name'],
+                'last_name' => $formFields['last_name'],
+                'phone' => $formFields['phone'],
+                'email' => $formFields['email']
             ];
 
             $user = $this->userRepository->createUser($userData);
@@ -52,11 +50,7 @@ class OrderService
                 'user_id' => $user->id
             ];
 
-            // $phone = ['phone' => $formFields['phone']];
             $this->orderRepository->createOrder($orderData);
-
-            // $this->userRepository->updateUser($phone, $userId);
-
         } catch (Exception $e) {
             throw $e;
         }
