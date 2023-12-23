@@ -4,10 +4,15 @@
 
     <x-slot:headerFiles>
 
-        @vite(['public/resources/scss/light/assets/components/modal.scss'])
+        {{-- @vite(['public/resources/scss/light/assets/components/modal.scss'])
         @vite(['public/resources/scss/dark/assets/components/modal.scss'])
         @vite(['public/resources/scss/light/assets/elements/alert.scss'])
-        @vite(['public/resources/scss/dark/assets/elements/alert.scss'])
+        @vite(['public/resources/scss/dark/assets/elements/alert.scss']) --}}
+
+        <link rel="stylesheet" href="{{ mix('css/light/modal.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/modal.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/alert.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/alert.css') }}">
 
         <style>
             .form-width-responsive {

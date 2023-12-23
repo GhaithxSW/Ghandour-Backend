@@ -4,128 +4,26 @@
 
     <x-slot:headerFiles>
 
-        {{-- <link rel="stylesheet" href="{{ mix('resources/scss/light/assets/components/modal.css') }}"> --}}
-        {{-- @vite(['public/resources/scss/light/assets/components/modal.scss']) --}}
         <link rel="stylesheet" href="{{ mix('css/light/modal.css') }}">
-
-
-        {{-- @vite(['public/resources/scss/dark/assets/components/modal.scss']) --}}
         <link rel="stylesheet" href="{{ mix('css/dark/modal.css') }}">
-
-
-
-        {{-- @vite(['public/plugins/filepond/filepond.min.css']) --}}
-        <link rel="stylesheet" href="{{ asset('plugins/filepond/filepond.min.css') }}">
-
-
-        {{-- @vite(['public/plugins/filepond/FilePondPluginImagePreview.min.css']) --}}
-        <link rel="stylesheet" href="{{ asset('plugins/filepond/FilePondPluginImagePreview.min.css') }}">
-
-
-        {{-- @vite(['public/plugins/tagify/tagify.css']) --}}
-        <link rel="stylesheet" href="{{ asset('plugins/tagify/tagify.css') }}">
-
-
-
-        {{-- @vite(['public/resources/scss/light/assets/forms/switches.scss']) --}}
         <link rel="stylesheet" href="{{ mix('css/light/switches.css') }}">
-
-
-
-        {{-- @vite(['public/resources/scss/light/plugins/editors/quill/quill.snow.scss']) --}}
-        <link rel="stylesheet" href="{{ mix('css/light/quill.snow.css') }}">
-
-
-
-
-
-        {{-- @vite(['public/resources/scss/light/plugins/tagify/custom-tagify.scss']) --}}
-        <link rel="stylesheet" href="{{ mix('css/light/custom-tagify.css') }}">
-
-
-
-
-        {{-- @vite(['public/resources/scss/light/plugins/filepond/custom-filepond.scss']) --}}
-        <link rel="stylesheet" href="{{ mix('css/light/custom-filepond.css') }}">
-
-
-
-
-
-        {{-- @vite(['public/resources/scss/dark/assets/forms/switches.scss']) --}}
         <link rel="stylesheet" href="{{ mix('css/dark/switches.css') }}">
-
-
-
-
-
-        {{-- @vite(['public/resources/scss/dark/plugins/editors/quill/quill.snow.scss']) --}}
-        <link rel="stylesheet" href="{{ mix('css/dark/quill.snow.css') }}">
-
-
-
-
-
-
-        {{-- @vite(['public/resources/scss/dark/plugins/tagify/custom-tagify.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/custom-tagify.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/custom-tagify.css') }}">
-
-
-
-
-
-        {{-- @vite(['public/resources/scss/dark/plugins/filepond/custom-filepond.scss']) --}}
+        <link rel="stylesheet" href="{{ mix('css/light/quill.snow.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/quill.snow.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/custom-filepond.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/custom-filepond.css') }}">
-
-
-
-
-        {{-- @vite(['public/resources/scss/light/assets/apps/ecommerce-create.scss']) --}}
-        <link rel="stylesheet" href="{{ mix('css/light/ecommerce-create.css') }}">
-
-
-
-        {{-- @vite(['public/resources/scss/dark/assets/apps/ecommerce-create.scss']) --}}
-        <link rel="stylesheet" href="{{ mix('css/dark/ecommerce-create.css') }}">
-
-
-
-
-        {{-- @vite(['public/plugins/leaflet/leaflet.css']) --}}
+        <link rel="stylesheet" href="{{ asset('plugins/tagify/tagify.css') }}">
         <link rel="stylesheet" href="{{ asset('plugins/leaflet/leaflet.css') }}">
-
-
-
-        {{-- @vite(['public/resources/scss/light/assets/pages/contact_us.scss']) --}}
+        <link rel="stylesheet" href="{{ asset('plugins/filepond/filepond.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/filepond/FilePondPluginImagePreview.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/ecommerce-create.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/ecommerce-create.css') }}">
         <link rel="stylesheet" href="{{ mix('css/light/contact_us.css') }}">
-
-
-
-        {{-- @vite(['public/resources/scss/dark/assets/pages/contact_us.scss']) --}}
         <link rel="stylesheet" href="{{ mix('css/dark/contact_us.css') }}">
-
-
-
-        {{-- @vite(['public/resources/scss/light/assets/components/timeline.scss']) --}}
         <link rel="stylesheet" href="{{ mix('css/light/timeline.css') }}">
-
-
-
-        {{-- @vite(['public/resources/scss/dark/assets/components/timeline.scss']) --}}
         <link rel="stylesheet" href="{{ mix('css/dark/timeline.css') }}">
-
-
-        {{-- <link href="../src/assets/css/light/scrollspyNav.css" rel="stylesheet" type="text/css" />
-        <link href="../src/assets/css/dark/scrollspyNav.css" rel="stylesheet" type="text/css" /> --}}
-
-        {{-- @vite(['public/resources/rtl/scss/light/assets/scrollspyNav.scss']) --}}
-        {{-- @vite(['public/resources/rtl/scss/light/assets/scrollspyNav.scss']) --}}
-
-        {{-- <link href="../src/assets/css/light/components/timeline.css" rel="stylesheet" type="text/css" />
-        <link href="../src/assets/css/dark/components/timeline.css" rel="stylesheet" type="text/css" /> --}}
-
-        {{-- @vite(['public/resources/rtl/scss/light/assets/components/timeline.scss']) --}}
-        {{-- @vite(['public/resources/rtl/scss/dark/assets/components/timeline.scss']) --}}
 
         <style>
             .toggle-code-snippet {
@@ -608,87 +506,20 @@
     {{-- <div class="container w-25">{{ $researches->links() }}</div> --}}
 
     <x-slot:footerFiles>
-        {{-- @vite(['public/plugins/editors/quill/quill.js']) --}}
         <script src="{{ asset('plugins/editors/quill/quill.js') }}"></script>
-
-
-        {{-- @vite(['public/plugins/filepond/filepond.min.js']) --}}
         <script src="{{ asset('plugins/filepond/filepond.min.js') }}"></script>
-
-
-
-
-        {{-- @vite(['public/plugins/filepond/FilePondPluginFileValidateType.min.js']) --}}
-        <script src="{{ asset('plugins/filepond/FilePondPluginFileValidateType.min.js') }}"></script>
-
-
-        {{-- @vite(['public/plugins/filepond/FilePondPluginImageExifOrientation.min.js']) --}}
-        <script src="{{ asset('plugins/filepond/FilePondPluginImageExifOrientation.min.js') }}"></script>
-
-
-
-        {{-- @vite(['public/plugins/filepond/FilePondPluginImagePreview.min.js']) --}}
         <script src="{{ asset('plugins/filepond/FilePondPluginImagePreview.min.js') }}"></script>
-
-
-
-
-        {{-- @vite(['public/plugins/filepond/FilePondPluginImageCrop.min.js']) --}}
         <script src="{{ asset('plugins/filepond/FilePondPluginImageCrop.min.js') }}"></script>
-
-
-
-
-
-        {{-- @vite(['public/plugins/filepond/FilePondPluginImageResize.min.js']) --}}
         <script src="{{ asset('plugins/filepond/FilePondPluginImageResize.min.js') }}"></script>
-
-
-
-
-
-        {{-- @vite(['public/plugins/filepond/FilePondPluginImageTransform.min.js']) --}}
         <script src="{{ asset('plugins/filepond/FilePondPluginImageTransform.min.js') }}"></script>
-
-
-
-
-        {{-- @vite(['public/plugins/filepond/filepondPluginFileValidateSize.min.js']) --}}
         <script src="{{ asset('plugins/filepond/filepondPluginFileValidateSize.min.js') }}"></script>
-
-
-
-
-        {{-- @vite(['public/plugins/tagify/tagify.min.js']) --}}
+        <script src="{{ asset('plugins/filepond/FilePondPluginFileValidateType.min.js') }}"></script>
+        <script src="{{ asset('plugins/filepond/FilePondPluginImageExifOrientation.min.js') }}"></script>
         <script src="{{ asset('plugins/tagify/tagify.min.js') }}"></script>
-
-
-
-
-
-        {{-- @vite(['public/resources/assets/js/apps/ecommerce-create.js']) --}}
         <script src="{{ asset('resources/assets/js/apps/ecommerce-create.js') }}"></script>
-
-
-
-
-        {{-- @vite(['public/plugins/leaflet/leaflet.js']) --}}
         <script src="{{ asset('plugins/leaflet/leaflet.js') }}"></script>
-
-
-
-
-
-        {{-- @vite(['public/plugins/leaflet/us-states.js']) --}}
         <script src="{{ asset('plugins/leaflet/us-states.js') }}"></script>
-
-
-
-        {{-- @vite(['public/plugins/leaflet/eu-countries.js']) --}}
         <script src="{{ asset('plugins/leaflet/eu-countries.js') }}"></script>
-
-
-
     </x-slot>
 
 </x-base-layout>

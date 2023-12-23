@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>{{ $pageTitle }}</title>
-    <link rel="icon" type="image/x-icon" href="{{ Vite::asset('public/resources/images/logo-new.png') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('resources/images/logo-new.png') }}" />
 
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
@@ -20,38 +20,38 @@
     <!-- Bootstrap-Iconpicker -->
     <link rel="stylesheet" href="dist/css/bootstrap-iconpicker.min.css" />
 
-    @vite(['public/plugins-rtl/bootstrap/bootstrap.rtl.min.css'])
-    @vite(['public/resources/rtl/scss/layouts/vertical-light-menu/light/loader.scss'])
-    @vite(['public/resources/rtl/scss/layouts/vertical-light-menu/dark/loader.scss'])
-    @vite(['public/resources/rtl/scss/light/assets/components/carousel.scss'])
-    @vite(['public/resources/rtl/scss/dark/assets/components/carousel.scss'])
-    @vite(['public/resources/rtl/scss/light/assets/apps/blog-create.scss'])
-    @vite(['public/resources/rtl/scss/dark/assets/apps/blog-create.scss'])
-    @vite(['public/resources/scss/light/assets/apps/blog-post.scss'])
-    @vite(['public/resources/scss/dark/assets/apps/blog-post.scss'])
-    @vite(['public/resources/rtl/scss/light/assets/forms/switches.scss'])
-    @vite(['public/resources/rtl/scss/dark/assets/forms/switches.scss'])
-    @vite(['public/resources/rtl/scss/light/plugins/tagify/custom-tagify.scss'])
-    @vite(['public/resources/rtl/scss/dark/plugins/tagify/custom-tagify.scss'])
-    @vite(['public/resources/rtl/scss/light/plugins/filepond/custom-filepond.scss'])
-    @vite(['public/resources/rtl/scss/dark/plugins/filepond/custom-filepond.scss'])
-    @vite(['public/resources/rtl/scss/light/assets/components/tabs.scss'])
-    @vite(['public/resources/rtl/scss/dark/assets/components/tabs.scss'])
-    @vite(['public/resources/rtl/scss/light/assets/elements/custom-pagination.scss'])
-    @vite(['public/resources/rtl/scss/dark/assets/elements/custom-pagination.scss'])
-    @vite(['public/resources/rtl/scss/light/assets/scrollspyNav.scss'])
-    @vite(['public/resources/rtl/scss/dark/assets/scrollspyNav.scss'])
-    @vite(['public/resources/rtl/scss/light/plugins/editors/quill/quill.snow.scss'])
-    @vite(['public/resources/rtl/scss/dark/plugins/editors/quill/quill.snow.scss'])
-    @vite(['public/plugins-rtl/animate/animate.css'])
-    @vite(['public/plugins-rtl/tagify/tagify.css'])
-    @vite(['public/plugins-rtl/filepond/filepond.min.css'])
-    @vite(['public/plugins-rtl/filepond/FilePondPluginImagePreview.min.css'])
-    @vite(['public/resources/rtl/scss/layouts/vertical-light-menu/light/structure.scss'])
-    @vite(['public/resources/rtl/scss/layouts/vertical-light-menu/dark/structure.scss'])
-    @vite(['public/resources/rtl/layouts/vertical-light-menu/loader.js'])
+    <link rel="stylesheet" href="{{ asset('plugins-rtl/bootstrap/bootstrap.rtl.min.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/loader.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/loader.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/carousel.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/carousel.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/blog-create.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/blog-create.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/light/blog-create.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/dark/blog-create.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/switches.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/switches.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-tagify.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-tagify.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-filepond.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-filepond.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/tabs.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/tabs.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-pagination.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-pagination.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/scrollspyNav.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/scrollspyNav.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/quill.snow.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/quill.snow.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins-rtl/animate/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins-rtl/tagify/tagify.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins-rtl/filepond/filepond.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins-rtl/filepond/FilePondPluginImagePreview.min.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/light/structure.css') }}">
+    <link rel="stylesheet" href="{{ mix('rtl/css/dark/structure.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/light/plugins.min.css') }}">
 
-    @vite(['public/resources/scss/light/plugins/plugins.min.scss'])
+    <script src="{{ asset('resources/rtl/layouts/vertical-light-menu/loader.js') }}"></script>
 
     <style>
         /* .scrollbar {
@@ -88,11 +88,11 @@
         }
     </style>
 
-    @vite(['public/resources/rtl/layouts/vertical-light-menu/loader.js'])
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    {{-- @vite(['public/resources/rtl/scss/light/assets/main.scss', 'public/resources/rtl/scss/dark/assets/main.scss']) --}}
-    @vite(['public/resources/scss/light/assets/main.scss', 'public/resources/scss/dark/assets/main.scss'])
+
+    <link rel="stylesheet" href="{{ mix('css/light/main.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/dark/main.css') }}">
 
     @if (
         !Request::routeIs('404') &&
@@ -104,12 +104,16 @@
             !Request::routeIs('2Step') &&
             !Request::routeIs('login'))
         @if ($scrollspy == 1)
-            @vite(['public/resources/rtl/scss/light/assets/scrollspyNav.scss', 'public/resources/rtl/scss/dark/assets/scrollspyNav.scss'])
+            <link rel="stylesheet" href="{{ mix('rtl/css/light/scrollspyNav.css') }}">
+            <link rel="stylesheet" href="{{ mix('rtl/css/dark/scrollspyNav.css') }}">
         @endif
-        @vite(['plugins-rtl/waves/waves.min.css'])
-        @vite(['plugins-rtl/highlight/styles/monokai-sublime.css'])
-        @vite(['public/resources/rtl/scss/light/plugins/perfect-scrollbar/perfect-scrollbar.scss', 'public/resources/rtl/scss/layouts/vertical-light-menu/light/structure.scss', 'public/resources/rtl/scss/layouts/vertical-light-menu/dark/structure.scss', 'public/resources/rtl/scss/light/assets/custom.scss', 'public/resources/rtl/scss/dark/assets/custom.scss'])
-
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/waves/waves.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/highlight/styles/monokai-sublime.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/perfect-scrollbar.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/structure.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/structure.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/custom.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom.css') }}">
     @endif
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -161,26 +165,28 @@
     <script type="text/javascript" src="dist/js/bootstrap-iconpicker.bundle.min.js"></script>
 
     @if ($scrollspy == 1)
-        @vite(['public/resources/rtl/assets/js/scrollspyNav.js'])
+        <script src="{{ asset('resources/rtl/assets/js/scrollspyNav.js') }}"></script>
     @endif
 
-    @vite(['public/resources/rtl/layouts/vertical-light-menu/app.js'])
-    @vite(['public/plugins-rtl/bootstrap/bootstrap.bundle.min.js'])
-    @vite(['public/plugins-rtl/perfect-scrollbar/perfect-scrollbar.min.js'])
-    @vite(['public/plugins-rtl/mousetrap/mousetrap.min.js'])
-    @vite(['public/plugins-rtl/waves/waves.min.js'])
-    @vite(['public/plugins-rtl/highlight/highlight.pack.js'])
-    @vite(['public/plugins-rtl/filepond/filepond.min.js'])
-    @vite(['public/plugins-rtl/filepond/FilePondPluginFileValidateType.min.js'])
-    @vite(['public/plugins-rtl/filepond/FilePondPluginImageExifOrientation.min.js'])
-    @vite(['public/plugins-rtl/filepond/FilePondPluginImagePreview.min.js'])
-    @vite(['public/plugins-rtl/filepond/FilePondPluginImageCrop.min.js'])
-    @vite(['public/plugins-rtl/filepond/FilePondPluginImageResize.min.js'])
-    @vite(['public/plugins-rtl/filepond/FilePondPluginImageTransform.min.js'])
-    @vite(['public/plugins-rtl/filepond/filepondPluginFileValidateSize.min.js'])
-    @vite(['public/resources/rtl/assets/js/apps/blog-create.js'])
-    @vite(['public/plugins-rtl/tagify/tagify.min.js'])
-    @vite(['public/plugins-rtl/editors/quill/quill.js'])
+    <script src="{{ asset('resources/rtl/layouts/vertical-light-menu/app.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/mousetrap/mousetrap.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/waves/waves.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/highlight/highlight.pack.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/filepond/filepond.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/filepond/FilePondPluginFileValidateType.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageExifOrientation.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImagePreview.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageCrop.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageResize.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageTransform.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/filepond/filepondPluginFileValidateSize.min.js') }}"></script>
+    <script src="{{ asset('resources/rtl/assets/js/apps/blog-create.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/tagify/tagify.min.js') }}"></script>
+    <script src="{{ asset('plugins-rtl/editors/quill/quill.js') }}"></script>
+
+
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     {{-- @vite(['public/resources/assets/js/scrollspyNav.js']) --}}
 

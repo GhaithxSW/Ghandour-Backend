@@ -2,6 +2,8 @@
     "/css/dark/blog-create.css": "/css/dark/blog-create.css",
     "/css/light/blog-create.css": "/css/light/blog-create.css",
     "/css/dark/carousel.css": "/css/dark/carousel.css",
+    "/rtl/css/dark/modal.css": "/rtl/css/dark/modal.css",
+    "/rtl/css/light/modal.css": "/rtl/css/light/modal.css",
     "/rtl/css/dark/ecommerce-create.css": "/rtl/css/dark/ecommerce-create.css",
     "/rtl/css/light/ecommerce-create.css": "/rtl/css/light/ecommerce-create.css",
     "/css/light/carousel.css": "/css/light/carousel.css",

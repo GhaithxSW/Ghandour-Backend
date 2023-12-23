@@ -109,3 +109,13 @@ mix.sass('public/resources/rtl/scss/dark/assets/pages/contact_us.scss', 'public/
 
 mix.sass('public/resources/rtl/scss/light/assets/apps/ecommerce-create.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/dark/assets/apps/ecommerce-create.scss', 'public/rtl/css/dark');
+
+
+
+mix.sass('public/resources/rtl/scss/light/assets/components/modal.scss', 'public/rtl/css/light');
+mix.sass('public/resources/rtl/scss/dark/assets/components/modal.scss', 'public/rtl/css/dark');
+
+
+
+
+
