@@ -36,12 +36,12 @@ Route::group(
         Route::get('/', [HomeController::class, 'index'])->name('index');
         Route::get('/research/{id}', [ControllersResearchController::class, 'showResearch']);
 
-        Route::middleware(['auth.check:web'])->group(function () {
-            Route::controller(OrderController::class)->group(function () {
-                Route::get('/request-research', 'orderResearch')->name('request-research');
-                Route::post('/add-request-research', 'storeOrder');
-            });
+        // Route::middleware(['auth.check:web'])->group(function () {
+        Route::controller(OrderController::class)->group(function () {
+            Route::get('/request-research', 'orderResearch')->name('request-research');
+            Route::post('/add-request-research', 'storeOrder');
         });
+        // });
 
         Route::controller(UserController::class)->group(function () {
             Route::post('/register', 'register')->name('user-register');

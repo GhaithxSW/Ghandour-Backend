@@ -172,7 +172,7 @@
                                                                     autocomplete="password" required autofocus />
                                                             </div>
                                                         </div>
-                                                        <div class="d-flex justify-content-between">
+                                                        {{-- <div class="d-flex justify-content-between">
                                                             <div class="form-check form-check-primary form-check-inline">
                                                                 <input class="form-check-input" type="checkbox"
                                                                     value="" id="remember_me" name="remember">
@@ -183,7 +183,7 @@
                                                             </div>
                                                             <a
                                                                 href="javascript:void(0);">{{ __('trans.forget_password?') }}</a>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                     <div class="modal-footer">
                                                         <div class="btn btn-light-success mt-2 mb-2 btn-no-effect"
@@ -334,7 +334,7 @@
                                                                     {{ $message }}</p>
                                                             @enderror
                                                         </div>
-                                                        <div class="d-flex justify-content-between">
+                                                        {{-- <div class="d-flex justify-content-between">
                                                             <div class="form-check form-check-primary form-check-inline">
                                                                 <input class="form-check-input" type="checkbox"
                                                                     value="" id="form-check-primary">
@@ -344,7 +344,7 @@
                                                                         class="text-primary">{{ __('trans.terms_conditions') }}</a>
                                                                 </label>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                     <div class="modal-footer">
                                                         <div class="btn btn-light-success mt-2 mb-2 btn-no-effect"

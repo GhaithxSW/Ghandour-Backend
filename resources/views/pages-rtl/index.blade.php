@@ -129,13 +129,13 @@
                     <div class="post-header">
                         <div class="post-title m-3">
                             <h1 class="mb-0 font-bg">{{ __('trans.main_content') }}</h1>
-                            @auth
-                                <a href="/request-research" class="btn btn-info request-btn"
-                                    style="font-size: 18px; border-radius: 20px">
-                                    <span class="font-bg-btn">{{ __('trans.request_btn') }}</span>
-                                </a>
-                            @else
-                                <div>
+                            {{-- @auth --}}
+                            <a href="/request-research" class="btn btn-info request-btn"
+                                style="font-size: 18px; border-radius: 20px">
+                                <span class="font-bg-btn">{{ __('trans.request_btn') }}</span>
+                            </a>
+                            {{-- @else --}}
+                            {{-- <div>
                                     <button class="btn btn-info request-btn" style="font-size: 18px; border-radius: 20px"
                                         data-bs-toggle="modal" data-bs-target="#loginModal">
                                         <span class="font-bg-btn">{{ __('trans.request_btn') }}</span>
@@ -404,8 +404,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endauth
+                                </div> --}}
+                            {{-- @endauth --}}
                         </div>
                     </div>
                 </div>
