@@ -4,6 +4,7 @@ namespace App\Http\Enums;
 
 enum EducationLevelEnglish: string
 {
+    case middleSchool = "Middle School";
     case hightSchool = "High School";
     case university = "University";
     case masterDegree = "Master's Degree";
@@ -11,7 +12,7 @@ enum EducationLevelEnglish: string
     public static function getEducationLevelEnglish()
     {
         return [
-            self::hightSchool, self::university, self::masterDegree
+            self::middleSchool, self::hightSchool, self::university, self::masterDegree
         ];
     }
 }
