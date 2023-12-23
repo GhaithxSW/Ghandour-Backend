@@ -24,10 +24,15 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => ['required', 'min:10', 'numeric'],
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => ['required', 'min:10', 'numeric', 'unique:users'],
+            'email' => ['required', 'email', 'unique:users'],
             'education_level' => 'required',
             'research_topic' => 'required',
-            'teacher_name' => 'nullable',
+            'teacher_name' => 'required',
+            'research_lang' => 'required',
+            'research_duration' => 'required',
             'notes' => 'nullable'
         ];
     }
@@ -35,11 +40,19 @@ class OrderRequest extends FormRequest
     public function messages()
     {
         return [
+            'first_name.required' => __('trans.first_name_required'),
+            'last_name.required' => __('trans.last_name_required'),
             'phone.required' => __('trans.phone_required'),
             'phone.numeric' => __('trans.phone_numeric'),
             'phone.min' => __('trans.phone_min'),
+            'email.required' => __('trans.email_required'),
+            'email.email' => __('trans.email_validation'),
+            'email.unique' => __('trans.email_unique'),
             'education_level.required' => __('trans.education_level_required'),
-            'research_topic.required' => __('trans.research_topic_required')
+            'research_topic.required' => __('trans.research_topic_required'),
+            'teacher_name.required' => __('trans.teacher_name_required'),
+            'research_lang.required' => __('trans.research_lang_required'),
+            'research_duration.required' => __('trans.research_duration')
         ];
     }
 }

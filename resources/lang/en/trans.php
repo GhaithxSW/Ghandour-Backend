@@ -37,7 +37,7 @@ return [
     'request_research_now' => 'Request your research now',
     'phone' => 'Phone',
     'education_level' => 'Education Level',
-    'choose' => 'Choose education level',
+    'choose' => 'Choose Education Level',
     'research_topic' => 'Research Topic',
     'teacher_name' => 'Teacher Name',
     'notes' => 'Notes',
@@ -58,6 +58,7 @@ return [
     'sample_medicine' => 'Medicine',
 
     'name_required' => 'Name required',
+    'last_name_required' => 'Last name required',
     'phone_numeric' => 'The phone number must be numeric only',
     'phone_min' => 'Phone number must be at least 6 digits',
     'email_required' => 'Email address required',
@@ -77,5 +78,25 @@ return [
     'contact_us' => 'Let\'s Contact Us',
     'support' => 'Support',
     'enquire' => 'Enquire',
+
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'first_name_placeholder' => 'Enter your first name',
+    'last_name_placeholder' => 'Enter your last name',
+    'email' => 'Email Address',
+    'research_lang' => 'Research Language',
+    'research_duration' => 'Research Time Needed',
+    'research_lang_placeholder' => 'Enter the language of research',
+    'research_duration_placeholder' => 'Enter the time needed of the research',
+    'research_lang_required' => 'The language of research required',
+    'research_duration_required' => 'The duration needed of the research required',
+
+    'first_name_required' => 'First name required',
+    'last_name_required' => 'Last name required',
+    'teacher_name_required' => 'Teacher name required',
+    'research_lang_required' => 'Research language required',
+    'research_duration_required' => 'Research duration required',
+    'phone_unique' => 'Phone number already exist',
+
 
 ];

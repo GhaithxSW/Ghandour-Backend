@@ -8,7 +8,7 @@ return [
     'social_links' => 'روابط التواصل',
 
     'name_placeholder' => 'أدخل الاسم',
-    'email_placeholder' => 'أدخل البريد الالكتروني',
+    'email_placeholder' => 'أدخل البريد الإلكتروني',
     'password_placeholder' => 'أدخل كلمة المرور',
     'confirm_password_placeholder' => 'قم بتأكيد كلمة المرور',
 
@@ -38,16 +38,16 @@ return [
     'phone' => 'رقم الهاتف',
     'education_level' => 'المستوى الدراسي',
     'choose' => 'اختر المستوى الدراسي',
-    'research_topic' => 'عنوان البحث',
+    'research_topic' => 'عنوان حلقة البحث',
     'teacher_name' => 'اسم المعلم/ة',
     'notes' => 'ملاحظات',
     'back' => 'رجوع',
     'submit' => 'اعتماد',
 
     'phone_placeholder' => 'ادخل رقم الهاتف',
-    'research_topic_placeholder' => 'ادخل عنوان البحث',
+    'research_topic_placeholder' => 'ادخل عنوان حلقة البحث',
     'teacher_name_placeholder' => 'ادخل اسم المعلم/ة',
-    'notes_placeholder' => 'اكتب ملاحظاتك او تفاصيل عن موضوع البحث',
+    'notes_placeholder' => 'اكتب ملاحظاتك او تفاصيل عن موضوع حلقة البحث',
 
     'msg_request_success' => 'تم ارسال الطلب بنجاح',
     'msg_request_error' => 'حدث خطأ، قم باعادة المحاولة',
@@ -58,6 +58,7 @@ return [
     'sample_medicine' => 'الطب',
 
     'name_required' => 'الاسم مطلوب',
+    'last_name_required' => 'اسم العائلة مطلوب',
     'phone_numeric' => 'رقم الهاتف يجب أن يكون أرقام فقط',
     'phone_min' => 'رقم الهاتف يجب أن يكون 10 أرقام على الأقل',
     'email_required' => 'البريد الإلكتروني مطلوب',
@@ -67,7 +68,7 @@ return [
     'password_min' => 'كلمة المرور يجب أن تكون 6 أرقام على الأقل',
     'education_level_required' => 'المستوى الدراسي مطلوب',
     'research_topic_required' => 'عنوان البحث مطلوب',
-    'invalid_credentials' => 'البريد الالكتروني أو كلمة المرور خطأ',
+    'invalid_credentials' => 'البريد الإلكتروني أو كلمة المرور خطأ',
     'email_validation' => 'صيغة البريد الإلكتروني غير صحيحة',
     'email_unique' => 'البريد الإلكتروني موجود مسبقًا',
 
@@ -77,5 +78,21 @@ return [
     'contact_us' => 'تواصل معنا الان',
     'support' => 'فريق الدعم',
     'enquire' => 'للأستعلام',
+
+    'first_name' => 'الاسم الأول',
+    'last_name' => 'اسم العائلة',
+    'last_name_placeholder' => 'أدخل اسم العائلة',
+    'email' => 'البريد الإلكتروني',
+    'research_lang' => 'لغة حلقة البحث',
+    'research_duration' => 'المدة المطلوبة لتلبية حلقة البحث',
+    'research_lang_placeholder' => 'أدخل لغة حلقة البحث',
+    'research_duration_placeholder' => 'أدخل المدة المطلوبة لتلبية طلب حلقة الابحث',
+    'research_lang_required' => ' يجب تحديد لغة حلقة البحث',
+    'research_duration_required' => ' يجب تحديد المدة المطلوبة لتلبية حبقة البحث',
+
+    'first_name_required' => 'الاسم الأول مطلوب',
+    'last_name_required' => 'اسم العائلة مطلوب',
+    'teacher_name_required' => 'اسم المعلم/ة مطلوب',
+    'phone_unique' => 'رقم الهاتف موجود مسبقا',
 
 ];

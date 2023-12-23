@@ -47,7 +47,8 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div>
-                    @auth
+
+                    {{-- @auth
                         <div class="btn btn-dark nav-item theme-toggle-item hidden-div mb-2" style="pointer-events: none">
                             {{ Auth::user()->name }}
                         </div>
@@ -85,7 +86,8 @@
                                 <path d="M13 15l3 -3"></path>
                             </svg>
                         </div>
-                    @endauth
+                    @endauth --}}
+
                     <div class="btn btn-dark nav-item dropdown language-dropdown hidden-div" style="z-index: 1">
                         <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="language-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
@@ -155,7 +157,7 @@
 
         <ul class="navbar-item flex-row ms-lg-auto ms-0 action-area">
 
-            @auth
+            {{-- @auth
                 <li class="nav-item theme-toggle-item theme-auth-new">
                     <a href="#">{{ Auth::user()->name }}</a>
                 </li>
@@ -192,9 +194,7 @@
                         </svg>
                     </a>
                 </li>
-            @endauth
-
-
+            @endauth --}}
 
             <li class="nav-item theme-logo theme-logo-mobile hidden-div">
                 <a href="/">

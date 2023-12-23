@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            // $table->string('phone');
             $table->string('research_topic');
-            $table->string('teacher_name')->nullable();
+            $table->string('teacher_name');
+            $table->string('research_lang');
+            $table->string('research_duration');
             $table->string('notes')->nullable();
             $table->timestamps();
         });

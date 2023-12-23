@@ -87,12 +87,40 @@
         <form method="POST" action="/add-request-research" class="row g-3 card form-width-responsive"
             style="padding: 20px; box-shadow: 0 1px 4px 3px rgba(0, 0, 0, 0.1);">
             @csrf
+
+            <div class="col">
+                <label for="first_name" class="form-label">{{ __('trans.first_name') }}</label>
+                <input type="text" name="first_name" class="form-control"
+                    placeholder="{{ __('trans.first_name_placeholder') }}">
+                @error('first_name')
+                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.name_required') }}</p>
+                @enderror
+            </div>
+
+            <div class="col">
+                <label for="last_name" class="form-label">{{ __('trans.last_name') }}</label>
+                <input type="text" name="last_name" class="form-control"
+                    placeholder="{{ __('trans.last_name_placeholder') }}">
+                @error('last_name')
+                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.last_name_required') }}</p>
+                @enderror
+            </div>
+
             <div class="col">
                 <label for="phone" class="form-label">{{ __('trans.phone') }}</label>
                 <input type="text" name="phone" class="form-control"
                     placeholder="{{ __('trans.phone_placeholder') }}">
                 @error('phone')
-                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.phone_required') }}</p>
+                @enderror
+            </div>
+
+            <div class="col">
+                <label for="email" class="form-label">{{ __('trans.email') }}</label>
+                <input type="email" name="email" class="form-control"
+                    placeholder="{{ __('trans.email_placeholder') }}">
+                @error('email')
+                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.email_required') }}</p>
                 @enderror
             </div>
 
@@ -105,7 +133,7 @@
                     @endforeach
                 </select>
                 @error('education_level')
-                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.education_level_required') }}</p>
                 @enderror
             </div>
 
@@ -114,7 +142,7 @@
                 <input type="text" class="form-control" name="research_topic"
                     placeholder="{{ __('trans.research_topic_placeholder') }}">
                 @error('research_topic')
-                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.research_topic_required') }}</p>
                 @enderror
             </div>
 
@@ -123,6 +151,24 @@
                 <input type="text" class="form-control" name="teacher_name"
                     placeholder="{{ __('trans.teacher_name_placeholder') }}">
                 @error('teacher_name')
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="col">
+                <label for="research_lang" class="form-label">{{ __('trans.research_lang') }}</label>
+                <input type="text" class="form-control" name="research_lang"
+                    placeholder="{{ __('trans.research_lang_placeholder') }}">
+                @error('research_lang')
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="col">
+                <label for="research_duration" class="form-label">{{ __('trans.research_duration') }}</label>
+                <input type="text" class="form-control" name="research_duration"
+                    placeholder="{{ __('trans.research_duration_placeholder') }}">
+                @error('research_duration')
                     <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
             </div>

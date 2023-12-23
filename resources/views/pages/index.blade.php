@@ -82,13 +82,13 @@
                     <div class="post-header">
                         <div class="post-title m-3">
                             <h1 class="mb-0 font-bg">{{ __('trans.main_content') }}</h1>
-                            @auth
-                                <a href="/request-research" class="btn btn-info request-btn"
-                                    style="font-size: 18px; border-radius: 20px">
-                                    <span class="font-bg-btn">{{ __('trans.request_btn') }}</span>
-                                </a>
-                            @else
-                                <div>
+                            {{-- @auth --}}
+                            <a href="/request-research" class="btn btn-info request-btn"
+                                style="font-size: 18px; border-radius: 20px">
+                                <span class="font-bg-btn">{{ __('trans.request_btn') }}</span>
+                            </a>
+                            {{-- @else --}}
+                            {{-- <div>
                                     <button class="btn btn-info request-btn" style="font-size: 18px; border-radius: 20px"
                                         data-bs-toggle="modal" data-bs-target="#loginModal">
                                         <span class="font-bg-btn">{{ __('trans.request_btn') }}</span>
@@ -172,7 +172,7 @@
                                                                     autocomplete="password" required autofocus />
                                                             </div>
                                                         </div>
-                                                        {{-- <div class="d-flex justify-content-between">
+                                                        <div class="d-flex justify-content-between">
                                                             <div class="form-check form-check-primary form-check-inline">
                                                                 <input class="form-check-input" type="checkbox"
                                                                     value="" id="remember_me" name="remember">
@@ -183,7 +183,7 @@
                                                             </div>
                                                             <a
                                                                 href="javascript:void(0);">{{ __('trans.forget_password?') }}</a>
-                                                        </div> --}}
+                                                        </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <div class="btn btn-light-success mt-2 mb-2 btn-no-effect"
@@ -334,7 +334,7 @@
                                                                     {{ $message }}</p>
                                                             @enderror
                                                         </div>
-                                                        {{-- <div class="d-flex justify-content-between">
+                                                        <div class="d-flex justify-content-between">
                                                             <div class="form-check form-check-primary form-check-inline">
                                                                 <input class="form-check-input" type="checkbox"
                                                                     value="" id="form-check-primary">
@@ -344,7 +344,7 @@
                                                                         class="text-primary">{{ __('trans.terms_conditions') }}</a>
                                                                 </label>
                                                             </div>
-                                                        </div> --}}
+                                                        </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <div class="btn btn-light-success mt-2 mb-2 btn-no-effect"
@@ -357,8 +357,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endauth
+                                </div> --}}
+                            {{-- @endauth --}}
                         </div>
                     </div>
                 </div>
@@ -445,10 +445,9 @@
                                     <div class="widget-paper">
                                         <div class="icon">
                                             <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-help" width="24"
-                                                height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                stroke="currentColor" fill="none" stroke-linecap="round"
-                                                stroke-linejoin="round">
+                                                class="icon icon-tabler icon-tabler-help" width="24" height="24"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                 <circle cx="12" cy="12" r="9"></circle>
                                                 <line x1="12" y1="17" x2="12" y2="17.01">
