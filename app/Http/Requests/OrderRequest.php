@@ -38,7 +38,9 @@ class OrderRequest extends FormRequest
             'research_lang' => 'required',
             'research_papers_count' =>  ['required', 'numeric'],
             'delivery_date' => 'required',
-            'notes' => 'nullable'
+            'notes' => 'nullable',
+
+            'stripeToken' => 'nullable'
         ];
     }
 

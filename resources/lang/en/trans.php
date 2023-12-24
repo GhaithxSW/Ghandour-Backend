@@ -49,7 +49,7 @@ return [
     'teacher_name_placeholder' => 'Enter the teacher name',
     'notes_placeholder' => 'Write your notes and details for your research',
 
-    'msg_request_success' => 'Request sent successfully',
+    'msg_request_success' => 'Payment success, and request sent successfully',
     'msg_request_error' => 'Request failed, try again',
 
     'sample_nature' => 'Nature',
@@ -58,7 +58,6 @@ return [
     'sample_medicine' => 'Medicine',
 
     'name_required' => 'Name required',
-    'last_name_required' => 'Last name required',
     'phone_numeric' => 'The phone number must be numeric only',
     'phone_min' => 'Phone number must be at least 6 digits',
     'email_required' => 'Email address required',

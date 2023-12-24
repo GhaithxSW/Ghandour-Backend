@@ -49,7 +49,7 @@ return [
     'teacher_name_placeholder' => 'ادخل اسم المعلم/ة',
     'notes_placeholder' => 'اكتب ملاحظاتك او تفاصيل عن موضوع حلقة البحث',
 
-    'msg_request_success' => 'تم ارسال الطلب بنجاح',
+    'msg_request_success' => 'تمت عملية الدفع و ارسال الطلب بنجاح',
     'msg_request_error' => 'حدث خطأ، قم باعادة المحاولة',
 
     'sample_nature' => 'الطبيعة',
@@ -58,7 +58,6 @@ return [
     'sample_medicine' => 'الطب',
 
     'name_required' => 'الاسم مطلوب',
-    'last_name_required' => 'اسم العائلة مطلوب',
     'phone_numeric' => 'رقم الهاتف يجب أن يكون أرقام فقط',
     'phone_min' => 'رقم الهاتف يجب أن يكون 10 أرقام على الأقل',
     'email_required' => 'البريد الإلكتروني مطلوب',

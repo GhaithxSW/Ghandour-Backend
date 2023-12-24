@@ -66,16 +66,18 @@
         @if (session('success'))
             <div class="alert alert-success text-center form-width-responsive"
                 style="font-size: 20px; margin-bottom: 50px">
-                {{ __('trans.msg_request_success') }}
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                {{-- {{ __('trans.msg_request_success') }} --}}
+                {{ Session::get('success') }}
             </div>
         @endif
 
-        @if (Session::has('success'))
+        {{-- @if (Session::has('success'))
             <div class="alert alert-success text-center form-width-responsive">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 <p>{{ Session::get('success') }}</p>
             </div>
-        @endif
+        @endif --}}
 
         <div class='form-row row text-center form-width-responsive' id="error-div" style="display: none">
             <div class='col-md-12 error form-group hide'>
@@ -85,7 +87,7 @@
 
         <form method="POST" action="/add-request-research" role="form"
             class="require-validation row g-3 mt-3 card form-width-responsive" id="requestForm" data-cc-on-file="false"
-            data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
+            data-stripe-publishable-key="pk_test_51NEs22D5A1mRGhgD3UgMErQaGb4Xt2g1gxvDPW2I4Sw6VDz1fbDCIToVeKlhYlQq0JcHqf5G1A6jlfc0gkW3ahB700i249GMLH"
             style="padding: 20px; box-shadow: 0 1px 4px 3px rgba(0, 0, 0, 0.1);">
             @csrf
 
@@ -238,12 +240,12 @@
                     <b>{{ __('trans.pay') }}</b>
                 </h2>
 
-                <div class='form-row row'>
+                {{-- <div class='form-row row'>
                     <div class='col-xs-12 form-group required'>
                         <label class='control-label'>{{ __('trans.card_name') }}</label>
                         <input class='form-control' size='4' type='text'>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class='form-row row'>
                     <div class='col-xs-12 form-group required'>
@@ -273,9 +275,8 @@
 
                 <div class="row mt-3">
                     <div class="col-xs-12">
-                        {{-- <a href="/request-research" class="btn btn-primary m-1">{{ __('trans.back') }}</a> --}}
                         <button class="btn btn-secondary btn-lg btn-block" type="submit">{{ __('trans.pay_now') }}
-                            ($100)</button>
+                            (5$)</button>
                         <button class="btn btn-danger btn-lg btn-block"
                             id="backToForm">{{ __('trans.back') }}</button>
                     </div>
@@ -361,37 +362,6 @@
             });
         </script>
 
-        {{-- <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var form = document.getElementById("requestForm");
-                var submitButton = document.getElementById("submitButton");
-
-                var backToForm = document.getElementById("backToForm");
-
-
-                submitButton.addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent the default form submission behavior
-
-                    // Perform AJAX submission or other processing here
-
-                    // Show the payment form and hide the request form
-                    requestDiv.style.display = "none";
-                    paymentDiv.style.display = "block";
-                });
-
-                backToForm.addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent the default form submission behavior
-
-                    // Perform AJAX submission or other processing here
-
-                    // Show the payment form and hide the request form
-                    requestDiv.style.display = "block";
-                    paymentDiv.style.display = "none";
-                });
-
-            });
-        </script> --}}
-
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 // Function to check if all form fields are filled
@@ -414,7 +384,6 @@
                     document.getElementById('submitButton').disabled = !formFilled;
                 }
 
-                // Bind the checkFormFields function to form field change events
                 var formElements = document.querySelectorAll(
                     '#requestDiv input, #requestDiv select, #requestDiv textarea');
                 formElements.forEach(function(element) {
@@ -429,9 +398,6 @@
                 submitButton.addEventListener("click", function(event) {
                     event.preventDefault(); // Prevent the default form submission behavior
 
-                    // Perform AJAX submission or other processing here
-
-                    // Show the payment form and hide the request form
                     requestDiv.style.display = "none";
                     paymentDiv.style.display = "block";
                 });
@@ -439,9 +405,6 @@
                 backToForm.addEventListener("click", function(event) {
                     event.preventDefault(); // Prevent the default form submission behavior
 
-                    // Perform AJAX submission or other processing here
-
-                    // Show the payment form and hide the request form
                     requestDiv.style.display = "block";
                     paymentDiv.style.display = "none";
                 });
@@ -449,53 +412,6 @@
 
             });
         </script>
-
-
-
-        {{-- <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var form = document.getElementById("requestForm");
-                var submitButton = document.getElementById("submitButton");
-
-                form.addEventListener("input", function(event) {
-                    // Check if the changed element is within the requestDiv
-                    if (event.target.closest("#requestDiv")) {
-                        // Check if all input and select fields are filled, excluding the "Choose" option
-                        var allFieldsFilled = Array.from(form.elements).every(function(element) {
-                            if (element.tagName === "INPUT" && element.type === "text") {
-                                return element.value.trim() !== "";
-                            } else if (element.tagName === "SELECT") {
-                                return element.value !== "" && element.value !==
-                                "0"; // Assuming "0" is the value for the "Choose" option
-                            }
-                            return true; // Ignore non-input/select elements
-                        });
-
-                        // Enable/disable the submit button based on the condition
-                        submitButton.disabled = !allFieldsFilled;
-                    }
-                });
-
-                // Add an event listener to handle form submission
-                form.addEventListener("submit", function(event) {
-                    // Prevent the form from submitting if the submit button is disabled
-                    if (submitButton.disabled) {
-                        event.preventDefault();
-                        alert("Please fill in all required fields before submitting.");
-                    }
-                });
-
-                // Add an event listener to handle switching back to the form
-                var backToFormButton = document.getElementById("backToForm");
-                if (backToFormButton) {
-                    backToFormButton.addEventListener("click", function() {
-                        document.getElementById("paymentDiv").style.display = "none";
-                        document.getElementById("requestDiv").style.display = "block";
-                    });
-                }
-            });
-        </script> --}}
-
 
 
 

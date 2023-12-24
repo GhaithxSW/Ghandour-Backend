@@ -11,8 +11,10 @@ class StripController extends Controller
 {
     public function stripe()
     {
-        if (App::getLocale() == 'en') return view('pages.stripe', ['title' => __('trans.bhoothat')]);
-        if (App::getLocale() == 'ar') return view('pages-rtl.stripe', ['title' => __('trans.bhoothat')]);
+        if (App::getLocale() == 'en')
+            return view('pages.stripe', ['title' => __('trans.bhoothat')]);
+        if (App::getLocale() == 'ar')
+            return view('pages-rtl.stripe', ['title' => __('trans.bhoothat')]);
     }
 
     // public function stripePost(Request $request)
@@ -34,7 +36,7 @@ class StripController extends Controller
     public function stripePost(Request $request)
     {
         // try {
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        \Stripe\Stripe::setApiKey('sk_test_51NEs22D5A1mRGhgDwzahElqIvUD33rsQxBFmv8TeBB9H3S1BkS6KbfD00cbi9aJDfaIyAndrWf4kzr2qFVWPo1FC0018bi3Zax');
         $customer = \Stripe\Customer::create(array(
             "address" => [
                 "line1" => "Virani Chowk",

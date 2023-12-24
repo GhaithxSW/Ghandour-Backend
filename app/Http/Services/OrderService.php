@@ -59,26 +59,26 @@ class OrderService
             $this->orderRepository->createOrder($orderData);
 
 
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            \Stripe\Stripe::setApiKey('sk_test_51NEs22D5A1mRGhgDwzahElqIvUD33rsQxBFmv8TeBB9H3S1BkS6KbfD00cbi9aJDfaIyAndrWf4kzr2qFVWPo1FC0018bi3Zax');
             $customer = \Stripe\Customer::create(array(
                 "address" => [
                     "line1" => "Virani Chowk",
                     "postal_code" => "360001",
                     "city" => "Rajkot",
                     "state" => "GJ",
-                    "country" => $user->country,
+                    "country" => "IN",
                 ],
-                "email" => $user->email,
-                "name" => $user->first_name . ' ' . $user->last_name,
+                "email" => "demo@gmail.com",
+                "name" => "Hardik Savani",
                 "source" => $request->stripeToken
             ));
             \Stripe\Charge::create([
                 "amount" => 100 * 100,
                 "currency" => "usd",
                 "customer" => $customer->id,
-                "description" => "Test payment from " . $user->first_name,
+                "description" => "Test payment from raviyatechnical.",
                 "shipping" => [
-                    "name" => "LEADING CITIES",
+                    "name" => "Jenny Rosen",
                     "address" => [
                         "line1" => "510 Townsend St",
                         "postal_code" => "98140",
@@ -88,7 +88,7 @@ class OrderService
                     ],
                 ]
             ]);
-            Session::flash('success', 'Payment successful!');
+            // Session::flash('success', 'Payment successful!');
             // return back();
 
         } catch (Exception $e) {
