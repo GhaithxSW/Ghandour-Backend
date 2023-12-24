@@ -40,7 +40,7 @@ return [
     'choose' => 'اختر المستوى الدراسي',
     'research_topic' => 'عنوان حلقة البحث',
     'teacher_name' => 'اسم المعلم/ة',
-    'notes' => 'ملاحظات',
+    'notes' => 'ملاحظات / معلومات اخرى',
     'back' => 'رجوع',
     'submit' => 'اعتماد',
 
@@ -84,11 +84,8 @@ return [
     'last_name_placeholder' => 'أدخل اسم العائلة',
     'email' => 'البريد الإلكتروني',
     'research_lang' => 'لغة حلقة البحث',
-    'research_duration' => 'المدة المطلوبة لتلبية حلقة البحث',
     'research_lang_placeholder' => 'أدخل لغة حلقة البحث',
-    'research_duration_placeholder' => 'أدخل المدة المطلوبة لتلبية طلب حلقة الابحث',
     'research_lang_required' => 'يجب تحديد لغة حلقة البحث',
-    'research_duration_required' => 'يجب تحديد المدة المطلوبة لتلبية حبقة البحث',
 
     'first_name_required' => 'الاسم الأول مطلوب',
     'last_name_required' => 'اسم العائلة مطلوب',
@@ -102,5 +99,21 @@ return [
     'cvc' => 'رمز التحقق من البطاقة',
     'expiration_month' => 'شهر انتهاء الصلاحية',
     'expiration_year' => 'سنة انتهاء الصلاحية',
+
+    'country' => 'الدولة',
+    'country_placeholder' => 'ادخل الدولة',
+    'country_required' => 'يجب تحديد الدولة',
+    'grade' => 'الصف',
+    'grade_placeholder' => 'ادخل الصف',
+    'grade_required' => 'يجب تحديد الصف',
+    'school' => 'اسم المدرسة',
+    'school_placeholder' => 'ادخل اسم المدرسة',
+    'school_required' => 'يجب ادخال اسم المدرسة',
+    'delivery_date' => 'تاريخ تسليم حلقة البحث',
+    'delivery_date_placeholder' => 'أدخل تاريخ تسليم حلقة الابحث',
+    'delivery_date_required' => 'يجب تحديد تاريخ تسليم حلقة البحث',
+    'research_papers_count' => 'عدد صفحات حلقة البحث',
+    'research_papers_count_placeholder' => 'أدخل عدد صفحات حلقة البحث',
+    'research_papers_count_required' => 'يجب تحديد عدد صفحات حلقة البحث',
 
 ];

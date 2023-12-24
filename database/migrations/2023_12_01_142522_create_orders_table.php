@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('research_topic');
             $table->string('teacher_name');
+            $table->string('research_papers_count');
             $table->string('research_lang');
-            $table->string('research_duration');
+            $table->string('delivery_date');
             $table->string('notes')->nullable();
             $table->timestamps();
         });

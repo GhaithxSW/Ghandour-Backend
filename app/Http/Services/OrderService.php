@@ -35,19 +35,23 @@ class OrderService
                 'first_name' => $formFields['first_name'],
                 'last_name' => $formFields['last_name'],
                 'phone' => $formFields['phone'],
-                'email' => $formFields['email']
+                'email' => $formFields['email'],
+                'country' => $formFields['country'],
             ];
 
             $user = $this->userRepository->createUser($userData);
 
             $orderData = [
-                'education_level_id' => $formFields['education_level'],
                 'research_topic' => $formFields['research_topic'],
                 'teacher_name' => $formFields['teacher_name'],
+                'research_papers_count' => $formFields['research_papers_count'],
                 'research_lang' => $formFields['research_lang'],
-                'research_duration' => $formFields['research_duration'],
+                'delivery_date' => $formFields['delivery_date'],
                 'notes' => $formFields['notes'],
-                'user_id' => $user->id
+                'user_id' => $user->id,
+                'education_level_id' => $formFields['education_level'],
+                'grade' => $formFields['grade'],
+                'school' => $formFields['school'],
             ];
 
             $this->orderRepository->createOrder($orderData);

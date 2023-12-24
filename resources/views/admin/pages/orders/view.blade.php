@@ -38,6 +38,11 @@
                 </div>
 
                 <div class="col">
+                    <label for="user_name" class="form-label">الدولة</label>
+                    <div class="form-control">{{ $order->user->country }}</div>
+                </div>
+
+                <div class="col">
                     <label for="user_name" class="form-label">رقم الطالب/ة</label>
                     <div class="form-control">{{ $order->user->phone }}</div>
                 </div>
@@ -48,7 +53,22 @@
                 </div>
 
                 <div class="col">
-                    <label for="research_topic" class="form-label">عنوان البحث</label>
+                    <label for="ueser_educationLevel" class="form-label">المستوى الدراسي</label>
+                    <div class="form-control">{{ $order->educationLevel->name_ar }}</div>
+                </div>
+
+                <div class="col">
+                    <label for="ueser_educationLevel" class="form-label">الصف</label>
+                    <div class="form-control">{{ $order->user->grade }}</div>
+                </div>
+
+                <div class="col">
+                    <label for="ueser_educationLevel" class="form-label">اسم المدرسة</label>
+                    <div class="form-control">{{ $order->user->school }}</div>
+                </div>
+
+                <div class="col">
+                    <label for="research_topic" class="form-label">عنوان حلقة البحث</label>
                     <div class="form-control">{{ $order->research_topic }}</div>
                 </div>
 
@@ -58,22 +78,22 @@
                 </div>
 
                 <div class="col">
-                    <label for="ueser_educationLevel" class="form-label">المرحلة الدراسية</label>
-                    <div class="form-control">{{ $order->educationLevel->name_ar }}</div>
-                </div>
-
-                <div class="col">
-                    <label for="ueser_educationLevel" class="form-label">لغة البحث</label>
+                    <label for="ueser_educationLevel" class="form-label">لغة حلقة البحث</label>
                     <div class="form-control">{{ $order->research_lang }}</div>
                 </div>
 
                 <div class="col">
-                    <label for="ueser_educationLevel" class="form-label">المدة المطلوبة لتلبية طلب البحث</label>
-                    <div class="form-control">{{ $order->research_duration }}</div>
+                    <label for="ueser_educationLevel" class="form-label">عدد صفحات حلقة البحث</label>
+                    <div class="form-control">{{ $order->research_papers_count }}</div>
                 </div>
 
                 <div class="col">
-                    <label for="ueser_educationLevel" class="form-label">ملاحظات</label>
+                    <label for="ueser_educationLevel" class="form-label">تاريخ تسليم حلقة البحث</label>
+                    <div class="form-control">{{ $order->delivery_date }}</div>
+                </div>
+
+                <div class="col">
+                    <label for="ueser_educationLevel" class="form-label">ملاحظات / معلومات اخرى</label>
                     <div class="form-control">{{ $order->notes }}</div>
                 </div>
 

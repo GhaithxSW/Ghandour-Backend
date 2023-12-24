@@ -91,7 +91,7 @@
             <div class="col">
                 <label for="first_name" class="form-label">{{ __('trans.first_name') }}</label>
                 <input type="text" name="first_name" class="form-control"
-                    placeholder="{{ __('trans.first_name_placeholder') }}">
+                    placeholder="{{ __('trans.name_placeholder') }}">
                 @error('first_name')
                     <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
@@ -102,6 +102,15 @@
                 <input type="text" name="last_name" class="form-control"
                     placeholder="{{ __('trans.last_name_placeholder') }}">
                 @error('last_name')
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="col">
+                <label for="country" class="form-label">{{ __('trans.country') }}</label>
+                <input type="text" name="country" class="form-control"
+                    placeholder="{{ __('trans.country_placeholder') }}">
+                @error('country')
                     <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
             </div>
@@ -129,10 +138,28 @@
                 <select name="education_level" class="form-select">
                     <option selected disabled>{{ __('trans.choose') }}</option>
                     @foreach ($educationLevels as $educationLevel)
-                        <option value="{{ $educationLevel->id }}">{{ $educationLevel->name_en }}</option>
+                        <option value="{{ $educationLevel->id }}">{{ $educationLevel->name_ar }}</option>
                     @endforeach
                 </select>
                 @error('education_level')
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="col">
+                <label for="grade" class="form-label">{{ __('trans.grade') }}</label>
+                <input type="text" name="grade" class="form-control"
+                    placeholder="{{ __('trans.grade_placeholder') }}">
+                @error('grade')
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="col">
+                <label for="school" class="form-label">{{ __('trans.school') }}</label>
+                <input type="text" name="school" class="form-control"
+                    placeholder="{{ __('trans.school_placeholder') }}">
+                @error('school')
                     <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
             </div>
@@ -165,10 +192,19 @@
             </div>
 
             <div class="col">
-                <label for="research_duration" class="form-label">{{ __('trans.research_duration') }}</label>
-                <input type="text" class="form-control" name="research_duration"
-                    placeholder="{{ __('trans.research_duration_placeholder') }}">
-                @error('research_duration')
+                <label for="research_papers_count" class="form-label">{{ __('trans.research_papers_count') }}</label>
+                <input type="text" class="form-control" name="research_papers_count"
+                    placeholder="{{ __('trans.research_papers_count_placeholder') }}">
+                @error('research_papers_count')
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="col">
+                <label for="delivery_date" class="form-label">{{ __('trans.delivery_date') }}</label>
+                <input type="text" class="form-control" name="delivery_date"
+                    placeholder="{{ __('trans.delivery_date_placeholder') }}">
+                @error('delivery_date')
                     <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
             </div>

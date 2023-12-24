@@ -40,7 +40,7 @@ return [
     'choose' => 'Choose Education Level',
     'research_topic' => 'Research Topic',
     'teacher_name' => 'Teacher Name',
-    'notes' => 'Notes',
+    'notes' => 'Notes \ Additional Info',
     'back' => 'Back',
     'submit' => 'Submit',
 
@@ -85,11 +85,8 @@ return [
     'last_name_placeholder' => 'Enter your last name',
     'email' => 'Email Address',
     'research_lang' => 'Research Language',
-    'research_duration' => 'Research Time Needed',
     'research_lang_placeholder' => 'Enter the language of research',
-    'research_duration_placeholder' => 'Enter the time needed of the research',
     'research_lang_required' => 'The language of research required',
-    'research_duration_required' => 'The duration needed of the research required',
 
     'first_name_required' => 'First name required',
     'last_name_required' => 'Last name required',
@@ -103,5 +100,21 @@ return [
     'cvc' => 'CVC',
     'expiration_month' => 'Expiration Month',
     'expiration_year' => 'Expiration Year',
+
+    'country' => 'Country',
+    'country_placeholder' => 'Enter the country',
+    'country_required' => 'Country required',
+    'grade' => 'Grade',
+    'grade_placeholder' => 'Enter the grade',
+    'grade_required' => 'Grade required',
+    'school' => 'School Name',
+    'school_placeholder' => 'Enter school name',
+    'school_required' => 'School name required',
+    'delivery_date' => 'Delivery Date',
+    'delivery_date_placeholder' => 'Enter the delivery date',
+    'delivery_date_required' => 'Delivery date required',
+    'research_papers_count' => 'Count of Research Papers',
+    'research_papers_count_placeholder' => 'Enter the count of research papers',
+    'research_papers_count_required' => 'Research papers count are required',
 
 ];

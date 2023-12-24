@@ -12,7 +12,18 @@ class Order extends Model
     use HasFactory;
 
     protected $table = 'orders';
-    protected $fillable = ['education_level_id', 'research_topic', 'teacher_name', 'notes', 'user_id', 'research_lang', 'research_duration'];
+    protected $fillable = [
+        'research_topic',
+        'teacher_name',
+        'research_papers_count',
+        'research_lang',
+        'delivery_date',
+        'notes',
+        'user_id',
+        'education_level_id',
+        'grade',
+        'school',
+    ];
 
     public function user(): BelongsTo
     {

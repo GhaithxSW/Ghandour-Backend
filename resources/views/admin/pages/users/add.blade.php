@@ -77,6 +77,15 @@
                     @enderror
                 </div>
 
+                <div class="col">
+                    <label for="counrty" class="form-label">الدولة</label>
+                    <input type="text" name="counrty" class="form-control"
+                        placeholder="ادخل الدولة">
+                    @error('counrty')
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 {{-- <div class="col">
                     <label for="password" class="form-label">كلمة المرور</label>
                     <input type="password" name="password" class="form-control" placeholder="ادخل كلمة المرور">

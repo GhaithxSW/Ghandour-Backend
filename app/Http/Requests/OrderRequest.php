@@ -27,13 +27,17 @@ class OrderRequest extends FormRequest
         return [
             'first_name' => 'required',
             'last_name' => 'required',
+            'country' => 'required',
             'phone' => ['required', 'min:10', 'numeric', 'unique:users'],
             'email' => ['required', 'email', 'unique:users'],
             'education_level' => 'required',
+            'grade' => 'required',
+            'school' => 'required',
             'research_topic' => 'required',
             'teacher_name' => 'required',
             'research_lang' => 'required',
-            'research_duration' => 'required',
+            'research_papers_count' =>  ['required', 'numeric'],
+            'delivery_date' => 'required',
             'notes' => 'nullable'
         ];
     }
@@ -60,6 +64,7 @@ class OrderRequest extends FormRequest
         return [
             'first_name.required' => 'الاسم الأول مطلوب',
             'last_name.required' => 'اسم العائلة مطلوب',
+            'country' => 'يجب تحديد الدولة',
             'phone.required' => 'رقم الهاتف مطلوب',
             'phone.min' => 'رقم الهاتف يجب أن يكون 10 أرقام على الأقل',
             'phone.numeric' => 'رقم الهاتف يجب أن يكون أرقام فقط',
@@ -68,10 +73,14 @@ class OrderRequest extends FormRequest
             'email.email' => 'صيغة البريد الإلكتروني غير صحيحة',
             'email.unique' => 'البريد الإلكتروني موجود مسبقًا',
             'education_level.required' => 'المستوى الدراسي مطلوب',
+            'grade.required' => 'يجب تحديد الصف',
+            'school.required' => 'اسم المدرسة مطلوب',
             'research_topic.required' => 'عنوان البحث مطلوب',
             'teacher_name.required' => 'اسم المعلم/ة مطلوب',
             'research_lang.required' => 'يجب تحديد لغة حلقة البحث',
-            'research_duration.required' => 'يجب تحديد المدة المطلوبة لتلبية حبقة البحث'
+            'research_papers_count.required' => 'يجب تحديد عدد صفحات حلقة البحث',
+            'research_papers_count.numeric' => 'عدد صفحات حلقة البحث يجب أن يكون أرقام فقط',
+            'delivery_date.required' => 'يجب تحديد المدة المطلوبة لتلبية حبقة البحث'
         ];
     }
 }

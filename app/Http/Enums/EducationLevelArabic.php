@@ -4,10 +4,10 @@ namespace App\Http\Enums;
 
 enum EducationLevelArabic: string
 {
-    case middleSchool = "المرحلة الاعدادية";
+    case middleSchool = "المرحلة المتوسطة";
     case hightSchool = "المرحلة الثانوية";
     case university = "المرحلة الجامعية";
-    case masterDegree = "الماجستير";
+    case masterDegree = "الدراسات العليا";
 
     public static function getEducationLevelArabic()
     {

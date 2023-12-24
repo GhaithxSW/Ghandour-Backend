@@ -28,6 +28,7 @@ class UserRequest extends FormRequest
             'last_name' => 'required',
             'phone' => ['required', 'min:10', 'numeric', 'unique:users', 'sometimes'],
             'email' => ['required', 'email', 'unique:users'],
+            'country' => 'required',
         ];
     }
 
@@ -43,6 +44,7 @@ class UserRequest extends FormRequest
             'email.required' => 'البريد الإلكتروني مطلوب',
             'email.email' => 'صيغة البريد الإلكتروني غير صحيحة',
             'email.unique' => 'البريد الإلكتروني موجود مسبقًا',
+            'country.required' => 'يجب تحديد الدولة',
         ];
     }
 }

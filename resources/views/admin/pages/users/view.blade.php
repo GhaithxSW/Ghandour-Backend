@@ -55,6 +55,10 @@
                     <div class="form-control">{{ $user->email }}</div>
                 </div>
                 <div class="col">
+                    <label for="email" class="form-label">الدولة</label>
+                    <div class="form-control">{{ $user->country }}</div>
+                </div>
+                <div class="col">
                     <a href="/admin-panel-management/users" class="btn btn-secondary m-1">رجوع</a>
                 </div>
             </div>
