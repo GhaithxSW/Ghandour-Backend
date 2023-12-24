@@ -34,7 +34,7 @@ Route::group(
     ],
     function () {
 
-        Route::controller(StripController::class)->group(function(){
+        Route::controller(StripController::class)->group(function () {
             Route::get('stripe', 'stripe');
             Route::post('stripe', 'stripePost')->name('stripe.post');
         });

@@ -97,6 +97,7 @@ return [
     'phone_unique' => 'Phone number already exist',
 
     'pay' => 'Pay to continue',
+    'pay_now' => 'Pay Now',
     'card_name' => 'Name on Card',
     'card_number' => 'Card Number',
     'cvc' => 'CVC',

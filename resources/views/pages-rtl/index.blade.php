@@ -4,71 +4,28 @@
 
     <x-slot:headerFiles>
 
-        {{-- @vite(['public/resources/rtl/scss/light/assets/apps/blog-post.scss']) --}}
-        {{-- @vite(['public/resources/rtl/scss/dark/assets/apps/blog-post.scss']) --}}
-        {{-- @vite(['public/resources/scss/light/assets/apps/blog-post.scss'])
-        @vite(['public/resources/scss/dark/assets/apps/blog-post.scss']) --}}
         <link rel="stylesheet" href="{{ mix('css/light/blog-post.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/blog-post.css') }}">
-
-        {{-- @vite(['public/resources/rtl/scss/light/assets/components/modal.scss'])
-        @vite(['public/resources/rtl/scss/dark/assets/components/modal.scss']) --}}
-        {{-- @vite(['public/resources/scss/light/assets/components/modal.scss']) --}}
-        {{-- @vite(['public/resources/scss/dark/assets/components/modal.scss']) --}}
         <link rel="stylesheet" href="{{ mix('rtl/css/light/modal.css') }}">
         <link rel="stylesheet" href="{{ mix('rtl/css/dark/modal.css') }}">
         <link rel="stylesheet" href="{{ mix('css/light/modal.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/modal.css') }}">
-
-
-        {{-- @vite(['public/plugins-rtl/filepond/filepond.min.css'])
-        @vite(['public/plugins-rtl/filepond/FilePondPluginImagePreview.min.css'])
-        @vite(['public/plugins-rtl/tagify/tagify.css']) --}}
         <link rel="stylesheet" href="{{ asset('plugins-rtl/tagify/tagify.css') }}">
         <link rel="stylesheet" href="{{ asset('plugins-rtl/filepond/filepond.min.css') }}">
         <link rel="stylesheet" href="{{ asset('plugins-rtl/filepond/FilePondPluginImagePreview.min.css') }}">
-
-
-
-        {{-- @vite(['public/resources/rtl/scss/light/assets/forms/switches.scss'])
-        @vite(['public/resources/rtl/scss/dark/assets/forms/switches.scss']) --}}
         <link rel="stylesheet" href="{{ mix('rtl/css/light/switches.css') }}">
         <link rel="stylesheet" href="{{ mix('rtl/css/dark/switches.css') }}">
-
-        {{-- @vite(['public/resources/rtl/scss/light/plugins/editors/quill/quill.snow.scss'])
-        @vite(['public/resources/rtl/scss/dark/plugins/editors/quill/quill.snow.scss']) --}}
         <link rel="stylesheet" href="{{ mix('rtl/css/light/quill.snow.css') }}">
         <link rel="stylesheet" href="{{ mix('rtl/css/dark/quill.snow.css') }}">
-
-
-        {{-- @vite(['public/resources/rtl/scss/light/plugins/tagify/custom-tagify.scss'])
-        @vite(['public/resources/rtl/scss/dark/plugins/tagify/custom-tagify.scss']) --}}
         <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-tagify.css') }}">
         <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-tagify.css') }}">
-
-
-        {{-- @vite(['public/resources/rtl/scss/light/plugins/filepond/custom-filepond.scss'])
-        @vite(['public/resources/rtl/scss/dark/plugins/filepond/custom-filepond.scss']) --}}
         <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-filepond.css') }}">
         <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-filepond.css') }}">
-
-
-        {{-- @vite(['public/resources/rtl/scss/light/assets/apps/ecommerce-create.scss'])
-        @vite(['public/resources/rtl/scss/dark/assets/apps/ecommerce-create.scss']) --}}
         <link rel="stylesheet" href="{{ mix('rtl/css/light/ecommerce-create.css') }}">
         <link rel="stylesheet" href="{{ mix('rtl/css/dark/ecommerce-create.css') }}">
-
-
-        {{-- @vite(['public/plugins-rtl/leaflet/leaflet.css']) --}}
         <link rel="stylesheet" href="{{ asset('plugins-rtl/leaflet/leaflet.css') }}">
-
-        {{-- @vite(['public/resources/scss/light/assets/pages/contact_us.scss'])
-        @vite(['public/resources/scss/dark/assets/pages/contact_us.scss']) --}}
         <link rel="stylesheet" href="{{ mix('css/light/contact_us.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/contact_us.css') }}">
-
-        {{-- @vite(['public/resources/scss/light/assets/components/timeline.scss'])
-        @vite(['public/resources/scss/dark/assets/components/timeline.scss']) --}}
         <link rel="stylesheet" href="{{ mix('css/light/timeline.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/timeline.css') }}">
 

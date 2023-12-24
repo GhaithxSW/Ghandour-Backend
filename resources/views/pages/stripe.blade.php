@@ -3,6 +3,12 @@
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
     <x-slot:headerFiles>
+
+        <link rel="stylesheet" href="{{ mix('css/light/modal.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/modal.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/alert.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/alert.css') }}">
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <style>
@@ -70,7 +76,7 @@
             </div>
         </div>
 
-        <h2 class="text-center mb-5">
+        <h2 class="text-center mt-4 mb-5">
             <b>{{ __('trans.pay') }}</b>
         </h2>
 
@@ -109,7 +115,7 @@
 
             <div class="row mt-3">
                 <div class="col-xs-12">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">{{ __('trans.pay_now') }}
+                    <button class="btn btn-secondary btn-lg btn-block" type="submit">{{ __('trans.pay_now') }}
                         ($100)</button>
                 </div>
             </div>
