@@ -40,7 +40,7 @@
                         <th class="text-center">اسم الطالب/ة</th>
                         <th class="text-center">عنوان البحث</th>
                         <th class="text-center">اسم المعلم/ة</th>
-                        <th class="text-center">المرحلة الدراسية</th>
+                        <th class="text-center">المستوى الدراسي</th>
                         <th class="text-center">خيارات</th>
                     </tr>
                 </thead>
