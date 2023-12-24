@@ -94,9 +94,6 @@ return [
     'first_name_required' => 'First name required',
     'last_name_required' => 'Last name required',
     'teacher_name_required' => 'Teacher name required',
-    'research_lang_required' => 'Research language required',
-    'research_duration_required' => 'Research duration required',
     'phone_unique' => 'Phone number already exist',
-
 
 ];

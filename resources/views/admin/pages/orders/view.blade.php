@@ -28,6 +28,26 @@
             <div class="row g-3 card" style="padding: 20px">
 
                 <div class="col">
+                    <label for="research_topic" class="form-label">رقم الطلب</label>
+                    <div class="form-control">{{ $order->id }}</div>
+                </div>
+
+                <div class="col">
+                    <label for="user_name" class="form-label">اسم الطالب/ة</label>
+                    <div class="form-control">{{ $order->user->first_name }} {{ $order->user->last_name }}</div>
+                </div>
+
+                <div class="col">
+                    <label for="user_name" class="form-label">رقم الطالب/ة</label>
+                    <div class="form-control">{{ $order->user->phone }}</div>
+                </div>
+
+                <div class="col">
+                    <label for="user_name" class="form-label">بريد الطالب/ة</label>
+                    <div class="form-control">{{ $order->user->email }}</div>
+                </div>
+
+                <div class="col">
                     <label for="research_topic" class="form-label">عنوان البحث</label>
                     <div class="form-control">{{ $order->research_topic }}</div>
                 </div>
@@ -38,13 +58,23 @@
                 </div>
 
                 <div class="col">
-                    <label for="user_name" class="form-label">اسم الطالب/ة</label>
-                    <div class="form-control">{{ $order->user->name }}</div>
+                    <label for="ueser_educationLevel" class="form-label">المرحلة الدراسية</label>
+                    <div class="form-control">{{ $order->educationLevel->name_ar }}</div>
                 </div>
 
                 <div class="col">
-                    <label for="ueser_educationLevel" class="form-label">المرحلة الدراسية</label>
-                    <div class="form-control">{{ $order->educationLevel->name_ar }}</div>
+                    <label for="ueser_educationLevel" class="form-label">لغة البحث</label>
+                    <div class="form-control">{{ $order->research_lang }}</div>
+                </div>
+
+                <div class="col">
+                    <label for="ueser_educationLevel" class="form-label">المدة المطلوبة لتلبية طلب البحث</label>
+                    <div class="form-control">{{ $order->research_duration }}</div>
+                </div>
+
+                <div class="col">
+                    <label for="ueser_educationLevel" class="form-label">ملاحظات</label>
+                    <div class="form-control">{{ $order->notes }}</div>
                 </div>
 
                 <div class="col">

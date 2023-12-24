@@ -25,7 +25,7 @@ class TeamRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'photo' => ['nullable', 'image'],
+            'photo' => ['required', 'image'],
             'position' => 'required',
             'about' => 'required'
         ];
@@ -35,7 +35,7 @@ class TeamRequest extends FormRequest
     {
         return [
             'name.required' => 'الاسم مطلوب',
-            // 'photo.required' => 'الصورة مطلوبة',
+            'photo.required' => 'الصورة مطلوبة',
             'position.required' => 'المسمى الوظيفي مطلوب',
             'about.required' => 'لمحة عن الموظف مطلوبة',
         ];

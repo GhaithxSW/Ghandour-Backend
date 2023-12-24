@@ -37,10 +37,9 @@
                 <thead>
                     <tr>
                         <th class="text-center">رقم الطلب</th>
+                        <th class="text-center">اسم الطالب/ة</th>
                         <th class="text-center">عنوان البحث</th>
                         <th class="text-center">اسم المعلم/ة</th>
-                        <th class="text-center">ملاحظات</th>
-                        <th class="text-center">اسم الطالب/ة</th>
                         <th class="text-center">المرحلة الدراسية</th>
                         <th class="text-center">خيارات</th>
                     </tr>
@@ -50,10 +49,10 @@
                         @foreach ($orders as $order)
                             <tr style="pointer-events: none">
                                 <td class="text-center">{{ $order->id }}</td>
+                                <td class="text-center">{{ $order->user->first_name }} {{ $order->user->last_name }}
                                 <td class="text-center">{{ $order->research_topic }}</td>
                                 <td class="text-center">{{ $order->teacher_name }}</td>
-                                <td class="text-center">{{ $order->notes }}</td>
-                                <td class="text-center">{{ $order->user->name }}</td>
+                                </td>
                                 <td class="text-center">{{ $order->educationLevel->name_ar }}</td>
                                 <td class="text-center">
                                     <a href="/admin-panel-management/order/{{ $order->id }}/details"

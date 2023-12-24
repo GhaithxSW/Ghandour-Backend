@@ -4,7 +4,7 @@ namespace App\Http\Services\Admin;
 
 use Exception;
 use App\Http\Repositories\ResearchRepository;
-use App\Http\Requests\Admin\OrderRequest;
+use App\Http\Requests\Admin\ResearchRequest;
 
 class ResearchService
 {
@@ -20,7 +20,7 @@ class ResearchService
         return $this->researchRepository->getAllResearches();
     }
 
-    public function addResearch(OrderRequest $request)
+    public function addResearch(ResearchRequest $request)
     {
         try {
             $formFields = $request->validated();
@@ -31,7 +31,7 @@ class ResearchService
 
             $data = [
                 'title' => $formFields['title'],
-                'image' => isset($formFields['image']) ? $formFields['image'] : null,
+                'image' => $formFields['image'],
                 'content' => $formFields['content']
             ];
 
@@ -46,7 +46,7 @@ class ResearchService
         return $this->researchRepository->getResearchById($id);
     }
 
-    public function updateResearch(OrderRequest $request, $id)
+    public function updateResearch(ResearchRequest $request, $id)
     {
         try {
             $formFields = $request->validated();

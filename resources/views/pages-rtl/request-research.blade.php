@@ -93,7 +93,7 @@
                 <input type="text" name="first_name" class="form-control"
                     placeholder="{{ __('trans.name_placeholder') }}">
                 @error('first_name')
-                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.name_required') }}</p>
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -102,7 +102,7 @@
                 <input type="text" name="last_name" class="form-control"
                     placeholder="{{ __('trans.last_name_placeholder') }}">
                 @error('last_name')
-                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.last_name_required') }}</p>
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -111,7 +111,7 @@
                 <input type="text" name="phone" class="form-control"
                     placeholder="{{ __('trans.phone_placeholder') }}">
                 @error('phone')
-                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.phone_required') }}</p>
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -120,7 +120,7 @@
                 <input type="email" name="email" class="form-control text-right"
                     placeholder="{{ __('trans.email_placeholder') }}">
                 @error('email')
-                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.email_required') }}</p>
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -133,7 +133,7 @@
                     @endforeach
                 </select>
                 @error('education_level')
-                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.education_level_required') }}</p>
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -142,7 +142,7 @@
                 <input type="text" class="form-control" name="research_topic"
                     placeholder="{{ __('trans.research_topic_placeholder') }}">
                 @error('research_topic')
-                    <p class="m-2 text-red-600" style="color: red">{{ __('trans.research_topic_required') }}</p>
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                 @enderror
             </div>
 

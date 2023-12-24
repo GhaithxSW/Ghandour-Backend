@@ -55,7 +55,7 @@
                         <textarea type="text" name="content" class="form-control text-right" id="description"></textarea>
                     </div>
                     @error('content')
-                        <p class="mt-2">{{ $message }}</p>
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 

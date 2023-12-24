@@ -24,25 +24,25 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => ['required', 'min:10', 'numeric', 'unique:users', 'sometimes'],
             'email' => ['required', 'email', 'unique:users'],
-            'password' => ['required', 'confirmed', 'min:6'],
-            'phone' => ['nullable', 'min:10', 'numeric']
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => __('trans.name_required'),
-            'email.required' => __('trans.email_required'),
-            'email.email' => __('trans.email_validation'),
-            'email.unique' => __('trans.email_unique'),
-            'password.required' => __('trans.password_required'),
-            'password.confirmed' => __('trans.password_confirmed'),
-            'password.min' => __('trans.password_min'),
-            'phone.min' => __('trans.phone_min'),
-            'phone.numeric' => __('trans.phone_numeric')
+            'first_name.required' => 'الاسم الأول مطلوب',
+            'last_name.required' => 'اسم العائلة مطلوب',
+            'phone.required' => 'رقم الهاتف مطلوب',
+            'phone.min' => 'رقم الهاتف يجب أن يكون 10 أرقام على الأقل',
+            'phone.numeric' => 'رقم الهاتف يجب أن يكون أرقام فقط',
+            'phone.unique' => 'رقم الهاتف موجود مسبقا',
+            'email.required' => 'البريد الإلكتروني مطلوب',
+            'email.email' => 'صيغة البريد الإلكتروني غير صحيحة',
+            'email.unique' => 'البريد الإلكتروني موجود مسبقًا',
         ];
     }
 }

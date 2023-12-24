@@ -32,9 +32,10 @@ class UserService
             $formFields = $request->validated();
 
             $data = [
-                'name' => $formFields['name'],
+                'first_name' => $formFields['first_name'],
+                'last_name' => $formFields['last_name'],
+                'phone' => $formFields['phone'],
                 'email' => $formFields['email'],
-                'password' => bcrypt($formFields['password'])
             ];
 
             $this->userRepository->createUser($data);
@@ -55,10 +56,10 @@ class UserService
             $user = $this->userRepository->getUserById($id);
 
             $data = [
-                'name' => isset($formFields['name']) ? $formFields['name'] : $user->name,
+                'first_name' => isset($formFields['first_name']) ? $formFields['first_name'] : $user->first_name,
+                'last_name' => isset($formFields['last_name']) ? $formFields['last_name'] : $user->last_name,
                 'phone' => isset($formFields['phone']) ? $formFields['phone'] : $user->phone,
                 'email' => isset($formFields['email']) ? $formFields['email'] : $user->email,
-                'password' => isset($formFields['password']) ? bcrypt($formFields['password']) : $user->password,
             ];
 
             $this->userRepository->updateUser($data, $id);

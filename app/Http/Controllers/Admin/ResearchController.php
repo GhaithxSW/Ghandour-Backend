@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\OrderRequest;
+use App\Http\Requests\Admin\ResearchRequest;
 use App\Http\Services\Admin\ResearchService;
 
 class ResearchController extends Controller
@@ -32,7 +32,7 @@ class ResearchController extends Controller
         return view('admin.pages.researches.add', ['title' => 'اضافة بحث']);
     }
 
-    public function addResearch(OrderRequest $request)
+    public function addResearch(ResearchRequest $request)
     {
         $this->researchService->addResearch($request);
         return redirect()->back()->with('success', 'تمت اضافة البحث بنجاح');
@@ -44,7 +44,7 @@ class ResearchController extends Controller
         return view('admin.pages.researches.edit', ['title' => 'تعديل البحث'], ['research' => $research]);
     }
 
-    public function updateResearch(OrderRequest $request, $id)
+    public function updateResearch(ResearchRequest $request, $id)
     {
         $this->researchService->updateResearch($request, $id);
         return redirect()->back()->with('success', 'تم تعديل البحث بنجاح');

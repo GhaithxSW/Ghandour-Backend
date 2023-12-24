@@ -45,9 +45,17 @@
                 enctype="multipart/form-data">
                 @csrf
                 <div class="col">
-                    <label for="name" class="form-label">اسم المستخدم</label>
-                    <input type="text" name="name" class="form-control" placeholder="ادخل اسم المستخدم">
-                    @error('name')
+                    <label for="first_name" class="form-label">الاسم الأول</label>
+                    <input type="text" name="first_name" class="form-control" placeholder="ادخل الاسم الأول">
+                    @error('first_name')
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="col">
+                    <label for="last_name" class="form-label">اسم العائلة</label>
+                    <input type="text" name="last_name" class="form-control" placeholder="ادخل اسم العائلة">
+                    @error('last_name')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
@@ -69,22 +77,22 @@
                     @enderror
                 </div>
 
-                <div class="col">
+                {{-- <div class="col">
                     <label for="password" class="form-label">كلمة المرور</label>
                     <input type="password" name="password" class="form-control" placeholder="ادخل كلمة المرور">
                     @error('password')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
-                </div>
+                </div> --}}
 
-                <div class="col">
+                {{-- <div class="col">
                     <label for="password_confirmation" class="form-label">تأكيد كلمة المرور</label>
                     <input type="password" name="password_confirmation" class="form-control"
                         placeholder="تأكيد كلمة المرور">
                     @error('password_confirmation')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
-                </div>
+                </div> --}}
 
                 <div class="col">
                     <a href="/admin-panel-management/users" class="btn btn-secondary m-1">رجوع</a>

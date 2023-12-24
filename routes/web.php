@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ResearchController as ControllersResearchController;
+use App\Http\Controllers\StripController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -32,6 +33,11 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
+
+        Route::controller(StripController::class)->group(function(){
+            Route::get('stripe', 'stripe');
+            Route::post('stripe', 'stripePost')->name('stripe.post');
+        });
 
         Route::get('/', [HomeController::class, 'index'])->name('index');
         Route::get('/research/{id}', [ControllersResearchController::class, 'showResearch']);

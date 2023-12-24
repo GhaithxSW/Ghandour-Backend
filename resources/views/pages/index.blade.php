@@ -58,6 +58,11 @@
                     margin-top: 30px;
                     width: auto;
                 }
+
+                .team-margin {
+                    margin-left: 15px;
+                    margin-right: 15px;
+                }
             }
 
             @media screen and (max-width: 300px) {
@@ -407,7 +412,7 @@
             </li>
             @if (count($members))
                 @foreach ($members as $member)
-                    <li>
+                    <li class="team-margin">
                         <div class="modern-timeline-badge"></div>
                         <div class="modern-timeline-panel" style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
                             <div class="modern-timeline-preview">
@@ -445,9 +450,10 @@
                                     <div class="widget-paper">
                                         <div class="icon">
                                             <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-help" width="24" height="24"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                class="icon icon-tabler icon-tabler-help" width="24"
+                                                height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                 <circle cx="12" cy="12" r="9"></circle>
                                                 <line x1="12" y1="17" x2="12" y2="17.01">
@@ -456,7 +462,7 @@
                                             </svg>
                                         </div>
                                         <h5>{{ __('trans.support') }}</h5>
-                                        <p>support@gmail.com</p>
+                                        <p>buhothy@support.com</p>
                                     </div>
                                 </div>
                                 <div class="col-xl-4 col-lg-6 col-md-6 mb-3">
@@ -491,7 +497,7 @@
                                             </svg>
                                         </div>
                                         <h5>{{ __('trans.phone') }}</h5>
-                                        <p>+1 (218) 356 954</p>
+                                        <p>+963 947 208 628</p>
                                     </div>
                                 </div>
                             </div>

@@ -105,6 +105,11 @@
                     margin-top: 30px;
                     width: auto;
                 }
+
+                .team-margin {
+                    margin-left: 15px;
+                    margin-right: 15px;
+                }
             }
 
             @media screen and (max-width: 300px) {
@@ -454,7 +459,7 @@
             </li>
             @if (count($members))
                 @foreach ($members as $member)
-                    <li>
+                    <li class="team-margin">
                         <div class="modern-timeline-badge"></div>
                         <div class="modern-timeline-panel" style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
                             <div class="modern-timeline-preview">
@@ -507,7 +512,7 @@
                                             </svg>
                                         </div>
                                         <h5>{{ __('trans.support') }}</h5>
-                                        <p>support@gmail.com</p>
+                                        <p>buhothy@support.com</p>
                                     </div>
                                 </div>
                                 <div class="col-xl-4 col-lg-6 col-md-6 mb-3">
@@ -542,7 +547,7 @@
                                             </svg>
                                         </div>
                                         <h5>{{ __('trans.phone') }}</h5>
-                                        <p>+1 (218) 356 954</p>
+                                        <p>628 208 947 963+</p>
                                     </div>
                                 </div>
                             </div>

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OrderRequest extends FormRequest
+class ResearchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class OrderRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => ['nullable', 'image'],
+            'image' => ['required', 'image', 'sometimes'],
             'content' => 'required'
         ];
     }
@@ -34,6 +34,7 @@ class OrderRequest extends FormRequest
     {
         return [
             'title.required' => 'عنوان البحث مطلوب',
+            'image' => 'صورة البحث مطلوبة',
             'content.required' => 'محتوى البحث مطلوب'
         ];
     }

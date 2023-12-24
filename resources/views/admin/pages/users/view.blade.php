@@ -44,7 +44,7 @@
             <div class="row g-3 card" style="padding: 20px">
                 <div class="col">
                     <label for="name" class="form-label">اسم المستخدم</label>
-                    <div class="form-control">{{ $user->name }}</div>
+                    <div class="form-control">{{ $user->first_name }} {{ $user->last_name }}</div>
                 </div>
                 <div class="col">
                     <label for="phone" class="form-label">رقم الهاتف</label>
