@@ -96,4 +96,11 @@ return [
     'teacher_name_required' => 'Teacher name required',
     'phone_unique' => 'Phone number already exist',
 
+    'pay' => 'Pay to continue',
+    'card_name' => 'Name on Card',
+    'card_number' => 'Card Number',
+    'cvc' => 'CVC',
+    'expiration_month' => 'Expiration Month',
+    'expiration_year' => 'Expiration Year',
+
 ];

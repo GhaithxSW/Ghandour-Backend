@@ -87,12 +87,20 @@ return [
     'research_duration' => 'المدة المطلوبة لتلبية حلقة البحث',
     'research_lang_placeholder' => 'أدخل لغة حلقة البحث',
     'research_duration_placeholder' => 'أدخل المدة المطلوبة لتلبية طلب حلقة الابحث',
-    'research_lang_required' => ' يجب تحديد لغة حلقة البحث',
-    'research_duration_required' => ' يجب تحديد المدة المطلوبة لتلبية حبقة البحث',
+    'research_lang_required' => 'يجب تحديد لغة حلقة البحث',
+    'research_duration_required' => 'يجب تحديد المدة المطلوبة لتلبية حبقة البحث',
 
     'first_name_required' => 'الاسم الأول مطلوب',
     'last_name_required' => 'اسم العائلة مطلوب',
     'teacher_name_required' => 'اسم المعلم/ة مطلوب',
     'phone_unique' => 'رقم الهاتف موجود مسبقا',
+
+    'pay' => 'قم بالدفع لإتمام عملية الطلب',
+    'pay_now' => 'ادفع الان',
+    'card_name' => 'الاسم على البطاقة',
+    'card_number' => 'رقم البطاقة',
+    'cvc' => 'رمز التحقق من البطاقة',
+    'expiration_month' => 'شهر انتهاء الصلاحية',
+    'expiration_year' => 'سنة انتهاء الصلاحية',
 
 ];
