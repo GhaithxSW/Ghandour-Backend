@@ -510,9 +510,8 @@
                 selectEducationLevel(); // Call the function to initialize the display based on the initial selection.
 
 
-
-                var submitButton = document.getElementById("submitButton");
-                var backToForm = document.getElementById("backToForm");
+                let submitButton = document.getElementById("submitButton");
+                let backToForm = document.getElementById("backToForm");
 
                 submitButton.addEventListener("click", function(event) {
                     event.preventDefault(); // Prevent the default form submission behavior
@@ -527,8 +526,6 @@
                     requestDiv.style.display = "block";
                     paymentDiv.style.display = "none";
                 });
-
-
             });
         </script>
 

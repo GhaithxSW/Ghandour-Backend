@@ -36,25 +36,25 @@ class OrderService
 
             $user = $this->userRepository->createUser($userData);
 
-            $grades = [
-                isset($formFields['middle_grade']) ? $formFields['middle_grade'] : null,
-                isset($formFields['high_grade']) ? $formFields['high_grade'] : null,
-                isset($formFields['university_year']) ? $formFields['university_year'] : null,
-                isset($formFields['graduate_study']) ? $formFields['graduate_study'] : null,
-            ];
+            // $grades = [
+            //     isset($formFields['middle_grade']) ? $formFields['middle_grade'] : null,
+            //     isset($formFields['high_grade']) ? $formFields['high_grade'] : null,
+            //     isset($formFields['university_year']) ? $formFields['university_year'] : null,
+            //     isset($formFields['graduate_study']) ? $formFields['graduate_study'] : null,
+            // ];
 
-            $filledGrade = array_filter($grades, function ($value) {
-                return $value !== null;
-            });
+            // $filledGrade = array_filter($grades, function ($value) {
+            //     return $value !== null;
+            // });
 
-            $schoolOrUniversity = [
-                isset($formFields['school']) ? $formFields['school'] : null,
-                isset($formFields['university']) ? $formFields['university'] : null,
-            ];
+            // $schoolOrUniversity = [
+            //     isset($formFields['school']) ? $formFields['school'] : null,
+            //     isset($formFields['university']) ? $formFields['university'] : null,
+            // ];
 
-            $filledSchoolOrUniversity = array_filter($schoolOrUniversity, function ($value) {
-                return $value !== null;
-            });
+            // $filledSchoolOrUniversity = array_filter($schoolOrUniversity, function ($value) {
+            //     return $value !== null;
+            // });
 
             $orderData = [
                 'research_topic' => $formFields['research_topic'],
@@ -64,8 +64,8 @@ class OrderService
                 'delivery_date' => $formFields['delivery_date'],
                 'user_id' => $user->id,
                 'education_level' => $formFields['education_level'],
-                'grade' => $filledGrade,
-                'school_university' => $filledSchoolOrUniversity,
+                'grade' => null,
+                'school_university' => null,
                 'notes' => $formFields['notes'],
             ];
 
@@ -85,10 +85,10 @@ class OrderService
                 "source" => $request->stripeToken
             ));
             \Stripe\Charge::create([
-                "amount" => 100 * 100,
-                "currency" => "usd",
+                "amount" => 10 * 100,
+                "currency" => "sar",
                 "customer" => $customer->id,
-                "description" => "Test payment from basel.",
+                "description" => "Payment from " . $user->first_name . ' ' . $user->last_name,
                 "shipping" => [
                     "name" => "Jenny Rosen",
                     "address" => [
