@@ -18,11 +18,11 @@ class Order extends Model
         'research_papers_count',
         'research_lang',
         'delivery_date',
-        'notes',
         'user_id',
-        'education_level_id',
+        'education_level',
         'grade',
-        'school',
+        'school_university',
+        'notes',
     ];
 
     public function user(): BelongsTo
@@ -30,8 +30,4 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function educationLevel(): BelongsTo
-    {
-        return $this->belongsTo(EducationLevel::class);
-    }
 }

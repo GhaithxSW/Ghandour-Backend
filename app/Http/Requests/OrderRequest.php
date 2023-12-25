@@ -31,8 +31,20 @@ class OrderRequest extends FormRequest
             'phone' => ['required', 'min:10', 'numeric', 'unique:users'],
             'email' => ['required', 'email', 'unique:users'],
             'education_level' => 'required',
-            'grade' => 'required',
-            'school' => 'required',
+
+
+
+            // grades
+            'middle_grade' => 'nullable',
+            'high_grade' => 'nullable',
+            'university_year' => 'nullable',
+            'graduate_study' => 'nullable',
+
+            'school' => 'nullable',
+            'university' => 'nullable',
+
+
+
             'research_topic' => 'required',
             'teacher_name' => 'required',
             'research_lang' => 'required',

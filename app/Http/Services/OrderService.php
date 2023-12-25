@@ -14,19 +14,12 @@ use Illuminate\Support\Facades\Session;
 class OrderService
 {
     private OrderRepository $orderRepository;
-    private EducationLevelRepository $educationLevelRepository;
     private UserRepository $userRepository;
 
-    public function __construct(OrderRepository $orderRepository, EducationLevelRepository $educationLevelRepository, UserRepository $userRepository)
+    public function __construct(OrderRepository $orderRepository, UserRepository $userRepository)
     {
         $this->orderRepository = $orderRepository;
-        $this->educationLevelRepository = $educationLevelRepository;
         $this->userRepository = $userRepository;
-    }
-
-    public function orderResearch()
-    {
-        return $this->educationLevelRepository->getAllEducationLevels();
     }
 
     public function storeOrder(OrderRequest $request)
@@ -49,11 +42,18 @@ class OrderService
                 'research_papers_count' => $formFields['research_papers_count'],
                 'research_lang' => $formFields['research_lang'],
                 'delivery_date' => $formFields['delivery_date'],
-                'notes' => $formFields['notes'],
+                'education_level' => $formFields['education_level'],
                 'user_id' => $user->id,
-                'education_level_id' => $formFields['education_level'],
-                'grade' => $formFields['grade'],
+
+
+                // grades
+                'grade' => isset($formFields['middle_grade']) ? $formFields['middle_grade'] : $formFields['high_grade'],
+                'year' => $formFields['university_year'],
+
+
                 'school' => $formFields['school'],
+                'university' => $formFields['university'],
+                'notes' => $formFields['notes'],
             ];
 
             $this->orderRepository->createOrder($orderData);

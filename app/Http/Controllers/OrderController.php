@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Enums\EducationLevel;
 use App\Http\Enums\HighSchool;
 use App\Http\Enums\University;
 use App\Http\Enums\MiddleSchool;
@@ -22,7 +23,8 @@ class OrderController extends Controller
 
     public function orderResearch()
     {
-        $educationLevels = $this->orderService->orderResearch();
+        $educationLevelEnglish = EducationLevel::getEducationLevelEnglish();
+        $educationLevelArabic = EducationLevel::getEducationLevelArabic();
 
         $middleSchoolGradesEnglish = MiddleSchool::getMiddleSchoolEnglish();
         $middleSchoolGradesArabic = MiddleSchool::getMiddleSchoolArabic();
@@ -40,7 +42,7 @@ class OrderController extends Controller
 
         return ($locale == 'en') ? view('pages.request-research', ['title' => __('trans.bhoothat')],
             [
-                'educationLevels' => $educationLevels,
+                'educationLevelEnglish' => $educationLevelEnglish,
                 'middleSchoolGradesEnglish' => $middleSchoolGradesEnglish,
                 'highSchoolGradesEnglish' => $highSchoolGradesEnglish,
                 'universityGradesEnglish' => $universityGradesEnglish,
@@ -48,7 +50,7 @@ class OrderController extends Controller
             ])
             : view('pages-rtl.request-research', ['title' => __('trans.bhoothat')],
                 [
-                    'educationLevels' => $educationLevels,
+                    'educationLevelArabic' => $educationLevelArabic,
                     'middleSchoolGradesArabic' => $middleSchoolGradesArabic,
                     'highSchoolGradesArabic' => $highSchoolGradesArabic,
                     'universityGradesArabic' => $universityGradesArabic,

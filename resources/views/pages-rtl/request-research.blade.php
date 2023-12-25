@@ -146,8 +146,9 @@
                     <label for="education_level" class="form-label">{{ __('trans.education_level') }}</label>
                     <select name="education_level" class="form-select" id="education_level">
                         <option selected disabled>{{ __('trans.choose') }}</option>
-                        @foreach ($educationLevels as $educationLevel)
-                            <option value="{{ $educationLevel->id }}">{{ $educationLevel->name_ar }}</option>
+                        @foreach ($educationLevelArabic as $educationLevel)
+                            {{-- <option value="{{ $educationLevel->id }}">{{ $educationLevel->name_ar }}</option> --}}
+                            <option value="{{ $educationLevel }}">{{ $educationLevel }}</option>
                         @endforeach
                     </select>
                     @error('education_level')
@@ -184,7 +185,7 @@
                 <div class="col mb-3" id="university_year_list">
                     <label for="university_year" class="form-label">{{ __('trans.year') }}</label>
                     <select name="university_year" class="form-select">
-                        <option selected disabled>{{ __('trans.choose_grade') }}</option>
+                        <option selected disabled>{{ __('trans.choose_year') }}</option>
                         @foreach ($universityGradesArabic as $universityGrades)
                             <option value="{{ $universityGrades }}">{{ $universityGrades }}</option>
                         @endforeach
@@ -281,7 +282,7 @@
 
                 <div class="col mb-3">
                     <a href="/" class="btn btn-primary m-1">{{ __('trans.back') }}</a>
-                    <button class="btn btn-success m-1" id="submitButton" disabled>{{ __('trans.submit') }}</button>
+                    <button class="btn btn-success m-1" id="submitButton">{{ __('trans.submit') }}</button>
                 </div>
 
             </div>
@@ -485,12 +486,33 @@
                 function selectEducationLevel() {
                     let selectedOption = educationLevelSelect.options[educationLevelSelect.selectedIndex].value;
 
-                    if (selectedOption === 'المرحلة المتوسطة' || selectedOption === '1') {
+                    if (selectedOption === 'المرحلة المتوسطة' || selectedOption === 'Middle School') {
                         middleGradeList.style.display = 'block';
-                        highGradeList.style.display = 'block';
-                        universityYearList.style.display = 'block';
-                        graduateStudyList.style.display = 'block';
+                        highGradeList.style.display = 'none';
+                        universityYearList.style.display = 'none';
+                        graduateStudyList.style.display = 'none';
                         school.style.display = 'block';
+                        university.style.display = 'none';
+                    } else if (selectedOption === 'المرحلة الثانوية' || selectedOption === 'High School') {
+                        middleGradeList.style.display = 'none';
+                        highGradeList.style.display = 'block';
+                        universityYearList.style.display = 'none';
+                        graduateStudyList.style.display = 'none';
+                        school.style.display = 'block';
+                        university.style.display = 'none';
+                    } else if (selectedOption === 'المرحلة الجامعية' || selectedOption === 'University') {
+                        middleGradeList.style.display = 'none';
+                        highGradeList.style.display = 'none';
+                        universityYearList.style.display = 'block';
+                        graduateStudyList.style.display = 'none';
+                        school.style.display = 'none';
+                        university.style.display = 'block';
+                    } else if (selectedOption === 'الدراسات العليا' || selectedOption === 'Graduate Studies') {
+                        middleGradeList.style.display = 'none';
+                        highGradeList.style.display = 'none';
+                        universityYearList.style.display = 'none';
+                        graduateStudyList.style.display = 'block';
+                        school.style.display = 'none';
                         university.style.display = 'block';
                     } else {
                         middleGradeList.style.display = 'none';
