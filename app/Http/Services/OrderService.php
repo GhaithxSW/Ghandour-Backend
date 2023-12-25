@@ -78,10 +78,10 @@ class OrderService
                     "postal_code" => "360001",
                     "city" => "Rajkot",
                     "state" => "GJ",
-                    "country" => "IN",
+                    "country" => $user->country,
                 ],
-                "email" => "demo@gmail.com",
-                "name" => "Hardik Savani",
+                "email" => $user->email,
+                "name" => $user->first_name . ' ' . $user->last_name,
                 "source" => $request->stripeToken
             ));
             \Stripe\Charge::create([
@@ -100,7 +100,7 @@ class OrderService
                     ],
                 ]
             ]);
-            // Session::flash('success', 'Payment successful!');
+            Session::flash('success',  __('trans.msg_request_success'));
             // return back();
 
         } catch (Exception $e) {

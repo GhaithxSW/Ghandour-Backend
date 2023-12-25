@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Enums\EducationLevel;
 use App\Http\Enums\HighSchool;
 use App\Http\Enums\University;
 use App\Http\Enums\MiddleSchool;
 use App\Http\Enums\GraduateStudy;
+use App\Http\Enums\EducationLevel;
 use App\Http\Requests\OrderRequest;
 use App\Http\Services\OrderService;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
@@ -61,6 +62,7 @@ class OrderController extends Controller
     public function storeOrder(OrderRequest $request)
     {
         $this->orderService->storeOrder($request);
-        return redirect()->back()->with('success', __('trans.msg_request_success'));
+        return redirect()->back();
+        // return redirect()->back()->with('success', __('trans.msg_request_success'));
     }
 }

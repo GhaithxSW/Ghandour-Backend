@@ -65,7 +65,7 @@
 
         @if (session('success'))
             <div class="alert alert-success text-center form-width-responsive"
-                style="font-size: 20px; margin-bottom: 50px">
+                style="font-size: 20px; margin-bottom: 50px" id="success-div">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 {{-- {{ __('trans.msg_request_success') }} --}}
                 {{ Session::get('success') }}
@@ -126,8 +126,9 @@
 
                 <div class="col mb-3">
                     <label for="phone" class="form-label">{{ __('trans.phone') }}</label>
-                    <input type="text" name="phone" class="form-control"
+                    <input type="text" name="phone" class="form-control" id="phone"
                         placeholder="{{ __('trans.phone_placeholder') }}">
+                    <span class="m-2 text-red-600" style="color: red" id="phone-error"></span>
                     @error('phone')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
@@ -513,18 +514,27 @@
                 let submitButton = document.getElementById("submitButton");
                 let backToForm = document.getElementById("backToForm");
 
+                let errorDiv = document.getElementById("error-div");
+                let successDiv = document.getElementById("success-div");
+
                 submitButton.addEventListener("click", function(event) {
                     event.preventDefault(); // Prevent the default form submission behavior
 
                     requestDiv.style.display = "none";
                     paymentDiv.style.display = "block";
+
+                    errorDiv.style.display = "none";
+                    successDiv.style.display = "none";
                 });
 
                 backToForm.addEventListener("click", function(event) {
                     event.preventDefault(); // Prevent the default form submission behavior
 
                     requestDiv.style.display = "block";
-                    paymentDiv.style.display = "none";
+                    paymentDiv.style.display = "nsone";
+
+                    errorDiv.style.display = "none";
+                    successDiv.style.display = "none";
                 });
             });
         </script>
@@ -533,16 +543,20 @@
 
         {{-- MASTER PICE --}}
 
-        {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script>
             $(document).ready(function() {
+
+                $('#submitButton').prop('disabled', true);
+
                 // Function to check if all form fields are filled
                 function checkFormFields() {
                     var formFilled = true;
 
+                    // #requestDiv input, #requestDiv select, #requestDiv textarea
+
                     // Check each input/select/textarea in the requestDiv
-                    $('#requestDiv input, #requestDiv select, #requestDiv textarea').each(function() {
+                    $('#requestDiv input:visible, #requestDiv select:visible, #requestDiv textarea:visible').each(function() {
                         if ($(this).val() === '') {
                             formFilled = false;
                             return false; // Break the loop if any field is empty
@@ -554,11 +568,29 @@
                 }
 
                 // Bind the checkFormFields function to form field change events
-                $('#requestDiv input, #requestDiv select, #requestDiv textarea').on('input change', function() {
+                $('#requestDiv input:visible, #requestDiv select:visible, #requestDiv textarea:visible').on('input change', function() {
                     checkFormFields();
                 });
             });
-        </script> --}}
+        </script>
+
+        {{-- Validation --}}
+        <script>
+            $(document).ready(function() {
+                $('#phone').on('input', function() {
+                    let phoneValue = $(this).val();
+                    let phoneRegex = /^[0-9]{10}$/;
+
+                    if (phoneValue.trim() === '') {
+                        $('#phone-error').text('Phone number cannot be empty');
+                    } else if (phoneValue.length !== 10) {
+                        $('#phone-error').text('Please enter a valid 10-digit phone number');
+                    } else {
+                        $('#phone-error').text('');
+                    }
+                });
+            });
+        </script>
 
 
     </x-slot>
