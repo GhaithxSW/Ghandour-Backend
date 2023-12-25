@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
+use App\Http\Enums\HighSchool;
+use App\Http\Enums\University;
+use App\Http\Enums\MiddleSchool;
+use App\Http\Enums\GraduateStudy;
 use App\Http\Requests\OrderRequest;
 use App\Http\Services\OrderService;
 use Illuminate\Support\Facades\App;
@@ -20,9 +23,37 @@ class OrderController extends Controller
     public function orderResearch()
     {
         $educationLevels = $this->orderService->orderResearch();
+
+        $middleSchoolGradesEnglish = MiddleSchool::getMiddleSchoolEnglish();
+        $middleSchoolGradesArabic = MiddleSchool::getMiddleSchoolArabic();
+
+        $highSchoolGradesEnglish = HighSchool::getHighSchoolEnglish();
+        $highSchoolGradesArabic = HighSchool::getHighSchoolArabic();
+
+        $universityGradesEnglish = University::getUniversityEnglish();
+        $universityGradesArabic = University::getUniversityArabic();
+
+        $graduateStudiesEnglish = GraduateStudy::getGraduateStudyEnglish();
+        $graduateStudiesArabic = GraduateStudy::getGraduateStudyArabic();
+
         $locale = App::getLocale();
 
-        return ($locale == 'en') ? view('pages.request-research', ['title' => __('trans.bhoothat')], ['educationLevels' => $educationLevels]) : view('pages-rtl.request-research', ['title' => __('trans.bhoothat')], ['educationLevels' => $educationLevels]);
+        return ($locale == 'en') ? view('pages.request-research', ['title' => __('trans.bhoothat')],
+            [
+                'educationLevels' => $educationLevels,
+                'middleSchoolGradesEnglish' => $middleSchoolGradesEnglish,
+                'highSchoolGradesEnglish' => $highSchoolGradesEnglish,
+                'universityGradesEnglish' => $universityGradesEnglish,
+                'graduateStudiesEnglish' => $graduateStudiesEnglish
+            ])
+            : view('pages-rtl.request-research', ['title' => __('trans.bhoothat')],
+                [
+                    'educationLevels' => $educationLevels,
+                    'middleSchoolGradesArabic' => $middleSchoolGradesArabic,
+                    'highSchoolGradesArabic' => $highSchoolGradesArabic,
+                    'universityGradesArabic' => $universityGradesArabic,
+                    'graduateStudiesArabic' => $graduateStudiesArabic
+                ]);
     }
 
     public function storeOrder(OrderRequest $request)

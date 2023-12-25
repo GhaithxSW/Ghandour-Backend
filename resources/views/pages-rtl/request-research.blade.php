@@ -144,7 +144,7 @@
 
                 <div class="col mb-3">
                     <label for="education_level" class="form-label">{{ __('trans.education_level') }}</label>
-                    <select name="education_level" class="form-select">
+                    <select name="education_level" class="form-select" id="education_level">
                         <option selected disabled>{{ __('trans.choose') }}</option>
                         @foreach ($educationLevels as $educationLevel)
                             <option value="{{ $educationLevel->id }}">{{ $educationLevel->name_ar }}</option>
@@ -155,20 +155,72 @@
                     @enderror
                 </div>
 
-                <div class="col mb-3">
-                    <label for="grade" class="form-label">{{ __('trans.grade') }}</label>
-                    <input type="text" name="grade" class="form-control"
-                        placeholder="{{ __('trans.grade_placeholder') }}">
-                    @error('grade')
+                <div class="col mb-3" id="middle_grade_list">
+                    <label for="middle_grade" class="form-label">{{ __('trans.grade') }}</label>
+                    <select name="middle_grade" class="form-select">
+                        <option selected disabled>{{ __('trans.choose_grade') }}</option>
+                        @foreach ($middleSchoolGradesArabic as $middleSchoolGrades)
+                            <option value="{{ $middleSchoolGrades }}">{{ $middleSchoolGrades }}</option>
+                        @endforeach
+                    </select>
+                    @error('middle_grade')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col mb-3">
+                <div class="col mb-3" id="high_grade_list">
+                    <label for="high_grade" class="form-label">{{ __('trans.grade') }}</label>
+                    <select name="high_grade" class="form-select">
+                        <option selected disabled>{{ __('trans.choose_grade') }}</option>
+                        @foreach ($highSchoolGradesArabic as $highSchoolGrades)
+                            <option value="{{ $highSchoolGrades }}">{{ $highSchoolGrades }}</option>
+                        @endforeach
+                    </select>
+                    @error('high_grade')
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="col mb-3" id="university_year_list">
+                    <label for="university_year" class="form-label">{{ __('trans.year') }}</label>
+                    <select name="university_year" class="form-select">
+                        <option selected disabled>{{ __('trans.choose_grade') }}</option>
+                        @foreach ($universityGradesArabic as $universityGrades)
+                            <option value="{{ $universityGrades }}">{{ $universityGrades }}</option>
+                        @endforeach
+                    </select>
+                    @error('university_year')
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="col mb-3" id="graduate_study_list">
+                    <label for="graduate_study" class="form-label">{{ __('trans.graduate_study') }}</label>
+                    <select name="graduate_study" class="form-select">
+                        <option selected disabled>{{ __('trans.choose_graduate_study') }}</option>
+                        @foreach ($graduateStudiesArabic as $graduateStudy)
+                            <option value="{{ $graduateStudy }}">{{ $graduateStudy }}</option>
+                        @endforeach
+                    </select>
+                    @error('graduate_study')
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="col mb-3" id="school">
                     <label for="school" class="form-label">{{ __('trans.school') }}</label>
                     <input type="text" name="school" class="form-control"
                         placeholder="{{ __('trans.school_placeholder') }}">
                     @error('school')
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="col mb-3" id="university">
+                    <label for="university" class="form-label">{{ __('trans.university') }}</label>
+                    <input type="text" name="university" class="form-control"
+                        placeholder="{{ __('trans.university_placeholder') }}">
+                    @error('university')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
@@ -413,11 +465,48 @@
             });
         </script>
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let educationLevelSelect = document.getElementById('education_level');
+                let middleGradeList = document.getElementById('middle_grade_list');
+                let highGradeList = document.getElementById('high_grade_list');
+                let universityYearList = document.getElementById('university_year_list');
+                let graduateStudyList = document.getElementById('graduate_study_list');
+                let school = document.getElementById('school');
+                let university = document.getElementById('university');
 
+                middleGradeList.style.display = 'none';
+                highGradeList.style.display = 'none';
+                universityYearList.style.display = 'none';
+                graduateStudyList.style.display = 'none';
+                school.style.display = 'none';
+                university.style.display = 'none';
 
+                function selectEducationLevel() {
+                    let selectedOption = educationLevelSelect.options[educationLevelSelect.selectedIndex].value;
 
+                    if (selectedOption === 'المرحلة المتوسطة' || selectedOption === '1') {
+                        middleGradeList.style.display = 'block';
+                        highGradeList.style.display = 'block';
+                        universityYearList.style.display = 'block';
+                        graduateStudyList.style.display = 'block';
+                        school.style.display = 'block';
+                        university.style.display = 'block';
+                    } else {
+                        middleGradeList.style.display = 'none';
+                        highGradeList.style.display = 'none';
+                        universityYearList.style.display = 'none';
+                        graduateStudyList.style.display = 'none';
+                        school.style.display = 'none';
+                        university.style.display = 'none';
+                    }
+                }
 
+                educationLevelSelect.addEventListener('change', selectEducationLevel);
 
+                selectEducationLevel(); // Call the function to initialize the display based on the initial selection.
+            });
+        </script>
 
 
 

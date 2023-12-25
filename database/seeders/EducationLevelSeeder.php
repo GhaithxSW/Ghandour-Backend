@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Http\Enums\EducationLevel as EducationLevelEnum;
 use App\Models\EducationLevel;
 use Illuminate\Database\Seeder;
-use App\Http\Enums\EducationLevelArabic;
-use App\Http\Enums\EducationLevelEnglish;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class EducationLevelSeeder extends Seeder
@@ -17,8 +16,8 @@ class EducationLevelSeeder extends Seeder
      */
     public function run()
     {
-        $educationLevelEnglish = EducationLevelEnglish::getEducationLevelEnglish();
-        $educationLevelArabic = EducationLevelArabic::getEducationLevelArabic();
+        $educationLevelEnglish = EducationLevelEnum::getEducationLevelEnglish();
+        $educationLevelArabic = EducationLevelEnum::getEducationLevelArabic();
 
         foreach ($educationLevelEnglish as $key => $en) {
             $educationLevel = EducationLevel::create([

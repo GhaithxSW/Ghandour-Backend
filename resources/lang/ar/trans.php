@@ -103,6 +103,7 @@ return [
     'country_placeholder' => 'ادخل الدولة',
     'country_required' => 'يجب تحديد الدولة',
     'grade' => 'الصف',
+    'year' => 'السنة',
     'grade_placeholder' => 'ادخل الصف',
     'grade_required' => 'يجب تحديد الصف',
     'school' => 'اسم المدرسة',
@@ -114,5 +115,14 @@ return [
     'research_papers_count' => 'عدد صفحات حلقة البحث',
     'research_papers_count_placeholder' => 'أدخل عدد صفحات حلقة البحث',
     'research_papers_count_required' => 'يجب تحديد عدد صفحات حلقة البحث',
+
+    'choose_grade' => 'اختر الصف',
+    'choose_year' => 'اختر السنة',
+    'graduate_study' => 'الدراسة العليا',
+    'choose_graduate_study' => 'اختر الدراسة العليا',
+
+    'university' => 'اسم الجامعة',
+    'university_placeholder' => 'ادخل اسم الجامعة',
+    'university_required' => 'يجب ادخال اسم الجامعة',
 
 ];

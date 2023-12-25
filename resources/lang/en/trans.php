@@ -104,6 +104,7 @@ return [
     'country_placeholder' => 'Enter the country',
     'country_required' => 'Country required',
     'grade' => 'Grade',
+    'year' => 'Year',
     'grade_placeholder' => 'Enter the grade',
     'grade_required' => 'Grade required',
     'school' => 'School Name',
@@ -115,5 +116,12 @@ return [
     'research_papers_count' => 'Count of Research Papers',
     'research_papers_count_placeholder' => 'Enter the count of research papers',
     'research_papers_count_required' => 'Research papers count are required',
+
+    'choose_grade' => 'Choose Grade',
+    'choose_year' => 'Choose Year',
+
+    'university' => 'University Name',
+    'university_placeholder' => 'Enter the university name',
+    'university_required' => 'University name required',
 
 ];
