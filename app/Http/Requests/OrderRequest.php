@@ -32,8 +32,6 @@ class OrderRequest extends FormRequest
             'email' => ['required', 'email', 'unique:users'],
             'education_level' => 'required',
 
-
-
             // grades
             'middle_grade' => 'nullable',
             'high_grade' => 'nullable',
@@ -42,8 +40,6 @@ class OrderRequest extends FormRequest
 
             'school' => 'nullable',
             'university' => 'nullable',
-
-
 
             'research_topic' => 'required',
             'teacher_name' => 'required',

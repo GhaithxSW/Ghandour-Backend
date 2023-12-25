@@ -415,7 +415,7 @@
             });
         </script>
 
-        <script>
+        {{-- <script>
             document.addEventListener('DOMContentLoaded', function() {
                 // Function to check if all form fields are filled
                 function checkFormFields() {
@@ -444,27 +444,8 @@
                     element.addEventListener('change', checkFormFields);
                 });
 
-
-                var submitButton = document.getElementById("submitButton");
-                var backToForm = document.getElementById("backToForm");
-
-                submitButton.addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent the default form submission behavior
-
-                    requestDiv.style.display = "none";
-                    paymentDiv.style.display = "block";
-                });
-
-                backToForm.addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent the default form submission behavior
-
-                    requestDiv.style.display = "block";
-                    paymentDiv.style.display = "none";
-                });
-
-
             });
-        </script>
+        </script> --}}
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -527,6 +508,27 @@
                 educationLevelSelect.addEventListener('change', selectEducationLevel);
 
                 selectEducationLevel(); // Call the function to initialize the display based on the initial selection.
+
+
+
+                var submitButton = document.getElementById("submitButton");
+                var backToForm = document.getElementById("backToForm");
+
+                submitButton.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent the default form submission behavior
+
+                    requestDiv.style.display = "none";
+                    paymentDiv.style.display = "block";
+                });
+
+                backToForm.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent the default form submission behavior
+
+                    requestDiv.style.display = "block";
+                    paymentDiv.style.display = "none";
+                });
+
+
             });
         </script>
 

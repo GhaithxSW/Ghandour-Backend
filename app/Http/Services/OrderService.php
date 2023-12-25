@@ -36,28 +36,40 @@ class OrderService
 
             $user = $this->userRepository->createUser($userData);
 
+            $grades = [
+                isset($formFields['middle_grade']) ? $formFields['middle_grade'] : null,
+                isset($formFields['high_grade']) ? $formFields['high_grade'] : null,
+                isset($formFields['university_year']) ? $formFields['university_year'] : null,
+                isset($formFields['graduate_study']) ? $formFields['graduate_study'] : null,
+            ];
+
+            $filledGrade = array_filter($grades, function ($value) {
+                return $value !== null;
+            });
+
+            $schoolOrUniversity = [
+                isset($formFields['school']) ? $formFields['school'] : null,
+                isset($formFields['university']) ? $formFields['university'] : null,
+            ];
+
+            $filledSchoolOrUniversity = array_filter($schoolOrUniversity, function ($value) {
+                return $value !== null;
+            });
+
             $orderData = [
                 'research_topic' => $formFields['research_topic'],
                 'teacher_name' => $formFields['teacher_name'],
                 'research_papers_count' => $formFields['research_papers_count'],
                 'research_lang' => $formFields['research_lang'],
                 'delivery_date' => $formFields['delivery_date'],
-                'education_level' => $formFields['education_level'],
                 'user_id' => $user->id,
-
-
-                // grades
-                'grade' => isset($formFields['middle_grade']) ? $formFields['middle_grade'] : $formFields['high_grade'],
-                'year' => $formFields['university_year'],
-
-
-                'school' => $formFields['school'],
-                'university' => $formFields['university'],
+                'education_level' => $formFields['education_level'],
+                'grade' => $filledGrade,
+                'school_university' => $filledSchoolOrUniversity,
                 'notes' => $formFields['notes'],
             ];
 
             $this->orderRepository->createOrder($orderData);
-
 
             \Stripe\Stripe::setApiKey('sk_test_51NEs22D5A1mRGhgDwzahElqIvUD33rsQxBFmv8TeBB9H3S1BkS6KbfD00cbi9aJDfaIyAndrWf4kzr2qFVWPo1FC0018bi3Zax');
             $customer = \Stripe\Customer::create(array(
@@ -76,7 +88,7 @@ class OrderService
                 "amount" => 100 * 100,
                 "currency" => "usd",
                 "customer" => $customer->id,
-                "description" => "Test payment from raviyatechnical.",
+                "description" => "Test payment from basel.",
                 "shipping" => [
                     "name" => "Jenny Rosen",
                     "address" => [
