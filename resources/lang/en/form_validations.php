@@ -12,4 +12,8 @@ return [
     'papers_zero' => 'Papers count must be more than zero',
     'future_date' => 'Please enter a future date',
 
+
+    // stripe
+    'stripe_general' => 'Please correct the errors and try again',
+
 ];

@@ -66,15 +66,15 @@
         @if (session('success'))
             <div class="alert alert-success text-center form-width-responsive"
                 style="font-size: 20px; margin-bottom: 50px" id="success-div">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                {{-- {{ __('trans.msg_request_success') }} --}}
-                {{ Session::get('success') }}
+                <a href="#" class="close" data-dismiss="alert" aria-label="close"
+                    style="color: white">&times;</a>
+                {{ trans(Session::get('success')) }}
             </div>
         @endif
 
         <div class='form-row row text-center form-width-responsive' id="error-div" style="display: none">
             <div class='col-md-12 error form-group hide'>
-                <div class='alert-danger alert'>Please correct the errors and try again</div>
+                <div class='alert-danger alert'>{{ __('form_validations.stripe_general') }}</div>
             </div>
         </div>
 
