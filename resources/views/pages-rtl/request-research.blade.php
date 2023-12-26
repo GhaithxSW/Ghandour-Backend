@@ -346,9 +346,9 @@
 
                 <div class="row mt-3">
                     <div class="col-xs-12">
-                        <button class="btn btn-secondary btn-lg btn-block"
+                        <button class="btn btn-secondary btn-lg btn-block" id="pay-button"
                             type="submit">{{ __('trans.pay_now') }}</button>
-                        <button class="btn btn-danger btn-lg btn-block"
+                        <button class="btn btn-danger btn-lg btn-block" id="back-button"
                             id="backToForm">{{ __('trans.back') }}</button>
                     </div>
                 </div>
@@ -370,6 +370,8 @@
                 --------------------------------------------*/
                 $('#error-div').hide();
                 let $form = $(".require-validation");
+                let $payButton = $("#pay-button");
+                let $backButton = $("#back-button");
 
                 $('form.require-validation').bind('submit', function(e) {
                     let $form = $(".require-validation"),
@@ -424,6 +426,10 @@
 
                         $form.find('input[type=text]').empty();
                         $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+
+                        $payButton.prop('disabled', true);
+                        $backButton.prop('disabled', true);
+
                         $form.get(0).submit();
                     }
                 }
