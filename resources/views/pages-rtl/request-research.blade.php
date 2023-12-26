@@ -90,8 +90,8 @@
                     <b>{{ __('trans.request_research_now') }}</b>
                 </h2>
 
-                <div class="row">
-                    <div class="col-xs-12 col-md-6">
+                <div class="row mb-2">
+                    <div class="col-xs-12 col-md-6 mb-2">
                         <label for="first_name" class="form-label">{{ __('trans.first_name') }}</label>
                         <input type="text" name="first_name" class="form-control" id="first_name"
                             placeholder="{{ __('trans.name_placeholder') }}">
@@ -111,8 +111,8 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-xs-12 col-md-4">
+                <div class="row mb-2">
+                    <div class="col-xs-12 col-md-4 mb-2">
                         <label for="country" class="form-label">{{ __('trans.country') }}</label>
                         <input type="text" name="country" class="form-control" id="country"
                             placeholder="{{ __('trans.country_placeholder') }}">
@@ -121,7 +121,7 @@
                             <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-xs-12 col-md-4">
+                    <div class="col-xs-12 col-md-4 mb-2">
                         <label for="phone" class="form-label">{{ __('trans.phone') }}</label>
                         <input type="text" name="phone" class="form-control" id="phone"
                             placeholder="{{ __('trans.phone_placeholder') }}">
@@ -141,8 +141,8 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-xs-12 col-md-4" id="educationDiv">
+                <div class="row mb-2">
+                    <div class="col-xs-12 col-md-4 mb-2" id="educationDiv">
                         <label for="education_level" class="form-label">{{ __('trans.education_level') }}</label>
                         <select name="education_level" class="form-select" id="education_level">
                             <option selected disabled>{{ __('trans.choose') }}</option>
@@ -156,7 +156,7 @@
                             <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-xs-12 col-md-4" id="middle_grade_list">
+                    <div class="col-xs-12 col-md-4 mb-2" id="middle_grade_list">
                         <label for="middle_grade" class="form-label">{{ __('trans.grade') }}</label>
                         <select name="middle_grade" class="form-select">
                             <option selected disabled>{{ __('trans.choose_grade') }}</option>
@@ -169,7 +169,7 @@
                             <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-xs-12 col-md-4" id="high_grade_list">
+                    <div class="col-xs-12 col-md-4 mb-2" id="high_grade_list">
                         <label for="high_grade" class="form-label">{{ __('trans.grade') }}</label>
                         <select name="high_grade" class="form-select">
                             <option selected disabled>{{ __('trans.choose_grade') }}</option>
@@ -182,7 +182,7 @@
                             <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-xs-12 col-md-4" id="university_year_list">
+                    <div class="col-xs-12 col-md-4 mb-2" id="university_year_list">
                         <label for="university_year" class="form-label">{{ __('trans.year') }}</label>
                         <select name="university_year" class="form-select">
                             <option selected disabled>{{ __('trans.choose_year') }}</option>
@@ -196,7 +196,7 @@
                             <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-xs-12 col-md-4" id="graduate_study_list">
+                    <div class="col-xs-12 col-md-4 mb-2" id="graduate_study_list">
                         <label for="graduate_study" class="form-label">{{ __('trans.graduate_study') }}</label>
                         <select name="graduate_study" class="form-select">
                             <option selected disabled>{{ __('trans.choose_graduate_study') }}</option>
@@ -230,8 +230,8 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-xs-12 col-md-6">
+                <div class="row mb-2">
+                    <div class="col-xs-12 col-md-6 mb-2">
                         <label for="research_topic" class="form-label">{{ __('trans.research_topic') }}</label>
                         <input type="text" class="form-control" name="research_topic" id="research_topic"
                             placeholder="{{ __('trans.research_topic_placeholder') }}">
@@ -252,8 +252,8 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-xs-12 col-md-4">
+                <div class="row mb-2">
+                    <div class="col-xs-12 col-md-4 mb-2">
                         <label for="research_lang" class="form-label">{{ __('trans.research_lang') }}</label>
                         <input type="text" class="form-control" name="research_lang" id="research_lang"
                             placeholder="{{ __('trans.research_lang_placeholder') }}">
@@ -263,7 +263,7 @@
                             <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-xs-12 col-md-4">
+                    <div class="col-xs-12 col-md-4 mb-2">
                         <label for="research_papers_count"
                             class="form-label">{{ __('trans.research_papers_count') }}</label>
                         <input type="text" class="form-control" name="research_papers_count"
@@ -287,7 +287,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-xs-12 col-md-12">
                         <label for="notes" class="form-label">{{ __('trans.notes') }}</label>
                         <textarea class="form-control" name="notes" placeholder="{{ __('trans.notes_placeholder') }}"></textarea>
@@ -297,7 +297,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-3">
+                <div class="row">
                     <div class="col-xs-12 col-md-12">
                         <a href="/" class="btn btn-primary m-1">{{ __('trans.back') }}</a>
                         <button class="btn btn-success m-1" id="submitButton">{{ __('trans.submit') }}</button>
