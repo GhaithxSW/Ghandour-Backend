@@ -53,7 +53,7 @@
                                 <td class="text-center">{{ $order->research_topic }}</td>
                                 <td class="text-center">{{ $order->teacher_name }}</td>
                                 </td>
-                                <td class="text-center">{{ $order->educationLevel->name_ar }}</td>
+                                <td class="text-center">{{ $order->education_level }}</td>
                                 <td class="text-center">
                                     <a href="/admin-panel-management/order/{{ $order->id }}/details"
                                         class="btn btn-primary" style="pointer-events: fill">التفاصيل</a>
