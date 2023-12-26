@@ -212,7 +212,7 @@
 
                 <div class="col mb-3" id="school">
                     <label for="school" class="form-label">{{ __('trans.school') }}</label>
-                    <input type="text" name="school" class="form-control"
+                    <input type="text" name="school" class="form-control" id="schoolField"
                         placeholder="{{ __('trans.school_placeholder') }}">
                     <p class="text-red-600 mt-2 error-validation" style="color: red" id="school-error"></p>
                     @error('school')
@@ -222,7 +222,7 @@
 
                 <div class="col mb-3" id="university">
                     <label for="university" class="form-label">{{ __('trans.university') }}</label>
-                    <input type="text" name="university" class="form-control"
+                    <input type="text" name="university" class="form-control" id="universityField"
                         placeholder="{{ __('trans.university_placeholder') }}">
                     <p class="text-red-600 mt-2 error-validation" style="color: red" id="university-error"></p>
                     @error('university')
@@ -625,7 +625,7 @@
                     }
                 });
 
-                $('#school').on('input', function() {
+                $('#schoolField').on('input', function() {
                     let schoolValue = $(this).val();
 
                     if (schoolValue.trim() === '') {
@@ -635,7 +635,7 @@
                     }
                 });
 
-                $('#university').on('input', function() {
+                $('#universityField').on('input', function() {
                     let universityValue = $(this).val();
 
                     if (universityValue.trim() === '') {
