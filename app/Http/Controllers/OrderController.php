@@ -10,7 +10,6 @@ use App\Http\Enums\EducationLevel;
 use App\Http\Requests\OrderRequest;
 use App\Http\Services\OrderService;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
