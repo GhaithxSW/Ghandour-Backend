@@ -91,7 +91,7 @@ class OrderService
         ));
         \Stripe\Charge::create([
             "amount" => 10 * 100,
-            "currency" => "sar",
+            "currency" => "aed",
             "customer" => $customer->id,
             "description" => "Payment from " . $user->first_name . ' ' . $user->last_name,
             "shipping" => [
