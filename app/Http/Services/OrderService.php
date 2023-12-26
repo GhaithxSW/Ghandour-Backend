@@ -33,25 +33,25 @@ class OrderService
 
             $user = $this->userRepository->createUser($userData);
 
-            // $grades = [
-            //     isset($formFields['middle_grade']) ? $formFields['middle_grade'] : null,
-            //     isset($formFields['high_grade']) ? $formFields['high_grade'] : null,
-            //     isset($formFields['university_year']) ? $formFields['university_year'] : null,
-            //     isset($formFields['graduate_study']) ? $formFields['graduate_study'] : null,
-            // ];
+            $grades = [
+                isset($formFields['middle_grade']) ? $formFields['middle_grade'] : null,
+                isset($formFields['high_grade']) ? $formFields['high_grade'] : null,
+                isset($formFields['university_year']) ? $formFields['university_year'] : null,
+                isset($formFields['graduate_study']) ? $formFields['graduate_study'] : null,
+            ];
 
-            // $filledGrade = array_filter($grades, function ($value) {
-            //     return $value !== null;
-            // });
+            $filledGrade = implode(', ', array_filter($grades, function ($value) {
+                return $value !== null;
+            }));
 
-            // $schoolOrUniversity = [
-            //     isset($formFields['school']) ? $formFields['school'] : null,
-            //     isset($formFields['university']) ? $formFields['university'] : null,
-            // ];
+            $schoolOrUniversity = [
+                isset($formFields['school']) ? $formFields['school'] : null,
+                isset($formFields['university']) ? $formFields['university'] : null,
+            ];
 
-            // $filledSchoolOrUniversity = array_filter($schoolOrUniversity, function ($value) {
-            //     return $value !== null;
-            // });
+            $filledSchoolOrUniversity = implode(', ', array_filter($schoolOrUniversity, function ($value) {
+                return $value !== null;
+            }));
 
             $orderData = [
                 'research_topic' => $formFields['research_topic'],
@@ -61,8 +61,8 @@ class OrderService
                 'delivery_date' => $formFields['delivery_date'],
                 'user_id' => $user->id,
                 'education_level' => $formFields['education_level'],
-                'grade' => null,
-                'school_university' => null,
+                'grade' => $filledGrade,
+                'school_university' => $filledSchoolOrUniversity,
                 'notes' => $formFields['notes'],
             ];
 
