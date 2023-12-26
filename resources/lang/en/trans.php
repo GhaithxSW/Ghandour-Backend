@@ -119,13 +119,11 @@ return [
 
     'choose_grade' => 'Choose Grade',
     'choose_year' => 'Choose Year',
+    'graduate_study' => 'Graduate Study',
+    'choose_graduate_study' => 'Choose graduate study',
 
     'university' => 'University Name',
     'university_placeholder' => 'Enter the university name',
     'university_required' => 'University name required',
-
-    'papers_zero' => 'Papers count must be more than zero',
-    'cannot_be_empty' => 'cannot be empty',
-
 
 ];

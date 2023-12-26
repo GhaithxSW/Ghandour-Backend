@@ -4,8 +4,8 @@ namespace App\Http\Enums;
 
 enum GraduateStudy: string
 {
-    case master_en = "master's degrees";
-    case doctoral_en = "doctoral degrees";
+    case master_en = "Master's degrees";
+    case doctoral_en = "Doctoral degrees";
 
     case master_ar = "الماجستير";
     case doctoral_ar = "الدكتوراة";
