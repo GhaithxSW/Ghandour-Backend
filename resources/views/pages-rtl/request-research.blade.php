@@ -549,7 +549,7 @@
             $(document).ready(function() {
                 $('#first_name').on('input', function() {
                     let firstNameValue = $(this).val();
-                    let firstNameRegex = /^[A-Za-z\s]+$/;
+                    let firstNameRegex = /^[A-Za-z\u0600-\u06FF\s]+$/;
 
                     if (firstNameValue.trim() === '') {
                         $('#first_name-error').text("{{ __('form_validations.field_empty') }}");
@@ -562,7 +562,7 @@
 
                 $('#last_name').on('input', function() {
                     let lastNameValue = $(this).val();
-                    let lastNameRegex = /^[A-Za-z\s]+$/;
+                    let lastNameRegex = /^[A-Za-z\u0600-\u06FF\s]+$/;
 
                     if (lastNameValue.trim() === '') {
                         $('#last_name-error').text("{{ __('form_validations.field_empty') }}");
@@ -601,7 +601,7 @@
 
                 $('#country').on('input', function() {
                     let countryValue = $(this).val();
-                    let countryRegex = /^[A-Za-z\s]+$/;
+                    let countryRegex = /^[A-Za-z\u0600-\u06FF\s]+$/;
 
                     if (countryValue.trim() === '') {
                         $('#country-error').text("{{ __('form_validations.field_empty') }}");
@@ -614,7 +614,7 @@
 
                 $('#teacher_name').on('input', function() {
                     let teacherNameValue = $(this).val();
-                    let teacherNameRegex = /^[A-Za-z\s]+$/;
+                    let teacherNameRegex = /^[A-Za-z\u0600-\u06FF\s]+$/;
 
                     if (teacherNameValue.trim() === '') {
                         $('#teacher_name-error').text("{{ __('form_validations.field_empty') }}");
@@ -647,7 +647,7 @@
 
                 $('#research_topic').on('input', function() {
                     let researchTopicValue = $(this).val();
-                    let researchTopicRegex = /^[A-Za-z\s]+$/;
+                    let researchTopicRegex = /^[A-Za-z\u0600-\u06FF\s]+$/;
 
                     if (researchTopicValue.trim() === '') {
                         $('#research_topic-error').text("{{ __('form_validations.field_empty') }}");
@@ -660,7 +660,7 @@
 
                 $('#research_lang').on('input', function() {
                     let researchLangValue = $(this).val();
-                    let researchLangRegex = /^[A-Za-z\s]+$/;
+                    let researchLangRegex = /^[A-Za-z\u0600-\u06FF\s]+$/;
 
                     if (researchLangValue.trim() === '') {
                         $('#research_lang-error').text("{{ __('form_validations.field_empty') }}");
