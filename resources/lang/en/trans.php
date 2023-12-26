@@ -93,7 +93,7 @@ return [
     'phone_unique' => 'Phone number already exist',
 
     'pay' => 'Pay to continue',
-    'pay_now' => 'Pay Now',
+    'pay_now' => 'Pay 10 SAR',
     'card_name' => 'Name on Card',
     'card_number' => 'Card Number',
     'cvc' => 'CVC',
@@ -123,5 +123,9 @@ return [
     'university' => 'University Name',
     'university_placeholder' => 'Enter the university name',
     'university_required' => 'University name required',
+
+    'papers_zero' => 'Papers count must be more than zero',
+    'cannot_be_empty' => 'cannot be empty',
+
 
 ];

@@ -86,76 +86,75 @@
 
             <div id="requestDiv">
 
-                <h2 class="text-center mt-3 mb-5">
+                <h2 class="text-center mt-3 mb-4">
                     <b>{{ __('trans.request_research_now') }}</b>
                 </h2>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="first_name" class="form-label">{{ __('trans.first_name') }}</label>
                     <input type="text" name="first_name" class="form-control" id="first_name"
                         placeholder="{{ __('trans.name_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="first_name-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="first_name-error"></p>
                     @error('first_name')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="last_name" class="form-label">{{ __('trans.last_name') }}</label>
                     <input type="text" name="last_name" class="form-control" id="last_name"
                         placeholder="{{ __('trans.last_name_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="last_name-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="last_name-error"></p>
                     @error('last_name')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="country" class="form-label">{{ __('trans.country') }}</label>
                     <input type="text" name="country" class="form-control" id="country"
                         placeholder="{{ __('trans.country_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="country-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="country-error"></p>
                     @error('country')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="phone" class="form-label">{{ __('trans.phone') }}</label>
                     <input type="text" name="phone" class="form-control" id="phone"
                         placeholder="{{ __('trans.phone_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="phone-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="phone-error"></p>
                     @error('phone')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="email" class="form-label">{{ __('trans.email') }}</label>
                     <input type="email" name="email" class="form-control text-right" id="email"
                         placeholder="{{ __('trans.email_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="email-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="email-error"></p>
                     @error('email')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="education_level" class="form-label">{{ __('trans.education_level') }}</label>
                     <select name="education_level" class="form-select" id="education_level">
                         <option selected disabled>{{ __('trans.choose') }}</option>
                         @foreach ($educationLevelArabic as $educationLevel)
-                            {{-- <option value="{{ $educationLevel->id }}">{{ $educationLevel->name_ar }}</option> --}}
                             <option value="{{ $educationLevel }}">{{ $educationLevel }}</option>
                         @endforeach
                     </select>
-                    <span class="m-2 text-red-600" style="color: red" id="education_level-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="education_level-error"></p>
                     @error('education_level')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col" id="middle_grade_list">
+                <div class="col mb-3" id="middle_grade_list">
                     <label for="middle_grade" class="form-label">{{ __('trans.grade') }}</label>
                     <select name="middle_grade" class="form-select">
                         <option selected disabled>{{ __('trans.choose_grade') }}</option>
@@ -163,13 +162,13 @@
                             <option value="{{ $middleSchoolGrades }}">{{ $middleSchoolGrades }}</option>
                         @endforeach
                     </select>
-                    <span class="m-2 text-red-600" style="color: red" id="middle_grade-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="middle_grade-error"></p>
                     @error('middle_grade')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col" id="high_grade_list">
+                <div class="col mb-3" id="high_grade_list">
                     <label for="high_grade" class="form-label">{{ __('trans.grade') }}</label>
                     <select name="high_grade" class="form-select">
                         <option selected disabled>{{ __('trans.choose_grade') }}</option>
@@ -177,13 +176,13 @@
                             <option value="{{ $highSchoolGrades }}">{{ $highSchoolGrades }}</option>
                         @endforeach
                     </select>
-                    <span class="m-2 text-red-600" style="color: red" id="high_grade-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="high_grade-error"></p>
                     @error('high_grade')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col" id="university_year_list">
+                <div class="col mb-3" id="university_year_list">
                     <label for="university_year" class="form-label">{{ __('trans.year') }}</label>
                     <select name="university_year" class="form-select">
                         <option selected disabled>{{ __('trans.choose_year') }}</option>
@@ -191,13 +190,13 @@
                             <option value="{{ $universityGrades }}">{{ $universityGrades }}</option>
                         @endforeach
                     </select>
-                    <span class="m-2 text-red-600" style="color: red" id="university_year-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="university_year-error"></p>
                     @error('university_year')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col" id="graduate_study_list">
+                <div class="col mb-3" id="graduate_study_list">
                     <label for="graduate_study" class="form-label">{{ __('trans.graduate_study') }}</label>
                     <select name="graduate_study" class="form-select">
                         <option selected disabled>{{ __('trans.choose_graduate_study') }}</option>
@@ -205,78 +204,79 @@
                             <option value="{{ $graduateStudy }}">{{ $graduateStudy }}</option>
                         @endforeach
                     </select>
-                    <span class="m-2 text-red-600" style="color: red" id="graduate_study-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="graduate_study-error"></p>
                     @error('graduate_study')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col" id="school">
+                <div class="col mb-3" id="school">
                     <label for="school" class="form-label">{{ __('trans.school') }}</label>
                     <input type="text" name="school" class="form-control"
                         placeholder="{{ __('trans.school_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="school-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="school-error"></p>
                     @error('school')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col" id="university">
+                <div class="col mb-3" id="university">
                     <label for="university" class="form-label">{{ __('trans.university') }}</label>
                     <input type="text" name="university" class="form-control"
                         placeholder="{{ __('trans.university_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="university-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="university-error"></p>
                     @error('university')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="research_topic" class="form-label">{{ __('trans.research_topic') }}</label>
                     <input type="text" class="form-control" name="research_topic" id="research_topic"
                         placeholder="{{ __('trans.research_topic_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="research_topic-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="research_topic-error"></p>
                     @error('research_topic')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="teacher_name" class="form-label">{{ __('trans.teacher_name') }}</label>
                     <input type="text" class="form-control" name="teacher_name" id="teacher_name"
                         placeholder="{{ __('trans.teacher_name_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="teacher_name-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="teacher_name-error"></p>
                     @error('teacher_name')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="research_lang" class="form-label">{{ __('trans.research_lang') }}</label>
                     <input type="text" class="form-control" name="research_lang" id="research_lang"
                         placeholder="{{ __('trans.research_lang_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="research_lang-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="research_lang-error"></p>
                     @error('research_lang')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="research_papers_count"
                         class="form-label">{{ __('trans.research_papers_count') }}</label>
                     <input type="text" class="form-control" name="research_papers_count"
                         id="research_papers_count" placeholder="{{ __('trans.research_papers_count_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="research_papers_count-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red"
+                        id="research_papers_count-error"></p>
                     @error('research_papers_count')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="col">
+                <div class="col mb-3">
                     <label for="delivery_date" class="form-label">{{ __('trans.delivery_date') }}</label>
-                    <input type="date" class="form-control" name="delivery_date" id="delivery_date"
+                    <input type="date" class="form-control text-right" name="delivery_date" id="delivery_date"
                         placeholder="{{ __('trans.delivery_date_placeholder') }}">
-                    <span class="m-2 text-red-600" style="color: red" id="delivery_date-error"></span>
+                    <p class="text-red-600 mt-2 error-validation" style="color: red" id="delivery_date-error"></p>
                     @error('delivery_date')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
@@ -337,17 +337,15 @@
 
                 <div class="row mt-3">
                     <div class="col-xs-12">
-                        <button class="btn btn-secondary btn-lg btn-block" type="submit">{{ __('trans.pay_now') }}
-                            (5$)</button>
+                        <button class="btn btn-secondary btn-lg btn-block"
+                            type="submit">{{ __('trans.pay_now') }}</button>
                         <button class="btn btn-danger btn-lg btn-block"
                             id="backToForm">{{ __('trans.back') }}</button>
                     </div>
                 </div>
 
             </div>
-
         </form>
-
     </div>
 
     <x-slot:footerFiles>
@@ -362,10 +360,10 @@
                 --------------------------------------------
                 --------------------------------------------*/
 
-                var $form = $(".require-validation");
+                let $form = $(".require-validation");
 
                 $('form.require-validation').bind('submit', function(e) {
-                    var $form = $(".require-validation"),
+                    let $form = $(".require-validation"),
                         inputSelector = ['input[type=email]', 'input[type=password]',
                             'input[type=text]', 'input[type=file]',
                             'textarea'
@@ -377,7 +375,7 @@
 
                     $('.has-error').removeClass('has-error');
                     $inputs.each(function(i, el) {
-                        var $input = $(el);
+                        let $input = $(el);
                         if ($input.val() === '') {
                             $input.parent().addClass('has-error');
                             $errorMessage.removeClass('hide');
@@ -413,7 +411,7 @@
                             .text(response.error.message);
                     } else {
                         /* token contains id, last4, and card type */
-                        var token = response['id'];
+                        let token = response['id'];
 
                         $form.find('input[type=text]').empty();
                         $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
@@ -484,8 +482,7 @@
 
                 educationLevelSelect.addEventListener('change', selectEducationLevel);
 
-                selectEducationLevel(); // Call the function to initialize the display based on the initial selection.
-
+                selectEducationLevel();
 
                 let submitButton = document.getElementById("submitButton");
                 let backToForm = document.getElementById("backToForm");
@@ -494,7 +491,7 @@
                 let successDiv = document.getElementById("success-div");
 
                 submitButton.addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent the default form submission behavior
+                    event.preventDefault();
 
                     requestDiv.style.display = "none";
                     paymentDiv.style.display = "block";
@@ -504,7 +501,7 @@
                 });
 
                 backToForm.addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent the default form submission behavior
+                    event.preventDefault();
 
                     requestDiv.style.display = "block";
                     paymentDiv.style.display = "none";
@@ -516,36 +513,35 @@
         </script>
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
         <script>
             $(document).ready(function() {
-
                 $('#submitButton').prop('disabled', true);
 
-                // Function to check if all form fields are filled
-                function checkFormFields() {
-                    var formFilled = true;
+                function updateSubmitButtonState() {
+                    let formFilled = true;
+                    let allValidationsPassed = true;
 
-                    // #requestDiv input, #requestDiv select, #requestDiv textarea
-
-                    // Check each input/select/textarea in the requestDiv
                     $('#requestDiv input:visible, #requestDiv select:visible, #requestDiv textarea:visible').each(
                         function() {
                             if ($(this).val() === '') {
                                 formFilled = false;
-                                return false; // Break the loop if any field is empty
+                                return false;
                             }
                         });
 
-                    // Enable/disable submitButton based on formFilled
-                    $('#submitButton').prop('disabled', !formFilled);
+                    $('.error-validation').each(function() {
+                        if ($(this).text() !== '') {
+                            allValidationsPassed = false;
+                            return false;
+                        }
+                    });
+
+                    $('#submitButton').prop('disabled', !(formFilled && allValidationsPassed));
                 }
 
-                // Bind the checkFormFields function to form field change events
                 $('#requestDiv input:visible, #requestDiv select:visible, #requestDiv textarea:visible').on(
-                    'input change',
-                    function() {
-                        checkFormFields();
-                    });
+                    'input change', updateSubmitButtonState);
             });
         </script>
 
@@ -556,10 +552,9 @@
                     let firstNameRegex = /^[A-Za-z\s]+$/;
 
                     if (firstNameValue.trim() === '') {
-                        $('#first_name-error').text('First name cannot be empty');
+                        $('#first_name-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!firstNameRegex.test(firstNameValue)) {
-                        $('#first_name-error').text(
-                            'Please enter a valid first name (only letters and spaces allowed)');
+                        $('#first_name-error').text("{{ __('form_validations.string_validation') }}");
                     } else {
                         $('#first_name-error').text('');
                     }
@@ -570,10 +565,9 @@
                     let lastNameRegex = /^[A-Za-z\s]+$/;
 
                     if (lastNameValue.trim() === '') {
-                        $('#last_name-error').text('Last name cannot be empty');
+                        $('#last_name-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!lastNameRegex.test(lastNameValue)) {
-                        $('#last_name-error').text(
-                            'Please enter a valid last name (only letters and spaces allowed)');
+                        $('#last_name-error').text("{{ __('form_validations.string_validation') }}");
                     } else {
                         $('#last_name-error').text('');
                     }
@@ -584,9 +578,9 @@
                     let phoneRegex = /^[0-9]{10}$/;
 
                     if (phoneValue.trim() === '') {
-                        $('#phone-error').text('Phone number cannot be empty');
+                        $('#phone-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!phoneRegex.test(phoneValue)) {
-                        $('#phone-error').text('Please enter a valid 10-digit phone number');
+                        $('#phone-error').text("{{ __('form_validations.phone_validation') }}");
                     } else {
                         $('#phone-error').text('');
                     }
@@ -597,9 +591,9 @@
                     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
                     if (emailValue.trim() === '') {
-                        $('#email-error').text('Email address cannot be empty');
+                        $('#email-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!emailRegex.test(emailValue)) {
-                        $('#email-error').text('Please enter a valid email address');
+                        $('#email-error').text("{{ __('form_validations.email_validation') }}");
                     } else {
                         $('#email-error').text('');
                     }
@@ -610,10 +604,9 @@
                     let countryRegex = /^[A-Za-z\s]+$/;
 
                     if (countryValue.trim() === '') {
-                        $('#country-error').text('Country cannot be empty');
+                        $('#country-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!countryRegex.test(countryValue)) {
-                        $('#country-error').text(
-                            'Please enter a valid country (only letters and spaces allowed)');
+                        $('#country-error').text("{{ __('form_validations.string_validation') }}");
                     } else {
                         $('#country-error').text('');
                     }
@@ -624,12 +617,31 @@
                     let teacherNameRegex = /^[A-Za-z\s]+$/;
 
                     if (teacherNameValue.trim() === '') {
-                        $('#teacher_name-error').text('Teacher name cannot be empty');
+                        $('#teacher_name-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!teacherNameRegex.test(teacherNameValue)) {
-                        $('#teacher_name-error').text(
-                            'Please enter a valid teacher name (only letters and spaces allowed)');
+                        $('#teacher_name-error').text("{{ __('form_validations.string_validation') }}");
                     } else {
                         $('#teacher_name-error').text('');
+                    }
+                });
+
+                $('#school').on('input', function() {
+                    let schoolValue = $(this).val();
+
+                    if (schoolValue.trim() === '') {
+                        $('#school-error').text("{{ __('form_validations.field_empty') }}");
+                    } else {
+                        $('#school-error').text('');
+                    }
+                });
+
+                $('#university').on('input', function() {
+                    let universityValue = $(this).val();
+
+                    if (universityValue.trim() === '') {
+                        $('#university-error').text("{{ __('form_validations.field_empty') }}");
+                    } else {
+                        $('#university-error').text('');
                     }
                 });
 
@@ -638,10 +650,9 @@
                     let researchTopicRegex = /^[A-Za-z\s]+$/;
 
                     if (researchTopicValue.trim() === '') {
-                        $('#research_topic-error').text('Research topic cannot be empty');
+                        $('#research_topic-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!researchTopicRegex.test(researchTopicValue)) {
-                        $('#research_topic-error').text(
-                            'Please enter a valid research topic (only letters and spaces allowed)');
+                        $('#research_topic-error').text("{{ __('form_validations.string_validation') }}");
                     } else {
                         $('#research_topic-error').text('');
                     }
@@ -652,10 +663,9 @@
                     let researchLangRegex = /^[A-Za-z\s]+$/;
 
                     if (researchLangValue.trim() === '') {
-                        $('#research_lang-error').text('Research language cannot be empty');
+                        $('#research_lang-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!researchLangRegex.test(researchLangValue)) {
-                        $('#research_lang-error').text(
-                            'Please enter a valid research language (only letters and spaces allowed)');
+                        $('#research_lang-error').text("{{ __('form_validations.string_validation') }}");
                     } else {
                         $('#research_lang-error').text('');
                     }
@@ -666,12 +676,14 @@
                     let countRegex = /^[0-9]+$/;
 
                     if (countValue.trim() === '') {
-                        $('#research_papers_count-error').text('Research papers count cannot be empty');
+                        $('#research_papers_count-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!countRegex.test(countValue)) {
-                        $('#research_papers_count-error').text('Please enter a valid numeric count');
-                    } else if (parseInt(countValue, 10) > 10) {
                         $('#research_papers_count-error').text(
-                            'Papers count must be less than or equal 10 papers');
+                            "{{ __('form_validations.numeric_validation') }}");
+                    } else if (parseInt(countValue, 10) > 10) {
+                        $('#research_papers_count-error').text("{{ __('form_validations.papers_ten') }}");
+                    } else if (parseInt(countValue, 10) === 0) {
+                        $('#research_papers_count-error').text("{{ __('trans.papers_zero') }}");
                     } else {
                         $('#research_papers_count-error').text('');
                     }
@@ -682,21 +694,20 @@
                     let dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
                     if (dateValue.trim() === '') {
-                        $('#delivery_date-error').text('Date cannot be empty');
+                        $('#delivery_date-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!dateRegex.test(dateValue)) {
-                        $('#delivery_date-error').text('Please enter a valid date (YYYY-MM-DD format)');
+                        $('#delivery_date-error').text("{{ __('form_validations.date_validation') }}");
                     } else {
                         let inputDate = new Date(dateValue);
                         let currentDate = new Date();
 
                         if (isNaN(inputDate) || inputDate < currentDate) {
-                            $('#delivery_date-error').text('Please enter a future date');
+                            $('#delivery_date-error').text("{{ __('form_validations.future_date') }}");
                         } else {
                             $('#delivery_date-error').text('');
                         }
                     }
                 });
-
             });
         </script>
 
