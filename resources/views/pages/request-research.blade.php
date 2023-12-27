@@ -64,11 +64,25 @@
     <div class="container" style="padding: 5%">
 
         @if (session('success'))
-            <div class="alert alert-success text-center form-width-responsive"
-                style="font-size: 20px; margin-bottom: 50px" id="success-div">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close"
-                    style="color: white">&times;</a>
-                {{ __('trans.msg_request_success') }}
+            <div class="modal fade inputForm-modal" id="successModal" tabindex="-1" role="dialog"
+                aria-labelledby="inputFormModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" style="background: green">
+                        <div class="modal-header" id="inputFormModalLabel" style="background: green">
+                            <h5 class="modal-title" style="color: white">{{ __('trans.msg_request_success') }}</h5>
+                            <a href="/" style="color: white"><svg aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-x">
+                                    <line x1="18" y1="6" x2="6" y2="18">
+                                    </line>
+                                    <line x1="6" y1="6" x2="18" y2="18">
+                                    </line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         @endif
 
@@ -735,6 +749,12 @@
                         }
                     }
                 });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $('#successModal').modal('show');
             });
         </script>
 
