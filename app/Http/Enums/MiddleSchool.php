@@ -4,13 +4,13 @@ namespace App\Http\Enums;
 
 enum MiddleSchool: string
 {
-    case SeventhGrade_en = "Seventh Grade";
-    case EighthGrade_en = "Eighth Grade";
-    case NinthGrade_en = "Ninth Grade";
+    case SeventhGrade_en = "First intermediate - seventh grade";
+    case EighthGrade_en = "Second intermediate - eighth grade";
+    case NinthGrade_en = "Third intermediate - ninth grade";
 
-    case SeventhGrade_ar = "الصف السابع";
-    case EighthGrade_ar = "الصف الثامن";
-    case NinthGrade_ar = "الصف التاسع";
+    case SeventhGrade_ar = "أول متوسط - الصف السابع";
+    case EighthGrade_ar = "ثاني متوسط - الصف الثامن";
+    case NinthGrade_ar = "ثالث متوسط - الصف التاسع";
 
     public static function getMiddleSchoolEnglish()
     {
