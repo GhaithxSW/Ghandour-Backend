@@ -85,6 +85,15 @@
         .scrollbar {
             scrollbar-color: #330867 #F5F5F5;
         }
+
+        .fixed-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 10%;
+            background-color: transparent;
+            padding: 25px;
+        }
     </style>
 
     <link rel="stylesheet" href="{{ asset('resources/layouts/vertical-light-menu/loader.js') }}">
@@ -140,6 +149,11 @@
                 <div class="contaienr">
                     {{ $slot }}
                 </div>
+            </div>
+
+            <div class="fixed-bottom">
+                <a href="https://wa.me/+963947208628" target="_blank" class="btn btn-warning"
+                    style="border-radius: 25px">{{ __('trans.help') }}</a>
             </div>
 
             <!--  BEGIN FOOTER  -->

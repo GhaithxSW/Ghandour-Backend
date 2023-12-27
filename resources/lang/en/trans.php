@@ -126,4 +126,6 @@ return [
     'university_placeholder' => 'Enter the university name',
     'university_required' => 'University name required',
 
+    'help' => 'Help?',
+
 ];

@@ -125,4 +125,6 @@ return [
     'university_placeholder' => 'ادخل اسم الجامعة',
     'university_required' => 'يجب ادخال اسم الجامعة',
 
+    'help' => 'مساعدة؟',
+
 ];
