@@ -68,7 +68,8 @@ class OrderService
 
             $this->orderRepository->createOrder($orderData);
             $this->stripePayment($user);
-
+            // $this->stripePayout();
+            Session::flash('success', __('trans.msg_request_success'));
         } catch (Exception $e) {
             throw $e;
         }
@@ -76,7 +77,7 @@ class OrderService
 
     private function stripePayment($user)
     {
-        \Stripe\Stripe::setApiKey('sk_test_51NEs22D5A1mRGhgDwzahElqIvUD33rsQxBFmv8TeBB9H3S1BkS6KbfD00cbi9aJDfaIyAndrWf4kzr2qFVWPo1FC0018bi3Zax');
+        \Stripe\Stripe::setApiKey(config('stripe.stripe_secret'));
         $customer = \Stripe\Customer::create(array(
             "address" => [
                 "line1" => "Virani Chowk",
@@ -105,6 +106,14 @@ class OrderService
                 ],
             ]
         ]);
-        Session::flash('success', __('trans.msg_request_success'));
+    }
+
+    private function stripePayout()
+    {
+        \Stripe\Payout::create([
+            "amount" => 10 * 100,
+            "currency" => "aed",
+            "destination" => "0012259204001",
+        ]);
     }
 }

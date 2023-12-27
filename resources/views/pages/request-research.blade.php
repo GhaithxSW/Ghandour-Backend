@@ -80,7 +80,7 @@
 
         <form method="POST" action="/add-request-research" role="form"
             class="require-validation row g-3 mt-3 card form-width-responsive" id="requestForm" data-cc-on-file="false"
-            data-stripe-publishable-key="pk_test_51NEs22D5A1mRGhgD3UgMErQaGb4Xt2g1gxvDPW2I4Sw6VDz1fbDCIToVeKlhYlQq0JcHqf5G1A6jlfc0gkW3ahB700i249GMLH"
+            data-stripe-publishable-key="{{ config('stripe.stripe_key') }}"
             style="padding: 20px; box-shadow: 0 1px 4px 3px rgba(0, 0, 0, 0.1);">
             @csrf
 
@@ -277,8 +277,8 @@
                     </div>
                     <div class="col-xs-12 col-md-4">
                         <label for="delivery_date" class="form-label">{{ __('trans.delivery_date') }}</label>
-                        <input type="date" class="form-control text-left" name="delivery_date"
-                            id="delivery_date" placeholder="{{ __('trans.delivery_date_placeholder') }}">
+                        <input type="date" class="form-control text-left" name="delivery_date" id="delivery_date"
+                            placeholder="{{ __('trans.delivery_date_placeholder') }}">
                         <p class="text-red-600 mt-2 error-validation" style="color: red" id="delivery_date-error">
                         </p>
                         @error('delivery_date')

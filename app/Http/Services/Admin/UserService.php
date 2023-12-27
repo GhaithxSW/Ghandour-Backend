@@ -3,7 +3,6 @@
 namespace App\Http\Services\Admin;
 
 use App\Http\Repositories\UserRepository;
-use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UserRequest;
 use Exception;
 

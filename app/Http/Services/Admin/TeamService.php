@@ -2,9 +2,7 @@
 
 namespace App\Http\Services\Admin;
 
-use App\Http\Repositories\AdminRepository;
 use App\Http\Repositories\TeamRepository;
-use App\Http\Requests\Admin\AdminRequest;
 use App\Http\Requests\Admin\TeamRequest;
 use Exception;
 

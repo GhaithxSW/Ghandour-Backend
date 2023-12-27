@@ -34,11 +34,6 @@ Route::group(
     ],
     function () {
 
-        Route::controller(StripController::class)->group(function () {
-            Route::get('stripe', 'stripe');
-            Route::post('stripe', 'stripePost')->name('stripe.post');
-        });
-
         Route::get('/', [HomeController::class, 'index'])->name('index');
         Route::get('/research/{id}', [ControllersResearchController::class, 'showResearch']);
 

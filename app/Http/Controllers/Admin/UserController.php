@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateUserRequest;
 use App\Http\Services\Admin\UserService;
 
 class UserController extends Controller
@@ -45,7 +44,7 @@ class UserController extends Controller
         return view('admin.pages.users.edit', ['title' => 'تعديل المستخدم'], ['user' => $user]);
     }
 
-    public function updateUser(UpdateUserRequest $request, $id)
+    public function updateUser(UserRequest $request, $id)
     {
         $this->userService->updateUser($request, $id);
         return redirect()->back()->with('success', 'تم تعديل المستخدم بنجاح');

@@ -62,6 +62,5 @@ class OrderController extends Controller
     {
         $this->orderService->storeOrder($request);
         return redirect()->back();
-        // return redirect()->back()->with('success', __('trans.msg_request_success'));
     }
 }
