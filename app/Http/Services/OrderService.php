@@ -39,19 +39,21 @@ class OrderService
                 isset($formFields['university_year']) ? $formFields['university_year'] : null,
                 isset($formFields['graduate_study']) ? $formFields['graduate_study'] : null,
             ];
-
             $filledGrade = implode(', ', array_filter($grades, function ($value) {
                 return $value !== null;
             }));
+            $filledGradeArray = explode(', ', $filledGrade);
+            $filledGrade = end($filledGradeArray);
 
             $schoolOrUniversity = [
                 isset($formFields['school']) ? $formFields['school'] : null,
                 isset($formFields['university']) ? $formFields['university'] : null,
             ];
-
             $filledSchoolOrUniversity = implode(', ', array_filter($schoolOrUniversity, function ($value) {
                 return $value !== null;
             }));
+            $filledSchoolOrUniversityArray = explode(', ', $filledSchoolOrUniversity);
+            $filledSchoolOrUniversity = end($filledSchoolOrUniversityArray);
 
             $orderData = [
                 'research_topic' => $formFields['research_topic'],
