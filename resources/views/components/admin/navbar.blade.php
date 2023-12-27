@@ -36,7 +36,7 @@
         <ul class="navbar-item theme-brand flex-row text-center">
             <li class="nav-item theme-logo theme-logo-new">
                 <a href="/admin-panel-management/dashboard">
-                    <img src="{{ asset('resources/images/logo-new.png') }}" class="navbar-logo" alt="LOGO"
+                    <img src="{{ asset('resources/new-logo-buhothy.png') }}" class="navbar-logo" alt="LOGO"
                         style="height: 50px">
                 </a>
             </li>

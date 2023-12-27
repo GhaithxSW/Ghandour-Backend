@@ -416,7 +416,7 @@
             </li>
             @if (count($members))
                 @foreach ($members as $member)
-                    <li class="team-margin">
+                    <li class="team-margin text-left">
                         <div class="modern-timeline-badge"></div>
                         <div class="modern-timeline-panel" style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
                             <div class="modern-timeline-preview">
@@ -426,7 +426,7 @@
                                 <p class="mb-4"><b>{{ $member->name }}</b></h4>
                                 <h4 class="mb-4">{{ $member->position }}</h4>
                                 <p>{{ $member->about }}</p>
-                                {{-- <p><a href="javascript:void(0);" class="btn btn-outline-primary mt-2">Read more</a>
+                                {{-- <p><a href="javascript:void(0);" class="btn btn-outline-secondary mt-2">Read more</a>
                                 </p> --}}
                             </div>
                         </div>

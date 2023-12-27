@@ -56,12 +56,13 @@
                                     <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('no-image.png') }}"
                                         alt="...">
                                     <div class="media-body hide-div mr-2">
-                                        <h5>Kelly Young</h5>
-                                        <p>{{ $research->created_at->format('d M Y') }}</p>
+                                        {{-- <h5>Kelly Young</h5> --}}
+                                        {{-- <p>{{ $research->created_at->format('d M Y') }}</p> --}}
                                     </div>
                                 </div>
                                 <div class="align-self-center hide-div">
-                                    <button class="btn btn-success btn-icon btn-share btn-rounded">
+                                    <p style="color: white">{{ $research->created_at->format('d M Y') }}</p>
+                                    {{-- <button class="btn btn-success btn-icon btn-share btn-rounded">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
@@ -72,7 +73,7 @@
                                             <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
                                             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                                         </svg>
-                                    </button>
+                                    </button> --}}
                                 </div>
                             </div>
                         </div>

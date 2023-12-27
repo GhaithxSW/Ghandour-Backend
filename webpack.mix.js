@@ -6,16 +6,6 @@ mix.webpackConfig({
     }
 });
 
-// mix.js('resources/js/app.js', 'public/js')
-//     .postCss('resources/css/app.css', 'public/css');
-
-
-// mix.sass('public/resources/scss/layouts/vertical-light-menu/light/loader.scss', 'public/css')
-//     .postCss('resources/css/loader.css', 'public/css');
-
-// mix.sass('public/resources/scss/light/assets/components/modal.scss', 'public/css')
-//     .postCss('resources/css/modal.css', 'public/css');
-
 mix.sass('public/resources/scss/layouts/vertical-light-menu/light/loader.scss', 'public/css/light');
 mix.sass('public/resources/scss/layouts/vertical-light-menu/dark/loader.scss', 'public/css/dark');
 mix.sass('public/resources/scss/light/assets/components/carousel.scss', 'public/css/light');
@@ -43,12 +33,8 @@ mix.sass('public/resources/scss/layouts/vertical-light-menu/dark/structure.scss'
 mix.sass('public/resources/scss/light/plugins/plugins.min.scss', 'public/css/light');
 mix.sass('public/resources/scss/light/plugins/perfect-scrollbar/perfect-scrollbar.scss', 'public/css/light');
 
-
 mix.sass('public/resources/scss/light/assets/main.scss', 'public/css/light');
 mix.sass('public/resources/scss/dark/assets/main.scss', 'public/css/dark');
-
-
-
 
 mix.sass('public/resources/scss/light/assets/components/modal.scss', 'public/css/light');
 mix.sass('public/resources/scss/dark/assets/components/modal.scss', 'public/css/dark');
@@ -59,12 +45,8 @@ mix.sass('public/resources/scss/dark/assets/pages/contact_us.scss', 'public/css/
 mix.sass('public/resources/scss/light/assets/components/timeline.scss', 'public/css/light');
 mix.sass('public/resources/scss/dark/assets/components/timeline.scss', 'public/css/dark');
 
-
 mix.sass('public/resources/scss/light/assets/elements/alert.scss', 'public/css/light');
 mix.sass('public/resources/scss/dark/assets/elements/alert.scss', 'public/css/dark');
-
-
-
 
 mix.sass('public/resources/rtl/scss/layouts/vertical-light-menu/light/loader.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/layouts/vertical-light-menu/dark/loader.scss', 'public/rtl/css/dark');
@@ -72,8 +54,6 @@ mix.sass('public/resources/rtl/scss/light/assets/components/carousel.scss', 'pub
 mix.sass('public/resources/rtl/scss/dark/assets/components/carousel.scss', 'public/rtl/css/dark');
 mix.sass('public/resources/rtl/scss/light/assets/apps/blog-create.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/dark/assets/apps/blog-create.scss', 'public/rtl/css/dark');
-
-
 
 mix.sass('public/resources/rtl/scss/light/assets/forms/switches.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/dark/assets/forms/switches.scss', 'public/rtl/css/dark');
@@ -92,17 +72,11 @@ mix.sass('public/resources/rtl/scss/dark/plugins/editors/quill/quill.snow.scss',
 mix.sass('public/resources/rtl/scss/layouts/vertical-light-menu/light/structure.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/layouts/vertical-light-menu/dark/structure.scss', 'public/rtl/css/dark');
 
-
-
 mix.sass('public/resources/rtl/scss/light/plugins/perfect-scrollbar/perfect-scrollbar.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/light/assets/custom.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/dark/assets/custom.scss', 'public/rtl/css/dark');
 
-
 mix.sass('public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss', 'public/rtl/css');
-
-// mix.sass('public/resources/rtl/scss/light/assets/apps/ecommerce-create.scss', 'public/rtl/css');
-
 
 mix.sass('public/resources/rtl/scss/light/assets/pages/contact_us.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/dark/assets/pages/contact_us.scss', 'public/rtl/css/dark');
@@ -110,12 +84,5 @@ mix.sass('public/resources/rtl/scss/dark/assets/pages/contact_us.scss', 'public/
 mix.sass('public/resources/rtl/scss/light/assets/apps/ecommerce-create.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/dark/assets/apps/ecommerce-create.scss', 'public/rtl/css/dark');
 
-
-
 mix.sass('public/resources/rtl/scss/light/assets/components/modal.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/dark/assets/components/modal.scss', 'public/rtl/css/dark');
-
-
-
-
-

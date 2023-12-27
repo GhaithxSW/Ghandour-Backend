@@ -231,7 +231,16 @@
                 </div>
 
                 <div class="row mb-2">
-                    <div class="col-xs-12 col-md-6 mb-2">
+                    <div class="col-xs-12 col-md-4 mb-2">
+                        <label for="teacher_name" class="form-label">{{ __('trans.teacher_name') }}</label>
+                        <input type="text" class="form-control" name="teacher_name" id="teacher_name"
+                            placeholder="{{ __('trans.teacher_name_placeholder') }}">
+                        <p class="text-red-600 mt-2 error-validation" style="color: red" id="teacher_name-error"></p>
+                        @error('teacher_name')
+                            <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="col-xs-12 col-md-4 mb-2">
                         <label for="research_topic" class="form-label">{{ __('trans.research_topic') }}</label>
                         <input type="text" class="form-control" name="research_topic" id="research_topic"
                             placeholder="{{ __('trans.research_topic_placeholder') }}">
@@ -241,29 +250,7 @@
                             <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-xs-12 col-md-6">
-                        <label for="teacher_name" class="form-label">{{ __('trans.teacher_name') }}</label>
-                        <input type="text" class="form-control" name="teacher_name" id="teacher_name"
-                            placeholder="{{ __('trans.teacher_name_placeholder') }}">
-                        <p class="text-red-600 mt-2 error-validation" style="color: red" id="teacher_name-error"></p>
-                        @error('teacher_name')
-                            <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="row mb-2">
-                    <div class="col-xs-12 col-md-4 mb-2">
-                        <label for="research_lang" class="form-label">{{ __('trans.research_lang') }}</label>
-                        <input type="text" class="form-control" name="research_lang" id="research_lang"
-                            placeholder="{{ __('trans.research_lang_placeholder') }}">
-                        <p class="text-red-600 mt-2 error-validation" style="color: red" id="research_lang-error">
-                        </p>
-                        @error('research_lang')
-                            <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="col-xs-12 col-md-4 mb-2">
+                    <div class="col-xs-12 col-md-4">
                         <label for="research_papers_count"
                             class="form-label">{{ __('trans.research_papers_count') }}</label>
                         <input type="text" class="form-control" name="research_papers_count"
@@ -275,7 +262,20 @@
                             <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-xs-12 col-md-4">
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-xs-12 col-md-6 mb-2">
+                        <label for="research_lang" class="form-label">{{ __('trans.research_lang') }}</label>
+                        <input type="text" class="form-control" name="research_lang" id="research_lang"
+                            placeholder="{{ __('trans.research_lang_placeholder') }}">
+                        <p class="text-red-600 mt-2 error-validation" style="color: red" id="research_lang-error">
+                        </p>
+                        @error('research_lang')
+                            <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="col-xs-12 col-md-6">
                         <label for="delivery_date" class="form-label">{{ __('trans.delivery_date') }}</label>
                         <input type="date" class="form-control text-left" name="delivery_date" id="delivery_date"
                             placeholder="{{ __('trans.delivery_date_placeholder') }}">
