@@ -330,17 +330,17 @@
                     <div class='col-xs-12 col-md-4 form-group cvc required'>
                         <label class='control-label'>{{ __('trans.cvc') }}</label>
                         <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4'
-                            type='text'>
+                            type='text' maxlength="3">
                     </div>
                     <div class='col-xs-12 col-md-4 form-group expiration required'>
                         <label class='control-label'>{{ __('trans.expiration_month') }}</label>
-                        <input class='form-control card-expiry-month' placeholder='MM' size='2'
-                            type='text'>
+                        <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'
+                            maxlength="2">
                     </div>
                     <div class='col-xs-12 col-md-4 form-group expiration required'>
                         <label class='control-label'>{{ __('trans.expiration_year') }}</label>
                         <input class='form-control card-expiry-year' placeholder='YYYY' size='4'
-                            type='text'>
+                            type='text' maxlength="4">
                     </div>
                 </div>
 
