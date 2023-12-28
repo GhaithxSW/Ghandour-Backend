@@ -281,8 +281,12 @@
                 <div class="row mb-2">
                     <div class="col-xs-12 col-md-6 mb-2">
                         <label for="research_lang" class="form-label">{{ __('trans.research_lang') }}</label>
-                        <input type="text" class="form-control" name="research_lang" id="research_lang"
-                            placeholder="{{ __('trans.research_lang_placeholder') }}">
+                        <select class="form-select" name="research_lang" id="research_lang">
+                            <option selected disabled>{{ __('trans.research_lang_placeholder') }}</option>
+                            <option value="العربية">العربية</option>
+                            <option value="الأنكليزية">الأنكليزية</option>
+                            <option value="الفرنسية">الفرنسية</option>
+                        </select>
                         <p class="text-red-600 mt-2 error-validation" style="color: red" id="research_lang-error">
                         </p>
                         @error('research_lang')
@@ -362,7 +366,7 @@
                     <div class="col-xs-12">
                         <button class="btn btn-secondary btn-lg btn-block" id="pay-button"
                             type="submit">{{ __('trans.pay_now') }}</button>
-                        <button class="btn btn-danger btn-lg btn-block" id="back-button"
+                        <button class="btn btn-danger btn-lg btn-block"
                             id="backToForm">{{ __('trans.back') }}</button>
                     </div>
                 </div>
@@ -385,7 +389,7 @@
                 $('#error-div').hide();
                 let $form = $(".require-validation");
                 let $payButton = $("#pay-button");
-                let $backButton = $("#back-button");
+                let $backButton = $("#backToForm");
 
                 $('form.require-validation').bind('submit', function(e) {
                     let $form = $(".require-validation"),
