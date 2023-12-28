@@ -141,7 +141,7 @@
                             placeholder="{{ __('trans.phone_placeholder') }}">
                         <p class="text-red-600 mt-2 error-validation" style="color: red" id="phone-error"></p>
                         @error('phone')
-                            <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                            <p class="m-2 text-red-600 phone-validation" style="color: red">{{ __('trans.phone_unique') }}</p>
                         @enderror
                     </div>
                     <div class="col-xs-12 col-md-4">
@@ -150,7 +150,7 @@
                             placeholder="{{ __('trans.email_placeholder') }}">
                         <p class="text-red-600 mt-2 error-validation" style="color: red" id="email-error"></p>
                         @error('email')
-                            <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                            <p class="m-2 text-red-600 email-validation" style="color: red">{{ __('trans.email_unique') }}</p>
                         @enderror
                     </div>
                 </div>
@@ -622,6 +622,8 @@
                     let phoneValue = $(this).val();
                     let phoneRegex = /^[0-9]{10}$/;
 
+                    $('.phone-validation').hide();
+
                     if (phoneValue.trim() === '') {
                         $('#phone-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!phoneRegex.test(phoneValue)) {
@@ -634,6 +636,8 @@
                 $('#email').on('input', function() {
                     let emailValue = $(this).val();
                     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    $('.email-validation').hide();
 
                     if (emailValue.trim() === '') {
                         $('#email-error').text("{{ __('form_validations.field_empty') }}");
