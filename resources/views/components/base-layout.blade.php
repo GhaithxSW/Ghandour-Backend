@@ -90,9 +90,15 @@
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 10%;
+            width: 100%;
             background-color: transparent;
             padding: 25px;
+        }
+
+        @media screen and (max-width: 400px) {
+            .fixed-bottom-text {
+                display: none;
+            }
         }
     </style>
 
@@ -162,7 +168,7 @@
                         <path
                             d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
                     </svg>
-                    {{-- {{ __('trans.help') }} --}}
+                    <span class="fixed-bottom-text">{{ __('trans.help') }}</span>
                 </a>
             </div>
 
