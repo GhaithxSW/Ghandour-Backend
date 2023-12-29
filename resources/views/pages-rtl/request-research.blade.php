@@ -620,15 +620,31 @@
                     }
                 });
 
+                // $('#phone').on('input', function() {
+                //     let phoneValue = $(this).val();
+                //     let phoneRegex = /^[0-9]{10}$/;
+
+                //     $('.phone-validation').hide();
+
+                //     if (phoneValue.trim() === '') {
+                //         $('#phone-error').text("{{ __('form_validations.field_empty') }}");
+                //     } else if (!phoneRegex.test(phoneValue)) {
+                //         $('#phone-error').text("{{ __('form_validations.phone_validation') }}");
+                //     } else {
+                //         $('#phone-error').text('');
+                //     }
+                // });
+
                 $('#phone').on('input', function() {
-                    let phoneValue = $(this).val();
-                    let phoneRegex = /^[0-9]{10}$/;
+                    let countValue = $(this).val();
+                    let countRegex = /^[0-9]+$/;
 
-                    $('.phone-validation').hide();
-
-                    if (phoneValue.trim() === '') {
+                    if (countValue.trim() === '') {
                         $('#phone-error').text("{{ __('form_validations.field_empty') }}");
-                    } else if (!phoneRegex.test(phoneValue)) {
+                    } else if (!countRegex.test(countValue)) {
+                        $('#phone-error').text(
+                            "{{ __('form_validations.numeric_validation') }}");
+                    } else if (countRegex.test(countValue) && countValue.length !== 10) {
                         $('#phone-error').text("{{ __('form_validations.phone_validation') }}");
                     } else {
                         $('#phone-error').text('');
