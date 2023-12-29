@@ -379,6 +379,7 @@
 
     <x-slot:footerFiles>
 
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
         <script type="text/javascript">
             $(function() {
@@ -458,109 +459,103 @@
         </script>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                let educationLevelSelect = document.getElementById('education_level');
-                let middleGradeList = document.getElementById('middle_grade_list');
-                let highGradeList = document.getElementById('high_grade_list');
-                let universityYearList = document.getElementById('university_year_list');
-                let graduateStudyList = document.getElementById('graduate_study_list');
-                let school = document.getElementById('school');
-                let university = document.getElementById('university');
+            $(document).ready(function() {
+                let educationLevelSelect = $('#education_level');
+                let middleGradeList = $('#middle_grade_list');
+                let highGradeList = $('#high_grade_list');
+                let universityYearList = $('#university_year_list');
+                let graduateStudyList = $('#graduate_study_list');
+                let school = $('#school');
+                let university = $('#university');
 
-                let educationDiv = document.getElementById('educationDiv');
+                let educationDiv = $('#educationDiv');
 
-                educationDiv.classList.remove('col-xs-12', 'col-md-4');
-                educationDiv.classList.add('col-xs-12', 'col-md-12');
+                educationDiv.removeClass('col-xs-12 col-md-4').addClass('col-xs-12 col-md-12');
 
-                middleGradeList.style.display = 'none';
-                highGradeList.style.display = 'none';
-                universityYearList.style.display = 'none';
-                graduateStudyList.style.display = 'none';
-                school.style.display = 'none';
-                university.style.display = 'none';
+                middleGradeList.hide();
+                highGradeList.hide();
+                universityYearList.hide();
+                graduateStudyList.hide();
+                school.hide();
+                university.hide();
 
                 function selectEducationLevel() {
-                    let selectedOption = educationLevelSelect.options[educationLevelSelect.selectedIndex].value;
+                    let selectedOption = educationLevelSelect.val();
 
                     if (selectedOption === 'المرحلة المتوسطة' || selectedOption === 'Middle School') {
-                        educationDiv.classList.remove('col-xs-12', 'col-md-12');
-                        educationDiv.classList.add('col-xs-12', 'col-md-4');
-                        middleGradeList.style.display = 'block';
-                        highGradeList.style.display = 'none';
-                        universityYearList.style.display = 'none';
-                        graduateStudyList.style.display = 'none';
-                        school.style.display = 'block';
-                        university.style.display = 'none';
+                        educationDiv.removeClass('col-xs-12 col-md-12').addClass('col-xs-12 col-md-4');
+                        middleGradeList.show();
+                        highGradeList.hide();
+                        universityYearList.hide();
+                        graduateStudyList.hide();
+                        school.show();
+                        university.hide();
                     } else if (selectedOption === 'المرحلة الثانوية' || selectedOption === 'High School') {
-                        educationDiv.classList.remove('col-xs-12', 'col-md-12');
-                        educationDiv.classList.add('col-xs-12', 'col-md-4');
-                        middleGradeList.style.display = 'none';
-                        highGradeList.style.display = 'block';
-                        universityYearList.style.display = 'none';
-                        graduateStudyList.style.display = 'none';
-                        school.style.display = 'block';
-                        university.style.display = 'none';
+                        educationDiv.removeClass('col-xs-12 col-md-12').addClass('col-xs-12 col-md-4');
+                        middleGradeList.hide();
+                        highGradeList.show();
+                        universityYearList.hide();
+                        graduateStudyList.hide();
+                        school.show();
+                        university.hide();
                     } else if (selectedOption === 'المرحلة الجامعية' || selectedOption === 'University') {
-                        educationDiv.classList.remove('col-xs-12', 'col-md-12');
-                        educationDiv.classList.add('col-xs-12', 'col-md-4');
-                        middleGradeList.style.display = 'none';
-                        highGradeList.style.display = 'none';
-                        universityYearList.style.display = 'block';
-                        graduateStudyList.style.display = 'none';
-                        school.style.display = 'none';
-                        university.style.display = 'block';
+                        educationDiv.removeClass('col-xs-12 col-md-12').addClass('col-xs-12 col-md-4');
+                        middleGradeList.hide();
+                        highGradeList.hide();
+                        universityYearList.show();
+                        graduateStudyList.hide();
+                        school.hide();
+                        university.show();
                     } else if (selectedOption === 'الدراسات العليا' || selectedOption === 'Graduate Studies') {
-                        educationDiv.classList.remove('col-xs-12', 'col-md-12');
-                        educationDiv.classList.add('col-xs-12', 'col-md-4');
-                        middleGradeList.style.display = 'none';
-                        highGradeList.style.display = 'none';
-                        universityYearList.style.display = 'none';
-                        graduateStudyList.style.display = 'block';
-                        school.style.display = 'none';
-                        university.style.display = 'block';
+                        educationDiv.removeClass('col-xs-12 col-md-12').addClass('col-xs-12 col-md-4');
+                        middleGradeList.hide();
+                        highGradeList.hide();
+                        universityYearList.hide();
+                        graduateStudyList.show();
+                        school.hide();
+                        university.show();
                     } else {
-                        middleGradeList.style.display = 'none';
-                        highGradeList.style.display = 'none';
-                        universityYearList.style.display = 'none';
-                        graduateStudyList.style.display = 'none';
-                        school.style.display = 'none';
-                        university.style.display = 'none';
+                        middleGradeList.hide();
+                        highGradeList.hide();
+                        universityYearList.hide();
+                        graduateStudyList.hide();
+                        school.hide();
+                        university.hide();
                     }
                 }
 
-                educationLevelSelect.addEventListener('change', selectEducationLevel);
+                educationLevelSelect.change(selectEducationLevel);
 
                 selectEducationLevel();
 
-                let submitButton = document.getElementById("submitButton");
-                let backToForm = document.getElementById("backToForm");
+                let submitButton = $("#submitButton");
+                let backToForm = $("#backToForm");
 
-                let errorDiv = document.getElementById("error-div");
-                let successDiv = document.getElementById("success-div");
+                let errorDiv = $("#error-div");
+                let successDiv = $("#success-div");
 
-                submitButton.addEventListener("click", function(event) {
+                submitButton.on("click", function(event) {
                     event.preventDefault();
 
                     requestDiv.style.display = "none";
                     paymentDiv.style.display = "block";
 
-                    errorDiv.style.display = "none";
-                    successDiv.style.display = "none";
+                    errorDiv.hide();
+                    successDiv.hide();
                 });
 
-                backToForm.addEventListener("click", function(event) {
+                backToForm.on("click", function(event) {
                     event.preventDefault();
 
                     requestDiv.style.display = "block";
                     paymentDiv.style.display = "none";
 
-                    errorDiv.style.display = "none";
-                    successDiv.style.display = "none";
+                    errorDiv.hide();
+                    successDiv.hide();
                 });
             });
         </script>
 
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script>
             $(document).ready(function() {
                 $('#submitButton').prop('disabled', true);
@@ -619,21 +614,6 @@
                         $('#last_name-error').text('');
                     }
                 });
-
-                // $('#phone').on('input', function() {
-                //     let phoneValue = $(this).val();
-                //     let phoneRegex = /^[0-9]{10}$/;
-
-                //     $('.phone-validation').hide();
-
-                //     if (phoneValue.trim() === '') {
-                //         $('#phone-error').text("{{ __('form_validations.field_empty') }}");
-                //     } else if (!phoneRegex.test(phoneValue)) {
-                //         $('#phone-error').text("{{ __('form_validations.phone_validation') }}");
-                //     } else {
-                //         $('#phone-error').text('');
-                //     }
-                // });
 
                 $('#phone').on('input', function() {
                     let phoneValue = $(this).val();
