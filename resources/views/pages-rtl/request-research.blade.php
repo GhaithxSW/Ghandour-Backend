@@ -141,7 +141,8 @@
                             placeholder="{{ __('trans.phone_placeholder') }}">
                         <p class="text-red-600 mt-2 error-validation" style="color: red" id="phone-error"></p>
                         @error('phone')
-                            <p class="m-2 text-red-600 phone-validation" style="color: red">{{ __('trans.phone_unique') }}</p>
+                            <p class="m-2 text-red-600 phone-validation" style="color: red">
+                                {{ __('trans.phone_unique') }}</p>
                         @enderror
                     </div>
                     <div class="col-xs-12 col-md-4">
@@ -150,7 +151,8 @@
                             placeholder="{{ __('trans.email_placeholder') }}">
                         <p class="text-red-600 mt-2 error-validation" style="color: red" id="email-error"></p>
                         @error('email')
-                            <p class="m-2 text-red-600 email-validation" style="color: red">{{ __('trans.email_unique') }}</p>
+                            <p class="m-2 text-red-600 email-validation" style="color: red">
+                                {{ __('trans.email_unique') }}</p>
                         @enderror
                     </div>
                 </div>
@@ -283,9 +285,9 @@
                         <label for="research_lang" class="form-label">{{ __('trans.research_lang') }}</label>
                         <select class="form-select" name="research_lang" id="research_lang">
                             <option selected disabled>{{ __('trans.research_lang_placeholder') }}</option>
-                            <option value="العربية">العربية</option>
-                            <option value="الأنكليزية">الأنكليزية</option>
-                            <option value="الفرنسية">الفرنسية</option>
+                            @foreach ($researchLanguageArabic as $languages)
+                                <option value="{{ $languages }}">{{ $languages }}</option>
+                            @endforeach
                         </select>
                         <p class="text-red-600 mt-2 error-validation" style="color: red" id="research_lang-error">
                         </p>

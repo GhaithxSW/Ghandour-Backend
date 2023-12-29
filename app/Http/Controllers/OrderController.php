@@ -7,6 +7,7 @@ use App\Http\Enums\University;
 use App\Http\Enums\MiddleSchool;
 use App\Http\Enums\GraduateStudy;
 use App\Http\Enums\EducationLevel;
+use App\Http\Enums\ResearchLanguage;
 use App\Http\Requests\OrderRequest;
 use App\Http\Services\OrderService;
 use Illuminate\Support\Facades\App;
@@ -38,6 +39,11 @@ class OrderController extends Controller
         $graduateStudiesEnglish = GraduateStudy::getGraduateStudyEnglish();
         $graduateStudiesArabic = GraduateStudy::getGraduateStudyArabic();
 
+        $researchLanguageEnglish = ResearchLanguage::getResearchLanguageEnglish();
+        $researchLanguageArabic = ResearchLanguage::getResearchLanguageArabic();
+
+
+
         $locale = App::getLocale();
 
         return ($locale == 'en') ? view('pages.request-research', ['title' => __('trans.bhoothat')],
@@ -46,7 +52,8 @@ class OrderController extends Controller
                 'middleSchoolGradesEnglish' => $middleSchoolGradesEnglish,
                 'highSchoolGradesEnglish' => $highSchoolGradesEnglish,
                 'universityGradesEnglish' => $universityGradesEnglish,
-                'graduateStudiesEnglish' => $graduateStudiesEnglish
+                'graduateStudiesEnglish' => $graduateStudiesEnglish,
+                'researchLanguageEnglish' => $researchLanguageEnglish,
             ])
             : view('pages-rtl.request-research', ['title' => __('trans.bhoothat')],
                 [
@@ -54,7 +61,8 @@ class OrderController extends Controller
                     'middleSchoolGradesArabic' => $middleSchoolGradesArabic,
                     'highSchoolGradesArabic' => $highSchoolGradesArabic,
                     'universityGradesArabic' => $universityGradesArabic,
-                    'graduateStudiesArabic' => $graduateStudiesArabic
+                    'graduateStudiesArabic' => $graduateStudiesArabic,
+                    'researchLanguageArabic' => $researchLanguageArabic,
                 ]);
     }
 

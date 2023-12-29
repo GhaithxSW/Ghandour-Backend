@@ -86,6 +86,16 @@
             </div>
         @endif
 
+        {{-- @if ($errors->any())
+            <div style="color: red;">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif --}}
+
         <div class='form-row row text-center form-width-responsive' id="error-div">
             <div class='col-md-12 error form-group hide'>
                 <div class='alert-danger alert'>{{ __('form_validations.stripe_general') }}</div>
@@ -283,9 +293,9 @@
                         <label for="research_lang" class="form-label">{{ __('trans.research_lang') }}</label>
                         <select class="form-select" name="research_lang" id="research_lang">
                             <option selected disabled>{{ __('trans.research_lang_placeholder') }}</option>
-                            <option value="English">English</option>
-                            <option value="Arabic">Arabic</option>
-                            <option value="French">French</option>
+                            @foreach ($researchLanguageEnglish as $languages)
+                                <option value="{{ $languages }}">{{ $languages }}</option>
+                            @endforeach
                         </select>
                         <p class="text-red-600 mt-2 error-validation" style="color: red" id="research_lang-error">
                         </p>

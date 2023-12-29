@@ -4,31 +4,31 @@ namespace App\Http\Enums;
 
 enum University: string
 {
-    case FirstYear_en = "First Year";
-    case SecondYear_en = "Second Year";
-    case ThirdYear_en = "Third Year";
-    case FourthYear_en = "Fourth Year";
-    case FifthYear_en = "Fifth Year";
-    case SixthYear_en = "Sixth Year";
+    case firstYear_en = "First Year";
+    case secondYear_en = "Second Year";
+    case thirdYear_en = "Third Year";
+    case fourthYear_en = "Fourth Year";
+    case fifthYear_en = "Fifth Year";
+    case sixthYear_en = "Sixth Year";
 
-    case FirstYear_ar = "السنة الأولى";
-    case SecondYear_ar = "السنة الثانية";
-    case ThirdYear_ar = "السنة الثالثة";
-    case FourthYear_ar = "السنة الرابعة";
-    case FifthYear_ar = "السنة الخامسة";
-    case SixthYear_ar = "السنة السادسة";
+    case firstYear_ar = "السنة الأولى";
+    case secondYear_ar = "السنة الثانية";
+    case thirdYear_ar = "السنة الثالثة";
+    case fourthYear_ar = "السنة الرابعة";
+    case fifthYear_ar = "السنة الخامسة";
+    case sixthYear_ar = "السنة السادسة";
 
     public static function getUniversityEnglish()
     {
         return [
-            self::FirstYear_en, self::SecondYear_en, self::ThirdYear_en, self::FourthYear_en, self::FifthYear_en, self::SixthYear_en
+            self::firstYear_en, self::secondYear_en, self::thirdYear_en, self::fourthYear_en, self::fifthYear_en, self::sixthYear_en
         ];
     }
 
     public static function getUniversityArabic()
     {
         return [
-            self::FirstYear_ar, self::SecondYear_ar, self::ThirdYear_ar, self::FourthYear_ar, self::FifthYear_ar, self::SixthYear_ar
+            self::firstYear_ar, self::secondYear_ar, self::thirdYear_ar, self::fourthYear_ar, self::fifthYear_ar, self::sixthYear_ar
         ];
     }
 }
