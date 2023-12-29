@@ -644,15 +644,15 @@
                 // });
 
                 $('#phone').on('input', function() {
-                    let countValue = $(this).val();
-                    let countRegex = /^[0-9]+$/;
+                    let phoneValue = $(this).val();
+                    let phoneRegex = /^[0-9]+$/;
 
-                    if (countValue.trim() === '') {
+                    if (phoneValue.trim() === '') {
                         $('#phone-error').text("{{ __('form_validations.field_empty') }}");
-                    } else if (!countRegex.test(countValue)) {
+                    } else if (!phoneRegex.test(phoneValue)) {
                         $('#phone-error').text(
                             "{{ __('form_validations.numeric_validation') }}");
-                    } else if (countRegex.test(countValue) && countValue.length !== 10) {
+                    } else if (phoneRegex.test(phoneValue) && phoneValue.length !== 10) {
                         $('#phone-error').text("{{ __('form_validations.phone_validation') }}");
                     } else {
                         $('#phone-error').text('');
