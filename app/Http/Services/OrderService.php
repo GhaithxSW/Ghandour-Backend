@@ -3,10 +3,14 @@
 namespace App\Http\Services;
 
 use Exception;
+use Stripe\Charge;
+use Stripe\Payout;
+use Stripe\Stripe;
+use Stripe\Customer;
 use App\Http\Requests\OrderRequest;
+use Illuminate\Support\Facades\Session;
 use App\Http\Repositories\UserRepository;
 use App\Http\Repositories\OrderRepository;
-use Illuminate\Support\Facades\Session;
 
 class OrderService
 {
@@ -39,21 +43,13 @@ class OrderService
                 isset($formFields['university_year']) ? $formFields['university_year'] : null,
                 isset($formFields['graduate_study']) ? $formFields['graduate_study'] : null,
             ];
-            $filledGrade = implode(', ', array_filter($grades, function ($value) {
-                return $value !== null;
-            }));
-            $filledGradeArray = explode(', ', $filledGrade);
-            $filledGrade = end($filledGradeArray);
+            $grade = $this->getLastFilledElement($grades);
 
-            $schoolOrUniversity = [
+            $schoolsOrUniversities = [
                 isset($formFields['school']) ? $formFields['school'] : null,
                 isset($formFields['university']) ? $formFields['university'] : null,
             ];
-            $filledSchoolOrUniversity = implode(', ', array_filter($schoolOrUniversity, function ($value) {
-                return $value !== null;
-            }));
-            $filledSchoolOrUniversityArray = explode(', ', $filledSchoolOrUniversity);
-            $filledSchoolOrUniversity = end($filledSchoolOrUniversityArray);
+            $schoolOrUniversity = $this->getLastFilledElement($schoolsOrUniversities);
 
             $orderData = [
                 'research_topic' => $formFields['research_topic'],
@@ -63,8 +59,8 @@ class OrderService
                 'delivery_date' => $formFields['delivery_date'],
                 'user_id' => $user->id,
                 'education_level' => $formFields['education_level'],
-                'grade' => $filledGrade,
-                'school_university' => $filledSchoolOrUniversity,
+                'grade' => $grade,
+                'school_university' => $schoolOrUniversity,
                 'notes' => $formFields['notes'],
             ];
 
@@ -77,42 +73,56 @@ class OrderService
         }
     }
 
+    private function getLastFilledElement($data)
+    {
+        $filledData = implode(', ', array_filter($data, function ($value) {
+            return $value !== null;
+        }));
+        $filledDataArray = explode(', ', $filledData);
+        $lastDataElement = end($filledDataArray);
+        return $lastDataElement;
+    }
+
     private function stripePayment($user)
     {
-        \Stripe\Stripe::setApiKey(config('stripe.stripe_secret'));
-        $customer = \Stripe\Customer::create(array(
-            "address" => [
-                "line1" => "Virani Chowk",
-                "postal_code" => "360001",
-                "city" => "Rajkot",
-                "state" => "GJ",
-                "country" => $user->country,
-            ],
+        Stripe::setApiKey(config('stripe.stripe_secret'));
+
+        // $token = $request->input('stripeToken');
+        $token = request('stripeToken');
+
+        $customer = Customer::create(array(
+            // "address" => [
+            //     "line1" => "Virani Chowk",
+            //     "postal_code" => "360001",
+            //     "city" => "Rajkot",
+            //     "state" => "GJ",
+            //     "country" => $user->country,
+            // ],
             "email" => $user->email,
             "name" => $user->first_name . ' ' . $user->last_name,
-            "source" => request('stripeToken')
+            "source" => $token
         ));
-        \Stripe\Charge::create([
+        Charge::create([
             "amount" => 10 * 100,
             "currency" => "aed",
             "customer" => $customer->id,
             "description" => "Payment from " . $user->first_name . ' ' . $user->last_name,
-            "shipping" => [
-                "name" => "Jenny Rosen",
-                "address" => [
-                    "line1" => "510 Townsend St",
-                    "postal_code" => "98140",
-                    "city" => "San Francisco",
-                    "state" => "CA",
-                    "country" => "US",
-                ],
-            ]
+            // "shipping" => [
+            //     "name" => "Jenny Rosen",
+            //     "address" => [
+            //         "line1" => "510 Townsend St",
+            //         "postal_code" => "98140",
+            //         "city" => "San Francisco",
+            //         "state" => "CA",
+            //         "country" => "US",
+            //     ],
+            // ]
         ]);
     }
 
     private function stripePayout()
     {
-        \Stripe\Payout::create([
+        Payout::create([
             "amount" => 10 * 100,
             "currency" => "aed",
             "destination" => "0012259204001",
