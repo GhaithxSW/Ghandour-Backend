@@ -104,7 +104,7 @@ class OrderService
         ]);
 
         $charge = Charge::create([
-            "amount" => 1 * 100,
+            "amount" => 10 * 100,
             "currency" => "sar",
             "customer" => $customer->id,
             "description" => "Payment from " . $customer->name,
