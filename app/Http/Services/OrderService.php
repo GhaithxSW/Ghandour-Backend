@@ -66,10 +66,13 @@ class OrderService
 
             $this->orderRepository->createOrder($orderData);
             $this->stripePayment($user);
-            // $this->stripePayout();
+
             Session::flash('success', __('trans.msg_request_success'));
+            // return response()->json(['success' => true, 'message' => 'Payment successful']);
+
         } catch (Exception $e) {
             throw $e;
+            // return response()->json(['success' => false, 'message' => $e->getMessage()]);
         }
     }
 
@@ -90,42 +93,27 @@ class OrderService
         // $token = $request->input('stripeToken');
         $token = request('stripeToken');
 
-        $customer = Customer::create(array(
-            // "address" => [
-            //     "line1" => "Virani Chowk",
-            //     "postal_code" => "360001",
-            //     "city" => "Rajkot",
-            //     "state" => "GJ",
-            //     "country" => $user->country,
-            // ],
+        if (empty($token)) {
+            throw new Exception("Stripe token is missing");
+        }
+
+        $customer = Customer::create([
             "email" => $user->email,
             "name" => $user->first_name . ' ' . $user->last_name,
             "source" => $token
-        ));
-        Charge::create([
-            "amount" => 10 * 100,
-            "currency" => "aed",
-            "customer" => $customer->id,
-            "description" => "Payment from " . $user->first_name . ' ' . $user->last_name,
-            // "shipping" => [
-            //     "name" => "Jenny Rosen",
-            //     "address" => [
-            //         "line1" => "510 Townsend St",
-            //         "postal_code" => "98140",
-            //         "city" => "San Francisco",
-            //         "state" => "CA",
-            //         "country" => "US",
-            //     ],
-            // ]
         ]);
-    }
 
-    private function stripePayout()
-    {
-        Payout::create([
+        $charge = Charge::create([
             "amount" => 10 * 100,
-            "currency" => "aed",
-            "destination" => "0012259204001",
+            "currency" => "sar",
+            "customer" => $customer->id,
+            "description" => "Payment from " . $customer->name,
         ]);
+
+        // Payout::create([
+        //     "amount" => $charge->amount,
+        //     "currency" => $charge->currency,
+        //     "destination" => "0012259204001",
+        // ]);
     }
 }

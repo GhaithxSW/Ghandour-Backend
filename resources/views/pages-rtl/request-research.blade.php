@@ -727,8 +727,8 @@
                     } else if (!countRegex.test(countValue)) {
                         $('#research_papers_count-error').text(
                             "{{ __('form_validations.numeric_validation') }}");
-                    } else if (parseInt(countValue, 10) > 10) {
-                        $('#research_papers_count-error').text("{{ __('form_validations.papers_ten') }}");
+                        // } else if (parseInt(countValue, 10) > 10) {
+                        //     $('#research_papers_count-error').text("{{ __('form_validations.papers_ten') }}");
                     } else if (parseInt(countValue, 10) === 0) {
                         $('#research_papers_count-error').text("{{ __('form_validations.papers_zero') }}");
                     } else {
