@@ -566,14 +566,14 @@
 
                     $('#requestDiv input:visible, #requestDiv select:visible, #requestDiv textarea:visible').each(
                         function() {
-                            if ($(this).val().trim() === '') {
+                            if ($(this).val()?.trim() === '') {
                                 formFilled = false;
                                 return false;
                             }
                         });
 
                     $('.error-validation').each(function() {
-                        if ($(this).text().trim() !== '') {
+                        if ($(this).text()?.trim() !== '') {
                             allValidationsPassed = false;
                             return false;
                         }
