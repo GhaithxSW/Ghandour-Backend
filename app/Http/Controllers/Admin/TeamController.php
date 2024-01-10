@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TeamRequest;
 use App\Http\Services\Admin\TeamService;
@@ -34,8 +35,12 @@ class TeamController extends Controller
 
     public function storeTeamMember(TeamRequest $request)
     {
-        $this->teamService->storeTeamMember($request);
-        return redirect()->back()->with('success', 'تمت إضافة الموظف بنجاح');
+        try {
+            $this->teamService->storeTeamMember($request);
+            return redirect()->back()->with('success', 'تمت إضافة الموظف بنجاح');
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function viewUpdateTeamMember($id)
@@ -46,8 +51,12 @@ class TeamController extends Controller
 
     public function updateTeamMember(TeamRequest $request, $id)
     {
-        $this->teamService->updateTeamMember($request, $id);
-        return redirect()->back()->with('success', 'تم تعديل معلومات الموظف بنجاح');
+        try {
+            $this->teamService->updateTeamMember($request, $id);
+            return redirect()->back()->with('success', 'تم تعديل معلومات الموظف بنجاح');
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function deleteTeamMember($id)

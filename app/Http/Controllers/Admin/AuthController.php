@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
-use App\Http\Requests\Admin\LoginRequest;
-use App\Http\Services\Admin\AuthService;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Services\Admin\AuthService;
+use App\Http\Requests\Admin\LoginRequest;
 
 class AuthController extends Controller
 {
@@ -24,8 +25,12 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $this->authService->login($request);
-        return redirect()->route('dashboard');
+        try {
+            $this->authService->login($request);
+            return redirect()->route('dashboard');
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function logout(Request $request)

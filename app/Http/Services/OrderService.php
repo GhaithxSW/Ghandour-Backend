@@ -25,55 +25,49 @@ class OrderService
 
     public function storeOrder(OrderRequest $request)
     {
-        try {
-            $formFields = $request->validated();
-            $userData = [
-                'first_name' => $formFields['first_name'],
-                'last_name' => $formFields['last_name'],
-                'phone' => $formFields['phone'],
-                'email' => $formFields['email'],
-                'country' => $formFields['country'],
-            ];
+        $formFields = $request->validated();
+        $userData = [
+            'first_name' => $formFields['first_name'],
+            'last_name' => $formFields['last_name'],
+            'phone' => $formFields['phone'],
+            'email' => $formFields['email'],
+            'country' => $formFields['country'],
+        ];
 
-            $user = $this->userRepository->createUser($userData);
+        $user = $this->userRepository->createUser($userData);
 
-            $grades = [
-                isset($formFields['middle_grade']) ? $formFields['middle_grade'] : null,
-                isset($formFields['high_grade']) ? $formFields['high_grade'] : null,
-                isset($formFields['university_year']) ? $formFields['university_year'] : null,
-                isset($formFields['graduate_study']) ? $formFields['graduate_study'] : null,
-            ];
-            $grade = $this->getLastFilledElement($grades);
+        $grades = [
+            isset($formFields['middle_grade']) ? $formFields['middle_grade'] : null,
+            isset($formFields['high_grade']) ? $formFields['high_grade'] : null,
+            isset($formFields['university_year']) ? $formFields['university_year'] : null,
+            isset($formFields['graduate_study']) ? $formFields['graduate_study'] : null,
+        ];
+        $grade = $this->getLastFilledElement($grades);
 
-            $schoolsOrUniversities = [
-                isset($formFields['school']) ? $formFields['school'] : null,
-                isset($formFields['university']) ? $formFields['university'] : null,
-            ];
-            $schoolOrUniversity = $this->getLastFilledElement($schoolsOrUniversities);
+        $schoolsOrUniversities = [
+            isset($formFields['school']) ? $formFields['school'] : null,
+            isset($formFields['university']) ? $formFields['university'] : null,
+        ];
+        $schoolOrUniversity = $this->getLastFilledElement($schoolsOrUniversities);
 
-            $orderData = [
-                'research_topic' => $formFields['research_topic'],
-                'teacher_name' => $formFields['teacher_name'],
-                'research_papers_count' => $formFields['research_papers_count'],
-                'research_lang' => $formFields['research_lang'],
-                'delivery_date' => $formFields['delivery_date'],
-                'user_id' => $user->id,
-                'education_level' => $formFields['education_level'],
-                'grade' => $grade,
-                'school_university' => $schoolOrUniversity,
-                'notes' => $formFields['notes'],
-            ];
+        $orderData = [
+            'research_topic' => $formFields['research_topic'],
+            'teacher_name' => $formFields['teacher_name'],
+            'research_papers_count' => $formFields['research_papers_count'],
+            'research_lang' => $formFields['research_lang'],
+            'delivery_date' => $formFields['delivery_date'],
+            'user_id' => $user->id,
+            'education_level' => $formFields['education_level'],
+            'grade' => $grade,
+            'school_university' => $schoolOrUniversity,
+            'notes' => $formFields['notes'],
+        ];
 
-            $this->orderRepository->createOrder($orderData);
-            $this->stripePayment($user);
+        $this->orderRepository->createOrder($orderData);
+        $this->stripePayment($user);
 
-            Session::flash('success', __('trans.msg_request_success'));
-            // return response()->json(['success' => true, 'message' => 'Payment successful']);
-
-        } catch (Exception $e) {
-            throw $e;
-            // return response()->json(['success' => false, 'message' => $e->getMessage()]);
-        }
+        Session::flash('success', __('trans.msg_request_success'));
+        // return response()->json(['success' => true, 'message' => 'Payment successful']);
     }
 
     private function getLastFilledElement($data)

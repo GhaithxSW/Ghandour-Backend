@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Admin\UserService;
@@ -34,8 +35,12 @@ class UserController extends Controller
 
     public function storeUser(UserRequest $request)
     {
-        $this->userService->storeUser($request);
-        return redirect()->back()->with('success', 'تمت اضافة المستخدم بنجاح');
+        try {
+            $this->userService->storeUser($request);
+            return redirect()->back()->with('success', 'تمت اضافة المستخدم بنجاح');
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function viewUpdateUser($id)
@@ -46,8 +51,12 @@ class UserController extends Controller
 
     public function updateUser(UserRequest $request, $id)
     {
-        $this->userService->updateUser($request, $id);
-        return redirect()->back()->with('success', 'تم تعديل المستخدم بنجاح');
+        try {
+            $this->userService->updateUser($request, $id);
+            return redirect()->back()->with('success', 'تم تعديل المستخدم بنجاح');
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function deleteUser($id)

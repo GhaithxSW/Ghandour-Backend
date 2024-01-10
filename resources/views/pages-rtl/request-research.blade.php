@@ -270,7 +270,7 @@
                         <label for="research_papers_count"
                             class="form-label">{{ __('trans.research_papers_count') }}</label>
                         <input type="text" class="form-control" name="research_papers_count"
-                            id="research_papers_count"
+                            id="research_papers_count" maxlength="2"
                             placeholder="{{ __('trans.research_papers_count_placeholder') }}">
                         <p class="text-red-600 mt-2 error-validation" style="color: red"
                             id="research_papers_count-error"></p>

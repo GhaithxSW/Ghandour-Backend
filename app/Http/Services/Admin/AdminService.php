@@ -4,7 +4,6 @@ namespace App\Http\Services\Admin;
 
 use App\Http\Repositories\AdminRepository;
 use App\Http\Requests\Admin\AdminRequest;
-use Exception;
 
 class AdminService
 {
@@ -22,18 +21,14 @@ class AdminService
 
     public function storeAdmin(AdminRequest $request)
     {
-        try {
-            $formFields = $request->validated();
+        $formFields = $request->validated();
 
-            $data = [
-                'username' => $formFields['username'],
-                'password' => bcrypt($formFields['password'])
-            ];
+        $data = [
+            'username' => $formFields['username'],
+            'password' => bcrypt($formFields['password'])
+        ];
 
-            $this->adminRepository->createAdmin($data);
-        } catch (Exception $e) {
-            throw $e;
-        }
+        $this->adminRepository->createAdmin($data);
     }
 
     public function adminDetails($id)
@@ -43,18 +38,15 @@ class AdminService
 
     public function updateAdmin(AdminRequest $request, $id)
     {
-        try {
-            $formFields = $request->validated();
+        $formFields = $request->validated();
+        $admin = $this->adminRepository->getAdminById($id);
 
-            $data = [
-                'username' => $formFields['username'],
-                'password' => bcrypt($formFields['password'])
-            ];
+        $data = [
+            'username' => $formFields['username'],
+            'password' => isset($formFields['password']) ? bcrypt($formFields['password']) : $admin->id
+        ];
 
-            $this->adminRepository->updateAdmin($data, $id);
-        } catch (Exception $e) {
-            throw $e;
-        }
+        $this->adminRepository->updateAdmin($data, $id);
     }
 
     public function deleteAdmin($id)

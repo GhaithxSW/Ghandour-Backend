@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Http\Controllers\Controller;
+use App\Http\Services\Admin\TeamService;
+use App\Http\Services\Admin\UserService;
 use App\Http\Requests\Admin\AdminRequest;
 use App\Http\Services\Admin\AdminService;
 use App\Http\Services\Admin\OrderService;
 use App\Http\Services\Admin\ResearchService;
-use App\Http\Services\Admin\TeamService;
-use App\Http\Services\Admin\UserService;
 
 class AdminController extends Controller
 {
@@ -57,8 +58,12 @@ class AdminController extends Controller
 
     public function storeAdmin(AdminRequest $request)
     {
-        $this->adminService->storeAdmin($request);
-        return redirect()->back()->with('success', 'تمت اضافة الأدمن بنجاح');
+        try {
+            $this->adminService->storeAdmin($request);
+            return redirect()->back()->with('success', 'تمت اضافة الأدمن بنجاح');
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function viewUpdateAdmin($id)
@@ -69,8 +74,12 @@ class AdminController extends Controller
 
     public function updateAdmin(AdminRequest $request, $id)
     {
-        $this->adminService->updateAdmin($request, $id);
-        return redirect()->back()->with('success', 'تم تعديل الأدمن بنجاح');
+        try {
+            $this->adminService->updateAdmin($request, $id);
+            return redirect()->back()->with('success', 'تم تعديل الأدمن بنجاح');
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function deleteAdmin($id)

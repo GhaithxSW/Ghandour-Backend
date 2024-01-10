@@ -47,7 +47,8 @@
                 @csrf
                 <div class="col">
                     <label for="username" class="form-label">اسم المستخدم</label>
-                    <input type="text" name="username" class="form-control" placeholder="ادخل اسم المستخدم">
+                    <input type="text" name="username" class="form-control" placeholder="ادخل اسم المستخدم"
+                        value="{{ $admin->username }}">
                     @error('username')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
@@ -55,7 +56,8 @@
 
                 <div class="col">
                     <label for="password" class="form-label">كلمة المرور</label>
-                    <input type="password" name="password" class="form-control" placeholder="ادخل كلمة المرور">
+                    <input type="password" name="password" class="form-control" placeholder="ادخل كلمة المرور"
+                    value="{{ substr($admin->password, 0, 8) }}">
                     @error('password')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror

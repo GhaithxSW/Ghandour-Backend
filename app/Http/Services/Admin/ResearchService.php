@@ -2,7 +2,6 @@
 
 namespace App\Http\Services\Admin;
 
-use Exception;
 use App\Http\Repositories\ResearchRepository;
 use App\Http\Requests\Admin\ResearchRequest;
 
@@ -22,23 +21,19 @@ class ResearchService
 
     public function addResearch(ResearchRequest $request)
     {
-        try {
-            $formFields = $request->validated();
+        $formFields = $request->validated();
 
-            if ($request->hasFile('image')) {
-                $formFields['image'] = $request->file('image')->store('images', 'public');
-            }
-
-            $data = [
-                'title' => $formFields['title'],
-                'image' => $formFields['image'],
-                'content' => $formFields['content']
-            ];
-
-            $this->researchRepository->createResearch($data);
-        } catch (Exception $e) {
-            throw $e;
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('images', 'public');
         }
+
+        $data = [
+            'title' => $formFields['title'],
+            'image' => $formFields['image'],
+            'content' => $formFields['content']
+        ];
+
+        $this->researchRepository->createResearch($data);
     }
 
     public function researchDetails($id)
@@ -48,25 +43,21 @@ class ResearchService
 
     public function updateResearch(ResearchRequest $request, $id)
     {
-        try {
-            $formFields = $request->validated();
+        $formFields = $request->validated();
 
-            if ($request->hasFile('image')) {
-                $formFields['image'] = $request->file('image')->store('images', 'public');
-            }
-
-            $research = $this->researchRepository->getResearchById($id);
-
-            $data = [
-                'title' => $formFields['title'],
-                'image' => isset($formFields['image']) ? $formFields['image'] : $research->image,
-                'content' => $formFields['content']
-            ];
-
-            $this->researchRepository->updateResearch($data, $id);
-        } catch (Exception $e) {
-            throw $e;
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('images', 'public');
         }
+
+        $research = $this->researchRepository->getResearchById($id);
+
+        $data = [
+            'title' => $formFields['title'],
+            'image' => isset($formFields['image']) ? $formFields['image'] : $research->image,
+            'content' => $formFields['content']
+        ];
+
+        $this->researchRepository->updateResearch($data, $id);
     }
 
     public function deleteResearch($id)

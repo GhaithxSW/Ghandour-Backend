@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ResearchRequest;
 use App\Http\Services\Admin\ResearchService;
@@ -34,8 +35,12 @@ class ResearchController extends Controller
 
     public function addResearch(ResearchRequest $request)
     {
-        $this->researchService->addResearch($request);
-        return redirect()->back()->with('success', 'تمت اضافة البحث بنجاح');
+        try {
+            $this->researchService->addResearch($request);
+            return redirect()->back()->with('success', 'تمت اضافة البحث بنجاح');
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function viewUpdateResearch($id)
@@ -46,8 +51,12 @@ class ResearchController extends Controller
 
     public function updateResearch(ResearchRequest $request, $id)
     {
-        $this->researchService->updateResearch($request, $id);
-        return redirect()->back()->with('success', 'تم تعديل البحث بنجاح');
+        try {
+            $this->researchService->updateResearch($request, $id);
+            return redirect()->back()->with('success', 'تم تعديل البحث بنجاح');
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function deleteResearch($id)
