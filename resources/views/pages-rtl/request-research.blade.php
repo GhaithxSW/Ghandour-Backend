@@ -343,6 +343,7 @@
                     <div class='col-xs-12 form-group required'>
                         <label class='control-label'>{{ __('trans.card_number') }}</label>
                         <input autocomplete='off' class='form-control card-number' size='20' type='text'>
+                        <p class="text-red-600 mt-2 stripe-validation" style="color: red" id="card-number-error"></p>
                     </div>
                 </div>
 
@@ -351,16 +352,20 @@
                         <label class='control-label'>{{ __('trans.cvc') }}</label>
                         <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4'
                             type='text' maxlength="3">
+                        <p class="text-red-600 mt-2 stripe-validation" style="color: red" id="card-cvc-error"></p>
                     </div>
                     <div class='col-xs-12 col-md-4 form-group expiration required'>
                         <label class='control-label'>{{ __('trans.expiration_month') }}</label>
                         <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'
                             maxlength="2">
+                        <p class="text-red-600 mt-2 stripe-validation" style="color: red"
+                            id="card-expiry-month-error"></p>
                     </div>
                     <div class='col-xs-12 col-md-4 form-group expiration required'>
                         <label class='control-label'>{{ __('trans.expiration_year') }}</label>
                         <input class='form-control card-expiry-year' placeholder='YYYY' size='4'
                             type='text' maxlength="4">
+                        <p class="text-red-600 mt-2 stripe-validation" style="color: red" id="card-expiry-year"></p>
                     </div>
                 </div>
 
@@ -761,6 +766,57 @@
         <script>
             $(document).ready(function() {
                 $('#successModal').modal('show');
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $('#pay-button').prop('disabled', true);
+
+                function updatePayButtonState() {
+                    let formFilled = true;
+                    let allValidationsPassed = true;
+
+                    $('#paymentDiv input').each(
+                        function() {
+                            if ($(this).val()?.trim() === '') {
+                                formFilled = false;
+                                return false;
+                            }
+                        });
+
+                    $('.stripe-validation').each(function() {
+                        if ($(this).text()?.trim() !== '') {
+                            allValidationsPassed = false;
+                            return false;
+                        }
+                    });
+
+                    $('#pay-button').prop('disabled', !(formFilled && allValidationsPassed));
+                }
+
+                $('#paymentDiv input').on(
+                    'input change', updatePayButtonState);
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $('.card-number').on('input', function() {
+                    let cardNumberValue = $(this).val();
+                    let cardNumberRegex = /^[0-9]+$/;
+
+                    if (cardNumberValue.trim() === '') {
+                        $('#card-number-error').text("cardNumberRegex");
+                    } else if (!cardNumberRegex.test(cardNumberValue)) {
+                        $('#card-number-error').text("cardNumberRegex");
+                    } else if (cardNumberRegex.test(cardNumberValue) && cardNumberValue.length !== 14) {
+                        $('#card-number-error').text("cardNumberRegex");
+                    } else {
+                        $('#card-number-error').text('');
+                    }
+                });
+
             });
         </script>
 
