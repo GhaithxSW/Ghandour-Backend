@@ -351,6 +351,7 @@
                     <div class='col-xs-12 form-group required'>
                         <label class='control-label'>{{ __('trans.card_number') }}</label>
                         <input autocomplete='off' class='form-control card-number' size='20' type='text'>
+                        <p class="text-red-600 mt-2 stripe-validation" style="color: red" id="card-number-error"></p>
                     </div>
                 </div>
 
@@ -359,16 +360,34 @@
                         <label class='control-label'>{{ __('trans.cvc') }}</label>
                         <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4'
                             type='text' maxlength="3">
+                        <p class="text-red-600 mt-2 stripe-validation" style="color: red" id="card-cvc-error"></p>
                     </div>
                     <div class='col-xs-12 col-md-4 form-group expiration required'>
                         <label class='control-label'>{{ __('trans.expiration_month') }}</label>
-                        <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'
-                            maxlength="2">
+                        {{-- <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'
+                            maxlength="2"> --}}
+                        <select class='form-select card-expiry-month'>
+                            @for ($i = 1; $i <= 12; $i++)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
+                        </select>
+                        <p class="text-red-600 mt-2 stripe-validation" style="color: red"
+                            id="card-expiry-month-error"></p>
                     </div>
                     <div class='col-xs-12 col-md-4 form-group expiration required'>
                         <label class='control-label'>{{ __('trans.expiration_year') }}</label>
-                        <input class='form-control card-expiry-year' placeholder='YYYY' size='4'
-                            type='text' maxlength="4">
+                        {{-- <input class='form-control card-expiry-year' placeholder='YYYY' size='4'
+                            type='text' maxlength="4"> --}}
+                        @php
+                            $currentYear = date('Y');
+                        @endphp
+                        <select class='form-select card-expiry-year'>
+                            @for ($i = $currentYear; $i <= $currentYear + 10; $i++)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
+                        </select>
+                        <p class="text-red-600 mt-2 stripe-validation" style="color: red"
+                            id="card-expiry-year-error"></p>
                     </div>
                 </div>
 
@@ -627,6 +646,8 @@
                     let phoneValue = $(this).val();
                     let phoneRegex = /^[0-9]+$/;
 
+                    $('.phone-validation').hide();
+
                     if (phoneValue.trim() === '') {
                         $('#phone-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!phoneRegex.test(phoneValue)) {
@@ -769,6 +790,71 @@
         <script>
             $(document).ready(function() {
                 $('#successModal').modal('show');
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $('#pay-button').prop('disabled', true);
+
+                function updatePayButtonState() {
+                    let formFilled = true;
+                    let allValidationsPassed = true;
+
+                    $('#paymentDiv input, #paymentDiv select').each(
+                        function() {
+                            if ($(this).val()?.trim() === '') {
+                                formFilled = false;
+                                return false;
+                            }
+                        });
+
+                    $('.stripe-validation').each(function() {
+                        if ($(this).text()?.trim() !== '') {
+                            allValidationsPassed = false;
+                            return false;
+                        }
+                    });
+
+                    $('#pay-button').prop('disabled', !(formFilled && allValidationsPassed));
+                }
+
+                $('#paymentDiv input, #paymentDiv select').on(
+                    'input change', updatePayButtonState);
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $('.card-number').on('input', function() {
+                    let cardNumberValue = $(this).val();
+                    let cardNumberRegex = /^[0-9]+$/;
+
+                    if (cardNumberValue.trim() === '') {
+                        $('#card-number-error').text("{{ __('form_validations.field_empty') }}");
+                    } else if (!cardNumberRegex.test(cardNumberValue)) {
+                        $('#card-number-error').text("{{ __('form_validations.numeric_validation') }}");
+                    } else if (cardNumberRegex.test(cardNumberValue) && cardNumberValue.length > 16) {
+                        $('#card-number-error').text("cardNumberRegex");
+                    } else {
+                        $('#card-number-error').text('');
+                    }
+                });
+
+                $('.card-cvc').on('input', function() {
+                    let cardCVCValue = $(this).val();
+                    let cardCVCRegex = /^[0-9]+$/;
+
+                    if (cardCVCValue.trim() === '') {
+                        $('#card-cvc-error').text("{{ __('form_validations.field_empty') }}");
+                    } else if (!cardCVCRegex.test(cardCVCValue)) {
+                        $('#card-cvc-error').text("{{ __('form_validations.numeric_validation') }}");
+                    } else if (cardCVCRegex.test(cardCVCValue) && cardCVCValue.length !== 3) {
+                        $('#card-cvc-error').text("cardCVCRegex");
+                    } else {
+                        $('#card-cvc-error').text('');
+                    }
+                });
             });
         </script>
 
