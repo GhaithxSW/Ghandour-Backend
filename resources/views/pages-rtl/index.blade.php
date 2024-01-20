@@ -40,7 +40,7 @@
 
             .request-btn {
                 margin-top: 40px;
-                width: 250px;
+                /* width: 250px; */
             }
 
             @media screen and (max-width: 990px) {
@@ -441,6 +441,24 @@
             </li>
         </ul>
     </div>
+
+
+    <div class="widget-content widget-content-area text-center">
+        <div class="row">
+            @foreach ($members as $member)
+                <div class="col-md-3 m-auto">
+                    <a class="card style-7 m-4">
+                        <img src="{{ asset('storage/' . $member->photo) }}" class="card-img-top" alt="...">
+                        <div class="card-footer">
+                            <h5 class="card-title mb-0">{{ $member->name }}</h5>
+                            <p class="card-text">{{ $member->position }}</p>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
 
     <div class="statbox widget box box-shadow layout-top-spacing ml-2 mr-2"
         style="border-radius: 15px; box-shadow: 0 1px 4px 4px rgba(0, 0, 0, 0.1);">

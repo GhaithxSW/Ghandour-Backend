@@ -98,7 +98,7 @@ class OrderService
         ]);
 
         $charge = Charge::create([
-            "amount" => 5 * 100,
+            "amount" => 3 * 100,
             "currency" => "sar",
             "customer" => $customer->id,
             "description" => "Payment from " . $customer->name,
@@ -107,7 +107,7 @@ class OrderService
         Payout::create([
             "amount" => $charge->amount,
             "currency" => $charge->currency,
-            "destination" => "AE220410000012259204001",
+            // "destination" => "AE220410000012259204001",
         ]);
     }
 }

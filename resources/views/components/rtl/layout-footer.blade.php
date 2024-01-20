@@ -76,7 +76,7 @@
 
     <div class="footer-section f-section-1 text-center">
         <p class=""><b><span class="text-links">{{ __('trans.rights') }}</span> <a target="_blank"
-                    href="/">{{ __('trans.bhoothat') }}</a> Copyright © <span class="dynamic-year">2023</span></b>
+                    href="/">{{ __('trans.leading_cities') }}</a> Copyright © <span class="dynamic-year">2023</span></b>
         </p>
     </div>
 </div>

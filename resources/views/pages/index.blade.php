@@ -36,7 +36,7 @@
 
             .request-btn {
                 margin-top: 40px;
-                width: 250px;
+                /* width: 250px; */
             }
 
             @media screen and (max-width: 990px) {

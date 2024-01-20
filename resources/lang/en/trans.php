@@ -26,7 +26,7 @@ return [
     'terms_conditions' => 'Terms and Conditions',
 
     'main_content' => 'Our website offers comprehensive educational services, granting easy access to a wealth of resources and learning opportunities. Request the research paper now to explore these valuable resources.',
-    'request_btn' => 'Request Now',
+    'request_btn' => 'Request your research',
     'samples' => 'Research Samples',
 
     'read' => 'Read',
@@ -49,7 +49,7 @@ return [
     'teacher_name_placeholder' => 'Enter the teacher name',
     'notes_placeholder' => 'Write your notes and details for your research',
 
-    'msg_request_success' => 'Payment success, and request sent successfully',
+    'msg_request_success' => 'The payment process was completed and the request was sent successfully. Your topic/research will be sent at the specified time to your WhatsApp number.',
     'msg_request_error' => 'Request failed, try again',
 
     'sample_nature' => 'Nature',
@@ -127,5 +127,6 @@ return [
     'university_required' => 'University name required',
 
     'help' => 'Help?',
+    'leading_cities' => 'Leading Cities',
 
 ];
