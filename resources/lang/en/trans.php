@@ -26,7 +26,7 @@ return [
     'terms_conditions' => 'Terms and Conditions',
 
     'main_content' => 'Our website offers comprehensive educational services, granting easy access to a wealth of resources and learning opportunities. Request the research paper now to explore these valuable resources.',
-    'request_btn' => 'Request your research',
+    'request_btn' => 'Request your research now',
     'samples' => 'Research Samples',
 
     'read' => 'Read',

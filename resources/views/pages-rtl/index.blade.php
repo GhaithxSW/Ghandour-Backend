@@ -403,13 +403,8 @@
         </div>
     </div>
 
-    {{-- <div class="container mt-4 mb-4">
-        <div class="card">
-            <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.our_team') }}</b></h4>
-        </div>
-    </div> --}}
-
-    <div class="container mt-container">
+    {{-- Old our team section --}}
+    {{-- <div class="container mt-container">
         <ul class="modern-timeline pl-0">
             <li class="position-static">
                 <div class="modern-timeline-top"></div>
@@ -426,28 +421,23 @@
                                 <p class="mb-4"><b>{{ $member->name }}</b></h4>
                                 <h4 class="mb-4">{{ $member->position }}</h4>
                                 <p>{{ $member->about }}</p>
-                                {{-- <p><a href="javascript:void(0);" class="btn btn-outline-secondary mt-2">Read more</a>
-                                </p> --}}
                             </div>
                         </div>
                     </li>
                 @endforeach
             @endif
-            {{-- <li class="position-static">
-                <div class="modern-timeline-top"></div>
-            </li> --}}
             <li class="position-static">
                 <div class="modern-timeline-bottom"></div>
             </li>
         </ul>
-    </div>
+    </div> --}}
 
-
-    <div class="widget-content widget-content-area text-center">
+    {{-- <div class="widget-content widget-content-area text-center"> --}}
+    <div class="text-center">
         <div class="row">
             @foreach ($members as $member)
                 <div class="col-md-3 m-auto">
-                    <a class="card style-7 m-4">
+                    <a class="card style-7 m-4" style="box-shadow: 0 1px 4px 3px rgba(0, 0, 0, 0.1);">
                         <img src="{{ asset('storage/' . $member->photo) }}" class="card-img-top" alt="...">
                         <div class="card-footer">
                             <h5 class="card-title mb-0">{{ $member->name }}</h5>
@@ -458,7 +448,6 @@
             @endforeach
         </div>
     </div>
-
 
     <div class="statbox widget box box-shadow layout-top-spacing ml-2 mr-2"
         style="border-radius: 15px; box-shadow: 0 1px 4px 4px rgba(0, 0, 0, 0.1);">
@@ -522,7 +511,7 @@
                                             </svg>
                                         </div>
                                         <h5>{{ __('trans.phone') }}</h5>
-                                        <p>628 208 947 963+</p>
+                                        <p>2599 597 58 971+</p>
                                     </div>
                                 </div>
                             </div>

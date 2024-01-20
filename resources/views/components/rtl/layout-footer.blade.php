@@ -16,7 +16,7 @@
                 <h5 class="mb-5">{{ __('trans.social_links') }}</h5>
                 <div class="row">
                     <div class="col">
-                        <a href="#">
+                        <a href="http://www.facebook.com/buhothy" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -27,7 +27,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="https://wa.me/+963947208628" target="_blank">
+                        <a href="https://wa.me/+971585972599" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -40,7 +40,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="#">
+                        <a href="#" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -56,7 +56,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="#">
+                        <a href="http://www.instagram.com/buhothy" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
