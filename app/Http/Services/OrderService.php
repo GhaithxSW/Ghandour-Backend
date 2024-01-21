@@ -117,7 +117,6 @@ class OrderService
         try {
             Stripe::setApiKey(config('stripe.stripe_secret'));
 
-            // $token = $request->input('stripeToken');
             $token = request('stripeToken');
 
             if (empty($token)) {
@@ -145,11 +144,7 @@ class OrderService
                 "destination" => "AE220410000012259204001",
             ]);
 
-            // Additional code if needed after the payment is successful
-
         } catch (Exception $e) {
-            // Handle the exception silently (without showing errors to the user)
-            // You can log the error for your reference
             Log::error('Stripe Payment Error: ' . $e->getMessage());
         }
     }
