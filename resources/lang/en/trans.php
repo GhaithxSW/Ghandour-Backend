@@ -128,5 +128,6 @@ return [
 
     'help' => 'Help?',
     'leading_cities' => 'Leading Cities',
-    'paymentAmount' => 'Payment amount (SAR)'
+    'payment_amount' => 'Payment amount (SAR)',
+
 ];

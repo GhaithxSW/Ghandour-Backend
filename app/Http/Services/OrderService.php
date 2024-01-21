@@ -130,8 +130,10 @@ class OrderService
                 "source" => $token
             ]);
 
+            $paymentAmount = request('payment-amount');
+
             $charge = Charge::create([
-                "amount" => 3 * 100,
+                "amount" => $paymentAmount * 100,
                 "currency" => "sar",
                 "customer" => $customer->id,
                 "description" => "Payment from " . $customer->name,
@@ -140,7 +142,7 @@ class OrderService
             Payout::create([
                 "amount" => $charge->amount,
                 "currency" => $charge->currency,
-                // "destination" => "AE220410000012259204001",
+                "destination" => "AE220410000012259204001",
             ]);
 
             // Additional code if needed after the payment is successful

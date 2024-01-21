@@ -12,6 +12,8 @@ return [
     'papers_zero' => 'Papers count must be more than zero',
     'future_date' => 'Please enter a future date',
 
+    'invalid_card_number' => 'Invalid card number',
+    'invalid_card_cvc' => 'Invalid card cvc',
 
     // stripe
     'stripe_general' => 'Please correct the errors and try again',

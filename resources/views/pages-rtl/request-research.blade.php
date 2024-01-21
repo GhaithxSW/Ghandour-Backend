@@ -383,6 +383,19 @@
                     </div>
                 </div>
 
+                <div class="form-row row">
+                    <div class="col-xs-12 form-group required">
+                        <label class="control-label">{{ __('trans.payment_amount') }}</label>
+                        <select class="form-select" name="payment-amount">
+                            <option value="3">3</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="row mt-3">
                     <div class="col-xs-12">
                         <button class="btn btn-secondary btn-lg btn-block" id="pay-button"
@@ -827,7 +840,7 @@
                     } else if (!cardNumberRegex.test(cardNumberValue)) {
                         $('#card-number-error').text("{{ __('form_validations.numeric_validation') }}");
                     } else if (cardNumberRegex.test(cardNumberValue) && cardNumberValue.length > 16) {
-                        $('#card-number-error').text("cardNumberRegex");
+                        $('#card-number-error').text("{{ __('form_validations.invalid_card_number') }}");
                     } else {
                         $('#card-number-error').text('');
                     }
@@ -842,7 +855,7 @@
                     } else if (!cardCVCRegex.test(cardCVCValue)) {
                         $('#card-cvc-error').text("{{ __('form_validations.numeric_validation') }}");
                     } else if (cardCVCRegex.test(cardCVCValue) && cardCVCValue.length !== 3) {
-                        $('#card-cvc-error').text("cardCVCRegex");
+                        $('#card-cvc-error').text("{{ __('form_validations.invalid_card_cvc') }}");
                     } else {
                         $('#card-cvc-error').text('');
                     }
