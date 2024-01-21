@@ -8,6 +8,7 @@ use Stripe\Payout;
 use Stripe\Stripe;
 use Stripe\Customer;
 use App\Http\Requests\OrderRequest;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Http\Repositories\UserRepository;
 use App\Http\Repositories\OrderRepository;
@@ -80,34 +81,74 @@ class OrderService
         return $lastDataElement;
     }
 
+    // private function stripePayment($user)
+    // {
+    //     Stripe::setApiKey(config('stripe.stripe_secret'));
+
+    //     // $token = $request->input('stripeToken');
+    //     $token = request('stripeToken');
+
+    //     if (empty($token)) {
+    //         throw new Exception("Stripe token is missing");
+    //     }
+
+    //     $customer = Customer::create([
+    //         "email" => $user->email,
+    //         "name" => $user->first_name . ' ' . $user->last_name,
+    //         "source" => $token
+    //     ]);
+
+    //     $charge = Charge::create([
+    //         "amount" => 3 * 100,
+    //         "currency" => "sar",
+    //         "customer" => $customer->id,
+    //         "description" => "Payment from " . $customer->name,
+    //     ]);
+
+    //     Payout::create([
+    //         "amount" => $charge->amount,
+    //         "currency" => $charge->currency,
+    //         // "destination" => "AE220410000012259204001",
+    //     ]);
+    // }
+
     private function stripePayment($user)
     {
-        Stripe::setApiKey(config('stripe.stripe_secret'));
+        try {
+            Stripe::setApiKey(config('stripe.stripe_secret'));
 
-        // $token = $request->input('stripeToken');
-        $token = request('stripeToken');
+            // $token = $request->input('stripeToken');
+            $token = request('stripeToken');
 
-        if (empty($token)) {
-            throw new Exception("Stripe token is missing");
+            if (empty($token)) {
+                throw new Exception("Stripe token is missing");
+            }
+
+            $customer = Customer::create([
+                "email" => $user->email,
+                "name" => $user->first_name . ' ' . $user->last_name,
+                "source" => $token
+            ]);
+
+            $charge = Charge::create([
+                "amount" => 3 * 100,
+                "currency" => "sar",
+                "customer" => $customer->id,
+                "description" => "Payment from " . $customer->name,
+            ]);
+
+            Payout::create([
+                "amount" => $charge->amount,
+                "currency" => $charge->currency,
+                // "destination" => "AE220410000012259204001",
+            ]);
+
+            // Additional code if needed after the payment is successful
+
+        } catch (Exception $e) {
+            // Handle the exception silently (without showing errors to the user)
+            // You can log the error for your reference
+            Log::error('Stripe Payment Error: ' . $e->getMessage());
         }
-
-        $customer = Customer::create([
-            "email" => $user->email,
-            "name" => $user->first_name . ' ' . $user->last_name,
-            "source" => $token
-        ]);
-
-        $charge = Charge::create([
-            "amount" => 3 * 100,
-            "currency" => "sar",
-            "customer" => $customer->id,
-            "description" => "Payment from " . $customer->name,
-        ]);
-
-        Payout::create([
-            "amount" => $charge->amount,
-            "currency" => $charge->currency,
-            // "destination" => "AE220410000012259204001",
-        ]);
     }
 }
