@@ -34,6 +34,10 @@
                 margin-bottom: 0px;
             }
 
+
+            .font-bg {
+                width: 75%;
+            }
             .request-btn {
                 margin-top: 40px;
                 /* width: 250px; */
@@ -47,16 +51,23 @@
 
             @media screen and (max-width: 600px) {
                 .font-bg {
-                    font-size: 18px;
+                    font-size: 22px;
+                    margin-top: 0px;
+                    letter-spacing: 0px !important ;
+                    text-align: center;
+                    width: 90%;
+                    line-height: 40px;
                 }
 
                 .font-bg-btn {
-                    font-size: 14px;
+                    text-align: center;
+                    font-size: 18px;
+                    width: 90%;
                 }
 
                 .request-btn {
                     margin-top: 30px;
-                    width: auto;
+                    width: 90%;
                 }
 
                 .team-margin {
@@ -65,13 +76,13 @@
                 }
             }
 
-            @media screen and (max-width: 300px) {
+            @media screen and (max-width: 500px) {
                 .font-bg {
-                    font-size: 16px;
+                    font-size: 17px;
                 }
 
                 .font-bg-btn {
-                    font-size: 13px;
+                    font-size: 16px;
                 }
             }
         </style>

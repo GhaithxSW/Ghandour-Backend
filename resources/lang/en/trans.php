@@ -93,7 +93,7 @@ return [
     'phone_unique' => 'Phone number already exist',
 
     'pay' => 'Pay to continue',
-    'pay_now' => 'Pay 10 SAR',
+    'pay_now' => 'Pay now',
     'card_name' => 'Name on Card',
     'card_number' => 'Card Number',
     'cvc' => 'CVC',
@@ -128,5 +128,5 @@ return [
 
     'help' => 'Help?',
     'leading_cities' => 'Leading Cities',
-
+    'paymentAmount' => 'Payment amount (SAR)'
 ];

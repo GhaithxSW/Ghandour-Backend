@@ -4,7 +4,7 @@ return [
 
     'field_empty' => 'لا يمكن أن يكون الحقل فارغاً',
     'string_validation' => 'مسموح فقط بالأحرف والمسافات',
-    'numeric_validation' => 'مسموح فقط بالأرقام',
+    'numeric_validation' => 'مسموح فقط بالأرقام الانجليزية',
     'phone_validation' => 'الرجاء إدخال رقم هاتف صالح مكون من 10 أرقام',
     'email_validation' => 'يرجى إدخال عنوان بريد إلكتروني صالح',
     'date_validation' => 'الرجاء إدخال تاريخ صالح',
