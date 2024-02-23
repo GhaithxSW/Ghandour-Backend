@@ -23,14 +23,21 @@ class ResearchService
     {
         $formFields = $request->validated();
 
+        $fileName = $formFields['title'] . '.' . $request->file('pdf_file')->getClientOriginalExtension();
+
         if ($request->hasFile('image')) {
             $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        if ($request->hasFile('pdf_file')) {
+            $formFields['pdf_file'] = $request->file('pdf_file')->storeAs('pdfs', $fileName, 'public');
         }
 
         $data = [
             'title' => $formFields['title'],
             'image' => $formFields['image'],
-            'content' => $formFields['content']
+            'content' => $formFields['content'],
+            'pdf_file' => $fileName,
         ];
 
         $this->researchRepository->createResearch($data);
@@ -45,8 +52,14 @@ class ResearchService
     {
         $formFields = $request->validated();
 
+        $fileName = $formFields['title'] . '.' . $request->file('pdf_file')->getClientOriginalExtension();
+
         if ($request->hasFile('image')) {
             $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        if ($request->hasFile('pdf_file')) {
+            $formFields['pdf_file'] = $request->file('pdf_file')->storeAs('pdfs', $fileName, 'public');
         }
 
         $research = $this->researchRepository->getResearchById($id);
@@ -54,7 +67,8 @@ class ResearchService
         $data = [
             'title' => $formFields['title'],
             'image' => isset($formFields['image']) ? $formFields['image'] : $research->image,
-            'content' => $formFields['content']
+            'content' => $formFields['content'],
+            'pdf_file' => $fileName,
         ];
 
         $this->researchRepository->updateResearch($data, $id);

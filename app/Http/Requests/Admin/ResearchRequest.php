@@ -26,7 +26,8 @@ class ResearchRequest extends FormRequest
         return [
             'title' => 'required',
             'image' => ['required', 'image', 'sometimes'],
-            'content' => 'required'
+            'content' => 'required',
+            'pdf_file' => ['nullable', 'mimes:pdf', 'max:8192'],
         ];
     }
 

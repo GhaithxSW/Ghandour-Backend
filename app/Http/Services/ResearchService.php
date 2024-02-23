@@ -22,4 +22,11 @@ class ResearchService
     {
         return $this->researchRepository->getResearchById($id);
     }
+
+    public function download($fileName)
+    {
+        $filePath = public_path('storage/pdfs/' . $fileName);
+        return response()->download($filePath);
+    }
+
 }

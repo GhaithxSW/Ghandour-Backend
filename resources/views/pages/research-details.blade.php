@@ -80,6 +80,7 @@
                     <div class="post-content-responsive-new">
                         <p>{!! $research->content !!}</p>
                         <a href="/" class="btn btn-secondary mt-3">{{ __('trans.back') }}</a>
+                        <a href="/download/{{ $research->pdf_file }}" class="btn btn-success mt-3">{{ __('trans.download') }}</a>
                     </div>
                 </div>
             </div>

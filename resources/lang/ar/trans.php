@@ -129,4 +129,5 @@ return [
     'leading_cities' => 'المدن الرائدة',
     'payment_amount' => 'القيمة المراد دفعها بالريال',
 
+    'download' => 'تحميل PDF',
 ];

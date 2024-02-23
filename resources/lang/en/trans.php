@@ -130,4 +130,5 @@ return [
     'leading_cities' => 'Leading Cities',
     'payment_amount' => 'Payment amount (SAR)',
 
+    'download' => 'Download PDF',
 ];

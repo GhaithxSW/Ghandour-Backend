@@ -10,6 +10,6 @@ class Research extends Model
     use HasFactory;
 
     protected $table = 'researches';
-    protected $fillable = ['title', 'image', 'content'];
+    protected $fillable = ['title', 'image', 'content', 'pdf_file'];
 
 }

@@ -58,6 +58,14 @@
                 </div>
 
                 <div class="col">
+                    <label for="pdf_file" class="form-label">رفع ملف</label>
+                    <input type="file" name="pdf_file" class="form-control" placeholder="رفع ملف">
+                    @error('pdf_file')
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="col">
                     <a href="/admin-panel-management/researches" class="btn btn-secondary m-1">رجوع</a>
                     <button type="submit" class="btn btn-success m-1">اضافة</button>
                 </div>
