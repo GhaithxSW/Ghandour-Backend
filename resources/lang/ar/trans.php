@@ -130,4 +130,6 @@ return [
     'payment_amount' => 'القيمة المراد دفعها بالريال',
 
     'download' => 'تحميل PDF',
+    'sar' => 'ر.س',
+    'price_amount_hint' => 'السعر المتوقع',
 ];

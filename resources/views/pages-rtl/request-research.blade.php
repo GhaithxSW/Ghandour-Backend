@@ -274,6 +274,7 @@
                             placeholder="{{ __('trans.research_papers_count_placeholder') }}">
                         <p class="text-red-600 mt-2 error-validation" style="color: red"
                             id="research_papers_count-error"></p>
+                        <p class="text-blue-600 mt-2 price-hint" style="color: blue" id="potential-price"></p>
                         @error('research_papers_count')
                             <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                         @enderror
@@ -383,7 +384,7 @@
                     </div>
                 </div>
 
-                <div class="form-row row">
+                {{-- <div class="form-row row">
                     <div class="col-xs-12 form-group required">
                         <label class="control-label">{{ __('trans.payment_amount') }}</label>
                         <select class="form-select" name="payment-amount">
@@ -393,6 +394,16 @@
                             <option value="15">15</option>
                             <option value="20">20</option>
                         </select>
+                    </div>
+                </div> --}}
+
+                <div class="form-row row">
+                    <div class="col-xs-12 form-group required">
+                        <label class="control-label">{{ __('trans.payment_amount') }}: <span
+                                id="payment-amount-value">
+                            </span></label>
+                        <input type="text" name="payment-amount" id="payment-amount" class="form-control"
+                            value="" style="display: none">
                     </div>
                 </div>
 
@@ -621,6 +632,13 @@
 
         <script>
             $(document).ready(function() {
+                $('input[type="text"]').val('');
+                $('input[type="number"]').val('');
+                $('input[type="email"]').val('');
+                $('input[type="password"]').val('');
+                $('textarea').val('');
+                // $('select').val('');
+
                 $('#first_name').on('input', function() {
                     let firstNameValue = $(this).val();
                     let firstNameRegex = /^[A-Za-z\u0600-\u06FF\s]+$/;
@@ -752,22 +770,135 @@
                     }
                 });
 
+                let priceAmount = 0;
+
                 $('#research_papers_count').on('input', function() {
                     let countValue = $(this).val();
                     let countRegex = /^[0-9]+$/;
 
                     if (countValue.trim() === '') {
+                        priceAmount = 0;
+                        $('#potential-price').text('');
                         $('#research_papers_count-error').text("{{ __('form_validations.field_empty') }}");
                     } else if (!countRegex.test(countValue)) {
+                        priceAmount = 0;
+                        $('#potential-price').text('');
                         $('#research_papers_count-error').text(
                             "{{ __('form_validations.numeric_validation') }}");
                         // } else if (parseInt(countValue, 10) > 10) {
                         //     $('#research_papers_count-error').text("{{ __('form_validations.papers_ten') }}");
-                    } else if (parseInt(countValue, 10) === 0) {
-                        $('#research_papers_count-error').text("{{ __('form_validations.papers_zero') }}");
+                    } else if ($('#education_level').val() === 'المرحلة المتوسطة') {
+                        if (parseInt(countValue, 10) === 0) {
+                            priceAmount = 0;
+                            $('#potential-price').text('');
+                            $('#research_papers_count-error').text(
+                                "{{ __('form_validations.papers_zero') }}");
+                        } else if (parseInt(countValue, 10) > 0 && parseInt(countValue, 10) <= 5) {
+                            priceAmount = 5;
+                            $('#research_papers_count-error').text('');
+                            $('#potential-price').text("{{ __('trans.price_amount_hint') }}" + ' ' +
+                                priceAmount + ' ' + "{{ __('trans.sar') }}");
+                        } else if (parseInt(countValue, 10) > 5 && parseInt(countValue, 10) <= 10) {
+                            priceAmount = 10;
+                            $('#research_papers_count-error').text('');
+                            $('#potential-price').text("{{ __('trans.price_amount_hint') }}" + ' ' +
+                                priceAmount + ' ' + "{{ __('trans.sar') }}");
+                        } else {
+                            priceAmount = 0;
+                            $('#potential-price').text('');
+                            $('#research_papers_count-error').text(
+                                "{{ __('form_validations.pages_count_validation') }}");
+                        }
+                    } else if ($('#education_level').val() === 'المرحلة الثانوية') {
+                        if (parseInt(countValue, 10) === 0) {
+                            priceAmount = 0;
+                            $('#potential-price').text('');
+                            $('#research_papers_count-error').text(
+                                "{{ __('form_validations.papers_zero') }}");
+                        } else if (parseInt(countValue, 10) > 0 && parseInt(countValue, 10) <= 5) {
+                            priceAmount = 5;
+                            $('#research_papers_count-error').text('');
+                            $('#potential-price').text("{{ __('trans.price_amount_hint') }}" + ' ' +
+                                priceAmount + ' ' + "{{ __('trans.sar') }}");
+                        } else if (parseInt(countValue, 10) > 5 && parseInt(countValue, 10) <= 10) {
+                            priceAmount = 10;
+                            $('#research_papers_count-error').text('');
+                            $('#potential-price').text("{{ __('trans.price_amount_hint') }}" + ' ' +
+                                priceAmount + ' ' + "{{ __('trans.sar') }}");
+                        } else if (parseInt(countValue, 10) > 10 && parseInt(countValue, 10) <= 20) {
+                            priceAmount = 20;
+                            $('#research_papers_count-error').text('');
+                            $('#potential-price').text("{{ __('trans.price_amount_hint') }}" + ' ' +
+                                priceAmount + ' ' + "{{ __('trans.sar') }}");
+                        } else {
+                            priceAmount = 0;
+                            $('#potential-price').text('');
+                            $('#research_papers_count-error').text(
+                                "{{ __('form_validations.pages_count_validation') }}");
+                        }
+                    } else if ($('#education_level').val() === 'المرحلة الجامعية') {
+                        if (parseInt(countValue, 10) === 0) {
+                            priceAmount = 0;
+                            $('#potential-price').text('');
+                            $('#research_papers_count-error').text(
+                                "{{ __('form_validations.papers_zero') }}");
+                        } else if (parseInt(countValue, 10) > 0 && parseInt(countValue, 10) <= 20) {
+                            priceAmount = 20;
+                            $('#research_papers_count-error').text('');
+                            $('#potential-price').text("{{ __('trans.price_amount_hint') }}" + ' ' +
+                                priceAmount + ' ' + "{{ __('trans.sar') }}");
+                        } else if (parseInt(countValue, 10) > 20 && parseInt(countValue, 10) <= 30) {
+                            priceAmount = 30;
+                            $('#research_papers_count-error').text('');
+                            $('#potential-price').text("{{ __('trans.price_amount_hint') }}" + ' ' +
+                                priceAmount + ' ' + "{{ __('trans.sar') }}");
+                        } else if (parseInt(countValue, 10) > 30 && parseInt(countValue, 10) <= 50) {
+                            priceAmount = 50;
+                            $('#research_papers_count-error').text('');
+                            $('#potential-price').text("{{ __('trans.price_amount_hint') }}" + ' ' +
+                                priceAmount + ' ' + "{{ __('trans.sar') }}");
+                        } else {
+                            priceAmount = 0;
+                            $('#potential-price').text('');
+                            $('#research_papers_count-error').text(
+                                "{{ __('form_validations.pages_count_validation') }}");
+                        }
+                    } else if ($('#education_level').val() === 'الدراسات العليا') {
+                        if (parseInt(countValue, 10) === 0) {
+                            priceAmount = 0;
+                            $('#potential-price').text('');
+                            $('#research_papers_count-error').text(
+                                "{{ __('form_validations.papers_zero') }}");
+                        } else if (parseInt(countValue, 10) > 0 && parseInt(countValue, 10) <= 50) {
+                            priceAmount = 100;
+                            $('#research_papers_count-error').text('');
+                            $('#potential-price').text("{{ __('trans.price_amount_hint') }}" + ' ' +
+                                priceAmount + ' ' + "{{ __('trans.sar') }}");
+                        } else if (parseInt(countValue, 10) > 50 && parseInt(countValue, 10) <= 100) {
+                            priceAmount = 150;
+                            $('#research_papers_count-error').text('');
+                            $('#potential-price').text("{{ __('trans.price_amount_hint') }}" + ' ' +
+                                priceAmount + ' ' + "{{ __('trans.sar') }}");
+                        } else {
+                            priceAmount = 0;
+                            $('#potential-price').text('');
+                            $('#research_papers_count-error').text(
+                                "{{ __('form_validations.pages_count_validation') }}");
+                        }
                     } else {
+                        priceAmount = 0;
+                        $('#potential-price').text('');
                         $('#research_papers_count-error').text('');
                     }
+                });
+
+                $('#education_level').on('change', function() {
+                    $('#research_papers_count').val('');
+                });
+
+                $('#submitButton').on('click', function() {
+                    $('#payment-amount-value').text(priceAmount);
+                    $('#payment-amount').val(priceAmount);
                 });
 
                 $('#delivery_date').on('input', function() {

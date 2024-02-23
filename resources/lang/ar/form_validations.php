@@ -17,5 +17,6 @@ return [
 
     // stripe
     'stripe_general' => 'الرجاء تصحيح الأخطاء والمحاولة مرة أخرى',
+    'pages_count_validation' => 'الرقم المدخل غير متاح',
 
 ];

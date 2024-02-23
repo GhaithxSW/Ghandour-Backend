@@ -131,4 +131,6 @@ return [
     'payment_amount' => 'Payment amount (SAR)',
 
     'download' => 'Download PDF',
+    'sar' => 'SAR',
+    'price_amount_hint' => 'Potential price is',
 ];

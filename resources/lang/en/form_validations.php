@@ -17,5 +17,6 @@ return [
 
     // stripe
     'stripe_general' => 'Please correct the errors and try again',
+    'pages_count_validation' => 'The entered number is not available',
 
 ];
