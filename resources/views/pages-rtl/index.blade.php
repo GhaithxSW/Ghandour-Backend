@@ -403,7 +403,7 @@
             @foreach ($researches as $research)
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto">
                     <div class="card style-2 mb-md-0 mb-4" style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
-                        <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('no-image.png') }}""
+                        <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('resources/new-logo-buhothy.png') }}""
                             class="card-img-top" alt="..." style="height: 210px">
                         <h5 class="m-3">{{ $research->title }}</h5>
                         <a href="/research/{{ $research->id }}"
@@ -413,11 +413,11 @@
             @endforeach
         </div>
 
-        <div style="margin-top: 40px; margin-bottom: 50px">
+        {{-- <div style="margin-top: 40px; margin-bottom: 50px">
             <div class="card">
                 <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.our_team') }}</b></h4>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     {{-- Old our team section --}}
@@ -450,7 +450,7 @@
     </div> --}}
 
     {{-- <div class="widget-content widget-content-area text-center"> --}}
-    <div class="text-center">
+    {{-- <div class="text-center">
         <div class="row">
             @foreach ($members as $member)
                 <div class="col-md-3 m-auto">
@@ -464,7 +464,7 @@
                 </div>
             @endforeach
         </div>
-    </div>
+    </div> --}}
 
     <div class="statbox widget box box-shadow layout-top-spacing ml-2 mr-2"
         style="border-radius: 15px; box-shadow: 0 1px 4px 4px rgba(0, 0, 0, 0.1);">

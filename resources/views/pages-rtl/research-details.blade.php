@@ -45,7 +45,7 @@
             <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
                 <div class="single-post-content" style="border-radius: 20px">
                     <div class="featured-image"
-                        style="background: black url('{{ asset('storage/' . $research->image) }}') no-repeat center; border-radius: 20px">
+                        style="background: black url('{{ $research->image ? asset('storage/' . $research->image) : asset('resources/new-logo-buhothy.png') }}') no-repeat center; border-radius: 20px">
                         <div class="featured-image-overlay"></div>
                         <div class="post-header">
                             <div class="post-title">
@@ -53,7 +53,7 @@
                             </div>
                             <div class="post-meta-info d-flex justify-content-between">
                                 <div class="media">
-                                    <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('no-image.png') }}"
+                                    <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('resources/new-logo-buhothy.png') }}"
                                         alt="...">
                                     <div class="media-body hide-div mr-2">
                                         {{-- <h5>Kelly Young</h5> --}}

@@ -23,21 +23,20 @@ class ResearchService
     {
         $formFields = $request->validated();
 
-        $fileName = $formFields['title'] . '.' . $request->file('pdf_file')->getClientOriginalExtension();
-
         if ($request->hasFile('image')) {
             $formFields['image'] = $request->file('image')->store('images', 'public');
         }
 
         if ($request->hasFile('pdf_file')) {
+            $fileName = $formFields['title'] . '.' . $request->file('pdf_file')->getClientOriginalExtension();
             $formFields['pdf_file'] = $request->file('pdf_file')->storeAs('pdfs', $fileName, 'public');
         }
 
         $data = [
             'title' => $formFields['title'],
-            'image' => $formFields['image'],
+            'image' => isset($formFields['image']) ? $formFields['image'] : null,
             'content' => $formFields['content'],
-            'pdf_file' => $fileName,
+            'pdf_file' => isset($fileName) ? $fileName : null,
         ];
 
         $this->researchRepository->createResearch($data);
@@ -52,13 +51,12 @@ class ResearchService
     {
         $formFields = $request->validated();
 
-        $fileName = $formFields['title'] . '.' . $request->file('pdf_file')->getClientOriginalExtension();
-
         if ($request->hasFile('image')) {
             $formFields['image'] = $request->file('image')->store('images', 'public');
         }
 
         if ($request->hasFile('pdf_file')) {
+            $fileName = $formFields['title'] . '.' . $request->file('pdf_file')->getClientOriginalExtension();
             $formFields['pdf_file'] = $request->file('pdf_file')->storeAs('pdfs', $fileName, 'public');
         }
 
@@ -68,7 +66,7 @@ class ResearchService
             'title' => $formFields['title'],
             'image' => isset($formFields['image']) ? $formFields['image'] : $research->image,
             'content' => $formFields['content'],
-            'pdf_file' => $fileName,
+            'pdf_file' => isset($fileName) ? $fileName : $research->pdf_file,
         ];
 
         $this->researchRepository->updateResearch($data, $id);
