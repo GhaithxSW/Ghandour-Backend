@@ -109,7 +109,7 @@
     <link rel="stylesheet" href="{{ mix('css/light/main.css') }}">
     <link rel="stylesheet" href="{{ mix('css/dark/main.css') }}">
 
-    @if (
+    {{-- @if (
         !Request::routeIs('404') &&
             !Request::routeIs('maintenance') &&
             !Request::routeIs('signin') &&
@@ -125,7 +125,7 @@
         <link rel="stylesheet" href="{{ asset('plugins/waves/waves.min.css') }}">
         <link rel="stylesheet" href="{{ asset('plugins/highlight/styles/monokai-sublime.css') }}">
         <link rel="stylesheet" href="{{ mix('css/light/perfect-scrollbar.css') }}">
-    @endif
+    @endif --}}
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     {{ $headerFiles }}

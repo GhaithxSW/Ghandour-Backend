@@ -90,7 +90,8 @@
             @media screen and (max-width: 500px) {
                 .font-bg {
                     font-size: 16px;
-                    margin-top: 0px;
+                    /* margin-top: 0px; */
+                    margin-top: 50px;
                     letter-spacing: 0px !important;
                 }
 

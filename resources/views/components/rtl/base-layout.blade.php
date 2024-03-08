@@ -109,7 +109,7 @@
     <link rel="stylesheet" href="{{ mix('css/light/main.css') }}">
     <link rel="stylesheet" href="{{ mix('css/dark/main.css') }}">
 
-    @if (
+    {{-- @if (
         !Request::routeIs('404') &&
             !Request::routeIs('maintenance') &&
             !Request::routeIs('signin') &&
@@ -129,7 +129,7 @@
         <link rel="stylesheet" href="{{ mix('rtl/css/dark/structure.css') }}">
         <link rel="stylesheet" href="{{ mix('rtl/css/light/custom.css') }}">
         <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom.css') }}">
-    @endif
+    @endif --}}
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     {{ $headerFiles }}
