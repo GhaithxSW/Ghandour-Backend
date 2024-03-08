@@ -50,7 +50,7 @@
                                 <td class="text-center">
                                     <div class="d-flex justify-content-left align-items-center">
                                         <div class="avatar me-3">
-                                            <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('resources/new-logo-buhothy.png') }}"
+                                            <img src="{{ $research->image ? asset('storage/images' . $research->image) : asset('resources/new-logo-buhothy.png') }}"
                                                 alt="Avatar" width="64" height="64"
                                                 style="border-radius: 20px">
                                         </div>

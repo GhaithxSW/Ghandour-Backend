@@ -46,7 +46,7 @@
                 <div class="col">
                     <label for="photo" class="form-label">صورة الموظف</label>
                     <div class="text-center mb-4">
-                        <img src="{{ $member->photo ? asset('storage/' . $member->photo) : asset('no-image.png') }}"
+                        <img src="{{ $member->photo ? asset('storage/images' . $member->photo) : asset('no-image.png') }}"
                             class="card-img-top" alt="..." style="width: 250px; height: 250px;">
                     </div>
                     <input type="file" name="photo" class="form-control" value="{{ $member->photo }}"

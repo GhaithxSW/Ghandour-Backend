@@ -34,7 +34,7 @@
                 <div class="col">
                     <label for="photo" class="form-label">صورة الموظف</label>
                     <div class="text-center mb-4">
-                        <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('resources/new-logo-buhothy.png') }}"
+                        <img src="{{ $research->image ? asset('storage/images' . $research->image) : asset('resources/new-logo-buhothy.png') }}"
                             class="card-img-top" alt="..." style="width: 250px; height: 250px;">
                     </div>
                 </div>
