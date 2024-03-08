@@ -24,7 +24,6 @@ class ResearchService
         $formFields = $request->validated();
 
         if ($request->hasFile('image')) {
-            // $formFields['image'] = $request->file('image')->store('images', 'public');
             $imageName = $formFields['title'] . '.' . $request->file('image')->getClientOriginalExtension();
             $formFields['image'] = $request->file('image')->storeAs('images', $imageName, 'public');
         }
@@ -36,7 +35,6 @@ class ResearchService
 
         $data = [
             'title' => $formFields['title'],
-            // 'image' => isset($formFields['image']) ? $formFields['image'] : null,
             'image' => isset($imageName) ? $imageName : null,
             'content' => $formFields['content'],
             'pdf_file' => isset($fileName) ? $fileName : null,
@@ -55,7 +53,8 @@ class ResearchService
         $formFields = $request->validated();
 
         if ($request->hasFile('image')) {
-            $formFields['image'] = $request->file('image')->store('images', 'public');
+            $imageName = $formFields['title'] . '.' . $request->file('image')->getClientOriginalExtension();
+            $formFields['image'] = $request->file('image')->storeAs('images', $imageName, 'public');
         }
 
         if ($request->hasFile('pdf_file')) {
@@ -67,7 +66,7 @@ class ResearchService
 
         $data = [
             'title' => $formFields['title'],
-            'image' => isset($formFields['image']) ? $formFields['image'] : $research->image,
+            'image' => isset($imageName) ? $imageName : $research->image,
             'content' => $formFields['content'],
             'pdf_file' => isset($fileName) ? $fileName : $research->pdf_file,
         ];

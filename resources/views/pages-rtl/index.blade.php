@@ -436,7 +436,7 @@
                                                 class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto splide__slide">
                                                 <div class="card style-2 mb-md-0 mb-4"
                                                     style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
-                                                    <img src="{{ $research->image ? asset('storage/images' . $research->image) : asset('resources/new-logo-buhothy.png') }}""
+                                                    <img src="{{ $research->image ? asset('storage/images/' . $research->image) : asset('resources/new-logo-buhothy.png') }}""
                                                         class="card-img-top" alt="..." style="height: 210px">
                                                     <h5 class="m-3">{{ $research->title }}</h5>
                                                     <a href="/research/{{ $research->id }}"
@@ -599,6 +599,18 @@
             var splideMultiple = new Splide('.splide-multiple', {
                 perPage: 1,
                 rewind: true,
+                gap: '1rem',
+                pagination: false,
+                arrows: true,
+                autoplay: true,
+                interval: 3000,
+                keyboard: true,
+                drag: true,
+                pauseOnHover: true,
+                focus: 'center',
+                speed: 800,
+                easing: 'cubic-bezier(0.165, 0.840, 0.440, 1.000)',
+                direction: 'ltr'
             });
 
             splideMultiple.mount();

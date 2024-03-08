@@ -630,10 +630,23 @@
             var splideMultiple = new Splide('.splide-multiple', {
                 perPage: 1,
                 rewind: true,
+                gap: '1rem',
+                pagination: false,
+                arrows: true,
+                autoplay: true,
+                interval: 3000,
+                keyboard: true,
+                drag: true,
+                pauseOnHover: true,
+                focus: 'center',
+                speed: 800,
+                easing: 'cubic-bezier(0.165, 0.840, 0.440, 1.000)',
+                direction: 'ltr'
             });
 
             splideMultiple.mount();
         </script>
+
     </x-slot>
 
 </x-base-layout>

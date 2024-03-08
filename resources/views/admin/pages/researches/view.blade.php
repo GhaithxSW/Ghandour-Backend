@@ -34,7 +34,7 @@
                 <div class="col">
                     <label for="image" class="form-label">صورة البحث</label>
                     <div class="text-center mb-4">
-                        <img src="{{ $research->image ? asset('storage/images' . $research->image) : asset('resources/new-logo-buhothy.png') }}"
+                        <img src="{{ $research->image ? asset('storage/images/' . $research->image) : asset('resources/new-logo-buhothy.png') }}"
                             class="card-img-top" alt="..." style="width: 250px; height: 250px;">
                     </div>
                 </div>
