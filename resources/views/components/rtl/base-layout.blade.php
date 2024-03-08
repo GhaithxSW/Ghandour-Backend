@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="{{ mix('rtl/css/dark/carousel.css') }}">
     <link rel="stylesheet" href="{{ mix('rtl/css/light/blog-create.css') }}">
     <link rel="stylesheet" href="{{ mix('rtl/css/dark/blog-create.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/light/blog-post.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/dark/blog-post.css') }}">
+    {{-- <link rel="stylesheet" href="{{ mix('css/light/blog-post.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/dark/blog-post.css') }}"> --}}
     <link rel="stylesheet" href="{{ mix('rtl/css/light/switches.css') }}">
     <link rel="stylesheet" href="{{ mix('rtl/css/dark/switches.css') }}">
     <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-tagify.css') }}">

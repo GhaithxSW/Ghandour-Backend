@@ -15,7 +15,7 @@ class ResearchService
 
     public function researchSamples()
     {
-        return $this->researchRepository->getResearches();
+        return $this->researchRepository->getAllResearches();
     }
 
     public function viewResearch($id)

@@ -4,6 +4,8 @@
 
     <x-slot:headerFiles>
 
+        <link rel="stylesheet" href="{{ mix('css/light/blog-post.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/blog-post.css') }}">
         <link rel="stylesheet" href="{{ mix('css/light/modal.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/modal.css') }}">
         <link rel="stylesheet" href="{{ mix('css/light/switches.css') }}">
@@ -24,6 +26,10 @@
         <link rel="stylesheet" href="{{ mix('css/dark/contact_us.css') }}">
         <link rel="stylesheet" href="{{ mix('css/light/timeline.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/timeline.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/splide/splide.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/custom-splide.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/custom-splide.min.css') }}">
+
 
         <style>
             .toggle-code-snippet {
@@ -34,26 +40,46 @@
                 margin-bottom: 0px;
             }
 
-
             .font-bg {
                 width: 75%;
             }
+
             .request-btn {
                 margin-top: 40px;
                 /* width: 250px; */
             }
 
+            .slider-width {
+                max-width: 1300px;
+            }
+
+            /* #mobile-section {
+                display: none;
+            } */
+
+            /* #computer-section {
+                display: block;
+            } */
+
             @media screen and (max-width: 990px) {
                 .font-bg {
                     font-size: 26px;
                 }
+
+                /* #mobile-section {
+                    display: none;
+                }
+
+                #computer-section {
+                    display: block;
+                } */
             }
 
             @media screen and (max-width: 600px) {
                 .font-bg {
                     font-size: 22px;
                     margin-top: 0px;
-                    letter-spacing: 0px !important ;
+                    letter-spacing: 0px !important;
                     text-align: center;
                     width: 90%;
                     line-height: 40px;
@@ -74,6 +100,14 @@
                     margin-left: 15px;
                     margin-right: 15px;
                 }
+
+                /* #mobile-section {
+                    display: block;
+                }
+
+                #computer-section {
+                    display: none;
+                } */
             }
 
             @media screen and (max-width: 500px) {
@@ -84,6 +118,14 @@
                 .font-bg-btn {
                     font-size: 16px;
                 }
+
+                /* #mobile-section {
+                    display: block;
+                }
+
+                #computer-section {
+                    display: none;
+                } */
             }
         </style>
 
@@ -389,7 +431,11 @@
                     <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4>
                 </div>
             </div>
-            {{-- <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4> --}}
+        </div>
+    </div>
+
+    {{-- <div class="mr-4 ml-4" id="mobile-section">
+        <div class="row">
             @foreach ($researches as $research)
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto">
                     <div class="card style-2 mb-md-0 mb-4" style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
@@ -402,12 +448,41 @@
                 </div>
             @endforeach
         </div>
+    </div> --}}
 
-        {{-- <div style="margin-top: 40px; margin-bottom: 50px">
-            <div class="card">
-                <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.our_team') }}</b></h4>
+    <div class="row" id="computer-section">
+        <div id="splider_MultipleSlider" class="col-lg-12 col-md-12 layout-spacing">
+            <div class="statbox widget box box-shadow">
+                <div class="widget-header">
+                </div>
+                <div class="widget-content widget-content-area">
+                    <div class="position-relative">
+                        <div class="container" style="max-width: 1300px">
+                            <div class="splide-multiple">
+                                <div class="splide__track">
+                                    <ul class="splide__list">
+                                        @foreach ($researches as $research)
+                                            <div
+                                                class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto splide__slide">
+                                                <div class="card style-2 mb-md-0 mb-4"
+                                                    style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
+                                                    <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('resources/new-logo-buhothy.png') }}""
+                                                        class="card-img-top" alt="..." style="height: 210px">
+                                                    <h5 class="m-3">{{ $research->title }}</h5>
+                                                    <a href="/research/{{ $research->id }}"
+                                                        class="btn btn-secondary m-auto">{{ __('trans.read') }}</a>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-section-container"></div>
+                </div>
             </div>
-        </div> --}}
+        </div>
     </div>
 
     {{-- Old our team section --}}
@@ -471,14 +546,16 @@
                                     <div class="widget-paper">
                                         <div class="icon">
                                             <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-help" width="24" height="24"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                class="icon icon-tabler icon-tabler-help" width="24"
+                                                height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                stroke="currentColor" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                 <circle cx="12" cy="12" r="9"></circle>
                                                 <line x1="12" y1="17" x2="12" y2="17.01">
                                                 </line>
-                                                <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4"></path>
+                                                <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4">
+                                                </path>
                                             </svg>
                                         </div>
                                         <h5>{{ __('trans.support') }}</h5>
@@ -545,6 +622,18 @@
         <script src="{{ asset('plugins/leaflet/leaflet.js') }}"></script>
         <script src="{{ asset('plugins/leaflet/us-states.js') }}"></script>
         <script src="{{ asset('plugins/leaflet/eu-countries.js') }}"></script>
+        <script src="{{ asset('resources/assets/js/scrollspyNav.js') }}"></script>
+        <script src="{{ asset('plugins/splide/custom-splide.js') }}"></script>
+        <script src="{{ asset('plugins/splide/splide.min.js') }}"></script>
+
+        <script>
+            var splideMultiple = new Splide('.splide-multiple', {
+                perPage: 1,
+                rewind: true,
+            });
+
+            splideMultiple.mount();
+        </script>
     </x-slot>
 
 </x-base-layout>

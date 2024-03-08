@@ -86,3 +86,9 @@ mix.sass('public/resources/rtl/scss/dark/assets/apps/ecommerce-create.scss', 'pu
 
 mix.sass('public/resources/rtl/scss/light/assets/components/modal.scss', 'public/rtl/css/light');
 mix.sass('public/resources/rtl/scss/dark/assets/components/modal.scss', 'public/rtl/css/dark');
+
+mix.sass('public/resources/scss/light/plugins/splide/custom-splide.min.scss', 'public/css/light');
+mix.sass('public/resources/scss/dark/plugins/splide/custom-splide.min.scss', 'public/css/dark');
+
+mix.sass('public/resources/rtl/scss/dark/plugins/splide/custom-splide.min.scss', 'public/rtl/css/light');
+mix.sass('public/resources/rtl/scss/light/plugins/splide/custom-splide.min.scss', 'public/rtl/css/dark');

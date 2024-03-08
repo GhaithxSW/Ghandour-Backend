@@ -28,6 +28,9 @@
         <link rel="stylesheet" href="{{ mix('css/dark/contact_us.css') }}">
         <link rel="stylesheet" href="{{ mix('css/light/timeline.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/timeline.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/splide/splide.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-splide.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-splide.min.css') }}">
 
         <style>
             .toggle-code-snippet {
@@ -45,7 +48,7 @@
 
             .font-bg {
                 width: 75%;
-                margin-top: 100px;
+                /* margin-top: 100px; */
             }
 
             @media screen and (max-width: 990px) {
@@ -61,7 +64,7 @@
                 .font-bg {
                     font-size: 22px;
                     margin-top: 0px;
-                    letter-spacing: 0px !important ;
+                    letter-spacing: 0px !important;
                     text-align: center;
                     width: 90%;
                     line-height: 40px;
@@ -98,7 +101,6 @@
         </style>
 
     </x-slot>
-
 
     <div class="row">
         <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
@@ -162,9 +164,9 @@
                                                                         <polyline points="3 7 12 13 21 7"></polyline>
                                                                     </svg>
                                                                 </span>
-                                                                <input id="email" class="form-control text-right"
-                                                                    type="email" name="email"
-                                                                    value="{{ old('email') }}" autocomplete="email"
+                                                                <input id="email" class="form-control" type="email"
+                                                                    name="email" value="{{ old('email') }}"
+                                                                    autocomplete="email"
                                                                     placeholder="{{ __('trans.email_placeholder') }}"
                                                                     required autofocus />
                                                             </div>
@@ -294,9 +296,9 @@
                                                                         <polyline points="3 7 12 13 21 7"></polyline>
                                                                     </svg>
                                                                 </span>
-                                                                <input id="email" class="form-control text-right"
-                                                                    type="email" name="email"
-                                                                    value="{{ old('email') }}" autocomplete="email"
+                                                                <input id="email" class="form-control" type="email"
+                                                                    name="email" value="{{ old('email') }}"
+                                                                    autocomplete="email"
                                                                     placeholder="{{ __('trans.email_placeholder') }}"
                                                                     required autofocus />
                                                             </div>
@@ -399,7 +401,11 @@
                     <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4>
                 </div>
             </div>
-            {{-- <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.samples') }}</b></h4> --}}
+        </div>
+    </div>
+
+    {{-- <div class="mr-4 ml-4" id="mobile-section">
+        <div class="row">
             @foreach ($researches as $research)
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto">
                     <div class="card style-2 mb-md-0 mb-4" style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
@@ -412,12 +418,41 @@
                 </div>
             @endforeach
         </div>
+    </div> --}}
 
-        {{-- <div style="margin-top: 40px; margin-bottom: 50px">
-            <div class="card">
-                <h4 class="text-center mt-4 mb-4"><b>{{ __('trans.our_team') }}</b></h4>
+    <div class="row" id="computer-section">
+        <div id="splider_MultipleSlider" class="col-lg-12 col-md-12 layout-spacing">
+            <div class="statbox widget box box-shadow">
+                <div class="widget-header">
+                </div>
+                <div class="widget-content widget-content-area">
+                    <div class="position-relative">
+                        <div class="container" style="max-width: 1300px">
+                            <div class="splide-multiple">
+                                <div class="splide__track">
+                                    <ul class="splide__list">
+                                        @foreach ($researches as $research)
+                                            <div
+                                                class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto splide__slide">
+                                                <div class="card style-2 mb-md-0 mb-4"
+                                                    style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
+                                                    <img src="{{ $research->image ? asset('storage/' . $research->image) : asset('resources/new-logo-buhothy.png') }}""
+                                                        class="card-img-top" alt="..." style="height: 210px">
+                                                    <h5 class="m-3">{{ $research->title }}</h5>
+                                                    <a href="/research/{{ $research->id }}"
+                                                        class="btn btn-secondary m-auto">{{ __('trans.read') }}</a>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-section-container"></div>
+                </div>
             </div>
-        </div> --}}
+        </div>
     </div>
 
     {{-- Old our team section --}}
@@ -542,17 +577,7 @@
     {{-- <div class="container w-25">{{ $researches->links() }}</div> --}}
 
     <x-slot:footerFiles>
-        {{-- @vite(['public/plugins-rtl/editors/quill/quill.js']) --}}
         <script src="{{ asset('plugins-rtl/editors/quill/quill.js') }}"></script>
-
-        {{-- @vite(['public/plugins-rtl/filepond/filepond.min.js'])
-        @vite(['public/plugins-rtl/filepond/FilePondPluginFileValidateType.min.js'])
-        @vite(['public/plugins-rtl/filepond/FilePondPluginImageExifOrientation.min.js'])
-        @vite(['public/plugins-rtl/filepond/FilePondPluginImagePreview.min.js'])
-        @vite(['public/plugins-rtl/filepond/FilePondPluginImageCrop.min.js'])
-        @vite(['public/plugins-rtl/filepond/FilePondPluginImageResize.min.js'])
-        @vite(['public/plugins-rtl/filepond/FilePondPluginImageTransform.min.js'])
-        @vite(['public/plugins-rtl/filepond/filepondPluginFileValidateSize.min.js']) --}}
         <script src="{{ asset('plugins-rtl/filepond/filepond.min.js') }}"></script>
         <script src="{{ asset('plugins-rtl/filepond/FilePondPluginFileValidateType.min.js') }}"></script>
         <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageExifOrientation.min.js') }}"></script>
@@ -561,23 +586,23 @@
         <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageResize.min.js') }}"></script>
         <script src="{{ asset('plugins-rtl/filepond/FilePondPluginImageTransform.min.js') }}"></script>
         <script src="{{ asset('plugins-rtl/filepond/filepondPluginFileValidateSize.min.js') }}"></script>
-
-
-        {{-- @vite(['public/plugins-rtl/tagify/tagify.min.js']) --}}
         <script src="{{ asset('plugins-rtl/tagify/tagify.min.js') }}"></script>
-
-
-        {{-- @vite(['public/resources/rtl/assets/js/apps/ecommerce-create.js']) --}}
         <script src="{{ asset('resources/rtl/assets/js/apps/ecommerce-create.js') }}"></script>
-
-
-        {{-- @vite(['public/plugins-rtl/leaflet/leaflet.js'])
-        @vite(['public/plugins-rtl/leaflet/us-states.js'])
-        @vite(['public/plugins-rtl/leaflet/eu-countries.js']) --}}
-
         <script src="{{ asset('plugins-rtl/leaflet/leaflet.js') }}"></script>
         <script src="{{ asset('plugins-rtl/leaflet/us-states.js') }}"></script>
         <script src="{{ asset('plugins-rtl/leaflet/eu-countries.js') }}"></script>
+        <script src="{{ asset('resources/rtl/assets/js/scrollspyNav.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/splide/custom-splide.js') }}"></script>
+        <script src="{{ asset('plugins-rtl/splide/splide.min.js') }}"></script>
+
+        <script>
+            var splideMultiple = new Splide('.splide-multiple', {
+                perPage: 1,
+                rewind: true,
+            });
+
+            splideMultiple.mount();
+        </script>
     </x-slot>
 
 </x-rtl.base-layout>
