@@ -9,6 +9,34 @@
         <link rel="stylesheet" href="{{ mix('css/light/alert.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/alert.css') }}">
 
+        <link rel="stylesheet" href="{{ mix('css/light/blog-post.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/blog-post.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/modal.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/modal.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/modal.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/modal.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/tagify/tagify.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/filepond/filepond.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/filepond/FilePondPluginImagePreview.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/switches.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/switches.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/quill.snow.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/quill.snow.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-tagify.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-tagify.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-filepond.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-filepond.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/ecommerce-create.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/ecommerce-create.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/leaflet/leaflet.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/contact_us.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/contact_us.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/timeline.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/timeline.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins-rtl/splide/splide.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/light/custom-splide.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('rtl/css/dark/custom-splide.min.css') }}">
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <style>
