@@ -611,7 +611,7 @@
                 focus: 'center',
                 speed: 800,
                 easing: 'cubic-bezier(0.165, 0.840, 0.440, 1.000)',
-                direction: 'ltr'
+                direction: 'rtl'
             });
 
             splideMultiple.mount();
