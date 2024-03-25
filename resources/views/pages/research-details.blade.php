@@ -7,6 +7,32 @@
         <link rel="stylesheet" href="{{ mix('css/light/modal.css') }}">
         <link rel="stylesheet" href="{{ mix('css/dark/modal.css') }}">
 
+        <link rel="stylesheet" href="{{ mix('css/light/blog-post.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/blog-post.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/modal.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/modal.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/switches.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/switches.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/custom-tagify.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/custom-tagify.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/quill.snow.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/quill.snow.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/custom-filepond.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/custom-filepond.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/tagify/tagify.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/leaflet/leaflet.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/filepond/filepond.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/filepond/FilePondPluginImagePreview.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/ecommerce-create.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/ecommerce-create.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/contact_us.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/contact_us.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/timeline.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/timeline.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/splide/splide.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/light/custom-splide.min.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/dark/custom-splide.min.css') }}">
+
         <style>
             .research-responsive {
                 margin-top: 40px;
