@@ -131,7 +131,6 @@
 
     </x-slot>
 
-
     <div class="row">
         <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
             <div>
@@ -450,7 +449,8 @@
         </div>
     </div> --}}
 
-    <div class="row" id="computer-section">
+    {{-- old section without search --}}
+    {{-- <div class="row" id="computer-section">
         <div id="splider_MultipleSlider" class="col-lg-12 col-md-12 layout-spacing">
             <div class="statbox widget box box-shadow">
                 <div class="widget-header">
@@ -483,7 +483,51 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+
+    <div class="row" id="computer-section">
+        <div id="splider_MultipleSlider" class="col-lg-12 col-md-12 layout-spacing">
+            <div class="statbox widget box box-shadow">
+                <div class="widget-header">
+                </div>
+                <div class="widget-content widget-content-area">
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="searchInput"
+                            placeholder="{{ __('trans.search') }}...">
+                        <button class="btn btn-secondary" onclick="search()"
+                            type="button">{{ __('trans.search') }}</button>
+                    </div>
+
+                    <div class="position-relative">
+                        <div class="container" style="max-width: 1300px">
+                            <div class="splide-multiple">
+                                <div class="splide__track">
+                                    <ul class="splide__list" id="researchList">
+                                        @foreach ($researches as $research)
+                                            <div
+                                                class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 text-center m-auto splide__slide">
+                                                <div class="card style-2 mb-md-0 mb-4"
+                                                    style="box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);">
+                                                    <img src="{{ $research->image ? asset('storage/images/' . $research->image) : asset('resources/new-logo-buhothy.png') }}"
+                                                        class="card-img-top" alt="..." style="height: 210px">
+                                                    <h5 class="m-3">{{ $research->title }}</h5>
+                                                    <a href="/research/{{ $research->id }}"
+                                                        class="btn btn-secondary m-auto">{{ __('trans.read') }}</a>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-section-container"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     {{-- Old our team section --}}
     {{-- <div class="container mt-container">
@@ -645,6 +689,27 @@
             });
 
             splideMultiple.mount();
+        </script>
+
+        <script>
+            function search() {
+                var input = document.getElementById('searchInput').value.toLowerCase();
+                var researchList = document.getElementById('researchList');
+                var items = researchList.getElementsByClassName('splide__slide');
+                var count = 0;
+
+                for (var i = 0; i < items.length; i++) {
+                    var title = items[i].getElementsByTagName("h5")[0];
+                    if (title.innerText.toLowerCase().indexOf(input) > -1) {
+                        items[i].style.display = "";
+                        count++;
+                    } else {
+                        items[i].style.display = "none";
+                    }
+                }
+
+                document.getElementById('resultCount').innerText = count;
+            }
         </script>
 
     </x-slot>

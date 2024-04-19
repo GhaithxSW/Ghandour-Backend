@@ -132,4 +132,6 @@ return [
     'download' => 'تحميل PDF',
     'sar' => 'ر.س',
     'price_amount_hint' => 'السعر المتوقع',
+
+    'search' => 'بحث'
 ];

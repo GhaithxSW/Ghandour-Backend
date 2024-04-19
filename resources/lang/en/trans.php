@@ -133,4 +133,6 @@ return [
     'download' => 'Download PDF',
     'sar' => 'SAR',
     'price_amount_hint' => 'Potential price is',
+
+    'search' => 'Search'
 ];
