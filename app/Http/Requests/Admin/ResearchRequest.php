@@ -28,6 +28,7 @@ class ResearchRequest extends FormRequest
             'image' => ['required', 'image', 'sometimes'],
             'content' => 'required',
             'pdf_file' => ['nullable', 'mimes:pdf', 'max:8192'],
+            'docx_file' => ['nullable', 'mimes:doc,docx,zip', 'max:8192'],
         ];
     }
 

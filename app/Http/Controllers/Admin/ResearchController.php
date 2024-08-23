@@ -35,6 +35,7 @@ class ResearchController extends Controller
 
     public function addResearch(ResearchRequest $request)
     {
+        
         try {
             $this->researchService->addResearch($request);
             return redirect()->back()->with('success', 'تمت اضافة البحث بنجاح');

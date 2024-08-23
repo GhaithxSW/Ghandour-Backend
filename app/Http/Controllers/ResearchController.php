@@ -37,5 +37,16 @@ class ResearchController extends Controller
             throw $e;
         }
     }
+    
+    public function downloadDocx($fileName)
+    {
+        try {
+            return $this->researchService->downloadDocx($fileName);
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
+    
+    
 
 }

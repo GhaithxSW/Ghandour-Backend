@@ -4,8 +4,6 @@
 
     <x-slot:headerFiles>
 
-        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss']) --}}
-
         <link rel="stylesheet" href="{{ asset('plugins-rtl/table/datatable/datatables.css') }}">
         <link rel="stylesheet" href="{{ mix('rtl/css/dt-global_style.css') }}">
 

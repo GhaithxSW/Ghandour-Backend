@@ -22,7 +22,7 @@ class ResearchService
     public function addResearch(ResearchRequest $request)
     {
         $formFields = $request->validated();
-
+        
         if ($request->hasFile('image')) {
             $imageName = $formFields['title'] . '.' . $request->file('image')->getClientOriginalExtension();
             $formFields['image'] = $request->file('image')->storeAs('images', $imageName, 'public');
@@ -32,12 +32,18 @@ class ResearchService
             $fileName = $formFields['title'] . '.' . $request->file('pdf_file')->getClientOriginalExtension();
             $formFields['pdf_file'] = $request->file('pdf_file')->storeAs('pdfs', $fileName, 'public');
         }
+        
+        if ($request->hasFile('word_doc')) {
+            $docxFileName = $formFields['title'] . '.' . $request->file('word_doc')->getClientOriginalExtension();
+            $formFields['docx_file'] = $request->file('word_doc')->storeAs('docx_files', $docxFileName, 'public');
+        }
 
         $data = [
             'title' => $formFields['title'],
             'image' => isset($imageName) ? $imageName : null,
             'content' => $formFields['content'],
             'pdf_file' => isset($fileName) ? $fileName : null,
+            'docx_file' => isset($docxFileName) ? $docxFileName : null,
         ];
 
         $this->researchRepository->createResearch($data);
@@ -61,6 +67,11 @@ class ResearchService
             $fileName = $formFields['title'] . '.' . $request->file('pdf_file')->getClientOriginalExtension();
             $formFields['pdf_file'] = $request->file('pdf_file')->storeAs('pdfs', $fileName, 'public');
         }
+        
+        if ($request->hasFile('docx_file')) {
+            $docxFileName = $formFields['title'] . '.' . $request->file('docx_file')->getClientOriginalExtension();
+            $formFields['docx_file'] = $request->file('docx_file')->storeAs('docx_files', $docxFileName, 'public');
+        }
 
         $research = $this->researchRepository->getResearchById($id);
 
@@ -69,6 +80,7 @@ class ResearchService
             'image' => isset($imageName) ? $imageName : $research->image,
             'content' => $formFields['content'],
             'pdf_file' => isset($fileName) ? $fileName : $research->pdf_file,
+            'docx_file' => isset($docxFileName) ? $docxFileName : $research->docx_file,
         ];
 
         $this->researchRepository->updateResearch($data, $id);

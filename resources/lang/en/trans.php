@@ -130,7 +130,8 @@ return [
     'leading_cities' => 'Leading Cities',
     'payment_amount' => 'Payment amount (SAR)',
 
-    'download' => 'Download PDF',
+    'downloadPdf' => 'Download PDF',
+    'downloadDocx' => 'Download Word',
     'sar' => 'SAR',
     'price_amount_hint' => 'Potential price is',
 

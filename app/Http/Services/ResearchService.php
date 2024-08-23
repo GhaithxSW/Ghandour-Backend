@@ -40,4 +40,16 @@ class ResearchService
         }
     }
 
+
+    public function downloadDocx($fileName)
+    {
+        $filePath = storage_path('app/public/docx_files/' . $fileName);
+
+    
+        if (file_exists($filePath)) {
+            return response()->download($filePath);
+        } else {
+            return response()->json(['error' => 'File not found'], 404);
+        }
+    }
 }

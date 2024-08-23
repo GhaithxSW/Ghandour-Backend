@@ -36,8 +36,8 @@ Route::group(
 
         Route::get('/', [HomeController::class, 'index'])->name('index');
         Route::get('/research/{id}', [ControllersResearchController::class, 'showResearch']);
-        Route::get('/download/{fileName}', [ControllersResearchController::class, 'download']);
-
+        Route::get('/download-pdf/{fileName}', [ControllersResearchController::class, 'download']);
+        Route::get('/download-word/{fileName}', [ControllersResearchController::class, 'downloadDocx']);
         // Route::middleware(['auth.check:web'])->group(function () {
         Route::controller(OrderController::class)->group(function () {
             Route::get('/request-research', 'orderResearch')->name('request-research');

@@ -65,9 +65,17 @@
                 </div>
 
                 <div class="col">
-                    <label for="pdf_file" class="form-label">رفع ملف</label>
+                    <label for="pdf_file" class="form-label">pdf رفع ملف</label>
                     <input type="file" name="pdf_file" class="form-control" placeholder="رفع ملف">
                     @error('pdf_file')
+                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+                
+                <div class="col">
+                    <label for="docx_file" class="form-label">word رفع ملف</label>
+                    <input type="file" name="docx_file" class="form-control" placeholder="رفع ملف">
+                    @error('docx_file')
                         <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>

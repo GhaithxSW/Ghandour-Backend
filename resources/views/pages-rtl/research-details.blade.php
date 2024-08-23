@@ -108,7 +108,8 @@
                     <div class="post-content-responsive-new">
                         <p>{!! $research->content !!}</p>
                         <a href="/" class="btn btn-secondary mt-3">{{ __('trans.back') }}</a>
-                        <a href="/download/{{ $research->pdf_file }}" class="btn btn-success mt-3">{{ __('trans.download') }}</a>
+                        <a href="/download-pdf/{{ $research->pdf_file }}" class="btn btn-success mt-3">{{ __('trans.downloadPdf') }}</a>
+                        <a href="/download-word/{{ $research->docx_file }}" class="btn btn-success mt-3">{{ __('trans.downloadDocx') }}</a>
                     </div>
                 </div>
             </div>
