@@ -14,7 +14,8 @@ class ProgressService
 
     public function totalTime()
     {
-        $totalSeconds = Progress::sum(DB::raw('UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)'));
+        $totalSeconds = Progress::where('user_id', auth()->id())
+            ->sum(DB::raw('UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)'));
 
         $hours = floor($totalSeconds / 3600);
         $minutes = floor(($totalSeconds % 3600) / 60);
@@ -25,7 +26,8 @@ class ProgressService
 
     public function totalTimeInMinutes()
     {
-        $totalSeconds = Progress::sum(DB::raw('UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)'));
+        $totalSeconds = Progress::where('user_id', auth()->id())
+            ->sum(DB::raw('UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)'));
 
         $totalMinutes = floor($totalSeconds / 60); // Convert to minutes
 
@@ -34,11 +36,18 @@ class ProgressService
 
 
 
-    public function totalAttempts(): int {
-        return DB::table('progress')->sum('attempts');
+    public function totalAttempts(): int
+    {
+        return DB::table('progress')
+            ->where('user_id', auth()->id()) // Filter by logged-in user
+            ->sum('attempts');
     }
 
-    public function totalFails(): int {
-        return DB::table('progress')->sum('failed_attempts');
+    public function totalFails(): int
+    {
+        return DB::table('progress')
+            ->where('user_id', auth()->id()) // Filter by logged-in user
+            ->sum('failed_attempts');
     }
+
 }

@@ -193,8 +193,8 @@
                 data.addColumn('number', 'Populartiy');
                 data.addColumn(['string', 'Link']);
                 data.addRows([
-                    ['عدد المحاولات', <?php echo 99; ?>, '/admin-panel-management/users'],
-                    ['عدد المحاولات الفاشلة', <?php echo 99; ?>, '/admin-panel-management/members']
+                    ['عدد المحاولات', <?php echo $totalAttempts; ?>, '/admin-panel-management/users'],
+                    ['عدد المحاولات الفاشلة', <?php echo $totalFails; ?>, '/admin-panel-management/members']
                 ]);
 
                 var options = {
