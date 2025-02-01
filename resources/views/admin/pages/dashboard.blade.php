@@ -67,13 +67,10 @@
                 <a href="/admin-panel-management/researches">
                     <div class="card bg-dark">
                         <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 20px">الابحاث</p>
+                            <p class="card-title mb-3" style="font-size: 18px">المراحل المجتازة</p>
                             <p class="card-text text-center" style="font-size: 25px">
-                                <b>{{ count($researches) }}</b>
+                                <b>{{ $totalAchieved }}</b>
                             </p>
-                        </div>
-                        <div class="card-footer px-4 pt-0 border-0">
-                            <p>اضغط هنا لرؤية الابحاث</p>
                         </div>
                     </div>
                 </a>
@@ -83,13 +80,10 @@
                 <a href="/admin-panel-management/orders">
                     <div class="card bg-secondary">
                         <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 20px">الطلبات</p>
+                            <p class="card-title mb-3" style="font-size: 18px">وقت اللعب الكلي</p>
                             <p class="card-text text-center" style="font-size: 25px">
-                                <b>{{ count($orders) }}</b>
+                                <b>{{ $totalTime }}</b>
                             </p>
-                        </div>
-                        <div class="card-footer px-4 pt-0 border-0">
-                            <p>اضغط هنا لرؤية الطلبات</p>
                         </div>
                     </div>
                 </a>
@@ -99,13 +93,10 @@
                 <a href="/admin-panel-management/users">
                     <div class="card bg-primary">
                         <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 20px">المستخدمين</p>
+                            <p class="card-title mb-3" style="font-size: 18px">عدد المحاولات</p>
                             <p class="card-text text-center" style="font-size: 25px">
-                                <b>{{ count($users) }}</b>
+                                <b>{{ $totalAttempts }}</b>
                             </p>
-                        </div>
-                        <div class="card-footer px-4 pt-0 border-0">
-                            <p>اضغط هنا لرؤية المستخدمين</p>
                         </div>
                     </div>
                 </a>
@@ -115,13 +106,10 @@
                 <a href="/admin-panel-management/members">
                     <div class="card bg-danger">
                         <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 20px">الموظفين</p>
+                            <p class="card-title mb-3" style="font-size: 18px">عدد المحاولات الفاشلة</p>
                             <p class="card-text text-center" style="font-size: 25px">
-                                <b>{{ count($members) }}</b>
+                                <b>{{ $totalFails }}</b>
                             </p>
-                        </div>
-                        <div class="card-footer px-4 pt-0 border-0">
-                            <p>اضغط هنا لرؤية الموظفين</p>
                         </div>
                     </div>
                 </a>
@@ -166,12 +154,11 @@
             function drawChart() {
 
                 var data = google.visualization.arrayToDataTable([
-                    ['Type', 'Count', {
-                        role: 'link'
-                    }],
-                    ['الطلبات', <?php echo count($orders); ?>, '/admin-panel-management/orders'],
-                    ['الابحاث', <?php echo count($researches); ?>, '/admin-panel-management/researches'],
+                    ['Type', 'Count', { role: 'link' }],
+                    ['وقت اللعب الكلي', <?php echo $totalTimeInMinutes; ?>, '/admin-panel-management/orders'],
+                    ['المراحل المجتازة', <?php echo $totalAchieved; ?>, '/admin-panel-management/researches'],
                 ]);
+
 
                 var options = {
                     // title: 'الاحصائيات',
@@ -180,7 +167,7 @@
 
                 var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-                google.visualization.events.addListener(chart, 'select', function() {
+                google.visualization.events.addListener(chart, 'select', function () {
                     var selection = chart.getSelection();
                     if (selection.length > 0) {
                         var row = selection[0].row;
@@ -206,13 +193,12 @@
                 data.addColumn('number', 'Populartiy');
                 data.addColumn(['string', 'Link']);
                 data.addRows([
-                    ['المستخدمين', <?php echo count($users); ?>, '/admin-panel-management/users'],
-                    ['الأدمن', <?php echo count($admins); ?>, '/admin-panel-management/admins'],
-                    ['الموظفين', <?php echo count($members); ?>, '/admin-panel-management/members']
+                    ['عدد المحاولات', <?php echo 99; ?>, '/admin-panel-management/users'],
+                    ['عدد المحاولات الفاشلة', <?php echo 99; ?>, '/admin-panel-management/members']
                 ]);
 
                 var options = {
-                    // title: 'الطلبات',
+                    // title: 'وقت اللعب الكلي',
                     // sliceVisibilityThreshold: .2,
                     // colors: ['green', 'orange', 'red', 'lightgray']
                     colors: ['green', 'orange', 'red']
@@ -220,7 +206,7 @@
 
                 var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 
-                google.visualization.events.addListener(chart, 'select', function() {
+                google.visualization.events.addListener(chart, 'select', function () {
                     var selectedItem = chart.getSelection()[0];
                     if (selectedItem) {
                         var link = data.getValue(selectedItem.row, 2);
@@ -245,11 +231,10 @@
                     }, {
                         role: 'link'
                     }],
-                    ['الأبحاث', <?php echo count($researches); ?>, '#b87333', '/admin-panel-management/researches'],
-                    ['الطلبات', <?php echo count($orders); ?>, '#b87333', '/admin-panel-management/orders'],
-                    ['المستخدمين', <?php echo count($users); ?>, '#b87333', '/admin-panel-management/users'],
-                    ['الموظفين', <?php echo count($members); ?>, 'silver', '/admin-panel-management/members'],
-                    ['الأدمن', <?php echo count($admins); ?>, 'silver', '/admin-panel-management/admins'],
+                    ['الأبحاث', <?php echo $totalAchieved; ?>, '#b87333', '/admin-panel-management/researches'],
+                    ['وقت اللعب الكلي', <?php echo $totalAttempts; ?>, '#b87333', '/admin-panel-management/orders'],
+                    ['عدد المحاولات', <?php echo 15.5; ?>, '#b87333', '/admin-panel-management/users'],
+                    ['عدد المحاولات الفاشلة', <?php echo 33; ?>, 'silver', '/admin-panel-management/members'],
                 ]);
 
                 var view = new google.visualization.DataView(data);
@@ -276,7 +261,7 @@
                 };
                 var chart = new google.visualization.ColumnChart(document.getElementById("columnchart"));
 
-                google.visualization.events.addListener(chart, 'select', function() {
+                google.visualization.events.addListener(chart, 'select', function () {
                     var selection = chart.getSelection();
                     if (selection.length > 0) {
                         var row = selection[0].row;

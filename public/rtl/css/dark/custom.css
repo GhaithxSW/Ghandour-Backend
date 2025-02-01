@@ -1,1 +1,34 @@
-body.layout-dark.layout-rtl #sidebar .ps__rail-y{right:0!important}body.layout-dark.layout-rtl .c-custom-dropdown button{background:none;border:none;padding:0 5px}body.layout-dark.layout-rtl .c-custom-dropdown button svg{color:#fff}body.layout-dark.layout-rtl .c-custom-dropdown .dropdown-menu a.dropdown-item:hover{color:#2196f3}body.layout-dark.layout-rtl .glightbox-container .gcontainer .gnext.gbtn,body.layout-dark.layout-rtl .glightbox-container .gcontainer .gprev.gbtn{transform:rotate(180deg)}
+/**
+*
+* ========================================================================================
+*
+*   @CUSTOM STYLESHEET - This stylesheet should be used for custom customization 
+*
+* ========================================================================================
+*
+*/
+body.layout-dark.layout-rtl {
+  /* ScrollBar Position */
+  /* c-custom-dropdown */
+  /* gcontainer */
+}
+body.layout-dark.layout-rtl #sidebar .ps__rail-y {
+  right: 0 !important;
+}
+body.layout-dark.layout-rtl .c-custom-dropdown button {
+  background: none;
+  border: none;
+  padding: 0 5px;
+}
+body.layout-dark.layout-rtl .c-custom-dropdown button svg {
+  color: #fff;
+}
+body.layout-dark.layout-rtl .c-custom-dropdown .dropdown-menu a.dropdown-item:hover {
+  color: #2196f3;
+}
+body.layout-dark.layout-rtl .glightbox-container .gcontainer .gnext.gbtn {
+  transform: rotate(180deg);
+}
+body.layout-dark.layout-rtl .glightbox-container .gcontainer .gprev.gbtn {
+  transform: rotate(180deg);
+}

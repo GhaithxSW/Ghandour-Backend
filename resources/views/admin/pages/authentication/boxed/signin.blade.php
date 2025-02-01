@@ -13,7 +13,7 @@
     </x-slot>
     <!-- END GLOBAL MANDATORY STYLES -->
 
-    @auth
+    @if(auth()->check())
         <div></div>
     @else
         <div class="auth-container d-flex m-4">
@@ -26,14 +26,14 @@
                                     <div class="col-md-12 mb-3">
                                         <h2>تسجيل دخول</h2>
                                     </div>
-                                    <form method="POST" action="/admin-panel-management/login">
+                                    <form method="POST" action="/dashboard/login">
                                         @csrf
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">اسم المستخدم</label>
-                                                <input type="text" class="form-control text-right" name="username"
-                                                    placeholder="قم بادخال اسم المستخدم">
-                                                @error('username')
+                                                <input type="text" class="form-control text-right" name="email"
+                                                    placeholder="قم بادخال البريد الالكتروني">
+                                                @error('email')
                                                     <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}
                                                     </p>
                                                 @enderror
@@ -86,7 +86,7 @@
                 </div>
             </div>
         </div>
-    @endauth
+    @endif
 
 
 

@@ -113,9 +113,10 @@
     <!--  END LOADER -->
 
     <!--  BEGIN NAVBAR  -->
-    @auth('admin')
+{{--    @if(auth()->check() && auth()->user()->role->name === 'ADMIN')--}}
+    @if(auth()->check())
         <x-admin.navbar />
-    @endauth
+    @endif
     <!--  END NAVBAR  -->
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -126,13 +127,14 @@
         <!--  END LOADER  -->
 
         <!--  BEGIN SIDEBAR  -->
-        @auth('admin')
+        @if(auth()->check())
+{{--        @if(auth()->check() && auth()->user()->role->name === 'ADMIN')--}}
             <x-admin.sidebar />
-        @endauth
+        @endif
         <!--  END SIDEBAR  -->
 
         <!--  BEGIN CONTENT AREA  -->
-        @auth('admin')
+        @if(auth()->check() && auth()->user()->role->name === 'ADMIN')
             <div id="content" class="main-content">
                 <div class="contaienr">
                     <div class="contaienr">
@@ -148,7 +150,7 @@
                     </div>
                 </div>
             </div>
-        @endauth
+        @endif
 
         <!--  BEGIN FOOTER  -->
         <x-admin.footer />
