@@ -2,6 +2,8 @@
     "/css/dark/blog-create.css": "/css/dark/blog-create.css",
     "/css/light/blog-create.css": "/css/light/blog-create.css",
     "/css/dark/carousel.css": "/css/dark/carousel.css",
+    "/rtl/css/dark/todolist.css": "/rtl/css/dark/todolist.css",
+    "/rtl/css/light/todolist.css": "/rtl/css/light/todolist.css",
     "/rtl/css/dark/custom-splide.min.css": "/rtl/css/dark/custom-splide.min.css",
     "/rtl/css/light/custom-splide.min.css": "/rtl/css/light/custom-splide.min.css",
     "/css/dark/custom-splide.min.css": "/css/dark/custom-splide.min.css",

@@ -42,4 +42,8 @@ Route::prefix('dashboard')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/home', [DashboardController::class, 'home'])->name('dashboard.name');
+
+    Route::get('/test', function () {
+        return view('admin.pages.todo-list', ['title' => 'todo']);
+    });
 });
