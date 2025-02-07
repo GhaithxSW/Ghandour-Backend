@@ -19,7 +19,8 @@
         <div class="auth-container d-flex m-4">
             <div class="container mx-auto align-self-center">
                 <div class="row">
-                    <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
+                    <div
+                        class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
                         <div class="card mt-3 mb-3">
                             <div class="card-body">
                                 <div class="row">
@@ -30,12 +31,12 @@
                                         @csrf
                                         <div class="col-md-12">
                                             <div class="mb-3">
-                                                <label class="form-label">اسم المستخدم</label>
+                                                <label class="form-label">البريد الالكتروني</label>
                                                 <input type="text" class="form-control text-right" name="email"
-                                                    placeholder="قم بادخال البريد الالكتروني">
+                                                       placeholder="قم بادخال البريد الالكتروني">
                                                 @error('email')
-                                                    <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}
-                                                    </p>
+                                                <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}
+                                                </p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -43,10 +44,10 @@
                                             <div class="mb-4">
                                                 <label class="form-label">كلمة المرور</label>
                                                 <input type="password" class="form-control" name="password"
-                                                    placeholder="قم بادخال كلمة المرور">
+                                                       placeholder="قم بادخال كلمة المرور">
                                                 @error('password')
-                                                    <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}
-                                                    </p>
+                                                <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}
+                                                </p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -64,21 +65,21 @@
                                         <div class="col-12">
                                             <div class="mb-4">
                                                 <button type="submit" class="btn btn-secondary w-100"
-                                                    style="text-transform:uppercase">
+                                                        style="text-transform:uppercase">
                                                     تسجيل دخول
                                                 </button>
                                             </div>
                                         </div>
                                     </form>
-                                    {{-- <div class="col-12">
+                                    <div class="col-12">
                                         <div class="text-center">
                                             <p class="mb-0">ليس لديك حساب؟
-                                                <a href="/admin-panel-management/sign-up" class="text-warning">
+                                                <a href="/dashboard/sign-up" class="text-warning">
                                                     التسجيل
                                                 </a>
                                             </p>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>

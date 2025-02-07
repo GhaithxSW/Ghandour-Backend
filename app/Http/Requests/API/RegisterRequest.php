@@ -22,11 +22,25 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'name' => 'required|string',
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|string|min:6',
             'childName' => 'required|string',
-            'childAge' => 'required|int',
+            'childAge' => 'required|integer',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'الاسم مطلوب',
+            'email.required' => 'البريد الإلكتروني مطلوب',
+            'email.email' => 'يجب إدخال بريد إلكتروني صالح',
+            'password.required' => 'كلمة المرور مطلوبة',
+            'password.min' => 'يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل',
+            'childName.required' => 'اسم الطفل مطلوب',
+            'childAge.required' => 'عمر الطفل مطلوب',
+            'childAge.integer' => 'يجب أن يكون عمر الطفل رقمًا صحيحًا',
         ];
     }
 }

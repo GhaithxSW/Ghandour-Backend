@@ -40,10 +40,9 @@ Route::group(
 Route::prefix('dashboard')->group(function () {
     Route::get('/sign-in', [AuthController::class, 'viewSignIn'])->name('dashboard.sign-in');
     Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/sign-up', [AuthController::class, 'viewSignUp'])->name('dashboard.sign-up');
+    Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/home', [DashboardController::class, 'home'])->name('dashboard.name');
-
-    Route::get('/test', function () {
-        return view('admin.pages.todo-list', ['title' => 'todo']);
-    });
+    Route::get('/test', [DashboardController::class, 'todoList']);
 });

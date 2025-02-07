@@ -23,7 +23,19 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|string|min:6',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'البريد الإلكتروني مطلوب',
+            'email.email' => 'يجب إدخال بريد إلكتروني صالح',
+            'password.required' => 'كلمة المرور مطلوبة',
+            'password.string' => 'يجب أن تكون كلمة المرور نصًا',
+            'password.min' => 'يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل',
+        ];
+    }
+
 }

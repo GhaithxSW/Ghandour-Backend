@@ -35,4 +35,13 @@ class DashboardController extends Controller
             'totalTimeInMinutes' => $totalTimeInMinutes,
         ]);
     }
+
+    public function todoList(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
+    {
+        if (!auth()->check()) {
+            return redirect()->route('dashboard.sign-in');
+        }
+
+        return view('admin.pages.todo-list', ['title' => 'تعزيز المهارات']);
+    }
 }
