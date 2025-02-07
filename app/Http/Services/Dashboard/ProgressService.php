@@ -34,7 +34,6 @@ class ProgressService
     }
 
 
-
     public function totalAttempts(): int
     {
         return DB::table('progress')

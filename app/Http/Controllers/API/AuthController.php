@@ -3,86 +3,40 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Http\Requests\API\LoginRequest;
+use App\Http\Requests\API\RegisterRequest;
+use App\Http\Services\API\AuthService;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function register(Request $request): JsonResponse
+    private AuthService $authService;
+
+    public function __construct(AuthService $authService)
     {
-        try {
-            $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'email' => 'required|email|unique:users',
-                'password' => 'required|min:6',
-                'childName' => 'required|string',
-                'childAge' => 'required|int',
-            ]);
-
-            if ($validator->fails()) {
-                return response()->json(['Validation Error', $validator->errors()], 422);
-            }
-
-            $input = $request->all();
-            $user = User::create([
-                'name' => $input['name'],
-                'email' => $input['email'],
-                'password' => bcrypt($input['password']),
-                'child_name' => $input['childName'],
-                'child_age' => $input['childAge'],
-                'role_id' => 2,
-            ]);
-            $token = $user->createToken('MyApp')->plainTextToken;
-
-            Log::info($request->ip());
-            Log::info($request->getContent());
-            Log::info($request->getClientIp());
-
-            Log::info("User {$user->name} registered successfully");
-            return response()->json(['token' => $token, 'message' => 'User registered successfully'], 201);
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
+        $this->authService = $authService;
     }
 
-    public function login(Request $request): JsonResponse
+    /**
+     * @throws Exception
+     */
+    public function register(RegisterRequest $request): JsonResponse
     {
-        try {
-            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-                $user = Auth::user();
-                $token = $user->createToken('MyApp')->plainTextToken;
-
-                Log::info("User {$user->name} logged in successfully");
-                return response()->json(['token' => $token, 'message' => 'User logged in successfully'], 200);
-            } else {
-                return response()->json(['error' => 'Invalid credentials'], 422);
-            }
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
+        $response = $this->authService->register($request);
+        return response()->json(['message' => 'User registered successfully', 'data' => $response], 201);
     }
 
-    public function logout(Request $request): JsonResponse
+    public function login(LoginRequest $request): JsonResponse
     {
-        try {
-            if (!Auth::check()) {
-                return response()->json(['error' => 'Unauthenticated'], 401);
-            }
+        $response = $this->authService->login($request);
+        return response()->json(['message' => 'User logged in successfully', 'data' => $response], 200);
+    }
 
-            $user = Auth::user();
-            if ($user->currentAccessToken()) {
-                $user->currentAccessToken()->delete();
-                Log::info("User {$user->name} logged out successfully");
-                return response()->json(['message' => 'User logged out successfully'], 200);
-            }
-
-            return response()->json(['error' => 'No active token found'], 401);
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
+    public function logout(): JsonResponse
+    {
+        $response = $this->authService->logout();
+        return response()->json(['message' => $response['message']], $response['status']);
     }
 }
