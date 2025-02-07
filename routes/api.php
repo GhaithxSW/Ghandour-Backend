@@ -27,4 +27,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
-Route::get('/checkSceneStatus/{sceneUnityId}', [SceneController::class, 'checkSceneStatus']);
+Route::get('/checkSceneStatus', [SceneController::class, 'checkSceneStatus']);
