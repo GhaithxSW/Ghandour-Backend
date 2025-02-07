@@ -7,6 +7,7 @@ use App\Models\Scene;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Spatie\FlareClient\Http\Exceptions\NotFound;
 
 class SceneController extends Controller
 {
@@ -18,12 +19,14 @@ class SceneController extends Controller
         try {
             $scene = Scene::where('scene_unity_id', $request->sceneId)->first();
             if ($scene == null) {
-                throw new Exception("Scene $request->sceneId not found");
+                throw new NotFound("Scene $request->sceneId not found");
             }
             $response = ['supported' => !($scene->supported == 0), 'learned' => !($scene->learned == 0)];
             return response()->json($response);
+        } catch (NotFound $e) {
+            return response()->json(['error' => $e->getMessage()], 404);
         } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()]);
+            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 }

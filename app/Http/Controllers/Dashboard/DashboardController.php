@@ -7,6 +7,7 @@ use App\Http\Services\Dashboard\ProgressService;
 use App\Models\Scene;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -44,9 +45,53 @@ class DashboardController extends Controller
             return redirect()->route('dashboard.sign-in');
         }
 
-        $scenes = Scene::all();
+        $letterScenes = DB::table('scenes as s')
+            ->join('categories as c', 'c.id', '=', 's.category_id')
+            ->selectRaw('MIN(s.id) as id, s.name, MIN(s.supported) as supported, MIN(s.learned) as learned')
+            ->where('c.name', '=', 'الأحرف')
+            ->groupBy('s.name')
+            ->orderBy('id')
+            ->get();
 
-        return view('admin.pages.todo-list', ['title' => 'تعزيز المهارات'], ['scenes' => $scenes]);
+        $numberScenes = DB::table('scenes as s')
+            ->join('categories as c', 'c.id', '=', 's.category_id')
+            ->selectRaw('MIN(s.id) as id, s.name, MIN(s.supported) as supported, MIN(s.learned) as learned')
+            ->where('c.name', '=', 'الأرقام')
+            ->groupBy('s.name')
+            ->orderBy('id')
+            ->get();
+
+        $mathScenes = DB::table('scenes as s')
+            ->join('categories as c', 'c.id', '=', 's.category_id')
+            ->selectRaw('MIN(s.id) as id, s.name, MIN(s.supported) as supported, MIN(s.learned) as learned')
+            ->where('c.name', '=', 'المفاهيم الرياضية')
+            ->groupBy('s.name')
+            ->orderBy('id')
+            ->get();
+
+        $colorScenes = DB::table('scenes as s')
+            ->join('categories as c', 'c.id', '=', 's.category_id')
+            ->selectRaw('MIN(s.id) as id, s.name, MIN(s.supported) as supported, MIN(s.learned) as learned')
+            ->where('c.name', '=', 'الألوان')
+            ->groupBy('s.name')
+            ->orderBy('id')
+            ->get();
+
+        $fourSeasonsScenes = DB::table('scenes as s')
+            ->join('categories as c', 'c.id', '=', 's.category_id')
+            ->selectRaw('MIN(s.id) as id, s.name, MIN(s.supported) as supported, MIN(s.learned) as learned')
+            ->where('c.name', '=', 'الفصول الأربعة')
+            ->groupBy('s.name')
+            ->orderBy('id')
+            ->get();
+
+        return view('admin.pages.todo-list', ['title' => 'تعزيز المهارات'], [
+            'letterScenes' => $letterScenes,
+            'numberScenes' => $numberScenes,
+            'mathScenes' => $mathScenes,
+            'colorScenes' => $colorScenes,
+            'fourSeasonsScenes' => $fourSeasonsScenes,
+        ]);
     }
 
     public function addScenesToSupported(Request $request): RedirectResponse
