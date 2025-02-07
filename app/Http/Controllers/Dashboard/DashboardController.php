@@ -102,12 +102,16 @@ class DashboardController extends Controller
         ]);
 
         foreach ($request->input('scenes') as $sceneId => $isChecked) {
-            $scene = Scene::find($sceneId);
-            if ($scene) {
-                $scene->update(['supported' => $isChecked]);
+            $scenes = Scene::where('name', Scene::find($sceneId)->name)->get();
+            // $scenes = Scene::where('name', 'LIKE', '%' . $scene->name . '%')->get();
+
+            foreach ($scenes as $scene) {
+                if ($scene) {
+                    $scene->update(['supported' => $isChecked]);
+                }
             }
         }
 
-        return redirect()->back()->with('success', 'تم تحديث المشاهد بنجاح');
+        return redirect()->back()->with('success', 'تم التحديث بنجاح');
     }
 }
