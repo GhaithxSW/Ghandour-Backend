@@ -13,15 +13,23 @@ class GameSeeder extends Seeder
     public function run(): void
     {
         Game::create([
-            'name' => 'First Game',
+            'name' => 'Drag & Drop',
         ]);
 
         Game::create([
-            'name' => 'Second Game',
+            'name' => 'Click',
         ]);
 
         Game::create([
-            'name' => 'Third Game',
+            'name' => 'Line Matching',
+        ]);
+
+        Game::create([
+            'name' => 'Voice',
+        ]);
+
+        Game::create([
+            'name' => 'Complex',
         ]);
     }
 }

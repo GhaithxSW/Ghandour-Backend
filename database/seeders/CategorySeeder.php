@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Game;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -12,19 +13,41 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create([
-            'name' => 'First Category',
-            'game_id' => 1,
-        ]);
+        for ($i = 1; $i <= Game::all()->count(); $i++) {
+            Category::create([
+                'name' => 'الأحرف',
+                'game_id' => $i,
+            ]);
 
-        Category::create([
-            'name' => 'Second Category',
-            'game_id' => 1,
-        ]);
+            Category::create([
+                'name' => 'الأرقام',
+                'game_id' => $i,
+            ]);
 
-        Category::create([
-            'name' => 'Third Category',
-            'game_id' => 1,
-        ]);
+            Category::create([
+                'name' => 'المفاهيم الرياضية',
+                'game_id' => $i,
+            ]);
+
+            Category::create([
+                'name' => 'الألوان',
+                'game_id' => $i,
+            ]);
+
+            Category::create([
+                'name' => 'الفصول الأربعة',
+                'game_id' => $i,
+            ]);
+
+            Category::create([
+                'name' => 'Complex',
+                'game_id' => $i,
+            ]);
+
+            Category::create([
+                'name' => 'فواكه',
+                'game_id' => $i,
+            ]);
+        }
     }
 }
