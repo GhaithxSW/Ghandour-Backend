@@ -23,6 +23,11 @@ class AuthService
         try {
             $validatedRequest = $request->validated();
 
+            $checkUser = User::where('email', $validatedRequest['email'])->first();
+            if ($checkUser) {
+                throw new Exception('Email already exists', 422);
+            }
+
             $user = User::create([
                 'name' => $validatedRequest['name'],
                 'email' => $validatedRequest['email'],
