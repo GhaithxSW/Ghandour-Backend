@@ -44,5 +44,5 @@ Route::prefix('dashboard')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/home', [DashboardController::class, 'home'])->name('dashboard.name');
-    Route::get('/test', [DashboardController::class, 'todoList']);
+    Route::get('/todo-list', [DashboardController::class, 'todoList']);
 });

@@ -42,7 +42,7 @@ class AuthService
         } catch (Exception $e) {
             DB::rollBack();
             Log::error("User registration failed: " . $e->getMessage());
-            throw new Exception('User registration failed', 500);
+            throw new Exception('User registration failed: ' . $e->getMessage(), 500);
         }
     }
 
@@ -63,7 +63,7 @@ class AuthService
             }
         } catch (Exception $e) {
             Log::error("User login failed: " . $e->getMessage());
-            throw new Exception('User login failed', 500);
+            throw new Exception('User login failed: ' . $e->getMessage(), 500);
         }
     }
 
@@ -89,7 +89,7 @@ class AuthService
             return ['message' => 'No active token found', 'status' => 401];
         } catch (Exception $e) {
             Log::error("User logout failed: " . $e->getMessage());
-            throw new Exception('User login failed', 500);
+            throw new Exception('User login failed: ' . $e->getMessage(), 500);
         }
     }
 }

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>موقع غندور</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
 </head>
 <body>
 <header>
-    <img src="{{ asset('images/logo.png') }}" alt="Ghandoor Logo" />
+    <img src="{{ asset('images/logo.png') }}" alt="Ghandoor Logo"/>
     <nav>
         <a href="#about">عن غندور</a>
         <a href="#features">المميزات</a>
@@ -71,15 +71,15 @@
     <h2>أمثلة عن الألعاب</h2>
     <div class="game-category">
         <div class="game">
-            <img src="{{ asset('images/Picture1.gif') }}" alt="لعبة 1" />
+            <img src="{{ asset('images/Picture1.gif') }}" alt="لعبة 1"/>
             <p>لعبة التعليم</p>
         </div>
         <div class="game">
-            <img src="{{ asset('images/Picture2.gif') }}" alt="لعبة 2" />
+            <img src="{{ asset('images/Picture2.gif') }}" alt="لعبة 2"/>
             <p>لعبة الأرقام</p>
         </div>
         <div class="game">
-            <img src="{{ asset('images/Picture3.gif') }}" alt="لعبة 3" />
+            <img src="{{ asset('images/Picture3.gif') }}" alt="لعبة 3"/>
             <p>لعبة الأشكال</p>
         </div>
     </div>

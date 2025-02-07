@@ -24,19 +24,31 @@ class AuthController extends Controller
      */
     public function register(RegisterRequest $request): JsonResponse
     {
-        $response = $this->authService->register($request);
-        return response()->json(['message' => 'User registered successfully', 'data' => $response], 201);
+        try {
+            $response = $this->authService->register($request);
+            return response()->json(['message' => 'User registered successfully', 'data' => $response], 201);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     public function login(LoginRequest $request): JsonResponse
     {
-        $response = $this->authService->login($request);
-        return response()->json(['message' => 'User logged in successfully', 'data' => $response], 200);
+        try {
+            $response = $this->authService->login($request);
+            return response()->json(['message' => 'User logged in successfully', 'data' => $response], 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     public function logout(): JsonResponse
     {
-        $response = $this->authService->logout();
-        return response()->json(['message' => $response['message']], $response['status']);
+        try {
+            $response = $this->authService->logout();
+            return response()->json(['message' => $response['message']], $response['status']);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }
