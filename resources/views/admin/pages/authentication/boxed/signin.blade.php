@@ -75,7 +75,7 @@
                                         <div class="text-center">
                                             <p class="mb-0">ليس لديك حساب؟
                                                 <a href="/dashboard/sign-up" class="text-warning">
-                                                    التسجيل
+                                                    إنشاء حساب جديد
                                                 </a>
                                             </p>
                                         </div>
