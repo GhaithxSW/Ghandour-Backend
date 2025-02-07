@@ -74,8 +74,8 @@
                                         <div class="col-12">
                                             <div class="mb-3">
                                                 <label class="form-label">عمر الطفل</label>
-                                                <input type="text" class="form-control" name="childAge"
-                                                       placeholder="قم بادخال عمر الطفل">
+                                                <input type="number" class="form-control" name="childAge"
+                                                       min="1" placeholder="قم بادخال عمر الطفل">
                                                 @error('childAge')
                                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                                 @enderror

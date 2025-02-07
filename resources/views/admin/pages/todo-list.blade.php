@@ -13,25 +13,21 @@
                     <div class="col-xl-12 col-lg-12 col-md-12">
                         <div class="card p-4">
                             <h5 class="mb-3">تعزيز المهارات</h5>
-                            {{--                            <form action="{{ route('your.route.name') }}" method="POST">--}}
-                            <form action="/" method="POST">
+                            <form action="/dashboard/addScenesToSupported" method="POST">
                                 @csrf
-                                {{--                                @foreach ($items as $item)--}}
-                                @for ($i = 0; $i < 10; $i++)
+
+                                @foreach ($scenes as $scene)
                                     <div class="form-check">
-                                        {{--                                        <input class="form-check-input" type="checkbox" name="selected_items[]"--}}
-                                        {{--                                               value="{{ $item->id }}" id="item{{ $item->id }}">--}}
-                                        {{--                                        <label class="form-check-label" for="item{{ $item->id }}">--}}
-                                        {{--                                            {{ $item->name }}--}}
-                                        {{--                                        </label>--}}
-                                        <input class="form-check-input" type="checkbox" name="selected_items[]"
-                                               value="" id="item">
-                                        <label class="form-check-label" for="item">
-                                            test
+                                        <input type="hidden" name="scenes[{{ $scene->id }}]" value="0">
+                                        <input class="form-check-input" type="checkbox" name="scenes[{{ $scene->id }}]"
+                                               value="1" id="item{{ $scene->id }}"
+                                            {{ $scene->supported ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="item{{ $scene->id }}">
+                                            {{ $scene->name }}
                                         </label>
                                     </div>
-                                @endfor
-                                {{--                                @endforeach--}}
+                                @endforeach
+
                                 <button type="submit" class="btn btn-primary mt-3">تعزيز</button>
                             </form>
                         </div>

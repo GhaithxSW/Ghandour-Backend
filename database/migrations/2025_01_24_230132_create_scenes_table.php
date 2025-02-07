@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->integer('scene_unity_id');
+            $table->boolean('supported')->default(false);
+            $table->boolean('learned')->default(false);
             $table->timestamps();
         });
     }

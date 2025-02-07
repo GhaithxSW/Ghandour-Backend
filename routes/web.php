@@ -45,4 +45,5 @@ Route::prefix('dashboard')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/home', [DashboardController::class, 'home'])->name('dashboard.name');
     Route::get('/todo-list', [DashboardController::class, 'todoList']);
+    Route::post('/addScenesToSupported', [DashboardController::class, 'addScenesToSupported']);
 });
