@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -46,5 +48,25 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * Render an exception into an HTTP response.
+     */
+    public function render($request, Throwable $exception)
+    {
+        if ($exception instanceof AuthenticationException) {
+            return response()->json([
+                'error' => 'Authentication required. Please provide a valid token.'
+            ], 401);
+        }
+
+        if ($exception instanceof RouteNotFoundException) {
+            return response()->json([
+                'error' => 'Invalid route or missing authentication token.'
+            ], 401);
+        }
+
+        return parent::render($request, $exception);
     }
 }
