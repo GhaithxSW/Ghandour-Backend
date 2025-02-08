@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('supported_games');
+        Schema::dropIfExists('supported_scenes');
     }
 };
