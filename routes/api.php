@@ -4,6 +4,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\SceneController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\ProgressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/checkSceneStatus', [SceneController::class, 'checkSceneStatus']);
+    Route::post('/saveProgress', [ProgressController::class, 'saveProgress']);
+    Route::get('/getLastCompletedScene', [ProgressController::class, 'getLastCompletedScene']);
 });
 
 
