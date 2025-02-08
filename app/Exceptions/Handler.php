@@ -52,21 +52,22 @@ class Handler extends ExceptionHandler
 
     /**
      * Render an exception into an HTTP response.
+     * @throws Throwable
      */
-    public function render($request, Throwable $exception)
+    public function render($request, Throwable $e): \Illuminate\Http\Response|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response|\Illuminate\Http\RedirectResponse
     {
-        if ($exception instanceof AuthenticationException) {
+        if ($e instanceof AuthenticationException) {
             return response()->json([
-                'error' => 'Authentication required. Please provide a valid token.'
+                'error' => 'Authentication required. Please provide a valid token'
             ], 401);
         }
 
-        if ($exception instanceof RouteNotFoundException) {
+        if ($e instanceof RouteNotFoundException) {
             return response()->json([
-                'error' => 'Invalid route or missing authentication token.'
+                'error' => 'Invalid route or missing authentication token'
             ], 401);
         }
 
-        return parent::render($request, $exception);
+        return parent::render($request, $e);
     }
 }

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('supported_games', function (Blueprint $table) {
+        Schema::create('learned_scenes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('scene_id')->references('id')->on('scenes')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('supported_games');
+        Schema::dropIfExists('learned_games');
     }
 };

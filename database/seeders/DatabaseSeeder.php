@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             GameSeeder::class,
             CategorySeeder::class,
             SceneSeeder::class,
+            SupportedSceneSeeder::class,
+            LearnedSceneSeeder::class,
         ]);
     }
 }

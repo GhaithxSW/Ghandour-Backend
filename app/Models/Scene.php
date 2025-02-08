@@ -12,8 +12,6 @@ class Scene extends Model
         'name',
         'category_id',
         'scene_unity_id',
-        'supported',
-        'learned',
     ];
 
     public function category(): BelongsTo

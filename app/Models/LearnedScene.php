@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class LearnedGame extends Model
+class LearnedScene extends Model
 {
-    protected $table = 'learned_games';
+    protected $table = 'learned_scenes';
     protected $fillable = [
         'scene_id',
         'user_id',
