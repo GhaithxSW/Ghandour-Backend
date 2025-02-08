@@ -50,7 +50,7 @@
                 </li>
 
                 <li class="menu">
-                    <a href="/dashboard/todo-list" class="dropdown-toggle">
+                    <a href="{{ route('dashboard.supported-games') }}" class="dropdown-toggle">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-plus"
                                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -68,7 +68,7 @@
                 </li>
 
                 <li class="menu">
-                    <a href="/dashboard/todo-list" class="dropdown-toggle">
+                    <a href="{{ route('dashboard.learned-games') }}" class="dropdown-toggle">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-plus"
                                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -86,7 +86,7 @@
                 </li>
 
                 <li class="menu">
-                    <a href="/dashboard/todo-list" class="dropdown-toggle">
+                    <a href="{{ route('dashboard.progress') }}" class="dropdown-toggle">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-plus"
                                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -98,7 +98,7 @@
                                 <path d="M16 19h6"/>
                                 <path d="M19 16v6"/>
                             </svg>
-                            <span>Progress</span>
+                            <span>الإنجاز</span>
                         </div>
                     </a>
                 </li>

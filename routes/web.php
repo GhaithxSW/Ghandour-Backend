@@ -46,4 +46,14 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/home', [DashboardController::class, 'home'])->name('dashboard.name');
     Route::get('/todo-list', [DashboardController::class, 'todoList']);
     Route::post('/addScenesToSupported', [DashboardController::class, 'addScenesToSupported']);
+
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard/supported-games', [DashboardController::class, 'supportedGames'])->name('dashboard.supported-games');
+    Route::get('/dashboard/learned-games', [DashboardController::class, 'learnedGames'])->name('dashboard.learned-games');
+    Route::get('/dashboard/progress', [DashboardController::class, 'progress'])->name('dashboard.progress');
+
+    Route::post('/dashboard/updateSupportedGames', [DashboardController::class, 'updateSupportedGames'])->name('dashboard.updateSupportedGames');
+    Route::post('/dashboard/updateLearnedGames', [DashboardController::class, 'updateLearnedGames'])->name('dashboard.updateLearnedGames');
 });

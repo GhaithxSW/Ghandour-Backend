@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Dashboard\ProgressService;
 use App\Models\Scene;
+use App\Models\Progress;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -18,7 +20,7 @@ class DashboardController extends Controller
         $this->progressService = $progressService;
     }
 
-    public function home(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|RedirectResponse|\Illuminate\Contracts\Foundation\Application
+    public function home()
     {
         if (!auth()->check()) {
             return redirect()->route('dashboard.sign-in');
@@ -30,7 +32,8 @@ class DashboardController extends Controller
         $totalFails = $this->progressService->totalFails();
         $totalTimeInMinutes = $this->progressService->totalTimeInMinutes();
 
-        return view('admin.pages.dashboard', ['title' => 'لوحة التحكم'], [
+        return view('admin.pages.dashboard', [
+            'title' => 'لوحة التحكم',
             'totalAchieved' => $totalAchieved,
             'totalTime' => $totalTime,
             'totalAttempts' => $totalAttempts,
@@ -39,7 +42,7 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function todoList(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|RedirectResponse|\Illuminate\Contracts\Foundation\Application
+    public function todoList()
     {
         if (!auth()->check()) {
             return redirect()->route('dashboard.sign-in');
@@ -94,7 +97,7 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function addScenesToSupported(Request $request): RedirectResponse
+    public function addScenesToSupported(Request $request)
     {
         $request->validate([
             'scenes' => 'required|array',
@@ -103,7 +106,6 @@ class DashboardController extends Controller
 
         foreach ($request->input('scenes') as $sceneId => $isChecked) {
             $scenes = Scene::where('name', Scene::find($sceneId)->name)->get();
-            // $scenes = Scene::where('name', 'LIKE', '%' . $scene->name . '%')->get();
 
             foreach ($scenes as $scene) {
                 if ($scene) {
@@ -113,5 +115,50 @@ class DashboardController extends Controller
         }
 
         return redirect()->back()->with('success', 'تم التحديث بنجاح');
+    }
+
+    public function supportedGames()
+    {
+        $scenes = Scene::all();
+        return view('dashboard.supported-games', compact('scenes'));
+    }
+
+    public function learnedGames()
+    {
+        $scenes = Scene::all();
+        return view('dashboard.learned-games', compact('scenes'));
+    }
+
+    public function updateSupportedGames(Request $request)
+    {
+        foreach ($request->scenes as $sceneId => $isSupported) {
+            Scene::where('id', $sceneId)->update(['supported' => $isSupported]);
+        }
+        return redirect()->back()->with('success', 'تم تحديث المهارات المدعومة بنجاح.');
+    }
+
+    public function updateLearnedGames(Request $request)
+    {
+        foreach ($request->scenes as $sceneId => $isLearned) {
+            Scene::where('id', $sceneId)->update(['learned' => $isLearned]);
+        }
+        return redirect()->back()->with('success', 'تم تحديث المهارات المتعلمة بنجاح.');
+    }
+
+    public function progress()
+    {
+        $user = Auth::user();
+
+        $categories = Scene::select('category_id')->distinct()->pluck('category_id');
+        $completedScenes = [];
+        $timeSpent = [];
+
+        foreach ($categories as $category) {
+            $scenes = Scene::where('category_id', $category)->pluck('id');
+            $completedScenes[$category] = Progress::whereIn('scene_id', $scenes)->where('user_id', $user->id)->count();
+            $timeSpent[$category] = Progress::whereIn('scene_id', $scenes)->where('user_id', $user->id)->sum('finish_time') - Progress::whereIn('scene_id', $scenes)->where('user_id', $user->id)->sum('start_time');
+        }
+
+        return view('dashboard.progress', compact('categories', 'completedScenes', 'timeSpent'));
     }
 }
