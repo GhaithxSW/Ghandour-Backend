@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Scene;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -21,7 +22,10 @@ class SceneController extends Controller
             if ($scene == null) {
                 throw new NotFound("Scene $request->sceneId not found");
             }
-            $response = ['supported' => !($scene->supported == 0), 'learned' => !($scene->learned == 0)];
+
+            $userId = $request->user()->id;
+
+            $response = ['userId' => $userId, 'supported' => !($scene->supported == 0), 'learned' => !($scene->learned == 0)];
             return response()->json($response);
         } catch (NotFound $e) {
             return response()->json(['error' => $e->getMessage()], 404);
