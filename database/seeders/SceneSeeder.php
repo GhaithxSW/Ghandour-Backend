@@ -14,64 +14,57 @@ class SceneSeeder extends Seeder
      */
     public function run(): void
     {
-        Scene::create([
-            'name' => 'أ',
-            'category_id' => Category::where(['name' => 'الأحرف', 'game_id' => Game::where('name', 'Drag & Drop')->first()->id])->first()->id,
-            'scene_unity_id' => 4,
-        ]);
+        $games = Game::whereIn('name', ['نقر', 'مطابقة', 'وصل', 'نطق'])->pluck('id', 'name');
 
-        Scene::create([
-            'name' => 'أ',
-            'category_id' => Category::where(['name' => 'الأحرف', 'game_id' => Game::where('name', 'Click')->first()->id])->first()->id,
-            'scene_unity_id' => 3,
-        ]);
+        $categories = Category::whereIn('name', [
+            'أحرف', 'كلمات', 'أرقام', 'مفاهيم الرياضية', 'ألوان', 'الفصول الأربعة', 'مختلطة', 'فواكه', 'حيوانات', 'خضار'
+        ])->get()->groupBy('name');
 
-        Scene::create([
-            'name' => 'أ',
-            'category_id' => Category::where(['name' => 'الأحرف', 'game_id' => Game::where('name', 'Line Matching')->first()->id])->first()->id,
-            'scene_unity_id' => 5,
-        ]);
+        $scenes = [
+            ['name' => 'أ', 'category' => ['أحرف', 'نقر'], 'scene_unity_id' => 1],
+            ['name' => 'أ', 'category' => ['أحرف', 'مطابقة'], 'scene_unity_id' => 2],
+            ['name' => 'أ', 'category' => ['أحرف', 'وصل'], 'scene_unity_id' => 3],
+            ['name' => 'أ', 'category' => ['أحرف', 'نطق'], 'scene_unity_id' => 4],
+            ['name' => 'أسد', 'category' => ['كلمات', 'نطق'], 'scene_unity_id' => 5],
+            ['name' => 'اناناس', 'category' => ['فواكه', 'مطابقة'], 'scene_unity_id' => 6],
+            ['name' => '١', 'category' => ['أرقام', 'نقر'], 'scene_unity_id' => 7],
+            ['name' => '١', 'category' => ['أرقام', 'مطابقة'], 'scene_unity_id' => 8],
+            ['name' => '١', 'category' => ['أرقام', 'وصل'], 'scene_unity_id' => 9],
+            ['name' => '١', 'category' => ['أرقام', 'نطق'], 'scene_unity_id' => 10],
+            ['name' => 'كلب', 'category' => ['حيوانات', 'مطابقة'], 'scene_unity_id' => 11],
+            ['name' => 'أحمر', 'category' => ['ألوان', 'نقر'], 'scene_unity_id' => 12],
+            ['name' => 'أحمر', 'category' => ['ألوان', 'مطابقة'], 'scene_unity_id' => 13],
+            ['name' => 'أحمر', 'category' => ['ألوان', 'وصل'], 'scene_unity_id' => 14],
+            ['name' => 'أحمر', 'category' => ['ألوان', 'نطق'], 'scene_unity_id' => 15],
+            ['name' => 'الشتاء', 'category' => ['الفصول الأربعة', 'نقر'], 'scene_unity_id' => 16],
+            ['name' => 'ب', 'category' => ['أحرف', 'نقر'], 'scene_unity_id' => 17],
+            ['name' => 'ب', 'category' => ['أحرف', 'مطابقة'], 'scene_unity_id' => 18],
+            ['name' => 'ب', 'category' => ['أحرف', 'وصل'], 'scene_unity_id' => 19],
+            ['name' => 'ب', 'category' => ['أحرف', 'نطق'], 'scene_unity_id' => 20],
+            ['name' => 'باب', 'category' => ['كلمات', 'نطق'], 'scene_unity_id' => 21],
+            ['name' => 'كبير و صغير', 'category' => ['مفاهيم الرياضية', 'نقر'], 'scene_unity_id' => 22],
+            ['name' => '٢', 'category' => ['أرقام', 'نقر'], 'scene_unity_id' => 23],
+            ['name' => '٢', 'category' => ['أرقام', 'مطابقة'], 'scene_unity_id' => 24],
+            ['name' => '٢', 'category' => ['أرقام', 'وصل'], 'scene_unity_id' => 25],
+            ['name' => '٢', 'category' => ['أرقام', 'نطق'], 'scene_unity_id' => 26],
+            ['name' => 'بندورة', 'category' => ['خضار', 'مطابقة'], 'scene_unity_id' => 27],
+            ['name' => 'أزرق', 'category' => ['ألوان', 'نقر'], 'scene_unity_id' => 28],
+            ['name' => 'أزرق', 'category' => ['ألوان', 'مطابقة'], 'scene_unity_id' => 29],
+            ['name' => 'أزرق', 'category' => ['ألوان', 'وصل'], 'scene_unity_id' => 30],
+            ['name' => 'أزرق', 'category' => ['ألوان', 'نطق'], 'scene_unity_id' => 31],
+            ['name' => 'ت', 'category' => ['أحرف', 'نقر'], 'scene_unity_id' => 32],
+            ['name' => 'ت', 'category' => ['أحرف', 'مطابقة'], 'scene_unity_id' => 33],
+        ];
 
-        Scene::create([
-            'name' => 'أ',
-            'category_id' => Category::where(['name' => 'الأحرف', 'game_id' => Game::where('name', 'Voice')->first()->id])->first()->id,
-            'scene_unity_id' => 6,
-        ]);
-
-        Scene::create([
-            'name' => '[افوكادو،اناناس،بطيخ]',
-            'category_id' => Category::where(['name' => 'فواكه', 'game_id' => Game::where('name', 'Drag & Drop')->first()->id])->first()->id,
-            'scene_unity_id' => 7,
-        ]);
-
-        Scene::create([
-            'name' => '١',
-            'category_id' => Category::where(['name' => 'الأرقام', 'game_id' => Game::where('name', 'Click')->first()->id])->first()->id,
-            'scene_unity_id' => 8,
-        ]);
-
-        Scene::create([
-            'name' => '٢',
-            'category_id' => Category::where(['name' => 'الأرقام', 'game_id' => Game::where('name', 'Click')->first()->id])->first()->id,
-            'scene_unity_id' => 9,
-        ]);
-
-        Scene::create([
-            'name' => '٣',
-            'category_id' => Category::where(['name' => 'الأرقام', 'game_id' => Game::where('name', 'Click')->first()->id])->first()->id,
-            'scene_unity_id' => 10,
-        ]);
-
-        Scene::create([
-            'name' => '[١،٢،٣]',
-            'category_id' => Category::where(['name' => 'الأرقام', 'game_id' => Game::where('name', 'Drag & Drop')->first()->id])->first()->id,
-            'scene_unity_id' => 11,
-        ]);
-
-        Scene::create([
-            'name' => '[١،٢،٣]',
-            'category_id' => Category::where(['name' => 'الأرقام', 'game_id' => Game::where('name', 'Line Matching')->first()->id])->first()->id,
-            'scene_unity_id' => 12,
-        ]);
+        foreach ($scenes as $scene) {
+            $category = $categories[$scene['category'][0]]->firstWhere('game_id', $games[$scene['category'][1]])->id ?? null;
+            if ($category) {
+                Scene::create([
+                    'name' => $scene['name'],
+                    'category_id' => $category,
+                    'scene_unity_id' => $scene['scene_unity_id'],
+                ]);
+            }
+        }
     }
 }

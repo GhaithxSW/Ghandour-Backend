@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             SupportedSceneSeeder::class,
             LearnedSceneSeeder::class,
             SupportedAndLearnedSceneSeeder::class,
+            ProgressSeeder::class,
         ]);
     }
 }

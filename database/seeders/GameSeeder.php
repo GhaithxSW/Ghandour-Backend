@@ -12,24 +12,9 @@ class GameSeeder extends Seeder
      */
     public function run(): void
     {
-        Game::create([
-            'name' => 'Drag & Drop',
-        ]);
+        $games = ['مطابقة', 'نقر', 'وصل', 'نطق', 'مختلطة'];
 
-        Game::create([
-            'name' => 'Click',
-        ]);
-
-        Game::create([
-            'name' => 'Line Matching',
-        ]);
-
-        Game::create([
-            'name' => 'Voice',
-        ]);
-
-        Game::create([
-            'name' => 'Complex',
-        ]);
+        $gameData = array_map(fn($name) => ['name' => $name], $games);
+        Game::insert($gameData);
     }
 }

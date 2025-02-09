@@ -13,41 +13,13 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i <= Game::all()->count(); $i++) {
-            Category::create([
-                'name' => 'الأحرف',
-                'game_id' => $i,
-            ]);
+        $categories = ['أحرف', 'كلمات', 'أرقام', 'مفاهيم الرياضية', 'ألوان', 'الفصول الأربعة', 'مختلطة', 'فواكه', 'حيوانات', 'خضار'];
 
-            Category::create([
-                'name' => 'الأرقام',
-                'game_id' => $i,
-            ]);
+        $gameIds = Game::pluck('id');
 
-            Category::create([
-                'name' => 'المفاهيم الرياضية',
-                'game_id' => $i,
-            ]);
-
-            Category::create([
-                'name' => 'الألوان',
-                'game_id' => $i,
-            ]);
-
-            Category::create([
-                'name' => 'الفصول الأربعة',
-                'game_id' => $i,
-            ]);
-
-            Category::create([
-                'name' => 'Complex',
-                'game_id' => $i,
-            ]);
-
-            Category::create([
-                'name' => 'فواكه',
-                'game_id' => $i,
-            ]);
+        foreach ($gameIds as $gameId) {
+            $categoryData = array_map(fn($name) => ['name' => $name, 'game_id' => $gameId], $categories);
+            Category::insert($categoryData);
         }
     }
 }
