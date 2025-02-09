@@ -2,7 +2,7 @@
 
 return [
 
-    'bhoothat' => 'Buhothy',
+    'bhoothat' => 'Ghandour',
     'login' => 'Log In',
     'logout' => 'Log Out',
     'social_links' => 'Social Links',

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Dashboard\ProgressService;
 use App\Models\Scene;
+use App\Models\LearnedScene;
+use App\Models\SupportedScene;
 use App\Models\Progress;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -119,28 +121,48 @@ class DashboardController extends Controller
 
     public function supportedGames()
     {
+        $user = Auth::user();
         $scenes = Scene::all();
-        return view('dashboard.supported-games', compact('scenes'));
+        $supportedScenes = SupportedScene::where('user_id', $user->id)->pluck('scene_id')->toArray();
+
+        return view('dashboard.supported-games', compact('scenes', 'supportedScenes'));
     }
 
     public function learnedGames()
     {
+        $user = Auth::user();
         $scenes = Scene::all();
-        return view('dashboard.learned-games', compact('scenes'));
+        $learnedScenes = LearnedScene::where('user_id', $user->id)->pluck('scene_id')->toArray();
+
+        return view('dashboard.learned-games', compact('scenes', 'learnedScenes'));
     }
 
     public function updateSupportedGames(Request $request)
     {
-        foreach ($request->scenes as $sceneId => $isSupported) {
-            Scene::where('id', $sceneId)->update(['supported' => $isSupported]);
+        $user = Auth::user();
+        SupportedScene::where('user_id', $user->id)->delete();
+
+        if ($request->has('scenes')) {
+            foreach ($request->scenes as $sceneId => $isChecked) {
+                if ($isChecked) {
+                    SupportedScene::create(['user_id' => $user->id, 'scene_id' => $sceneId]);
+                }
+            }
         }
         return redirect()->back()->with('success', 'تم تحديث المهارات المدعومة بنجاح.');
     }
 
     public function updateLearnedGames(Request $request)
     {
-        foreach ($request->scenes as $sceneId => $isLearned) {
-            Scene::where('id', $sceneId)->update(['learned' => $isLearned]);
+        $user = Auth::user();
+        LearnedScene::where('user_id', $user->id)->delete();
+
+        if ($request->has('scenes')) {
+            foreach ($request->scenes as $sceneId => $isChecked) {
+                if ($isChecked) {
+                    LearnedScene::create(['user_id' => $user->id, 'scene_id' => $sceneId]);
+                }
+            }
         }
         return redirect()->back()->with('success', 'تم تحديث المهارات المتعلمة بنجاح.');
     }
@@ -155,8 +177,10 @@ class DashboardController extends Controller
 
         foreach ($categories as $category) {
             $scenes = Scene::where('category_id', $category)->pluck('id');
-            $completedScenes[$category] = Progress::whereIn('scene_id', $scenes)->where('user_id', $user->id)->count();
-            $timeSpent[$category] = Progress::whereIn('scene_id', $scenes)->where('user_id', $user->id)->sum('finish_time') - Progress::whereIn('scene_id', $scenes)->where('user_id', $user->id)->sum('start_time');
+            $completedScenes[$category] = LearnedScene::whereIn('scene_id', $scenes)->where('user_id', $user->id)->count();
+            $timeSpent[$category] = 0;
+
+
         }
 
         return view('dashboard.progress', compact('categories', 'completedScenes', 'timeSpent'));

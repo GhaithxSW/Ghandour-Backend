@@ -102,7 +102,9 @@
     @endif --}}
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    {{ $headerFiles }}
+    @isset($headerFiles)
+        {{ $headerFiles }}
+    @endisset
     <!-- END GLOBAL MANDATORY STYLES -->
 </head>
 
@@ -195,7 +197,10 @@
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
-    {{ $footerFiles }}
+
+    @isset($footerFiles)
+        {{ $footerFiles }}
+    @endisset
 
 </body>
 

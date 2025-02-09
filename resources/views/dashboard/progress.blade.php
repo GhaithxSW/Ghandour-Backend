@@ -1,10 +1,5 @@
 <x-admin.base-layout>
     <x-slot:pageTitle>التقدم</x-slot>
-
-    <x-slot:headerFiles>
-        <link rel="stylesheet" href="{{ mix('rtl/css/light/quill.snow.css') }}">
-        <link rel="stylesheet" href="{{ mix('rtl/css/dark/quill.snow.css') }}">
-    </x-slot>
     <div class="container mt-4">
         <h4>تقرير تقدم الطفل</h4>
         <div class="row">
@@ -43,8 +38,5 @@
                 }
             });
         </script>
-    </x-slot>
-    <x-slot:footerFiles>
-        <script src="{{ asset('plugins-rtl/editors/quill/quill.js') }}"></script>
     </x-slot>
 </x-admin.base-layout>
