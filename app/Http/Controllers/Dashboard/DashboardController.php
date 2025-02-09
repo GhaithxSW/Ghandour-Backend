@@ -171,18 +171,88 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        $categories = Scene::select('category_id')->distinct()->pluck('category_id');
+        $totalAchieved = $this->progressService->totalAchieved();
+        $totalTime = $this->progressService->totalTime();
+        $totalTimeInMinutes = $this->progressService->totalTimeInMinutes();
+        $totalAttempts = $this->progressService->totalAttempts();
+        $totalFails = $this->progressService->totalFails();
+
+        // Fetch completed scenes grouped by category
+        $categories = [];
+        $categoryNames = [];
         $completedScenes = [];
-        $timeSpent = [];
+        $timeSpentByCategory = [];
 
-        foreach ($categories as $category) {
-            $scenes = Scene::where('category_id', $category)->pluck('id');
-            $completedScenes[$category] = LearnedScene::whereIn('scene_id', $scenes)->where('user_id', $user->id)->count();
-            $timeSpent[$category] = 0;
+        $scenes = Scene::whereHas('progress', function ($query) use ($user) {
+            $query->where('user_id', $user->id);
+        })->with(['category', 'progress' => function ($query) use ($user) {
+            $query->where('user_id', $user->id);
+        }])->get();
 
+        foreach ($scenes as $scene) {
+            $categoryName = $scene->category->name;
 
+            if (!isset($categories[$categoryName])) {
+                $categories[$categoryName] = [];
+                $categoryNames[] = $categoryName;
+                $completedScenes[$categoryName] = 0;
+                $timeSpentByCategory[$categoryName] = 0;
+            }
+
+            $progress = $scene->progress->first();
+
+            $startTime = isset($progress->start_time) ? strtotime($progress->start_time) : null;
+            $finishTime = isset($progress->finish_time) ? strtotime($progress->finish_time) : null;
+            $sceneTimeSpent = ($startTime !== null && $finishTime !== null && $finishTime > $startTime)
+                ? $finishTime - $startTime
+                : 0;
+
+            // Convert seconds to minutes and seconds format
+            $minutes = floor($sceneTimeSpent / 60);
+            $seconds = $sceneTimeSpent % 60;
+            $formattedTime = sprintf("%02d:%02d", $minutes, $seconds);
+
+            $categories[$categoryName][] = [
+                'name' => $scene->name,
+                'time_spent' => $formattedTime,
+                'attempts' => $progress ? $progress->attempts : 0,
+                'failed_attempts' => $progress ? $progress->failed_attempts : 0,
+            ];
+
+            // Aggregate data for charts
+            $completedScenes[$categoryName] += 1;
+            $timeSpentByCategory[$categoryName] += $sceneTimeSpent;
         }
 
-        return view('dashboard.progress', compact('categories', 'completedScenes', 'timeSpent'));
+        $attemptsPerCategory = [];
+        $categoryAttempts = [];
+
+        foreach ($categories as $categoryName => $scenes) {
+            $categoryAttempts[$categoryName] = 0;
+            $sceneCount = count($scenes);
+
+            foreach ($scenes as $scene) {
+                $categoryAttempts[$categoryName] += $scene['attempts'] ?? 0;
+            }
+
+            // Avoid division by zero
+            $attemptsPerCategory[$categoryName] = $sceneCount > 0 ? round($categoryAttempts[$categoryName] / $sceneCount, 1) : 0;
+        }
+
+        $successfulAttempts = max(0, $totalAttempts - $totalFails);
+
+        return view('dashboard.progress', compact(
+            'categories',
+            'categoryNames',
+            'completedScenes',
+            'timeSpentByCategory',
+            'totalAchieved',
+            'totalTime',
+            'totalTimeInMinutes',
+            'totalAttempts',
+            'totalFails',
+            'successfulAttempts',
+            'attemptsPerCategory'
+        ));
     }
 }

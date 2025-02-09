@@ -18,4 +18,10 @@ class Scene extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function progress()
+    {
+        return $this->hasMany(Progress::class, 'scene_id');
+    }
+
 }
