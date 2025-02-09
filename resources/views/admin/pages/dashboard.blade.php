@@ -64,7 +64,7 @@
         <div class="container row m-auto">
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="/admin-panel-management/researches">
+                <a href="#">
                     <div class="card bg-dark">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 18px">المراحل المجتازة</p>
@@ -77,7 +77,7 @@
             </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="/admin-panel-management/orders">
+                <a href="#">
                     <div class="card bg-secondary">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 18px">وقت اللعب الكلي</p>
@@ -90,7 +90,7 @@
             </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="/admin-panel-management/users">
+                <a href="#">
                     <div class="card bg-primary">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 18px">عدد المحاولات</p>
@@ -103,7 +103,7 @@
             </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="/admin-panel-management/members">
+                <a href="#">
                     <div class="card bg-danger">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 18px">عدد المحاولات الفاشلة</p>

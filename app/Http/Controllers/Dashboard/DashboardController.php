@@ -7,7 +7,6 @@ use App\Http\Services\Dashboard\ProgressService;
 use App\Models\Scene;
 use App\Models\LearnedScene;
 use App\Models\SupportedScene;
-use App\Models\Progress;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +21,7 @@ class DashboardController extends Controller
         $this->progressService = $progressService;
     }
 
-    public function home()
+    public function home(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         if (!auth()->check()) {
             return redirect()->route('dashboard.sign-in');
@@ -44,7 +43,7 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function todoList()
+    public function todoList(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         if (!auth()->check()) {
             return redirect()->route('dashboard.sign-in');
@@ -99,7 +98,7 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function addScenesToSupported(Request $request)
+    public function addScenesToSupported(Request $request): RedirectResponse
     {
         $request->validate([
             'scenes' => 'required|array',
@@ -119,16 +118,29 @@ class DashboardController extends Controller
         return redirect()->back()->with('success', 'تم التحديث بنجاح');
     }
 
-    public function supportedGames()
+    public function supportedGames(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $scenes = Scene::all();
+        $scenes = Scene::all()->groupBy(fn($scene) => $scene->category->name);
         $supportedScenes = SupportedScene::where('user_id', $user->id)->pluck('scene_id')->toArray();
 
-        return view('dashboard.supported-games', compact('scenes', 'supportedScenes'));
+        return view('dashboard.supported-games', [
+            'scenes' => $scenes,
+            'letterScenes' => $scenes['أحرف'] ?? [],
+            'wordScenes' => $scenes['كلمات'] ?? [],
+            'numberScenes' => $scenes['أرقام'] ?? [],
+            'mathScenes' => $scenes['مفاهيم الرياضية'] ?? [],
+            'colorScenes' => $scenes['ألوان'] ?? [],
+            'fourSeasonsScenes' => $scenes['الفصول الأربعة'] ?? [],
+            'complexScenes' => $scenes['مختلطة'] ?? [],
+            'fruitScenes' => $scenes['فواكه'] ?? [],
+            'animalScenes' => $scenes['حيوانات'] ?? [],
+            'vegetableScenes' => $scenes['خضار'] ?? [],
+            'supportedScenes' => $supportedScenes,
+        ]);
     }
 
-    public function learnedGames()
+    public function learnedGames(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
         $scenes = Scene::all();
@@ -137,7 +149,7 @@ class DashboardController extends Controller
         return view('dashboard.learned-games', compact('scenes', 'learnedScenes'));
     }
 
-    public function updateSupportedGames(Request $request)
+    public function updateSupportedGames(Request $request): RedirectResponse
     {
         $user = Auth::user();
         SupportedScene::where('user_id', $user->id)->delete();
@@ -152,7 +164,7 @@ class DashboardController extends Controller
         return redirect()->back()->with('success', 'تم تحديث المهارات المدعومة بنجاح.');
     }
 
-    public function updateLearnedGames(Request $request)
+    public function updateLearnedGames(Request $request): RedirectResponse
     {
         $user = Auth::user();
         LearnedScene::where('user_id', $user->id)->delete();
@@ -167,7 +179,7 @@ class DashboardController extends Controller
         return redirect()->back()->with('success', 'تم تحديث المهارات المتعلمة بنجاح.');
     }
 
-    public function progress()
+    public function progress(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
 
