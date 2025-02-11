@@ -1,6 +1,6 @@
 <x-admin.base-layout>
     <x-slot:pageTitle>المهارات المتعلمة</x-slot>
-    <div class="container mt-4" style="margin-right: 250px;">
+    <div class="container mt-4" style="margin-right: 250px;margin-bottom:100px;">
         <h4>المهارات المتعلمة - اختر الألعاب التي أتمها الطفل</h4>
         <form action="/dashboard/updateLearnedGames" method="POST">
             @csrf

@@ -1,7 +1,7 @@
 <x-admin.base-layout>
     <x-slot:pageTitle>تعزيز المهارات</x-slot>
 
-    <div class="container mt-4" style="margin-right: 250px; margin-bottom: 100px">
+    <div class="container mt-4" style="margin-right: 0px; margin-bottom: 100px">
         <h4 class="mb-4 text-center" style="margin-top: 50px">💡 تعزيز المهارات - اختر الألعاب التي ترغب في دعمها</h4>
 
         <form action="/dashboard/updateSupportedGames" method="POST">
