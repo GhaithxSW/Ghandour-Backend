@@ -140,14 +140,28 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function learnedGames(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function learnedGames()
     {
         $user = Auth::user();
-        $scenes = Scene::all();
+        $scenes = Scene::all()->groupBy(fn($scene) => $scene->category->name);
         $learnedScenes = LearnedScene::where('user_id', $user->id)->pluck('scene_id')->toArray();
 
-        return view('dashboard.learned-games', compact('scenes', 'learnedScenes'));
+        return view('dashboard.learned-games', [
+            'scenes' => $scenes,
+            'letterScenes' => $scenes['أحرف'] ?? [],
+            'wordScenes' => $scenes['كلمات'] ?? [],
+            'numberScenes' => $scenes['أرقام'] ?? [],
+            'mathScenes' => $scenes['مفاهيم الرياضية'] ?? [],
+            'colorScenes' => $scenes['ألوان'] ?? [],
+            'fourSeasonsScenes' => $scenes['الفصول الأربعة'] ?? [],
+            'complexScenes' => $scenes['مختلطة'] ?? [],
+            'fruitScenes' => $scenes['فواكه'] ?? [],
+            'animalScenes' => $scenes['حيوانات'] ?? [],
+            'vegetableScenes' => $scenes['خضار'] ?? [],
+            'learnedScenes' => $learnedScenes,
+        ]);
     }
+
 
     public function updateSupportedGames(Request $request): RedirectResponse
     {
