@@ -64,7 +64,7 @@
         <div class="container row m-auto">
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="#">
+                <a href="{{ route('dashboard.progress') }}">
                     <div class="card bg-dark">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 18px">المراحل المجتازة</p>
@@ -77,7 +77,7 @@
             </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="#">
+                <a href="{{ route('dashboard.progress') }}">
                     <div class="card bg-secondary">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 18px">وقت اللعب الكلي</p>
@@ -90,7 +90,7 @@
             </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="#">
+                <a href="{{ route('dashboard.progress') }}">
                     <div class="card bg-primary">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 18px">عدد المحاولات</p>
@@ -103,7 +103,7 @@
             </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="#">
+                <a href="{{ route('dashboard.progress') }}">
                     <div class="card bg-danger">
                         <div class="card-body pt-3">
                             <p class="card-title mb-3" style="font-size: 18px">عدد المحاولات الفاشلة</p>
@@ -155,8 +155,8 @@
 
                 var data = google.visualization.arrayToDataTable([
                     ['Type', 'Count', { role: 'link' }],
-                    ['وقت اللعب الكلي', <?php echo $totalTimeInMinutes; ?>, '/admin-panel-management/orders'],
-                    ['المراحل المجتازة', <?php echo $totalAchieved; ?>, '/admin-panel-management/researches'],
+                    ['وقت اللعب الكلي', <?php echo $totalTimeInMinutes; ?>, '{{ route('dashboard.progress') }}'],
+                    ['المراحل المجتازة', <?php echo $totalAchieved; ?>, '{{ route('dashboard.progress') }}'],
                 ]);
 
 
@@ -193,8 +193,8 @@
                 data.addColumn('number', 'Populartiy');
                 data.addColumn(['string', 'Link']);
                 data.addRows([
-                    ['عدد المحاولات', <?php echo $totalAttempts; ?>, '/admin-panel-management/users'],
-                    ['عدد المحاولات الفاشلة', <?php echo $totalFails; ?>, '/admin-panel-management/members']
+                    ['عدد المحاولات', <?php echo $totalAttempts; ?>, '{{ route('dashboard.progress') }}'],
+                    ['عدد المحاولات الفاشلة', <?php echo $totalFails; ?>, '{{ route('dashboard.progress') }}']
                 ]);
 
                 var options = {
@@ -231,10 +231,10 @@
                     }, {
                         role: 'link'
                     }],
-                    ['الأبحاث', <?php echo $totalAchieved; ?>, '#b87333', '/admin-panel-management/researches'],
-                    ['وقت اللعب الكلي', <?php echo $totalAttempts; ?>, '#b87333', '/admin-panel-management/orders'],
-                    ['عدد المحاولات', <?php echo 15.5; ?>, '#b87333', '/admin-panel-management/users'],
-                    ['عدد المحاولات الفاشلة', <?php echo 33; ?>, 'silver', '/admin-panel-management/members'],
+                    ['الأبحاث', <?php echo $totalAchieved; ?>, '#b87333', '{{ route('dashboard.progress') }}'],
+                    ['وقت اللعب الكلي', <?php echo $totalAttempts; ?>, '#b87333', '{{ route('dashboard.progress') }}'],
+                    ['عدد المحاولات', <?php echo 15.5; ?>, '#b87333', '{{ route('dashboard.progress') }}'],
+                    ['عدد المحاولات الفاشلة', <?php echo 33; ?>, 'silver', '{{ route('dashboard.progress') }}'],
                 ]);
 
                 var view = new google.visualization.DataView(data);

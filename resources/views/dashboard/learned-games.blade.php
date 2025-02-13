@@ -21,7 +21,7 @@
             ] as $categoryName => $variable)
 
                 @if (!empty($$variable))
-                    <div class="card mb-3 shadow-sm" style="width: 50%; margin-right: 350px">
+                    <div class="card mb-3 shadow-sm" style="width: 50%; margin-right: 295px">
                         <div class="card-header bg-primary text-white">
                             <h5 class="mb-0" style="color: white">{{ $categoryName }}</h5>
                         </div>
@@ -40,7 +40,7 @@
 
             @endforeach
 
-            <div class="text-center">
+            <div style="margin-right: 295px">
                 <button type="submit" class="btn btn-success mt-3 px-5">✅ حفظ</button>
             </div>
         </form>
