@@ -46,7 +46,7 @@
                              stroke-linejoin="round" class="feather feather-minus">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
-                        <span>الاعدادات</span></div>
+                        </div>
                 </li>
 
                 <li class="menu">

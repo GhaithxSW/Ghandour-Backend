@@ -31,9 +31,11 @@
 <div class="row layout-top-spacing footer-bottom">
 
     <div class="footer-section f-section-1 text-center">
-        <p class=""><b><span class="text-links">{{ __('trans.rights') }}</span> <a target="_blank"
-                                                                                   href="#">غندور</a>
-                Copyright © <span class="dynamic-year">{{date('Y')}}</span></b>
+        <p class=""><b>
+            <span class="text-links">
+             جميع الحقوق محفوظة
+        </span>
+        <a target="_blank" href="#">غندور</a> © <span class="dynamic-year">{{date('Y')}}</span></b>
         </p>
     </div>
 </div>

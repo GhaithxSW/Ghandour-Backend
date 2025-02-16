@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-    <img src="{{ asset('images/logo.png') }}" alt="Ghandoor Logo"/>
+    <img src="{{ asset('images/ghandour.jpg') }}" alt="Ghandoor Logo"/>
     <nav>
         <a href="#about">عن غندور</a>
         <a href="#features">المميزات</a>
