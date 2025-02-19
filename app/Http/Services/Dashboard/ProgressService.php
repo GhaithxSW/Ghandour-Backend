@@ -9,8 +9,9 @@ class ProgressService
 {
     public function totalAchieved(): int
     {
-        return Progress::all()->count();
+        return Progress::where('user_id', auth()->id())->count();
     }
+
 
     public function totalTime(): string
     {
