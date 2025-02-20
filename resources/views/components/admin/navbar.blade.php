@@ -36,7 +36,7 @@
         <ul class="navbar-item theme-brand flex-row text-center">
             <li class="nav-item theme-logo theme-logo-new">
                 <a href="/dashboard/home">
-                    <img src="{{ asset('resources/images/ghandour.jpg') }}" class="navbar-logo" alt="LOGO"
+                    <img src="{{ asset('/images/ghandour.jpg') }}" class="navbar-logo" alt="LOGO"
                          style="height: 50px">
                 </a>
             </li>
