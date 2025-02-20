@@ -20,7 +20,7 @@ class AuthController extends Controller
 
     public function viewSignUp(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        return view('admin.pages.authentication.boxed.signup', ['title' => 'إنشاء حساب جديد']);
+        return view('admin.pages.authentication.signup', ['title' => 'إنشاء حساب جديد']);
     }
 
     public function register(RegisterRequest $request): RedirectResponse
@@ -30,7 +30,7 @@ class AuthController extends Controller
 
     public function viewSignIn(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        return view('admin.pages.authentication.boxed.signin', ['title' => 'تسجيل الدخول']);
+        return view('admin.pages.authentication.signin', ['title' => 'تسجيل الدخول']);
     }
 
     public function login(LoginRequest $request): RedirectResponse

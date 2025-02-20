@@ -121,7 +121,9 @@ class DashboardController extends Controller
     public function supportedGames(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $scenes = Scene::all()->groupBy(fn($scene) => $scene->category->name);
+        $scenes = Scene::all()
+            ->groupBy(fn($scene) => $scene->category->name)
+            ->map(fn($sceneGroup) => $sceneGroup->unique('name'));
         $supportedScenes = SupportedScene::where('user_id', $user->id)->pluck('scene_id')->toArray();
 
         return view('dashboard.supported-games', [
@@ -143,7 +145,9 @@ class DashboardController extends Controller
     public function learnedGames()
     {
         $user = Auth::user();
-        $scenes = Scene::all()->groupBy(fn($scene) => $scene->category->name);
+        $scenes = Scene::all()
+            ->groupBy(fn($scene) => $scene->category->name)
+            ->map(fn($sceneGroup) => $sceneGroup->unique('name'));
         $learnedScenes = LearnedScene::where('user_id', $user->id)->pluck('scene_id')->toArray();
 
         return view('dashboard.learned-games', [
@@ -171,7 +175,13 @@ class DashboardController extends Controller
         if ($request->has('scenes')) {
             foreach ($request->scenes as $sceneId => $isChecked) {
                 if ($isChecked) {
-                    SupportedScene::create(['user_id' => $user->id, 'scene_id' => $sceneId]);
+                    $scene = Scene::find($sceneId);
+                    if ($scene) {
+                        $scenesWithSameName = Scene::where('name', $scene->name)->get();
+                        foreach ($scenesWithSameName as $sceneWithSameName) {
+                            SupportedScene::create(['user_id' => $user->id, 'scene_id' => $sceneWithSameName->id]);
+                        }
+                    }
                 }
             }
         }
@@ -186,7 +196,13 @@ class DashboardController extends Controller
         if ($request->has('scenes')) {
             foreach ($request->scenes as $sceneId => $isChecked) {
                 if ($isChecked) {
-                    LearnedScene::create(['user_id' => $user->id, 'scene_id' => $sceneId]);
+                    $scene = Scene::find($sceneId);
+                    if ($scene) {
+                        $scenesWithSameName = Scene::where('name', $scene->name)->get();
+                        foreach ($scenesWithSameName as $sceneWithSameName) {
+                            LearnedScene::create(['user_id' => $user->id, 'scene_id' => $sceneWithSameName->id]);
+                        }
+                    }
                 }
             }
         }
