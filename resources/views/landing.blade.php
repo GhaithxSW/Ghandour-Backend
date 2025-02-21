@@ -22,7 +22,7 @@
         }
 
         header {
-            background-color: #2c3e50;
+            background-color: #331c41fc;
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
@@ -42,15 +42,15 @@
             margin: 0 20px;
             font-weight: 500;
             transition: color 0.3s ease;
-            font-size: 20px !important;
+            font-size: 16px !important;
         }
 
         nav a:hover {
-            color: #3498db;
+            color: #d9a9ff !important;
         }
 
         .login-button {
-            background-color: #3498db;
+            background-color: #4e1173;
             color: #fff !important;
             padding: 10px 20px;
             border-radius: 8px;
@@ -61,7 +61,7 @@
         }
 
         .login-button:hover {
-            background-color: #2980b9;
+            background-color: #6c00c0;
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
@@ -75,7 +75,7 @@
             background-image: url('{{ asset('images/hero.jpg') }}');
             background-size: cover;
             background-position: center;
-            height: 70vh;
+            height: 85vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -92,7 +92,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgb(0 0 0 / 49%);
         }
 
         .hero h1 {
@@ -101,6 +101,7 @@
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
             position: relative;
             z-index: 1;
+            color: #fff;
         }
 
         .hero p {
@@ -109,6 +110,7 @@
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
             position: relative;
             z-index: 1;
+            color: #fff;
         }
 
         section {
@@ -178,7 +180,7 @@
             display: inline-block;
             margin-top: 30px;
             padding: 12px 30px;
-            background-color: #3498db;
+            background-color: #4e1173 ;
             color: #fff;
             font-weight: 500;
             border-radius: 8px;
@@ -186,7 +188,7 @@
         }
 
         .guide a:hover {
-            background-color: #2980b9;
+            background-color: #6c00c0;
         }
 
         .games-section .game-category {
@@ -249,11 +251,10 @@
         }
 
         footer {
-            background-color: #2c3e50;
+            background-color: #331c41fc;
             color: #ecf0f1;
             text-align: center;
             padding: 30px;
-            margin-top: 80px;
         }
 
         footer a {
@@ -262,18 +263,17 @@
         }
 
         footer a:hover {
-            color: #2980b9;
+            color: #d9a9ff !important;
         }
     </style>
 </head>
 <body>
 <header>
-    <img src="{{ asset('images/ghandour.jpg') }}" alt="Ghandoor Logo"/>
+    <img src="{{ asset('images/ghandour.png') }}" alt="Ghandoor Logo"/>
     <nav>
         <a href="#about">عن غندور</a>
         <a href="#features">المميزات</a>
         <a href="#guide">تحميل</a>
-        <a href="#contact">تواصل معنا</a>
         <a href="/dashboard/sign-in" class="login-button">تسجيل الدخول</a>
     </nav>
 </header>
@@ -319,7 +319,7 @@
 <section id="guide" class="guide">
     <h2>كيفية تثبيت واستخدام غندور</h2>
     <p>
-        قم بتنزيل تطبيق غندور من متجر التطبيقات المفضل لديك. اتبع الخطوات
+        قم بتنزيل تطبيق غندور من الرابط. اتبع الخطوات
         البسيطة في التطبيق لإعداد ملف التعريف الخاص بك وابدأ في استكشاف دروسنا
         وأنشطتنا الممتعة.
     </p>

@@ -145,7 +145,7 @@
         <ul class="navbar-item theme-brand flex-row text-center">
             <li class="nav-item theme-logo theme-logo-new">
                 <a href="/">
-                    <img src="{{ asset('resources/images/ghandour.jpg') }}" class="navbar-logo" alt="LOGO"
+                    <img src="{{ asset('resources/images/ghandour.png') }}" class="navbar-logo" alt="LOGO"
                         style="height: 50px">
                 </a>
             </li>
@@ -199,7 +199,7 @@
 
             <li class="nav-item theme-logo theme-logo-mobile hidden-div">
                 <a href="/">
-                    <img src="{{ asset('resources/images/ghandour.jpg') }}" class="navbar-logo" alt="LOGO"
+                    <img src="{{ asset('resources/images/ghandour.png') }}" class="navbar-logo" alt="LOGO"
                         style="height: 35px">
                 </a>
             </li>
