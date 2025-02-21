@@ -14,7 +14,7 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $roles = [UserRole::admin, UserRole::user];
+        $roles = [UserRole::superAdmin, UserRole::admin, UserRole::user];
 
         $roleData = array_map(fn($name) => ['name' => $name], $roles);
         Role::insert($roleData);

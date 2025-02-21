@@ -9,24 +9,14 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
-    public function getAllUsers(): Collection
-    {
-        return DB::table('users', 'u')
-            ->join('roles as r', 'u.role_id', '=', 'r.id')
-            ->select('u.id as userId', 'u.name as username', 'u.email', 'u.role_id', 'r.name as roleName', 'u.child_name as childName', 'u.child_age as childAge', 'u.created_at as creationTime')
-            ->where('r.name', UserRole::user)
-            ->get();
-    }
-
     public function users(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        $users = User::all();
+        $users = User::where('role_id', Role::where('name', UserRole::user->value)->first()->id)->get();
         return view('admin.pages.users.all', ['title' => 'المستخدمين'], ['users' => $users]);
     }
 
@@ -97,7 +87,6 @@ class UserController extends Controller
                 'email' => $validatedRequest['email'],
                 'child_name' => $validatedRequest['child_name'],
                 'child_age' => $validatedRequest['child_age'],
-                'role_id' => Role::where('name', UserRole::user->value)->first()->id,
             ]);
 
             DB::commit();
@@ -109,7 +98,6 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'حدث خطأ أثناء تحديث بيانات المستخدم');
         }
     }
-
 
     public function deleteUser($userId): RedirectResponse
     {

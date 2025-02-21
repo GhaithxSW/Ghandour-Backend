@@ -3,8 +3,6 @@
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
     <x-slot:headerFiles>
-        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.css'])
-        @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss']) --}}
         <link rel="stylesheet" href="{{ asset('plugins-rtl/table/datatable/datatables.css') }}">
         <link rel="stylesheet" href="{{ mix('rtl/css/dt-global_style.css') }}">
 
@@ -28,7 +26,7 @@
         @endif
 
         <div class="mt-4 mb-4">
-            <a href="/admin-panel-management/admin/add" class="btn btn-secondary">اضافة أدمن جديد</a>
+            <a href="/dashboard/admin/add" class="btn btn-secondary">اضافة أدمن جديد</a>
         </div>
 
         <div class="table-responsive bg-white">
@@ -77,7 +75,6 @@
     </div>
 
     <x-slot:footerFiles>
-        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.js']) --}}
         <script src="{{ asset('plugins-rtl/table/datatable/datatables.js') }}"></script>
     </x-slot>
 

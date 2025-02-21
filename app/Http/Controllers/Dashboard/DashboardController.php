@@ -3,14 +3,19 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Enums\UserRole;
 use App\Http\Services\Dashboard\ProgressService;
+use App\Models\Role;
 use App\Models\Scene;
 use App\Models\LearnedScene;
 use App\Models\SupportedScene;
+use App\Models\User;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
@@ -142,7 +147,7 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function learnedGames()
+    public function learnedGames(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
         $scenes = Scene::all()
@@ -296,5 +301,40 @@ class DashboardController extends Controller
             'successfulAttempts',
             'attemptsPerCategory'
         ));
+    }
+
+    public function profile(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        $user = Auth::user();
+        return view('dashboard.profile', ['title' => 'الملف الشخصي'], ['user' => $user]);
+    }
+
+    public function updateProfile(Request $request): RedirectResponse
+    {
+        DB::beginTransaction();
+
+        try {
+            $user = Auth::user();
+
+            $validatedRequest = $request->validate([
+                'name' => 'nullable|string|max:255',
+                'child_name' => 'nullable|string|max:255',
+                'child_age' => 'nullable|string|max:255',
+            ]);
+
+            $user->update([
+                'name' => $validatedRequest['name'],
+                'child_name' => $validatedRequest['child_name'],
+                'child_age' => $validatedRequest['child_age'],
+            ]);
+
+            DB::commit();
+
+            return redirect()->back()->with('success', 'تم تحديث البيانات بنجاح');
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('User update failed: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'حدث خطأ أثناء تحديث البيانات');
+        }
     }
 }

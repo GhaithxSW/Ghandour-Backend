@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\UserController;
@@ -17,23 +18,21 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-// Landing Page Route
 Route::get('/', function () {
     return view('landing');
 })->name('landing');
 
-// Localization Routes
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
-        // You can add localized routes here if needed.
+
     }
 );
 
-// Dashboard Authentication Routes
+// Authentication
 Route::prefix('dashboard')->group(function () {
     Route::get('/sign-in', [AuthController::class, 'viewSignIn'])->name('dashboard.sign-in');
     Route::post('/login', [AuthController::class, 'login'])->name('dashboard.login');
@@ -46,7 +45,10 @@ Route::prefix('dashboard')->group(function () {
 Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('/home', [DashboardController::class, 'home'])->name('dashboard.home');
 
-    // User Management (Move to admin middleware if necessary)
+    // User Profile
+    Route::get('/profile', [DashboardController::class, 'profile']);
+    Route::put('/updateProfile', [DashboardController::class, 'updateProfile']);
+
     Route::get('/getAllUsers', [UserController::class, 'getAllUsers'])->name('dashboard.getAllUsers');
 
     // Game Management
@@ -61,6 +63,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     // Additional Features
     Route::post('/addScenesToSupported', [DashboardController::class, 'addScenesToSupported'])->name('dashboard.addScenesToSupported');
 
+    // User Management
     Route::get('/users', [UserController::class, 'users']);
     Route::get('/user/{userId}/details', [UserController::class, 'userDetails']);
     Route::get('/user/add', [UserController::class, 'viewAddUser']);
@@ -69,17 +72,12 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::put('/user/{userId}/update', [UserController::class, 'updateUser']);
     Route::post('/user/{userId}/delete', [UserController::class, 'deleteUser'])->name('delete-user');
 
-
-//    Route::controller(AdminController::class)->group(function () {
-//        Route::get('/dashboard', 'dashboard')->name('dashboard');
-//        Route::get('/admins', 'admins');
-//        Route::get('/admin/add', 'viewAddAdmin');
-//        Route::post('/admin/store', 'storeAdmin');
-//        Route::get('/admin/{id}/edit', 'viewUpdateAdmin');
-//        Route::put('/admin/{id}/update', 'updateAdmin');
-//        Route::delete('/admin/{id}/delete', 'deleteAdmin')->name('delete-admin');
-//    });
-
+    // Admin Management
+    Route::get('/admins', [AdminController::class, 'admins']);
+    Route::get('/admin/{adminId}/details', [AdminController::class, 'adminDetails']);
+    Route::get('/admin/add', [AdminController::class, 'viewAddAdmin']);
+    Route::post('/admin/store', [AdminController::class, 'storeAdmin']);
+    Route::get('/admin/{adminId}/details', [AdminController::class, 'viewUpdateAdmin']);
+    Route::put('/admin/{adminId}/update', [AdminController::class, 'updateAdmin']);
+    Route::post('/admin/{adminId}/delete', [AdminController::class, 'deleteAdmin'])->name('delete-admin');
 });
-
-
