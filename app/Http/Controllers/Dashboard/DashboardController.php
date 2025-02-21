@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
@@ -34,6 +35,8 @@ class DashboardController extends Controller
         $totalAttempts = $this->progressService->totalAttempts();
         $totalFails = $this->progressService->totalFails();
         $totalTimeInMinutes = $this->progressService->totalTimeInMinutes();
+        $users = $this->progressService->totalUsers();
+        $admins = $this->progressService->totalAdmins();
 
         return view('admin.pages.dashboard', [
             'title' => 'لوحة التحكم',
@@ -42,6 +45,8 @@ class DashboardController extends Controller
             'totalAttempts' => $totalAttempts,
             'totalFails' => $totalFails,
             'totalTimeInMinutes' => $totalTimeInMinutes,
+            'users' => $users,
+            'admins' => $admins
         ]);
     }
 
@@ -315,15 +320,24 @@ class DashboardController extends Controller
 
             $validatedRequest = $request->validate([
                 'name' => 'nullable|string|max:255',
+                'email' => 'nullable|string|email|max:255|unique:users,email,' . $user->id,
+                'password' => 'nullable|string|min:6',
                 'child_name' => 'nullable|string|max:255',
                 'child_age' => 'nullable|string|max:255',
             ]);
 
-            $user->update([
-                'name' => $validatedRequest['name'],
-                'child_name' => $validatedRequest['child_name'],
-                'child_age' => $validatedRequest['child_age'],
-            ]);
+            $updateData = [
+                'name' => $validatedRequest['name'] ?? $user->name,
+                'email' => $validatedRequest['email'] ?? $user->email,
+                'child_name' => $validatedRequest['child_name'] ?? $user->child_name,
+                'child_age' => $validatedRequest['child_age'] ?? $user->child_age,
+            ];
+
+            if (!empty($validatedRequest['password'])) {
+                $updateData['password'] = bcrypt($validatedRequest['password']);
+            }
+
+            $user->update($updateData);
 
             DB::commit();
 

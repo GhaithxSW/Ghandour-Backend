@@ -22,15 +22,12 @@
             <li class="menu">
                 <a href="/dashboard/profile" class="dropdown-toggle">
                     <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-plus"
-                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24"
+                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                             stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M5 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
-                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4c.96 0 1.84 .338 2.53 .901"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            <path d="M16 19h6"/>
-                            <path d="M19 16v6"/>
+                            <path d="M12 12a4 4 0 1 0 -4 -4a4 4 0 0 0 4 4z"/>
+                            <path d="M5 18c0 -3 3 -5 7 -5s7 2 7 5"/>
                         </svg>
                         <span>الملف الشخصي</span>
                     </div>
@@ -52,15 +49,14 @@
                 <li class="menu">
                     <a href="{{ route('dashboard.supported-games') }}" class="dropdown-toggle">
                         <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-plus"
-                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tools"
+                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M5 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
-                                <path d="M3 21v-2a4 4 0 0 1 4 -4h4c.96 0 1.84 .338 2.53 .901"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                <path d="M16 19h6"/>
-                                <path d="M19 16v6"/>
+                                <path d="M13 3l3 3l-4 4l-3 -3z"/>
+                                <path d="M7 13l-3 3l4 4l3 -3z"/>
+                                <path d="M13 7l4 4"/>
+                                <path d="M7 13l-4 4"/>
                             </svg>
                             <span>تعزيز المهارات</span>
                         </div>
@@ -70,15 +66,14 @@
                 <li class="menu">
                     <a href="{{ route('dashboard.learned-games') }}" class="dropdown-toggle">
                         <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-plus"
-                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24"
+                                 height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M5 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
-                                <path d="M3 21v-2a4 4 0 0 1 4 -4h4c.96 0 1.84 .338 2.53 .901"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                <path d="M16 19h6"/>
-                                <path d="M19 16v6"/>
+                                <path d="M3 4h18v16h-18z"/>
+                                <path d="M3 8h18"/>
+                                <path d="M3 12h18"/>
+                                <path d="M3 16h18"/>
                             </svg>
                             <span>المهارات المتعلمة</span>
                         </div>
@@ -88,17 +83,13 @@
                 <li class="menu">
                     <a href="{{ route('dashboard.progress') }}" class="dropdown-toggle">
                         <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-plus"
-                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check"
+                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M5 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
-                                <path d="M3 21v-2a4 4 0 0 1 4 -4h4c.96 0 1.84 .338 2.53 .901"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                <path d="M16 19h6"/>
-                                <path d="M19 16v6"/>
+                                <path d="M5 12l5 5l10 -10"/>
                             </svg>
-                            <span>الإنجاز</span>
+                            <span>التقدم</span>
                         </div>
                     </a>
                 </li>

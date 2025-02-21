@@ -23,37 +23,8 @@
         <link rel="stylesheet" href="{{ mix('rtl/css/dark/contact_us.css') }}">
 
         <style>
-            @media screen and (max-width: 990px) {
-                .font-bg {
-                    font-size: 26px;
-                }
-            }
-
-            @media screen and (max-width: 600px) {
-                .font-bg {
-                    font-size: 18px;
-                }
-
-                .font-bg-btn {
-                    font-size: 15px;
-                }
-            }
-
-            @media screen and (max-width: 300px) {
-                .font-bg {
-                    font-size: 16px;
-                }
-
-                .font-bg-btn {
-                    font-size: 14px;
-                }
-            }
-
             .dashboard {
-                margin-right: 255px;
-                margin-left: 15px;
-                margin-top: 50px;
-                margin-bottom: 30px;
+                margin: 50px 255px 30px 15px;
             }
         </style>
 
@@ -61,70 +32,106 @@
 
     <div class="dashboard">
 
-        <div class="container row m-auto">
+        @if(auth()->check() && auth()->user()->role->name === 'USER')
+            <div class="container row m-auto">
 
-            <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="{{ route('dashboard.progress') }}">
-                    <div class="card bg-dark">
-                        <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 18px">المراحل المجتازة</p>
-                            <p class="card-text text-center" style="font-size: 25px">
-                                <b>{{ $totalAchieved }}</b>
-                            </p>
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                    <a href="{{ route('dashboard.progress') }}">
+                        <div class="card bg-dark">
+                            <div class="card-body pt-3">
+                                <p class="card-title mb-3" style="font-size: 18px">المراحل المجتازة</p>
+                                <p class="card-text text-center" style="font-size: 25px">
+                                    <b>{{ $totalAchieved }}</b>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="{{ route('dashboard.progress') }}">
-                    <div class="card bg-secondary">
-                        <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 18px">وقت اللعب الكلي</p>
-                            <p class="card-text text-center" style="font-size: 25px">
-                                <b>{{ $totalTime }}</b>
-                            </p>
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                    <a href="{{ route('dashboard.progress') }}">
+                        <div class="card bg-secondary">
+                            <div class="card-body pt-3">
+                                <p class="card-title mb-3" style="font-size: 18px">وقت اللعب الكلي</p>
+                                <p class="card-text text-center" style="font-size: 25px">
+                                    <b>{{ $totalTime }}</b>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="{{ route('dashboard.progress') }}">
-                    <div class="card bg-primary">
-                        <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 18px">عدد المحاولات</p>
-                            <p class="card-text text-center" style="font-size: 25px">
-                                <b>{{ $totalAttempts }}</b>
-                            </p>
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                    <a href="{{ route('dashboard.progress') }}">
+                        <div class="card bg-primary">
+                            <div class="card-body pt-3">
+                                <p class="card-title mb-3" style="font-size: 18px">عدد المحاولات</p>
+                                <p class="card-text text-center" style="font-size: 25px">
+                                    <b>{{ $totalAttempts }}</b>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
-                <a href="{{ route('dashboard.progress') }}">
-                    <div class="card bg-danger">
-                        <div class="card-body pt-3">
-                            <p class="card-title mb-3" style="font-size: 18px">عدد المحاولات الفاشلة</p>
-                            <p class="card-text text-center" style="font-size: 25px">
-                                <b>{{ $totalFails }}</b>
-                            </p>
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                    <a href="{{ route('dashboard.progress') }}">
+                        <div class="card bg-danger">
+                            <div class="card-body pt-3">
+                                <p class="card-title mb-3" style="font-size: 18px">عدد المحاولات الفاشلة</p>
+                                <p class="card-text text-center" style="font-size: 25px">
+                                    <b>{{ $totalFails }}</b>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
             </div>
 
-        </div>
+            <div class="row mr-3 ml-3 mb-4 mt-4 text">
+                <div class="col">
+                    <div id="piechart" style="width: 450px; height: 250px;" class="mb-4"></div>
+                </div>
+                <div class="col">
+                    <div id="chart_div" style="width: 450px; height: 250px;" class="mb-4"></div>
+                </div>
+            </div>
+        @endif
 
-        <div class="row mr-3 ml-3 mb-4 mt-4 text">
-            <div class="col">
-                <div id="piechart" style="width: 450px; height: 250px;" class="mb-4"></div>
+        @if(auth()->check() && (auth()->user()->role->name === 'ADMIN' || auth()->user()->role->name === 'SUPER_ADMIN'))
+            <div class="container row m-auto">
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                    <a href="/dashboard/users">
+                        <div class="card bg-dark">
+                            <div class="card-body pt-3">
+                                <p class="card-title mb-3" style="font-size: 18px">عدد المستخدمين</p>
+                                <p class="card-text text-center" style="font-size: 25px">
+                                    <b>{{ $users }}</b>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="col">
-                <div id="chart_div" style="width: 450px; height: 250px;" class="mb-4"></div>
+        @endif
+
+        @if(auth()->check() &&  auth()->user()->role->name === 'SUPER_ADMIN')
+            <div class="container row m-auto">
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                    <a href="/dashboard/admins">
+                        <div class="card bg-secondary">
+                            <div class="card-body pt-3">
+                                <p class="card-title mb-3" style="font-size: 18px">عدد الأدمن</p>
+                                <p class="card-text text-center" style="font-size: 25px">
+                                    <b>{{ $admins }}</b>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
+        @endif
 
     </div>
 
@@ -154,7 +161,7 @@
             function drawChart() {
 
                 var data = google.visualization.arrayToDataTable([
-                    ['Type', 'Count', { role: 'link' }],
+                    ['Type', 'Count', {role: 'link'}],
                     ['وقت اللعب الكلي', <?php echo $totalTimeInMinutes; ?>, '{{ route('dashboard.progress') }}'],
                     ['المراحل المجتازة', <?php echo $totalAchieved; ?>, '{{ route('dashboard.progress') }}'],
                 ]);

@@ -35,6 +35,7 @@
                     <tr>
                         <th class="text-center">رقم الأدمن</th>
                         <th class="text-center">اسم الأدمن</th>
+                        <th class="text-center">البريد الإلكتروني</th>
                         <th class="text-center">خيارات</th>
                     </tr>
                 </thead>
@@ -44,6 +45,7 @@
                             <tr style="pointer-events: none">
                                 <td class="text-center">{{ $admin->id }}</td>
                                 <td class="text-center">{{ $admin->name }}</td>
+                                <td class="text-center">{{ $admin->email }}</td>
                                 <td class="text-center">
                                     <a href="/dashboard/admin/{{ $admin->id }}/edit"
                                         class="btn btn-success" style="pointer-events: fill">تعديل</a>

@@ -70,14 +70,14 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::post('/user/store', [UserController::class, 'storeUser']);
     Route::get('/user/{userId}/edit', [UserController::class, 'viewUpdateUser']);
     Route::put('/user/{userId}/update', [UserController::class, 'updateUser']);
-    Route::post('/user/{userId}/delete', [UserController::class, 'deleteUser'])->name('delete-user');
+    Route::delete('/user/{userId}/delete', [UserController::class, 'deleteUser'])->name('delete-user');
 
     // Admin Management
     Route::get('/admins', [AdminController::class, 'admins']);
     Route::get('/admin/{adminId}/details', [AdminController::class, 'adminDetails']);
     Route::get('/admin/add', [AdminController::class, 'viewAddAdmin']);
     Route::post('/admin/store', [AdminController::class, 'storeAdmin']);
-    Route::get('/admin/{adminId}/details', [AdminController::class, 'viewUpdateAdmin']);
+    Route::get('/admin/{adminId}/edit', [AdminController::class, 'viewUpdateAdmin']);
     Route::put('/admin/{adminId}/update', [AdminController::class, 'updateAdmin']);
-    Route::post('/admin/{adminId}/delete', [AdminController::class, 'deleteAdmin'])->name('delete-admin');
+    Route::delete('/admin/{adminId}/delete', [AdminController::class, 'deleteAdmin'])->name('delete-admin');
 });

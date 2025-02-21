@@ -2,7 +2,10 @@
 
 namespace App\Http\Services\Dashboard;
 
+use App\Http\Enums\UserRole;
 use App\Models\Progress;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class ProgressService
@@ -11,7 +14,6 @@ class ProgressService
     {
         return Progress::where('user_id', auth()->id())->count();
     }
-
 
     public function totalTime(): string
     {
@@ -30,22 +32,30 @@ class ProgressService
         $totalSeconds = Progress::where('user_id', auth()->id())
             ->sum(DB::raw('UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)'));
 
-        // Convert to minutes
         return floor($totalSeconds / 60);
     }
-
 
     public function totalAttempts(): int
     {
         return DB::table('progress')
-            ->where('user_id', auth()->id()) // Filter by logged-in user
+            ->where('user_id', auth()->id())
             ->sum('attempts');
     }
 
     public function totalFails(): int
     {
         return DB::table('progress')
-            ->where('user_id', auth()->id()) // Filter by logged-in user
+            ->where('user_id', auth()->id())
             ->sum('failed_attempts');
+    }
+
+    public function totalUsers()
+    {
+        return User::where('role_id', Role::where('name', UserRole::user->value)->first()->id)->count();
+    }
+
+    public function totalAdmins()
+    {
+        return User::where('role_id', Role::where('name', UserRole::admin->value)->first()->id)->count();
     }
 }

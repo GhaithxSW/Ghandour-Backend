@@ -40,9 +40,21 @@
                     @enderror
                 </div>
 
-                <div class="col" style="pointer-events: none; opacity: 0.5">
+                <div class="col">
                     <label for="email" class="form-label">البريد الالكتروني</label>
-                    <div class="form-control">{{ $user->email }}</div>
+                    <input type="text" name="email" class="form-control" placeholder="ادخل البريد الالكتروني"
+                           value="{{ $user->email }}">
+                    @error('email')
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="col">
+                    <label for="password" class="form-label">كلمة المرور</label>
+                    <input type="password" name="password" class="form-control" placeholder="ادخل كلمة المرور">
+                    @error('password')
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 @if(auth()->check() && auth()->user()->role->name === 'USER')

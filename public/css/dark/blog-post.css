@@ -15,7 +15,6 @@ body.layout-dark .single-post-content {
 }
 body.layout-dark .featured-image {
   position: relative;
-  background: lightblue url(/images/bg-new.jpg?0769921b1cd2ded953ba1673a67e5656) no-repeat fixed center;
   height: 700px;
   background-position: center;
   background-size: cover;
