@@ -5,6 +5,252 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>موقع غندور</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header img {
+            height: 60px;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('{{ asset('images/hero.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            margin: 20px 0 0;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #3498db;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about p, .guide p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        /* Features Section */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .feature {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature h3 {
+            color: #3498db;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Guide Section */
+        .guide a {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background-color: #3498db;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .guide a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Games Section */
+        .games-section .game-category {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .game {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 220px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .game img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .game p {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            color: #2c3e50;
+        }
+
+        /* Team Section */
+        .team-section .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .member {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 220px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .member p {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 30px;
+            margin-top: 80px;
+        }
+
+        footer a {
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #2980b9;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -18,10 +264,8 @@
 </header>
 
 <section class="hero" style="background-image: url('{{ asset('images/hero.jpg') }}');">
-    <!-- <h1>مرحبًا بكم في غندور!</h1>
-    <p>
-      تمكين الأطفال المصابين بمتلازمة داون من خلال التعلم الممتع والتفاعلي
-    </p> -->
+    <h1>مرحبًا بكم في غندور!</h1>
+    <p>تمكين الأطفال المصابين بمتلازمة داون من خلال التعلم الممتع والتفاعلي</p>
 </section>
 
 <section id="about" class="about">
@@ -89,19 +333,15 @@
     <h2>فريق غندور</h2>
     <div class="team-members">
         <div class="member">
-            <!-- <img src="ghaith.jpg" alt="غيث" /> -->
             <p>غيث الطباع</p>
         </div>
         <div class="member">
-            <!-- <img src="hazem.jpg" alt="حازم" /> -->
             <p>حازم أبو سعد</p>
         </div>
         <div class="member">
-            <!-- <img src="ali.jpg" alt="علي" /> -->
             <p>علي الحلبي</p>
         </div>
         <div class="member">
-            <!-- <img src="wadea.jpg" alt="وديع" /> -->
             <p>وديع عبد الباقي</p>
         </div>
     </div>
