@@ -83,6 +83,7 @@
             text-align: center;
             padding: 0 20px;
             position: relative;
+            flex-direction: column;
         }
 
         .hero::before {
