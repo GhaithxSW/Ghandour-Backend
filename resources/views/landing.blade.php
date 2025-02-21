@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
         body {
             font-family: 'Tajawal', sans-serif;
             margin: 0;
@@ -22,7 +21,6 @@
             color: inherit;
         }
 
-        /* Header */
         header {
             background-color: #2c3e50;
             padding: 20px 40px;
@@ -44,13 +42,35 @@
             margin: 0 20px;
             font-weight: 500;
             transition: color 0.3s ease;
+            font-size: 20px !important;
         }
 
         nav a:hover {
             color: #3498db;
         }
 
-        /* Hero Section */
+        .login-button {
+            background-color: #3498db;
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+        }
+
+        .login-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
         .hero {
             background-image: url('{{ asset('images/hero.jpg') }}');
             background-size: cover;
@@ -91,7 +111,6 @@
             z-index: 1;
         }
 
-        /* Sections */
         section {
             padding: 80px 20px;
             text-align: center;
@@ -123,7 +142,6 @@
             color: #555;
         }
 
-        /* Features Section */
         .features {
             display: flex;
             flex-wrap: wrap;
@@ -156,7 +174,6 @@
             color: #666;
         }
 
-        /* Guide Section */
         .guide a {
             display: inline-block;
             margin-top: 30px;
@@ -172,7 +189,6 @@
             background-color: #2980b9;
         }
 
-        /* Games Section */
         .games-section .game-category {
             display: flex;
             justify-content: center;
@@ -205,7 +221,6 @@
             color: #2c3e50;
         }
 
-        /* Team Section */
         .team-section .team-members {
             display: flex;
             justify-content: center;
@@ -233,7 +248,6 @@
             margin: 0;
         }
 
-        /* Footer */
         footer {
             background-color: #2c3e50;
             color: #ecf0f1;
@@ -260,6 +274,7 @@
         <a href="#features">المميزات</a>
         <a href="#guide">تحميل</a>
         <a href="#contact">تواصل معنا</a>
+        <a href="/dashboard/sign-in" class="login-button">تسجيل الدخول</a>
     </nav>
 </header>
 
