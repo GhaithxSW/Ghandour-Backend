@@ -11,7 +11,7 @@
             font-family: 'Tajawal', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #fff6f6;
             color: #333;
             line-height: 1.6;
         }
