@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Enums\UserRole;
 use App\Http\Services\Dashboard\ProgressService;
-use App\Models\Role;
 use App\Models\Scene;
 use App\Models\LearnedScene;
 use App\Models\SupportedScene;
-use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

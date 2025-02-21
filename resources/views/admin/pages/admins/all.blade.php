@@ -43,15 +43,15 @@
                         @foreach ($admins as $admin)
                             <tr style="pointer-events: none">
                                 <td class="text-center">{{ $admin->id }}</td>
-                                <td class="text-center">{{ $admin->username }}</td>
+                                <td class="text-center">{{ $admin->name }}</td>
                                 <td class="text-center">
-                                    <a href="/admin-panel-management/admin/{{ $admin->id }}/edit"
+                                    <a href="/dashboard/admin/{{ $admin->id }}/edit"
                                         class="btn btn-success" style="pointer-events: fill">تعديل</a>
-                                    <form method="POST" action="{{ route('delete-admin', ['id' => $admin->id]) }}"
+                                    <form method="POST" action="{{ route('delete-admin', ['adminId' => $admin->id]) }}"
                                         class="btn btn-danger" style="pointer-events: fill">
                                         @method('DELETE')
                                         @csrf
-                                        <x-dropdown-link :href="route('delete-admin', ['id' => $admin->id])"
+                                        <x-dropdown-link :href="route('delete-admin', ['adminId' => $admin->id])"
                                             onclick="event.preventDefault();
                                                         this.closest('form').submit();"
                                             style="color: white">

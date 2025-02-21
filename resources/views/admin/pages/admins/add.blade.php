@@ -3,16 +3,13 @@
     <x-slot:pageTitle>{{ $title }}</x-slot>
 
     <x-slot:headerFiles>
-        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.css']) --}}
         <link rel="stylesheet" href="{{ asset('plugins-rtl/table/datatable/datatables.css') }}">
-        {{-- @vite(['public/resources/rtl/scss/light/plugins/table/datatable/dt-global_style.scss']) --}}
         <link rel="stylesheet" href="{{ mix('rtl/css/dt-global_style.css') }}">
 
         <style>
             .dashboard {
                 margin-right: 255px;
                 margin-left: 15px;
-                /* margin-top: 50px; */
                 margin-bottom: 30px;
             }
         </style>
@@ -29,38 +26,27 @@
                 </div>
             @endif
 
-            {{-- @if ($errors->any())
-                <div style="color: red;">
-                    <strong>Validation errors:</strong>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif --}}
-
-            <form method="POST" action="/admin-panel-management/admin/store" class="row g-3 card" style="padding: 20px"
-                enctype="multipart/form-data">
+            <form method="POST" action="/dashboard/admin/store" class="row g-3 card" style="padding: 20px"
+                  enctype="multipart/form-data">
                 @csrf
                 <div class="col">
-                    <label for="username" class="form-label">اسم المستخدم</label>
-                    <input type="text" name="username" class="form-control" placeholder="ادخل اسم المستخدم">
-                    @error('username')
-                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    <label for="name" class="form-label">اسم اللأدمن</label>
+                    <input type="text" name="name" class="form-control" placeholder="ادخل اسم اللأدمن">
+                    @error('name')
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="col">
-                    <label for="password" class="form-label">كلمة المرور</label>
-                    <input type="password" name="password" class="form-control" placeholder="ادخل كلمة المرور">
-                    @error('password')
-                        <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
+                    <label for="email" class="form-label">البريد الإلكتروني</label>
+                    <input type="text" name="email" class="form-control" placeholder="ادخل البريد الإلكتروني">
+                    @error('email')
+                    <p class="m-2 text-red-600" style="color: red">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="col">
-                    <a href="/admin-panel-management/admins" class="btn btn-secondary m-1">رجوع</a>
+                    <a href="/dashboard/admins" class="btn btn-secondary m-1">رجوع</a>
                     <button type="submit" class="btn btn-success m-1">اضافة</button>
                 </div>
             </form>
@@ -70,7 +56,6 @@
     </div>
 
     <x-slot:footerFiles>
-        {{-- @vite(['public/plugins-rtl/table/datatable/datatables.js']) --}}
         <script src="{{ asset('plugins-rtl/table/datatable/datatables.js') }}"></script>
     </x-slot>
 
