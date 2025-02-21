@@ -142,10 +142,10 @@
                     <ul class="dropdown-menu submenu list-unstyled dropdown-menu-end" id="users"
                         data-bs-parent="#accordionExample">
                         <li class="">
-                            <a href="/admin-panel-management/user/add"> اضافة </a>
+                            <a href="/dashboard/user/add"> اضافة </a>
                         </li>
                         <li class="">
-                            <a href="/admin-panel-management/users"> عرض الجميع </a>
+                            <a href="/dashboard/users"> عرض الجميع </a>
                         </li>
                     </ul>
                 </li>

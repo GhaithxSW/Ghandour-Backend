@@ -60,6 +60,26 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
     // Additional Features
     Route::post('/addScenesToSupported', [DashboardController::class, 'addScenesToSupported'])->name('dashboard.addScenesToSupported');
+
+    Route::get('/users', [UserController::class, 'users']);
+    Route::get('/user/{userId}/details', [UserController::class, 'userDetails']);
+    Route::get('/user/add', [UserController::class, 'viewAddUser']);
+    Route::post('/user/store', [UserController::class, 'storeUser']);
+    Route::get('/user/{userId}/edit', [UserController::class, 'viewUpdateUser']);
+    Route::put('/user/{userId}/update', [UserController::class, 'updateUser']);
+    Route::post('/user/{userId}/delete', [UserController::class, 'deleteUser'])->name('delete-user');
+
+
+//    Route::controller(AdminController::class)->group(function () {
+//        Route::get('/dashboard', 'dashboard')->name('dashboard');
+//        Route::get('/admins', 'admins');
+//        Route::get('/admin/add', 'viewAddAdmin');
+//        Route::post('/admin/store', 'storeAdmin');
+//        Route::get('/admin/{id}/edit', 'viewUpdateAdmin');
+//        Route::put('/admin/{id}/update', 'updateAdmin');
+//        Route::delete('/admin/{id}/delete', 'deleteAdmin')->name('delete-admin');
+//    });
+
 });
 
 
