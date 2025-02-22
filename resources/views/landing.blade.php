@@ -281,7 +281,7 @@
 
 <section class="hero" style="background-image: url('{{ asset('images/hero.jpg') }}');">
     <h1>مرحبًا بكم في غندور!</h1>
-    <p>تمكين الأطفال المصابين بمتلازمة داون من خلال التعلم الممتع والتفاعلي</p>
+    <p>تجربة تفاعلية متكاملة وألعاب تعليمية مصممة لدعم تعلم الأطفال ذوي متلازمة داون</p>
 </section>
 
 <section id="about" class="about">
